@@ -65,8 +65,8 @@ const benefits = [
 const processSteps = [
     { step: "01", title: "Apply", description: "Create your profile and showcase your skills, projects, and availability.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Laptop/3D/laptop_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "02", title: "Get Matched", description: "We match you with European startups looking for your exact skill set.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "Interview", description: "Meet the founders, learn about the project, and see if it's a fit.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Speech%20balloon/3D/speech_balloon_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
-    { step: "04", title: "Get Selected", description: "Receive an offer, agree on terms, and start building real-world experience.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/1st%20place%20medal/3D/1st_place_medal_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "03", title: "Interview", description: "Meet the founders, learn about the project, and see if it's a fit.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Speech%20balloon/3D/speech_balloon_3d.png".replace(/ /g, "%20"), color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
+    { step: "04", title: "Get Selected", description: "Receive an offer, agree on terms, and start building real-world experience.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/1st%20place%20medal/3D/1st_place_medal_3d.png".replace(/ /g, "%20"), color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
 ];
 
 export default function StudentsPage() {
