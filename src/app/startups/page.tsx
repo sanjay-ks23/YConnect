@@ -15,9 +15,9 @@ const benefits = [
         icon: Users,
         title: "Why Hire Students",
         description: "Access highly motivated, tech-savvy students from India's premier engineering institutions.",
-        color: "bg-vibrant-crimson/10",
+        color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
-        iconColor: "text-vibrant-crimson",
+        iconColor: "text-vibrant-blue",
     },
     {
         icon: TrendingDown,
@@ -48,18 +48,18 @@ const benefits = [
         title: "Talent Quality",
         description: "Every student is vetted for technical excellence and communication skills.",
         color: "bg-lavender",
-        iconBg: "bg-vibrant-crimson/10",
-        iconColor: "text-vibrant-crimson",
+        iconBg: "bg-vibrant-blue/10",
+        iconColor: "text-vibrant-blue",
     },
 ];
 
 const processSteps = [
-    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
-    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
-    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Page%20facing%20up/3D/page_facing_up_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
-    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Chart%20increasing/3D/chart_increasing_3d.png", color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
+    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", image: "/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", image: "/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", image: "/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
+    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", image: "/assets/Page%20facing%20up/3D/page_facing_up_3d.png", color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
+    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", image: "/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", image: "/assets/Chart%20increasing/3D/chart_increasing_3d.png", color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
 ];
 
 const talentPool = [
@@ -76,20 +76,20 @@ export default function StartupsPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
-                <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
+            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender/40 via-white to-white">
+                <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="heading-hero mb-8">
                             Scale your tech team with{" "}
-                            <span className="text-vibrant-crimson font-display italic">top Indian talent</span>
+                            <span className="text-vibrant-blue font-display italic">top Indian talent</span>
                         </h1>
                         <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
                             Access pre-vetted engineering talent, reduce costs, and accelerate
                             your product roadmap without the overhead of local hiring.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                            <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
+                            <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
                                 Submit Requirements <ArrowRight className="w-5 h-5" />
                             </button>
                             <Link href="/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
@@ -106,8 +106,8 @@ export default function StartupsPage() {
             <div className="bg-[#FAF9F6]">
                 <WaveDivider variant={1} color="#FAF9F6" />
                 <HorizontalScrollSection
-                    theme="crimson"
-                    title={<>Why founders <span className="font-display text-vibrant-crimson">choose us</span></>}
+                    theme="blue"
+                    title={<>Why founders <span className="font-display text-vibrant-blue">choose us</span></>}
                     subtitle="Elite engineering talent at a fraction of the cost, handled entirely by us."
                     cards={benefits}
                     bgColor="bg-transparent"
@@ -121,7 +121,7 @@ export default function StartupsPage() {
                     title="Elite Talent Pool"
                     subtitle="Connect with the top 1% of engineering talent from India's premier technical universities."
                     items={talentPool}
-                    theme="crimson"
+                    theme="blue"
                     bgColor="bg-transparent"
                 />
             </div>
@@ -130,10 +130,10 @@ export default function StartupsPage() {
             <div className="bg-[#F0F8EC]">
                 <WaveDivider variant={3} color="#F0F8EC" />
                 <ProcessSection
-                    theme="crimson"
+                    theme="blue"
                     badgeText="The process"
                     bgColor="bg-transparent"
-                    title={<>The straightforward path to <span className="font-display text-vibrant-crimson text-7xl">scaling fast</span></>}
+                    title={<>The straightforward path to <span className="font-display text-vibrant-blue text-7xl">scaling fast</span></>}
                     subtitle="We streamline the entire hiring lifecycle for European startups."
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
@@ -143,7 +143,7 @@ export default function StartupsPage() {
             {/* CTA */}
             <section className="py-32 bg-[#FAF9F6] relative">
                 <div className="container-superhi">
-                    <div className="bg-vibrant-crimson rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-crimson/30">
+                    <div className="bg-vibrant-blue rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-blue/30">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
                             Ready to hire?
@@ -151,7 +151,7 @@ export default function StartupsPage() {
                         <p className="text-white/80 text-xl max-w-xl mx-auto mb-12 leading-relaxed">
                             Share your requirements and see your first candidate profiles within 24 hours.
                         </p>
-                        <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+                        <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-blue rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
                             Submit Requirements
                         </button>
                     </div>
