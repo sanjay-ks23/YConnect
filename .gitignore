@@ -37,7 +37,30 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Redundant assets
+# Redundant assets & Backups
 3.jpeg
 temp/
 backup/
+*.docx
+*.pdf
+*.png
+*.jpg
+*.jpeg
+!public/**/*
+
+# Agentic logs & Brain
+brain/
+.gemini/
+.agents/
+.agent/
+_agents/
+_agent/
+.npm/
+
+# Production
+.next/
+out/
+build/
+dist/
+.env*
+!.env.example

@@ -21,9 +21,10 @@ interface ProcessSectionProps {
     steps: ProcessStep[];
     theme: "crimson" | "orange" | "blue";
     onCtaClick?: () => void;
+    bgColor?: string;
 }
 
-export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCtaClick }: ProcessSectionProps) {
+export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCtaClick, bgColor = "bg-white" }: ProcessSectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -42,28 +43,28 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
     const lineActiveBg = isPink ? "bg-vibrant-crimson" : isBlue ? "bg-vibrant-blue" : "bg-vibrant-orange";
 
     return (
-        <section ref={containerRef} className="relative w-full py-24 sm:py-32 bg-white">
+        <section ref={containerRef} className={`relative w-full pt-48 pb-32 sm:pt-64 sm:pb-40 ${bgColor}`}>
             <div className="container-superhi flex flex-col lg:flex-row relative z-10">
 
                 {/* Left Side: Sticky Sidebar */}
-                <div className="w-full lg:w-5/12 mb-16 lg:mb-0 relative z-[15]">
-                    <div className="lg:sticky lg:top-[35vh]">
+                <div className="w-full lg:w-1/2 mb-16 lg:mb-0 relative z-[15] pr-8 lg:pr-24">
+                    <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2">
                         <div className={`inline-flex items-center gap-2.5 rounded-full ${badgeBg} px-4 py-1.5 mb-6 lg:mb-8`}>
                             <span className={`text-xs font-bold tracking-wider uppercase ${badgeTextClass}`}>
                                 {badgeText}
                             </span>
                         </div>
-                        <h2 className="heading-section mb-6 max-w-[400px]">
+                        <h2 className="heading-section mb-6">
                             {title}
                         </h2>
-                        <p className="text-lg text-[#001738]/50 leading-relaxed max-w-[360px]">
+                        <p className="text-lg text-[#001738]/50 leading-relaxed max-w-[420px]">
                             {subtitle}
                         </p>
                     </div>
                 </div>
 
-                {/* Vertical Connecting Progress Line */}
-                <div className={`hidden lg:block absolute left-5/12 top-0 bottom-[10%] w-[2px] ${lineBaseBg} ml-[-1px] rounded-full z-0`}>
+                {/* Vertical Connecting Progress Line - Exactly centered */}
+                <div className={`hidden lg:block absolute left-1/2 top-0 bottom-[10%] w-[1.5px] ${lineBaseBg} ml-[-0.75px] rounded-full z-0`}>
                     <motion.div
                         className={`absolute top-0 left-0 w-full rounded-full ${lineActiveBg}`}
                         style={{ height: lineHeight }}
@@ -71,7 +72,7 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
                 </div>
 
                 {/* Right Side: Scrolling Steps */}
-                <div className="w-full lg:w-7/12 flex flex-col gap-[15vh] lg:pl-[10%] relative z-10 lg:py-[10vh]">
+                <div className="w-full lg:w-1/2 flex flex-col gap-[15vh] lg:pl-[10%] relative z-10 lg:py-[10vh]">
                     {steps.map((step, i) => (
                         <StepCard
                             key={step.step}
@@ -125,7 +126,7 @@ function StepCard({ step, theme, titleColor, isLast, onCtaClick }: StepCardProps
                         <img
                             src={step.image}
                             alt={step.title}
-                            className="w-full h-full object-contain z-10 group-hover:scale-[1.05] transition-transform duration-500"
+                            className="w-full h-full object-contain z-10 group-hover:scale-[1.05] transition-all duration-500 opacity-80 group-hover:opacity-100 filter brightness-[0.9] group-hover:brightness-100"
                         />
                     ) : step.icon ? (
                         <step.icon

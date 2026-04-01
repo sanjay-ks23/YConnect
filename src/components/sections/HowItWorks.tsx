@@ -72,7 +72,7 @@ export function HowItWorks() {
     const progressValues = [progress0, progress1, progress2];
 
     return (
-        <section ref={triggerRef} className="relative h-[300vh] bg-white">
+        <section ref={triggerRef} className="relative h-[300vh] bg-[#FAF9F6]">
             <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
                 
                 <div className="relative z-20 w-[94%] max-w-[110rem] mx-auto px-4 md:px-8">

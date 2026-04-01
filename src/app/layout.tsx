@@ -46,7 +46,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${comicSansFont.variable} ${karenFont.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-white" suppressHydrationWarning>
         <Navbar />
-        <main>{children}</main>
+        <main className="relative">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

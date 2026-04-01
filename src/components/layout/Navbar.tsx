@@ -20,17 +20,16 @@ export function Navbar() {
             <div className="mx-auto flex flex-col items-center">
                 <div className="flex w-full h-[72px] items-center justify-between bg-white/80 backdrop-blur-2xl border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full max-w-6xl px-6 sm:px-8">
                     
-                    <Link href="/" className="flex items-center group shrink-0 gap-3">
-                        <div className="relative w-16 h-16 sm:w-20 sm:h-20">
-                            <Image
-                                src="/branding/logo-clean.png"
-                                alt="YConnect Logo"
-                                fill
-                                className="object-contain"
-                                priority
-                                unoptimized
-                            />
-                        </div>
+                    <Link href="/" className="flex items-center group shrink-0 gap-3 bg-transparent">
+                        <Image
+                            src="/branding/logo-clean.png"
+                            alt="YConnect Logo"
+                            width={80}
+                            height={80}
+                            className="object-contain bg-transparent mix-blend-multiply"
+                            priority
+                            unoptimized
+                        />
                         <span className="text-2xl sm:text-3xl font-display font-semibold tracking-tight text-[#001738]">
                             YConnect
                         </span>

@@ -251,11 +251,54 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Form styles */
-.form-glassmorphic {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+/* ===== Modal Styles ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.modal-backdrop.entering,
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-backdrop.exiting {
+  opacity: 0;
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
   border-radius: 2rem;
-  box-shadow: 0 20px 50px rgba(0, 23, 56, 0.06);
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: scale(0.95) translateY(20px);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-backdrop.entering .modal-content,
+.modal-backdrop.open .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+.modal-backdrop.exiting .modal-content {
+  transform: scale(0.95) translateY(20px);
+}
+
+/* Form Typography Update */
+input, textarea, select, button {
+  font-family: var(--font-inter), sans-serif !important;
 }

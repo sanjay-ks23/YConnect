@@ -2,133 +2,157 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BadgeCheck, Coins, LayoutGrid, Zap, Clock, ShieldCheck, ArrowUpRight } from "lucide-react";
+import { ArrowRight, BadgeCheck, Coins, LayoutGrid, Zap, Clock, ShieldCheck, ArrowUpRight, Users, TrendingDown, CheckCircle2, Award } from "lucide-react";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StartupForm } from "@/components/forms/StartupForm";
 import { FormModal } from "@/components/ui/FormModal";
 import { HorizontalScrollSection } from "@/components/sections/HorizontalScrollSection";
+import { StackedGrid } from "@/components/sections/StackedGrid";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
 const benefits = [
     {
-        icon: Coins,
-        title: "Cost-Effective",
-        description: "Hire top talent at a fraction of local rates without compromising quality.",
-        color: "bg-vibrant-teal",
+        icon: Users,
+        title: "Why Hire Students",
+        description: "Access highly motivated, tech-savvy students from India's premier engineering institutions.",
+        color: "bg-vibrant-crimson/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-crimson",
     },
     {
-        icon: BadgeCheck,
-        title: "Vetted Talent",
-        description: "Students from India's top engineering institutions — IITs, NITs, BITS, and more.",
-        color: "bg-vibrant-yellow",
+        icon: TrendingDown,
+        title: "Cost Savings",
+        description: "Reduce your operational costs by over 70% compared to local European hiring.",
+        color: "bg-vibrant-green/10",
         iconBg: "bg-white/50",
-        iconColor: "text-vibrant-orange-dark",
-    },
-    {
-        icon: LayoutGrid,
-        title: "Flexible Contracts",
-        description: "3-month part-time engagements with option to extend. No long-term commitment.",
-        color: "bg-vibrant-crimson",
-        iconBg: "bg-white/40",
-        iconColor: "text-vibrant-crimson",
+        iconColor: "text-vibrant-green-dark",
     },
     {
         icon: Zap,
-        title: "Fast Matching",
-        description: "Get matched with the right student in days, not weeks.",
-        color: "bg-lavender",
-        iconBg: "bg-vibrant-blue/10",
-        iconColor: "text-vibrant-blue",
-    },
-    {
-        icon: Clock,
-        title: "Full Coordination",
-        description: "We handle contracts, payments, onboarding, and ongoing support.",
-        color: "bg-vibrant-crimson/20",
-        iconBg: "bg-vibrant-crimson/20",
-        iconColor: "text-vibrant-crimson",
-    },
-    {
-        icon: ShieldCheck,
-        title: "Risk-Free",
-        description: "Satisfaction guarantee — if the match doesn't work, we find a replacement.",
-        color: "bg-vibrant-orange/15",
-        iconBg: "bg-vibrant-orange/15",
+        title: "Flexible Hiring",
+        description: "Scale your team up or down with ease. 3-month engagements with simple extension options.",
+        color: "bg-vibrant-yellow/40",
+        iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
+    },
+    {
+        icon: CheckCircle2,
+        title: "Easy Process",
+        description: "We handle all contracts, payments, and legalities. You just focus on the interview.",
+        color: "bg-vibrant-teal/30",
+        iconBg: "bg-white/50",
+        iconColor: "text-vibrant-green-dark",
+    },
+    {
+        icon: Award,
+        title: "Talent Quality",
+        description: "Every student is vetted for technical excellence and communication skills.",
+        color: "bg-lavender",
+        iconBg: "bg-vibrant-crimson/10",
+        iconColor: "text-vibrant-crimson",
     },
 ];
 
 const processSteps = [
-    { step: "01", title: "Submit Requirements", description: "Tell us what you need — role, skills, timeline, and budget.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "02", title: "We Match", description: "Our team finds the perfect students for your project.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "You Select", description: "Interview matched candidates and choose your pick.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
-    { step: "04", title: "Work Begins", description: "Student starts working. We handle everything else.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
+    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
+    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Page%20facing%20up/3D/page_facing_up_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Chart%20increasing/3D/chart_increasing_3d.png", color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
+];
+
+const talentPool = [
+    { id: "eng", title: "Engineering", image: "/images/talents/engineering.jpg" },
+    { id: "sw", title: "Software Developers", image: "/images/talents/software.jpg" },
+    { id: "des", title: "Designers", image: "/images/talents/designers.jpg" },
+    { id: "tech", title: "Technical Pool", image: "/images/talents/talent pool.jpg" },
+    { id: "more", title: "And many more...", bgImage: "/images/destinations/universities_grid_1775029924897.png" },
 ];
 
 export default function StartupsPage() {
     const [formOpen, setFormOpen] = useState(false);
 
     return (
-        <>
+        <div className="bg-white">
             {/* Hero */}
-            <section className="min-h-screen pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender via-white to-white">
-                <div className="absolute top-20 right-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
+            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
+                <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="heading-hero mb-8">
-                            Hire exceptional talent,{" "}
-                            <span className="text-vibrant-blue font-display">affordably</span>
+                            Scale your tech team with{" "}
+                            <span className="text-vibrant-crimson font-display italic">top Indian talent</span>
                         </h1>
-                        <p className="text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Access India&apos;s brightest engineering students for your startup.
-                            Flexible 3-month contracts, dedicated support, and seamless
-                            cross-border collaboration.
+                        <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
+                            Access pre-vetted engineering talent, reduce costs, and accelerate
+                            your product roadmap without the overhead of local hiring.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <button onClick={() => setFormOpen(true)} className="px-8 py-3.5 bg-vibrant-blue text-white rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
-                                Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+                            <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
+                                Submit Requirements <ArrowRight className="w-5 h-5" />
                             </button>
-                            <Link href="/about" className="btn-pill-outline text-base px-10 py-4">
-                                Learn How It Works <ArrowUpRight className="w-4 h-4 btn-arrow" />
+                            <Link href="/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
+                                How It Works <ArrowUpRight className="w-5 h-5" />
                             </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Benefits */}
-            <HorizontalScrollSection
-                theme="blue"
-                title={<>Why startups <span className="font-display text-vibrant-blue">choose us</span></>}
-                subtitle="Everything you need to hire international talent, without the headaches"
-                cards={benefits}
-            />
+            <div className="h-24 bg-white" />
 
-            {/* Process */}
-            <ProcessSection
-                theme="blue"
-                badgeText="The Process"
-                title={<>Four simple steps from <span className="font-display text-vibrant-blue">requirements to working product</span></>}
-                subtitle="We handle the heavy lifting so you can focus on building."
-                steps={processSteps}
-                onCtaClick={() => setFormOpen(true)}
-            />
+            {/* Benefits transition */}
+            <div className="bg-[#FAF9F6]">
+                <WaveDivider variant={1} color="#FAF9F6" />
+                <HorizontalScrollSection
+                    theme="crimson"
+                    title={<>Why founders <span className="font-display text-vibrant-crimson">choose us</span></>}
+                    subtitle="Elite engineering talent at a fraction of the cost, handled entirely by us."
+                    cards={benefits}
+                    bgColor="bg-transparent"
+                />
+            </div>
+
+            {/* Talent Pool transition */}
+            <div className="bg-[#F6F4FB]">
+                <WaveDivider variant={2} color="#FAF9F6" flip />
+                <StackedGrid
+                    title="Elite Talent Pool"
+                    subtitle="Connect with the top 1% of engineering talent from India's premier technical universities."
+                    items={talentPool}
+                    theme="crimson"
+                    bgColor="bg-transparent"
+                />
+            </div>
+
+            {/* Process transition */}
+            <div className="bg-[#F0F8EC]">
+                <WaveDivider variant={3} color="#F0F8EC" />
+                <ProcessSection
+                    theme="crimson"
+                    badgeText="The process"
+                    bgColor="bg-transparent"
+                    title={<>The straightforward path to <span className="font-display text-vibrant-crimson text-7xl">scaling fast</span></>}
+                    subtitle="We streamline the entire hiring lifecycle for European startups."
+                    steps={processSteps}
+                    onCtaClick={() => setFormOpen(true)}
+                />
+            </div>
 
             {/* CTA */}
-            <section className="section-spacing">
+            <section className="py-32 bg-[#FAF9F6] relative">
                 <div className="container-superhi">
-                    <div className="text-center max-w-2xl mx-auto">
-                        <h2 className="heading-section mb-6">
-                            Ready to find your{" "}
-                            <span className="font-display text-vibrant-blue">next hire</span>?
+                    <div className="bg-vibrant-crimson rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-crimson/30">
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                        <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
+                            Ready to hire?
                         </h2>
-                        <p className="text-lg text-foreground/50 leading-relaxed mb-10">
-                            It takes less than 3 minutes to submit your requirements. Our team
-                            will match you with top student talent within 48 hours.
+                        <p className="text-white/80 text-xl max-w-xl mx-auto mb-12 leading-relaxed">
+                            Share your requirements and see your first candidate profiles within 24 hours.
                         </p>
-                        <button onClick={() => setFormOpen(true)} className="px-8 py-3.5 bg-vibrant-blue text-white rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-all inline-flex items-center gap-2">
-                            Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
+                        <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+                            Submit Requirements
                         </button>
                     </div>
                 </div>
@@ -138,11 +162,11 @@ export default function StartupsPage() {
             <FormModal
                 isOpen={formOpen}
                 onClose={() => setFormOpen(false)}
-                title="Startup Questionnaire"
-                subtitle="Tell us about your hiring needs"
+                title="Hire Indian Talent"
+                subtitle="Tell us about the role and skills you need"
             >
                 <StartupForm />
             </FormModal>
-        </>
+        </div>
     );
 }

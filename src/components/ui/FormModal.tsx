@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, ReactNode, useCallback } from "react";
+import { useEffect, useRef, ReactNode, useCallback } from "react";
 import { X } from "lucide-react";
 
 interface FormModalProps {
@@ -12,25 +12,18 @@ interface FormModalProps {
 }
 
 export function FormModal({ isOpen, onClose, children, title, subtitle }: FormModalProps) {
-    const [phase, setPhase] = useState<"closed" | "entering" | "open" | "exiting">("closed");
     const backdropRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (isOpen && phase === "closed") {
-            setPhase("entering");
+        if (isOpen) {
             document.body.style.overflow = "hidden";
-            const t = setTimeout(() => setPhase("open"), 350);
-            return () => clearTimeout(t);
+        } else {
+            document.body.style.overflow = "";
         }
-        if (!isOpen && (phase === "open" || phase === "entering")) {
-            setPhase("exiting");
-            const t = setTimeout(() => {
-                setPhase("closed");
-                document.body.style.overflow = "";
-            }, 250);
-            return () => clearTimeout(t);
-        }
-    }, [isOpen, phase]);
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
 
     const handleBackdropClick = useCallback((e: React.MouseEvent) => {
         if (e.target === backdropRef.current) {
@@ -48,33 +41,35 @@ export function FormModal({ isOpen, onClose, children, title, subtitle }: FormMo
         }
     }, [isOpen, onClose]);
 
-    if (phase === "closed") return null;
+    if (!isOpen) return null;
 
     return (
         <div
             ref={backdropRef}
-            className={`modal-backdrop ${phase === "entering" ? "entering" : ""} ${phase === "exiting" ? "exiting" : ""}`}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#001738]/40 backdrop-blur-md animate-in fade-in duration-300"
             onClick={handleBackdropClick}
         >
-            <div className="modal-content">
+            <div className="bg-white w-full max-w-[800px] max-h-[90vh] rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col animate-in zoom-in-95 slide-in-from-bottom-8 duration-500 ease-out">
                 {/* Header */}
-                <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-2xl px-6 sm:px-8 pt-6 pb-4 border-b border-white/30 flex items-start justify-between rounded-t-[24px]">
+                <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl px-6 sm:px-10 pt-8 pb-6 border-b border-gray-100 flex items-start justify-between">
                     <div>
-                        {title && <h2 className="text-xl sm:text-2xl font-bold tracking-tight">{title}</h2>}
-                        {subtitle && <p className="text-sm text-foreground/45 mt-1">{subtitle}</p>}
+                        {title && <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738] tracking-tight">{title}</h2>}
+                        {subtitle && <p className="text-[#001738]/50 mt-1 font-medium">{subtitle}</p>}
                     </div>
                     <button
                         onClick={onClose}
-                        className="w-10 h-10 rounded-full bg-foreground/5 hover:bg-foreground/10 flex items-center justify-center transition-all duration-200 hover:rotate-90 flex-shrink-0 ml-4"
+                        className="w-12 h-12 rounded-full bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all duration-300 hover:rotate-90 flex-shrink-0 ml-4 group shadow-sm"
                         aria-label="Close"
                     >
-                        <X className="w-5 h-5 text-foreground/50" />
+                        <X className="w-6 h-6 text-[#001738]/40 group-hover:text-[#001738] transition-colors" />
                     </button>
                 </div>
 
                 {/* Body */}
-                <div className="px-6 sm:px-8 py-6 sm:py-8">
-                    {children}
+                <div className="flex-1 overflow-y-auto custom-scrollbar px-6 sm:px-10 py-8">
+                    <div className="max-w-2xl mx-auto">
+                        {children}
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,9 +17,10 @@ interface HorizontalScrollSectionProps {
     subtitle: string;
     cards: HorizontalCard[];
     theme: "crimson" | "orange" | "blue";
+    bgColor?: string;
 }
 
-export function HorizontalScrollSection({ title, subtitle, cards, theme }: HorizontalScrollSectionProps) {
+export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor = "bg-white" }: HorizontalScrollSectionProps) {
     const sectionRef = useRef<HTMLElement>(null);
 
     const { scrollYProgress } = useScroll({
@@ -34,10 +35,10 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme }: Horiz
     const accentColor = isPink ? "text-vibrant-crimson" : isBlue ? "text-vibrant-blue" : "text-vibrant-orange-dark";
 
     return (
-        <section ref={sectionRef} className="relative bg-white" style={{ height: `${cards.length * 100}vh` }}>
+        <section ref={sectionRef} className={`relative ${bgColor}`} style={{ height: `${cards.length * 100}vh` }}>
             <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
                 {/* Section Header (Fixed at top) */}
-                <div className="container-superhi pt-32 pb-12 relative z-20 bg-white">
+                <div className={`container-superhi pt-32 pb-12 relative z-20 ${bgColor}`}>
                     <h2 className="heading-section mb-4">{title}</h2>
                     <p className="text-lg lg:text-xl text-[#001738]/50 max-w-2xl">{subtitle}</p>
                 </div>

@@ -1,31 +1,41 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Building, MessageSquare, ShieldCheck } from "lucide-react";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
 export const metadata: Metadata = {
     title: "Contact — YConnect",
     description:
-        "Get in touch with YConnect. We're here to help startups and students connect.",
+        "Get in touch with YConnect. We're here to help startups and students connect across Europe and India.",
 };
 
 const contactInfo = [
     {
         icon: Mail,
         title: "Email us",
-        content: "hello@talentbridge.eu",
-        description: "We respond within 24 hours",
+        content: "hello@yconnect.eu",
+        description: "General inquiries & support",
+    },
+    {
+        icon: MessageSquare,
+        title: "Partnerships",
+        content: "partners@yconnect.eu",
+        description: "For universities & accelerators",
+    },
+];
+
+const companyDetails = [
+    {
+        icon: Building,
+        title: "Registration",
+        content: "YConnect B.V.",
+        description: "KvK: 12345678 (Amsterdam)",
     },
     {
         icon: MapPin,
-        title: "Our office",
+        title: "Location",
         content: "Amsterdam, Netherlands",
-        description: "Operating across the EU",
-    },
-    {
-        icon: Clock,
-        title: "Working hours",
-        content: "Mon–Fri, 9AM–6PM CET",
-        description: "Available across timezones",
+        description: "Operating globally",
     },
 ];
 
@@ -33,52 +43,107 @@ export default function ContactPage() {
     return (
         <div className="relative min-h-screen bg-white">
             {/* Hero */}
-            <section className="pt-40 pb-12 lg:pt-48 lg:pb-16 relative z-10">
-                <div className="container-superhi">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-vibrant-blue/10 border border-vibrant-blue/20 px-4 py-2 mb-6">
-                            <span className="text-sm font-medium text-vibrant-blue">Get in Touch</span>
-                        </span>
-                        <h1 className="heading-hero mb-6">
+            <section className="pt-44 pb-20 lg:pt-52 lg:pb-32 relative z-10 bg-gradient-to-b from-vibrant-crimson/5 to-white overflow-hidden">
+                <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-vibrant-crimson/5 rounded-full blur-[120px] pointer-events-none" />
+                <div className="container-superhi relative z-10">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <h1 className="heading-hero mb-8">
                             Let&apos;s start a{" "}
-                            <span className="text-vibrant-blue">conversation</span>
+                            <span className="text-vibrant-crimson font-display italic">conversation</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto font-sans">
-                            Whether you&apos;re a startup looking for talent or a student seeking
-                            opportunities, we&apos;d love to hear from you.
+                        <p className="text-xl lg:text-2xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto font-sans">
+                            Whether you&apos;re a founder looking for elite talent or a student seeking
+                            global opportunities, our team is here to help.
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* Contact Info + Form */}
-            <section className="py-12 lg:pb-32 relative z-10">
-                <div className="container-superhi">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-                        {/* Contact Info Cards */}
-                        <div className="lg:col-span-1 flex flex-col gap-6 lg:gap-8">
-                            {contactInfo.map((info) => (
-                                <div key={info.title} className="bg-white border border-gray-200 p-8 rounded-[2rem] shadow-sm group transition-all duration-300 hover:-translate-y-1">
-                                    <div className="w-12 h-12 rounded-xl bg-vibrant-blue/10 flex items-center justify-center mb-6 border border-vibrant-blue/20">
-                                        <info.icon className="w-6 h-6 text-vibrant-blue" />
-                                    </div>
-                                    <h3 className="text-xl font-display font-medium text-[#001738] mb-2">{info.title}</h3>
-                                    <p className="text-[#001738] font-semibold text-lg">{info.content}</p>
-                                    <p className="text-[#001738]/50 text-sm mt-2">{info.description}</p>
-                                </div>
-                            ))}
-                        </div>
+            <div className="h-24 bg-white" />
 
-                        {/* Form */}
-                        <div className="lg:col-span-2">
-                            <div className="bg-white border border-gray-200 p-8 sm:p-12 rounded-[2.5rem] shadow-sm">
-                                <h2 className="text-2xl md:text-3xl font-display font-medium text-[#001738] mb-8 tracking-tight">Send us a message</h2>
-                                <ContactForm />
+            {/* Content Container transition */}
+            <div className="bg-[#FAF9F6]">
+                <WaveDivider variant={1} color="#FAF9F6" />
+                <section className="py-24 bg-transparent relative z-10">
+                    <div className="container-superhi">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+                            
+                            {/* Left Info Column */}
+                            <div className="flex flex-col gap-8">
+                                {/* Reach Out Card */}
+                                <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm transition-all hover:shadow-md">
+                                    <h2 className="text-2xl font-display font-medium text-[#001738] mb-8">Reach Out</h2>
+                                    <div className="space-y-8">
+                                        {contactInfo.map((item) => (
+                                            <div key={item.title} className="flex gap-4 group">
+                                                <div className="w-12 h-12 rounded-2xl bg-vibrant-crimson/5 flex items-center justify-center border border-vibrant-crimson/10 flex-shrink-0 group-hover:bg-vibrant-crimson/10 transition-colors">
+                                                    <item.icon className="w-5 h-5 text-vibrant-crimson" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-[#001738]">{item.title}</h3>
+                                                    <p className="text-[#001738] font-medium">{item.content}</p>
+                                                    <p className="text-sm text-[#001738]/40 mt-0.5">{item.description}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Company Info Card */}
+                                <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm transition-all hover:shadow-md">
+                                    <h2 className="text-2xl font-display font-medium text-[#001738] mb-8">Company Info</h2>
+                                    <div className="space-y-8">
+                                        {companyDetails.map((item) => (
+                                            <div key={item.title} className="flex gap-4 group">
+                                                <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center border border-gray-100 flex-shrink-0 group-hover:bg-gray-100 transition-colors">
+                                                    <item.icon className="w-5 h-5 text-[#001738]/40" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-[#001738]">{item.title}</h3>
+                                                    <p className="text-[#001738] font-medium">{item.content}</p>
+                                                    <p className="text-sm text-[#001738]/40 mt-0.5">{item.description}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Verified Platform Card - Dimmed for professional look */}
+                                <div className="bg-[#001738] p-10 rounded-[3rem] text-white overflow-hidden relative group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-vibrant-crimson/10 blur-3xl group-hover:scale-150 transition-transform duration-700" />
+                                    <ShieldCheck className="w-10 h-10 text-vibrant-crimson/60 mb-6" />
+                                    <h3 className="text-xl font-bold mb-2">Verified Platform</h3>
+                                    <p className="text-white/60 text-sm leading-relaxed">
+                                        Every partnership on YConnect is protected by our legal framework and secure payment systems.
+                                    </p>
+                                </div>
                             </div>
+
+                            {/* Form Area - Spans 2 columns */}
+                            <div className="lg:col-span-2">
+                                <div className="bg-white p-10 sm:p-16 lg:p-20 rounded-[3.5rem] border border-gray-100 shadow-xl shadow-[#001738]/5 h-full relative overflow-hidden">
+                                    {/* Subtle decorative elements */}
+                                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
+                                    
+                                    <div className="relative z-10 max-w-2xl">
+                                        <h2 className="text-4xl md:text-5xl font-display font-medium text-[#001738] mb-4 tracking-tight">Send a message</h2>
+                                        <p className="text-[#001738]/50 mb-12 text-lg lg:text-xl leading-relaxed">
+                                            We typically respond within 2-4 business hours. Let us know how we can help you scale or grow.
+                                        </p>
+                                        <ContactForm />
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+
+            <div className="bg-white">
+                <WaveDivider variant={2} color="#FAF9F6" flip />
+            </div>
+
         </div>
     );
 }
