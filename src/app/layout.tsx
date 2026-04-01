@@ -24,9 +24,9 @@ const karenFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "YConnect — Connecting European Startups with Indian Talent",
+  title: "YConnect — Connecting European Startups with International Talent",
   description:
-    "YConnect connects early-stage European startups with highly talented engineering students from top Indian universities for short-term freelance projects.",
+    "YConnect connects early-stage European startups with highly talented engineering students from top international universities for short-term freelance projects.",
   keywords: [
     "European startups",
     "Indian students",

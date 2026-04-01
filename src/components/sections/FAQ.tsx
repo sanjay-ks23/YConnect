@@ -23,7 +23,7 @@ const faqs = [
     {
         question: "How do you ensure quality of talent?",
         answer:
-            "We source students from India's top engineering universities (IITs, NITs, BITS, IISc, etc.) and conduct thorough vetting including technical assessments, portfolio review, and soft-skills evaluation. Only the top 10% of applicants make it into our talent pool.",
+            "We source students from the world's top engineering universities and conduct thorough vetting including technical assessments, portfolio review, and soft-skills evaluation. Only the top 10% of applicants make it into our talent pool.",
     },
     {
         question: "Who handles contracts and payments?",
@@ -38,12 +38,12 @@ const faqs = [
     {
         question: "Is there a fee for students to join?",
         answer:
-            "No, YConnect is completely free for students. We charge a service fee to startups only. Our goal is to create opportunities for talented Indian engineering students.",
+            "No, YConnect is completely free for students. We charge a service fee to startups only. Our goal is to create opportunities for talented international engineering students.",
     },
     {
         question: "Which countries do you operate in?",
         answer:
-            "We work with startups across the European Union, with particular focus on the Netherlands, Germany, France, Sweden, Denmark, and other EU countries. Our student talent pool covers all major Indian engineering institutions.",
+            "We work with startups across the European Union, with particular focus on the Netherlands, Germany, France, Sweden, Denmark, and other EU countries. Our student talent pool covers major international engineering institutions.",
     },
 ];
 
@@ -58,10 +58,10 @@ export function FAQ() {
                             FAQ
                         </span>
                         <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
-                            All the <span className="italic font-normal">details.</span>
+                            All the <span className="font-normal">details.</span>
                         </h2>
                         <p className="text-xl text-[#001738]/50 max-w-sm leading-relaxed">
-                            Got a question? We can answer it. Discover how we bridge the talent gap between Europe and India.
+                            Got a question? We can answer it. Discover how we bridge the talent gap globally.
                         </p>
                     </div>
 

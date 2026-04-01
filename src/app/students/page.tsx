@@ -81,11 +81,11 @@ export default function StudentsPage() {
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="heading-hero mb-8">
                             Work with the best{" "}
-                            <span className="text-vibrant-crimson font-display italic">European startups</span>
+                            <span className="text-vibrant-crimson font-display">European startups</span>
                         </h1>
                         <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
                             Join elite technical teams, earn in Euros, and build a global career
-                            right from India. Pre-vetted roles for top-tier students.
+                            from anywhere. Pre-vetted roles for top-tier students.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">

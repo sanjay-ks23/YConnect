@@ -5,7 +5,7 @@ import { Mail, Building2 } from "lucide-react";
 export const metadata: Metadata = {
     title: "Contact — YConnect",
     description:
-        "Get in touch with YConnect. We're here to help startups and students connect across Europe and India.",
+        "Get in touch with YConnect. We're here to help startups and students connect globally.",
 };
 
 export default function ContactPage() {
@@ -38,7 +38,7 @@ export default function ContactPage() {
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
                                 <p className="text-lg text-[#001738]/60 leading-relaxed font-sans">
-                                    Our team is based across Europe and India, ensuring seamless 
+                                    Our team is based across Europe, ensuring seamless 
                                     coordination throughout your journey.
                                 </p>
                             </div>
@@ -61,7 +61,7 @@ export default function ContactPage() {
                                     <div>
                                         <h3 className="font-bold text-[#001738] mb-1">Visit Us</h3>
                                         <p className="text-[#001738]/60 font-sans">Amsterdam, Netherlands</p>
-                                        <p className="text-[#001738]/60 font-sans">Bangalore, India</p>
+                                        <p className="text-[#001738]/60 font-sans">Amsterdam Office</p>
                                     </div>
                                 </div>
                             </div>

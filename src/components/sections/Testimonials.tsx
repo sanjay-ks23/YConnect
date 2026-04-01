@@ -10,12 +10,12 @@ const testimonials = [
         role: "CTO, NordicSaaS",
         location: "Stockholm, Sweden",
         quote:
-            "YConnect connected us with an incredible React developer from IIT Bombay. The quality of work exceeded our expectations, and at a fraction of what we'd pay locally.",
+            "YConnect connected us with an incredible React developer from their curated pool. The quality of work exceeded our expectations, and at a fraction of what we'd pay locally.",
     },
     {
         name: "Priya Sharma",
         role: "CS Student, IIT Delhi",
-        location: "New Delhi, India",
+        location: "International",
         quote:
             "Working with a Danish fintech startup gave me real-world experience I could never get in a classroom. The flexible hours meant I could balance my studies perfectly.",
     },
@@ -29,7 +29,7 @@ const testimonials = [
     {
         name: "Ananya Patel",
         role: "Engineering Student, BITS Pilani",
-        location: "Pilani, India",
+        location: "International",
         quote:
             "The international exposure and the chance to work on a real product was amazing. I learned more in 3 months than I did in a full semester. Plus, the pay was great!",
     },
@@ -38,7 +38,7 @@ const testimonials = [
         role: "Head of Product, FluxAI",
         location: "Paris, France",
         quote:
-            "Finding ML talent is hard and expensive in Paris. YConnect introduced us to a brilliant student from IISc who built our entire recommendation engine.",
+            "Finding ML talent is hard and expensive in Paris. YConnect introduced us to a brilliant student who built our entire recommendation engine.",
     },
 ];
 
@@ -71,10 +71,10 @@ export function Testimonials() {
                             TESTIMONIALS
                         </span>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] tracking-tight">
-                            Trusted by <span className="italic font-normal">visionaries.</span>
+                            Trusted by <span className="font-normal">visionaries.</span>
                         </h2>
                         <p className="text-lg text-[#001738]/50 max-w-md leading-relaxed">
-                            Startups and students bridging the gap between Europe and India.
+                            Startups and students bridging the gap globally.
                         </p>
                     </div>
                     <div className="flex gap-3">

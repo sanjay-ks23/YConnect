@@ -5,11 +5,11 @@ import { WaveDivider } from "@/components/ui/WaveDivider";
 export const metadata: Metadata = {
     title: "About — YConnect",
     description:
-        "Our journey in bridging the gap between European innovation and Indian engineering excellence.",
+        "Our journey in bridging the gap between European innovation and international engineering excellence.",
 };
 
 const supportStartups = [
-    { title: "Vetted Talent", desc: "Access the top 1% of Indian engineering students." },
+    { title: "Vetted Talent", desc: "Access the top 1% of international engineering students." },
     { title: "Cost Efficiency", desc: "Save up to 70% on technical operational costs." },
     { title: "Full Coordination", desc: "We handle contracts, payments, and management." }
 ];
@@ -32,8 +32,7 @@ export default function AboutPage() {
                         </span>
                         <h1 className="heading-hero mb-8">
                             Bridging the gap between{" "}
-                            <span className="text-vibrant-blue">Europe</span> and{" "}
-                            <span className="text-vibrant-green italic font-display">India</span>
+                            <span className="text-vibrant-green font-display">the World</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-[#001738]/60 leading-relaxed max-w-3xl mx-auto font-sans">
                             At YConnect, we believe that the best technical talent should be 
@@ -53,7 +52,7 @@ export default function AboutPage() {
                             </div>
                             <h2 className="text-3xl font-display font-medium text-[#001738]">Our Mission</h2>
                             <p className="text-lg text-[#001738]/60 leading-relaxed font-sans">
-                                To bridge the gap between European innovation and Indian engineering excellence, 
+                                To bridge the gap between European innovation and international engineering excellence, 
                                 creating meaningful opportunities for both startups and students through a seamless, 
                                 trust-based platform.
                             </p>
@@ -80,7 +79,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div>
                             <h2 className="heading-section mb-8">
-                                Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display italic">India</span>
+                                Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display">the World</span>
                             </h2>
                             <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans">
                                 <p>

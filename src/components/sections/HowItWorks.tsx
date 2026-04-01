@@ -7,7 +7,7 @@ const startupSteps = [
     {
         id: "s1",
         title: "Submit Requirements",
-        description: "Tell us what role you need, skills required, and project duration. Our platform matches you with the top tier of Indian engineering talent instantly.",
+        description: "Tell us what role you need, skills required, and project duration. Our platform matches you with the top tier of international engineering talent instantly.",
         keywords: ["Job Profile", "Skill Gap", "Matching", "Requirement", "Tech Stack"]
     },
     {
@@ -84,7 +84,7 @@ export function HowItWorks() {
                             How It Works
                         </h2>
                         <p className="text-lg text-[#001738]/50 max-w-xl mx-auto mb-10 leading-relaxed">
-                            A seamless bridge between Europe and India. We manage everything from vetting to payments, so you can focus on building.
+                            A seamless bridge between Europe and the World. We manage everything from vetting to payments, so you can focus on building.
                         </p>
 
                         {/* Professional Toggle */}

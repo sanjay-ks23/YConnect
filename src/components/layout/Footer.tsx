@@ -18,7 +18,7 @@ export function Footer() {
             </Link>
             
             <p className="text-white/60 text-lg leading-relaxed font-body mb-8">
-              Bridging the gap between European innovation and Indian engineering excellence.
+              Bridging the gap between European innovation and international engineering excellence.
             </p>
 
             {/* Social Icons moved here */}

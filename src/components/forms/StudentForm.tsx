@@ -112,14 +112,14 @@ export function StudentForm() {
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-[#001738]">Email</label>
-                                <input type="email" className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="you@university.ac.in" {...register("email")} />
+                                <input type="email" className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="you@university.edu" {...register("email")} />
                                 {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-[#001738]">University</label>
-                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., IIT Bombay" {...register("university")} />
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., Stanford University" {...register("university")} />
                                 {errors.university && <p className="text-xs text-red-500 font-medium">{errors.university.message}</p>}
                             </div>
                             <div className="space-y-2">

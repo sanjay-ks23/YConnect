@@ -21,11 +21,11 @@ export function HeroSection() {
                     <br />
                     <span className="text-vibrant-blue inline-block mt-4">European Startups</span>
                     <br />
-                    <span className="text-vibrant-crimson inline-block mt-4">with Indian Talent</span>
+                    <span className="text-vibrant-crimson inline-block mt-4">with International Talent</span>
                 </h1>
 
                 <p className="text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 max-w-2xl mx-auto">
-                    Bridging European innovation with India&apos;s premier engineering talent. 
+                    Bridging European innovation with the world&apos;s premier engineering talent. 
                     Scale your startup with top-tier freelance developers or accelerate your career 
                     with global project experience. We handle everything.
                 </p>

@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Users,
         title: "Why Hire Students",
-        description: "Access highly motivated, tech-savvy students from India's premier engineering institutions.",
+        description: "Access highly motivated, tech-savvy students from the world's premier engineering institutions.",
         color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-blue",
@@ -82,7 +82,7 @@ export default function StartupsPage() {
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="heading-hero mb-8">
                             Scale your tech team with{" "}
-                            <span className="text-vibrant-blue font-display italic">top Indian talent</span>
+                            <span className="text-vibrant-blue font-display">top international talent</span>
                         </h1>
                         <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
                             Access pre-vetted engineering talent, reduce costs, and accelerate
@@ -119,7 +119,7 @@ export default function StartupsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="Elite Talent Pool"
-                    subtitle="Connect with the top 1% of engineering talent from India's premier technical universities."
+                    subtitle="Connect with the top 1% of engineering talent from the world's premier technical universities."
                     items={talentPool}
                     theme="blue"
                     bgColor="bg-transparent"
@@ -162,7 +162,7 @@ export default function StartupsPage() {
             <FormModal
                 isOpen={formOpen}
                 onClose={() => setFormOpen(false)}
-                title="Hire Indian Talent"
+                title="Hire International Talent"
                 subtitle="Tell us about the role and skills you need"
             >
                 <StartupForm />
