@@ -69,8 +69,7 @@ export default function ContactPage() {
 
                         {/* Main Content: Form */}
                         <div className="lg:col-span-2">
-                            <div className="bg-white p-10 md:p-16 rounded-[3.5rem] shadow-2xl shadow-vibrant-blue/5 border border-gray-100 relative overflow-hidden h-full">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-vibrant-blue/5 to-transparent pointer-events-none" />
+                            <div className="bg-white p-10 md:p-16 rounded-[3.5rem] border border-gray-100 relative overflow-hidden h-full">
                                 <div className="relative z-10">
                                     <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
                                         Send us a message

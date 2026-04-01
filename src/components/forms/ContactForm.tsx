@@ -48,7 +48,7 @@ export function ContactForm() {
                     <Input
                         id="contact-name"
                         placeholder="Your name"
-                        className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
+                        className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
                         {...register("name")}
                     />
                     {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name.message}</p>}
@@ -60,7 +60,7 @@ export function ContactForm() {
                         id="contact-email"
                         type="email"
                         placeholder="you@example.com"
-                        className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
+                        className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
                         {...register("email")}
                     />
                     {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
@@ -72,7 +72,7 @@ export function ContactForm() {
                 <Input
                     id="contact-subject"
                     placeholder="What's this about?"
-                    className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
+                    className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
                     {...register("subject")}
                 />
                 {errors.subject && <p className="text-xs text-red-500 font-medium">{errors.subject.message}</p>}
@@ -83,7 +83,7 @@ export function ContactForm() {
                 <Textarea
                     id="contact-message"
                     placeholder="Tell us how we can help..."
-                    className="rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all min-h-[150px] resize-none"
+                    className="rounded-xl bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all min-h-[150px] resize-none shadow-none"
                     {...register("message")}
                 />
                 {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message.message}</p>}
@@ -92,7 +92,7 @@ export function ContactForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-4 bg-vibrant-blue text-white rounded-full font-bold hover:bg-vibrant-blue-dark transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 py-4 bg-vibrant-blue text-white rounded-full font-bold hover:bg-vibrant-blue-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isSubmitting ? (
                     <>
