@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, BadgeCheck, Coins, LayoutGrid, Zap, Clock, ShieldCheck, Sparkles, ArrowUpRight } from "lucide-react";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { ArrowRight, BadgeCheck, Coins, LayoutGrid, Zap, Clock, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StartupForm } from "@/components/forms/StartupForm";
 import { FormModal } from "@/components/ui/FormModal";
-import { GooeyButton } from "@/components/ui/GooeyButton";
 import { HorizontalScrollSection } from "@/components/sections/HorizontalScrollSection";
-import { CloudScenery } from "@/components/animations/CloudScenery";
 
 const benefits = [
     {
@@ -65,7 +62,7 @@ const benefits = [
 const processSteps = [
     { step: "01", title: "Submit Requirements", description: "Tell us what you need — role, skills, timeline, and budget.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "02", title: "We Match", description: "Our team finds the perfect students for your project.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "You Select", description: "Interview matched candidates and choose your pick.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png".replace(/ /g, "%20"), color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
+    { step: "03", title: "You Select", description: "Interview matched candidates and choose your pick.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
     { step: "04", title: "Work Begins", description: "Student starts working. We handle everything else.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
 ];
 
@@ -74,78 +71,70 @@ export default function StartupsPage() {
 
     return (
         <>
-            {/* ===== Hero ===== */}
-            <section className="min-h-screen pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden flex items-center">
-                {/* 3D Hero Clouds */}
-                <CloudScenery variant="hero" />
-
+            {/* Hero */}
+            <section className="min-h-screen pt-36 pb-20 lg:pt-44 lg:pb-28 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender via-white to-white">
+                <div className="absolute top-20 right-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
-                    <ScrollReveal>
-                        <div className="max-w-4xl mx-auto text-center">
-
-                            <h1 className="heading-hero mb-8">
-                                Hire exceptional talent,{" "}
-                                <span className="text-vibrant-crimson font-display">affordably</span>
-                            </h1>
-                            <p className="text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 max-w-2xl mx-auto">
-                                Access India&apos;s brightest engineering students for your startup.
-                                Flexible 3-month contracts, dedicated support, and seamless
-                                cross-border collaboration.
-                            </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <GooeyButton type="button" onClick={() => setFormOpen(true)} accentColor="#C70039" className="bg-white/40 backdrop-blur-3xl border border-white/60 shadow-lg text-[#001738] rounded-full px-8 py-3.5">
-                                    Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
-                                </GooeyButton>
-                                <Link href="/about" className="btn-pill-outline text-base px-10 py-4">
-                                    Learn How It Works <ArrowUpRight className="w-4 h-4 btn-arrow" />
-                                </Link>
-                            </div>
+                    <div className="max-w-4xl mx-auto text-center">
+                        <h1 className="heading-hero mb-8">
+                            Hire exceptional talent,{" "}
+                            <span className="text-vibrant-blue font-display">affordably</span>
+                        </h1>
+                        <p className="text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 max-w-2xl mx-auto">
+                            Access India&apos;s brightest engineering students for your startup.
+                            Flexible 3-month contracts, dedicated support, and seamless
+                            cross-border collaboration.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <button onClick={() => setFormOpen(true)} className="px-8 py-3.5 bg-vibrant-blue text-white rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                                Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
+                            </button>
+                            <Link href="/about" className="btn-pill-outline text-base px-10 py-4">
+                                Learn How It Works <ArrowUpRight className="w-4 h-4 btn-arrow" />
+                            </Link>
                         </div>
-                    </ScrollReveal>
+                    </div>
                 </div>
             </section>
 
-            {/* ===== Benefits ===== */}
+            {/* Benefits */}
             <HorizontalScrollSection
-                theme="crimson"
-                title={<>Why startups <span className="font-display text-vibrant-crimson">choose us</span></>}
+                theme="blue"
+                title={<>Why startups <span className="font-display text-vibrant-blue">choose us</span></>}
                 subtitle="Everything you need to hire international talent, without the headaches"
                 cards={benefits}
             />
 
-
-            {/* ===== Process ====== */}
+            {/* Process */}
             <ProcessSection
-                theme="crimson"
+                theme="blue"
                 badgeText="The Process"
-                title={<>Four simple steps from <span className="font-display text-vibrant-crimson">requirements to working product</span></>}
+                title={<>Four simple steps from <span className="font-display text-vibrant-blue">requirements to working product</span></>}
                 subtitle="We handle the heavy lifting so you can focus on building."
                 steps={processSteps}
                 onCtaClick={() => setFormOpen(true)}
             />
 
-            {/* ===== CTA ===== */}
+            {/* CTA */}
             <section className="section-spacing">
                 <div className="container-superhi">
-                    <ScrollReveal>
-                        <div className="text-center max-w-2xl mx-auto">
-                            <h2 className="heading-section mb-6">
-                                Ready to find your{" "}
-                                <span className="font-display text-vibrant-crimson">next hire</span>?
-                            </h2>
-                            <p className="text-lg text-foreground/50 leading-relaxed mb-10">
-                                It takes less than 3 minutes to submit your requirements. Our team
-                                will match you with top student talent within 48 hours.
-                            </p>
-                            <GooeyButton type="button" onClick={() => setFormOpen(true)} accentColor="#C70039" className="bg-white/40 backdrop-blur-3xl border border-white/60 shadow-lg text-[#001738] rounded-full px-8 py-3.5">
-                                Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
-                            </GooeyButton>
-                        </div>
-                    </ScrollReveal>
+                    <div className="text-center max-w-2xl mx-auto">
+                        <h2 className="heading-section mb-6">
+                            Ready to find your{" "}
+                            <span className="font-display text-vibrant-blue">next hire</span>?
+                        </h2>
+                        <p className="text-lg text-foreground/50 leading-relaxed mb-10">
+                            It takes less than 3 minutes to submit your requirements. Our team
+                            will match you with top student talent within 48 hours.
+                        </p>
+                        <button onClick={() => setFormOpen(true)} className="px-8 py-3.5 bg-vibrant-blue text-white rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-all inline-flex items-center gap-2">
+                            Fill Out Questionnaire <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </div>
                 </div>
             </section>
 
-            {/* ===== Modal ===== */}
+            {/* Modal */}
             <FormModal
                 isOpen={formOpen}
                 onClose={() => setFormOpen(false)}

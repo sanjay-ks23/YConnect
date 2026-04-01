@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
-import { GooeyButton } from "@/components/ui/GooeyButton";
 
 export function ContactForm() {
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -30,11 +29,11 @@ export function ContactForm() {
     if (isSubmitted) {
         return (
             <div className="text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-vibrant-green/10 flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-vibrant-green" />
+                <div className="w-16 h-16 rounded-full bg-vibrant-blue/10 flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-8 h-8 text-vibrant-blue" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Message sent!</h3>
-                <p className="text-foreground/60 max-w-md mx-auto">
+                <h3 className="text-2xl font-display font-medium mb-3 text-[#001738]">Message sent!</h3>
+                <p className="text-[#001738]/50 max-w-sm mx-auto">
                     Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
             </div>
@@ -44,90 +43,68 @@ export function ContactForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Name */}
                 <div className="space-y-2">
-                    <Label htmlFor="contact-name" className="text-sm font-medium">
-                        Name *
-                    </Label>
+                    <Label htmlFor="contact-name" className="text-sm font-bold text-[#001738]">Name</Label>
                     <Input
                         id="contact-name"
                         placeholder="Your name"
-                        className="rounded-xl h-12 bg-white border-border/50 focus:border-vibrant-blue"
+                        className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
                         {...register("name")}
                     />
-                    {errors.name && (
-                        <p className="text-xs text-coral-red">{errors.name.message}</p>
-                    )}
+                    {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name.message}</p>}
                 </div>
 
-                {/* Email */}
                 <div className="space-y-2">
-                    <Label htmlFor="contact-email" className="text-sm font-medium">
-                        Email *
-                    </Label>
+                    <Label htmlFor="contact-email" className="text-sm font-bold text-[#001738]">Email</Label>
                     <Input
                         id="contact-email"
                         type="email"
                         placeholder="you@example.com"
-                        className="rounded-xl h-12 bg-white border-border/50 focus:border-vibrant-blue"
+                        className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
                         {...register("email")}
                     />
-                    {errors.email && (
-                        <p className="text-xs text-coral-red">{errors.email.message}</p>
-                    )}
+                    {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
                 </div>
             </div>
 
-            {/* Subject */}
             <div className="space-y-2">
-                <Label htmlFor="contact-subject" className="text-sm font-medium">
-                    Subject *
-                </Label>
+                <Label htmlFor="contact-subject" className="text-sm font-bold text-[#001738]">Subject</Label>
                 <Input
                     id="contact-subject"
                     placeholder="What's this about?"
-                    className="rounded-xl h-12 bg-white border-border/50 focus:border-vibrant-blue"
+                    className="rounded-xl h-12 bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all"
                     {...register("subject")}
                 />
-                {errors.subject && (
-                    <p className="text-xs text-coral-red">{errors.subject.message}</p>
-                )}
+                {errors.subject && <p className="text-xs text-red-500 font-medium">{errors.subject.message}</p>}
             </div>
 
-            {/* Message */}
             <div className="space-y-2">
-                <Label htmlFor="contact-message" className="text-sm font-medium">
-                    Message *
-                </Label>
+                <Label htmlFor="contact-message" className="text-sm font-bold text-[#001738]">Message</Label>
                 <Textarea
                     id="contact-message"
                     placeholder="Tell us how we can help..."
-                    className="rounded-xl bg-white border-border/50 focus:border-vibrant-blue min-h-[150px] resize-none"
+                    className="rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white transition-all min-h-[150px] resize-none"
                     {...register("message")}
                 />
-                {errors.message && (
-                    <p className="text-xs text-coral-red">{errors.message.message}</p>
-                )}
+                {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message.message}</p>}
             </div>
 
-            {/* Submit */}
-            <GooeyButton
+            <button
                 type="submit"
                 disabled={isSubmitting}
-                accentColor="#2E31D1"
-                className="w-full justify-center text-base py-4 bg-white/20 backdrop-blur-2xl border border-white/80 shadow-sm text-[#001738] rounded-full disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center gap-2 py-4 bg-vibrant-blue text-white rounded-full font-bold hover:bg-vibrant-blue-dark transition-all shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isSubmitting ? (
                     <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <Loader2 className="w-5 h-5 animate-spin" />
                         Sending...
                     </>
                 ) : (
                     <>
-                        Send Message <ArrowRight className="w-4 h-4 ml-2" />
+                        Send Message <ArrowRight className="w-5 h-5" />
                     </>
                 )}
-            </GooeyButton>
+            </button>
         </form>
     );
 }

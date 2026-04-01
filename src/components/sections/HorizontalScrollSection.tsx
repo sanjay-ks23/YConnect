@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { animate, scroll, spring } from "motion";
-import { CloudScenery } from "@/components/animations/CloudScenery";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export interface HorizontalCard {
     title: string;
@@ -17,91 +16,61 @@ interface HorizontalScrollSectionProps {
     title: React.ReactNode;
     subtitle: string;
     cards: HorizontalCard[];
-    theme: "crimson" | "orange";
+    theme: "crimson" | "orange" | "blue";
 }
 
 export function HorizontalScrollSection({ title, subtitle, cards, theme }: HorizontalScrollSectionProps) {
-    const ulRef = useRef<HTMLUListElement>(null);
     const sectionRef = useRef<HTMLElement>(null);
 
-    useEffect(() => {
-        if (!ulRef.current || !sectionRef.current) return;
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"]
+    });
 
-        const items = ulRef.current.querySelectorAll("li");
-        if (items.length === 0) return;
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(cards.length - 1) * 100}%`]);
 
-        // Animate the ul horizontally as user scrolls through the section
-        const controls = animate(
-            ulRef.current as any,
-            {
-                transform: ["none", `translateX(-${items.length - 1}00vw)`],
-            } as any,
-            { easing: spring() } as any
-        );
-
-        scroll(controls, { target: sectionRef.current });
-
-        // Parallax on each card's title for a premium feel
-        const segmentLength = 1 / items.length;
-        items.forEach((item, i) => {
-            const heading = item.querySelector("h3");
-            if (heading && sectionRef.current) {
-                scroll(
-                    animate(heading as any, { x: [300, -300] } as any),
-                    {
-                        target: sectionRef.current,
-                        offset: [
-                            [i * segmentLength, 1],
-                            [(i + 1) * segmentLength, 0],
-                        ],
-                    }
-                );
-            }
-        });
-    }, []);
+    const isPink = theme === "crimson";
+    const isBlue = theme === "blue";
+    const accentColor = isPink ? "text-vibrant-crimson" : isBlue ? "text-vibrant-blue" : "text-vibrant-orange-dark";
 
     return (
-        // Height = number of cards * 100vh for scroll space
-        <section ref={sectionRef} className="relative" style={{ height: `${cards.length * 100}vh` }}>
-            <CloudScenery
-                variant="scattered"
-                customClouds={[
-                    {
-                        src: "/clouds/puffy-clean-1.png",
-                        style: { top: "10vh", right: "-5vw", opacity: 0.9 },
-                        className: "w-[350px] md:w-[500px]",
-                    },
-                    {
-                        src: "/clouds/cloud-xl-final.png",
-                        style: { bottom: "20vh", left: "-5vw", opacity: 0.9 },
-                        className: "w-[400px] md:w-[600px]",
-                    },
-                ]}
-            />
-            <ul ref={ulRef} className="flex sticky top-0 list-none m-0 p-0">
-                {cards.map((card, i) => (
-                    <li
-                        key={card.title}
-                        className="h-screen w-screen flex-shrink-0 flex flex-col items-center justify-center overflow-hidden bg-transparent relative px-6"
+        <section ref={sectionRef} className="relative bg-white" style={{ height: `${cards.length * 100}vh` }}>
+            <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
+                {/* Section Header (Fixed at top) */}
+                <div className="container-superhi pt-32 pb-12 relative z-20 bg-white">
+                    <h2 className="heading-section mb-4">{title}</h2>
+                    <p className="text-lg lg:text-xl text-[#001738]/50 max-w-2xl">{subtitle}</p>
+                </div>
+
+                {/* Horizontal Sliding Content */}
+                <div className="flex-1 flex items-center relative">
+                    <motion.div 
+                        style={{ x }} 
+                        className="flex h-full w-full"
                     >
-                        {/* Large watermark number behind */}
-                        <span className="absolute text-[30vw] font-black text-black/[0.03] select-none pointer-events-none leading-none">
-                            {String(i + 1).padStart(2, "0")}
-                        </span>
+                        {cards.map((card, i) => (
+                            <div
+                                key={card.title}
+                                className="h-full w-screen flex-shrink-0 flex flex-col items-center justify-center px-6 relative"
+                            >
+                                {/* Large watermark number behind */}
+                                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black text-black/[0.02] select-none pointer-events-none leading-none z-0">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
 
-                        {/* Title with parallax */}
-                        <h3 className="text-[10vw] lg:text-[6vw] font-extrabold tracking-tight text-slate-800 relative z-10 text-center leading-none font-display mb-8">
-                            {card.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-lg lg:text-2xl text-foreground/50 max-w-2xl text-center leading-relaxed relative z-10">
-                            {card.description}
-                        </p>
-                    </li>
-                ))}
-            </ul>
+                                <div className="relative z-10 text-center max-w-4xl mx-auto">
+                                    <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 ${accentColor}`}>
+                                        {card.title}
+                                    </h3>
+                                    <p className="text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto">
+                                        {card.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </div>
         </section>
     );
 }
-

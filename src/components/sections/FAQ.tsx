@@ -1,7 +1,6 @@
 "use client";
 
-import { CloudScenery } from "@/components/animations/CloudScenery";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { motion } from "framer-motion";
 import {
     Accordion,
     AccordionContent,
@@ -50,67 +49,54 @@ const faqs = [
 
 export function FAQ() {
     return (
-        <section className="section-spacing relative overflow-visible">
-            {/* Background clouds remain untouched per user request */}
-            <CloudScenery
-                variant="scattered"
-                count={2}
-                customClouds={[
-                    {
-                        src: "/clouds/puffy-clean-1.png",
-                        style: { top: "10%", left: "-5%", opacity: 0.6 },
-                        className: "w-[200px] md:w-[300px]",
-                    },
-                    {
-                        src: "/clouds/cloud-xl-final.png",
-                        style: { bottom: "10%", right: "-5%", opacity: 0.6 },
-                        className: "w-[250px] md:w-[350px]",
-                    },
-                ]}
-            />
-
-            <div className="container-superhi relative z-10 max-w-[120rem]">
+        <section className="py-24 md:py-32 relative overflow-hidden bg-transparent">
+            <div className="container-superhi relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-32 items-start px-4 md:px-8">
                     {/* Left Column: Context Header */}
-                    <ScrollReveal>
-                        <div className="sticky top-32 space-y-6">
-                            <span className="text-xs md:text-sm font-black text-[#0066FF] tracking-widest uppercase mb-4 block">
-                                FAQ
-                            </span>
-                            <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium font-display text-[#001738] tracking-tight">
-                                All the <span className="italic font-normal">details.</span>
-                            </h2>
-                            <p className="text-xl text-[#001738]/60 max-w-sm font-sans leading-relaxed">
-                                Got a question? We can answer it. Discover how we bridge the talent gap between Europe and India.
-                            </p>
-                        </div>
-                    </ScrollReveal>
+                    <div className="lg:sticky lg:top-32 space-y-6">
+                        <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4 block">
+                            FAQ
+                        </span>
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
+                            All the <span className="italic font-normal">details.</span>
+                        </h2>
+                        <p className="text-xl text-[#001738]/50 max-w-sm leading-relaxed">
+                            Got a question? We can answer it. Discover how we bridge the talent gap between Europe and India.
+                        </p>
+                    </div>
 
                     {/* Right Column: High-Fidelity Accordion */}
-                    <ScrollReveal stagger={0.12} variant="fade-up" y={40} duration={0.7}>
-                        <Accordion type="single" collapsible className="space-y-6">
+                    <div className="w-full">
+                        <Accordion type="single" collapsible className="space-y-4">
                             {faqs.map((faq, i) => (
-                                <AccordionItem
+                                <motion.div
                                     key={i}
-                                    value={`item-${i}`}
-                                    className="group relative bg-gradient-to-br from-white/60 via-white/40 to-sky-100/30 backdrop-blur-3xl rounded-[2rem] border-2 border-white/60 mb-6 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,23,56,0.12)] data-[state=open]:shadow-[0_20px_60px_rgba(0,23,56,0.1)]"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
                                 >
-                                    <AccordionTrigger className="relative z-10 px-8 py-8 text-left text-lg sm:text-xl font-semibold text-[#001738] tracking-tight hover:no-underline transition-all duration-300 [&[data-state=open]>div>svg]:rotate-[135deg] [&>svg]:hidden">
-                                        <span className="pr-16 leading-tight">{faq.question}</span>
-                                        <div className="absolute right-8 top-1/2 -translate-y-1/2 p-2 bg-[#001738]/5 rounded-full backdrop-blur-md border border-white/40 shadow-inner group-hover:bg-[#001738]/10 transition-colors">
-                                            <Plus className="size-6 text-[#001738] transition-transform duration-500 ease-[0.16, 1, 0.3, 1]" />
-                                        </div>
-                                    </AccordionTrigger>
+                                    <AccordionItem
+                                        value={`item-${i}`}
+                                        className="group relative bg-white/80 rounded-[2rem] border-2 border-white/60 mb-6 overflow-hidden transition-all duration-500 hover:shadow-lg hover:border-vibrant-blue/30 data-[state=open]:shadow-xl"
+                                    >
+                                        <AccordionTrigger className="relative z-10 px-8 py-8 text-left text-lg sm:text-xl font-semibold text-[#001738] tracking-tight hover:no-underline transition-all duration-300 [&[data-state=open]>div>svg]:rotate-[135deg] [&>svg]:hidden">
+                                            <span className="pr-16 leading-tight">{faq.question}</span>
+                                            <div className="absolute right-8 top-1/2 -translate-y-1/2 p-2 bg-[#001738]/5 rounded-full backdrop-blur-md border border-white/40 shadow-inner group-hover:bg-[#001738]/10 transition-colors">
+                                                <Plus className="size-6 text-[#001738] transition-transform duration-500 ease-[0.16, 1, 0.3, 1]" />
+                                            </div>
+                                        </AccordionTrigger>
 
-                                    <AccordionContent className="relative z-10 px-8 pb-10 text-[#001738]/70 text-lg sm:text-xl font-sans leading-relaxed">
-                                        <div className="pt-4 max-w-2xl">
-                                            {faq.answer}
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
+                                        <AccordionContent className="relative z-10 px-8 pb-10 text-[#001738]/70 text-lg sm:text-xl font-sans leading-relaxed">
+                                            <div className="pt-4 max-w-2xl">
+                                                {faq.answer}
+                                            </div>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                </motion.div>
                             ))}
                         </Accordion>
-                    </ScrollReveal>
+                    </div>
                 </div>
             </div>
         </section>

@@ -3,12 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
-import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
-import { GooeyFilters } from "@/components/ui/GooeyFilters";
-import { FrostedGlassGlobalFilter } from "@/components/ui/FrostedGlassGlobalFilter";
-import RisePuffyJourney from "@/components/animations/RisePuffyJourney";
-import GlobalScrollBackground from "@/components/layout/GlobalScrollBackground";
-import RealisticJourneyFooter from "@/components/layout/RealisticJourneyFooter";
+import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,25 +34,7 @@ export const metadata: Metadata = {
     "engineering talent",
     "tech hiring",
     "remote work",
-    "high-fidelity recruitment",
   ],
-  openGraph: {
-    title: "YConnect — Connecting European Startups with Indian Talent",
-    description:
-      "Connect with top engineering talent from India for flexible, cost-effective projects.",
-    type: "website",
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon.png" },
-      { url: "/apple-touch-icon.png" },
-    ],
-  },
 };
 
 export default function RootLayout({
@@ -67,16 +44,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${comicSansFont.variable} ${karenFont.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
-        <GooeyFilters />
-        <FrostedGlassGlobalFilter />
-        <RisePuffyJourney />
-        <GlobalScrollBackground />
-        <SmoothScrollProvider>
-          <Navbar />
-          <main>{children}</main>
-          <RealisticJourneyFooter />
-        </SmoothScrollProvider>
+      <body className="font-sans antialiased bg-white" suppressHydrationWarning>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

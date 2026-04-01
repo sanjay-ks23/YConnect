@@ -4,68 +4,19 @@ import { useState, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { studentFormSchema, type StudentFormValues } from "@/lib/validations";
-import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, Calendar } from "lucide-react";
-import { GooeyButton } from "@/components/ui/GooeyButton";
-import { LottiePlayer } from "@/components/ui/LottiePlayer";
-import { MultiSelect } from "@/components/ui/multi-selector";
+import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, Calendar, CheckCircle } from "lucide-react";
 
 const skillOptions = [
-    // Frontend
-    { value: "html-css", label: "HTML / CSS" },
-    { value: "javascript", label: "JavaScript" },
-    { value: "typescript", label: "TypeScript" },
     { value: "react", label: "React" },
     { value: "nextjs", label: "Next.js" },
-    { value: "vue", label: "Vue.js" },
-    { value: "angular", label: "Angular" },
-    { value: "tailwindcss", label: "Tailwind CSS" },
-    // Mobile
-    { value: "flutter", label: "Flutter" },
-    { value: "react-native", label: "React Native" },
-    { value: "swift", label: "Swift" },
-    { value: "kotlin", label: "Kotlin" },
-    // Backend
+    { value: "typescript", label: "TypeScript" },
     { value: "nodejs", label: "Node.js" },
     { value: "python", label: "Python" },
     { value: "java", label: "Java" },
-    { value: "cpp", label: "C / C++" },
-    { value: "rust", label: "Rust" },
-    { value: "go", label: "Go" },
-    { value: "django", label: "Django" },
-    { value: "flask", label: "Flask / FastAPI" },
-    { value: "spring", label: "Spring Boot" },
-    // Data / ML
-    { value: "tensorflow", label: "TensorFlow" },
-    { value: "pytorch", label: "PyTorch" },
-    { value: "scikit-learn", label: "Scikit-Learn" },
-    { value: "pandas", label: "Pandas / NumPy" },
-    { value: "nlp", label: "NLP" },
-    { value: "computer-vision", label: "Computer Vision" },
-    { value: "data-analysis", label: "Data Analysis" },
-    // DevOps / DB
-    { value: "sql", label: "SQL / Databases" },
-    { value: "mongodb", label: "MongoDB" },
-    { value: "aws", label: "AWS" },
-    { value: "gcp", label: "GCP" },
-    { value: "docker", label: "Docker / Kubernetes" },
-    { value: "ci-cd", label: "CI/CD" },
-    { value: "git", label: "Git / GitHub" },
-    // Design
+    { value: "cpp", label: "C/C++" },
+    { value: "flutter", label: "Flutter" },
     { value: "figma", label: "Figma" },
-    { value: "adobe", label: "Adobe Suite" },
-    { value: "ui-ux", label: "UI/UX Design" },
-    { value: "3d-modeling", label: "3D Modeling / Blender" },
-    // Other
-    { value: "graphql", label: "GraphQL" },
-    { value: "rest-api", label: "REST APIs" },
-    { value: "blockchain", label: "Blockchain / Solidity" },
-    { value: "arduino", label: "Arduino / IoT" },
-    { value: "matlab", label: "MATLAB" },
-    { value: "r-lang", label: "R" },
-];
-
-const availabilityOptions = [
-    "Immediately", "Within 2 weeks", "Within 1 month", "Within 2 months", "Flexible",
+    { value: "sql", label: "SQL" },
 ];
 
 const steps = [
@@ -76,7 +27,6 @@ const steps = [
 
 export function StudentForm() {
     const [currentStep, setCurrentStep] = useState(1);
-    const [direction, setDirection] = useState<"right" | "left">("right");
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const {
@@ -95,7 +45,6 @@ export function StudentForm() {
 
     const onSubmit = async (data: StudentFormValues) => {
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log("Student form submitted:", data);
         setIsSubmitted(true);
     };
 
@@ -105,63 +54,45 @@ export function StudentForm() {
         if (currentStep === 2) fieldsToValidate = ["skills", "experience"];
 
         const valid = await trigger(fieldsToValidate);
-        if (valid) {
-            setDirection("right");
-            setCurrentStep((s) => s + 1);
-        }
+        if (valid) setCurrentStep((s) => s + 1);
     }, [currentStep, trigger]);
 
-    const goBack = () => {
-        setDirection("left");
-        setCurrentStep((s) => s - 1);
-    };
-
-    // Enter key to go next (except on textarea and last step)
-    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-        if (e.key === "Enter" && !(e.target instanceof HTMLTextAreaElement) && currentStep < 3) {
-            e.preventDefault();
-            goNext();
-        }
-    }, [currentStep, goNext]);
+    const goBack = () => setCurrentStep((s) => s - 1);
 
     if (isSubmitted) {
         return (
             <div className="text-center py-12 px-6">
-                <div className="mx-auto mb-6 flex items-center justify-center">
-                    <LottiePlayer
-                        src="https://lottie.host/f365c8a1-a7c7-4295-bd2d-ad0e123436d2/gjGybtWoFL.lottie"
-                        width={180}
-                        height={180}
-                    />
+                <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-8">
+                    <CheckCircle className="w-10 h-10 text-green-600" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight">Application submitted!</h3>
-                <p className="text-foreground/50 max-w-md mx-auto text-lg leading-relaxed">
-                    We&apos;ll review your profile and match you with relevant startup opportunities.
+                <h3 className="text-3xl font-display font-medium mb-4 text-[#001738]">Application sent!</h3>
+                <p className="text-[#001738]/50 max-w-sm mx-auto text-lg leading-relaxed">
+                    We&apos;ll review your profile and match you with relevant opportunities.
                 </p>
             </div>
         );
     }
 
     return (
-        <div onKeyDown={handleKeyDown}>
+        <div className="w-full">
             {/* Step Progress */}
-            <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center mb-12">
                 {steps.map((step, i) => (
                     <div key={step.num} className="flex items-center">
                         <div
-                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${currentStep === step.num
-                                ? "bg-vibrant-orange text-white shadow-lg shadow-vibrant-orange/30"
+                            className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${currentStep === step.num
+                                ? "bg-vibrant-blue text-white shadow-lg"
                                 : currentStep > step.num
-                                    ? "bg-vibrant-green text-white"
-                                    : "bg-[#e8ecf4] text-foreground/30"
+                                    ? "bg-green-600 text-white"
+                                    : "bg-gray-100 text-gray-400"
                                 }`}
                         >
-                            {currentStep > step.num ? <Check className="w-4 h-4" /> : step.num}
+                            {currentStep > step.num ? <Check className="w-5 h-5" /> : step.num}
                         </div>
                         {i < steps.length - 1 && (
-                            <div className="w-20 sm:w-28 h-[3px] mx-2 bg-[#e8ecf4] rounded-full overflow-hidden">
+                            <div className="w-12 sm:w-20 h-0.5 mx-2 bg-gray-100">
                                 <div
-                                    className="h-full bg-vibrant-green rounded-full transition-all duration-500"
+                                    className="h-full bg-green-600 transition-all duration-500"
                                     style={{ width: currentStep > step.num ? "100%" : "0%" }}
                                 />
                             </div>
@@ -170,141 +101,82 @@ export function StudentForm() {
                 ))}
             </div>
 
-            {/* Step Labels - properly centered under dots */}
-            <div className="flex items-center justify-center mb-8">
-                {steps.map((step, i) => (
-                    <div key={step.num} className="flex items-center">
-                        <div className="w-10 text-center">
-                            <span className={`text-[10px] font-semibold tracking-wider uppercase ${currentStep >= step.num ? "text-foreground/70" : "text-foreground/25"
-                                }`}>{step.label}</span>
-                        </div>
-                        {i < steps.length - 1 && (
-                            <div className="w-20 sm:w-28 mx-2" />
-                        )}
-                    </div>
-                ))}
-            </div>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {/* Step 1: Personal Info */}
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {currentStep === 1 && (
-                    <div key="step1" className={direction === "right" ? "animate-slide-right" : "animate-slide-left"}>
-                        <div className="space-y-5">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-foreground/70 block">Full Name</label>
-                                    <input className="input-bouncy" placeholder="Your full name"
-                                        style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("name")} />
-                                    {errors.name && <p className="text-xs text-coral-red font-medium mt-1">{errors.name.message}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-foreground/70 block">Email</label>
-                                    <input type="email" className="input-bouncy" placeholder="you@university.ac.in"
-                                        style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("email")} />
-                                    {errors.email && <p className="text-xs text-coral-red font-medium mt-1">{errors.email.message}</p>}
-                                </div>
+                    <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-[#001738]">Full Name</label>
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="Your full name" {...register("name")} />
+                                {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name.message}</p>}
                             </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-foreground/70 block">University</label>
-                                    <input className="input-bouncy" placeholder="e.g., IIT Bombay"
-                                        style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("university")} />
-                                    {errors.university && <p className="text-xs text-coral-red font-medium mt-1">{errors.university.message}</p>}
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-foreground/70 block">Degree</label>
-                                    <input className="input-bouncy" placeholder="e.g., B.Tech CS"
-                                        style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("degree")} />
-                                    {errors.degree && <p className="text-xs text-coral-red font-medium mt-1">{errors.degree.message}</p>}
-                                </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-[#001738]">Email</label>
+                                <input type="email" className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="you@university.ac.in" {...register("email")} />
+                                {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-[#001738]">University</label>
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., IIT Bombay" {...register("university")} />
+                                {errors.university && <p className="text-xs text-red-500 font-medium">{errors.university.message}</p>}
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-bold text-[#001738]">Degree</label>
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., B.Tech CS" {...register("degree")} />
+                                {errors.degree && <p className="text-xs text-red-500 font-medium">{errors.degree.message}</p>}
                             </div>
                         </div>
                     </div>
                 )}
 
-                {/* Step 2: Skills & Experience */}
                 {currentStep === 2 && (
-                    <div key="step2" className={direction === "right" ? "animate-slide-right" : "animate-slide-left"}>
-                        <div className="space-y-5">
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-foreground/70 block">Skills</label>
-                                <Controller
-                                    name="skills"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <MultiSelect
-                                            options={skillOptions}
-                                            value={field.value}
-                                            onValueChange={field.onChange}
-                                            placeholder="Select your skills..."
-                                            maxCount={5}
-                                            accentColor="#FF6D00"
-                                        />
-                                    )}
-                                />
-                                {errors.skills && <p className="text-xs text-coral-red font-medium mt-1">{errors.skills.message}</p>}
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-foreground/70 block">Experience</label>
-                                <textarea className="textarea-bouncy" placeholder="Projects, internships, hackathons, open source..."
-                                    style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("experience")} />
-                                {errors.experience && <p className="text-xs text-coral-red font-medium mt-1">{errors.experience.message}</p>}
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-foreground/70 block">
-                                    Portfolio URL <span className="text-foreground/30 font-normal">(optional)</span>
-                                </label>
-                                <input className="input-bouncy" placeholder="https://github.com/you"
-                                    style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("portfolio")} />
-                                {errors.portfolio && <p className="text-xs text-coral-red font-medium mt-1">{errors.portfolio.message}</p>}
-                            </div>
+                    <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-[#001738]">Experience</label>
+                            <textarea className="w-full min-h-[120px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Projects, internships, hackathons..." {...register("experience")} />
+                            {errors.experience && <p className="text-xs text-red-500 font-medium">{errors.experience.message}</p>}
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-[#001738]">Portfolio URL (optional)</label>
+                            <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
                         </div>
                     </div>
                 )}
 
-                {/* Step 3: Availability */}
                 {currentStep === 3 && (
-                    <div key="step3" className={direction === "right" ? "animate-slide-right" : "animate-slide-left"}>
-                        <div className="space-y-5">
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-foreground/70 block">Availability</label>
-                                <select className="select-bouncy" style={{ "--ring": "#FF6D00" } as React.CSSProperties} {...register("availability")}>
-                                    <option value="">When can you start?</option>
-                                    {availabilityOptions.map((a) => <option key={a} value={a}>{a}</option>)}
-                                </select>
-                                {errors.availability && <p className="text-xs text-coral-red font-medium mt-1">{errors.availability.message}</p>}
+                    <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-[#001738]">Select Skills</label>
+                            <div className="flex flex-wrap gap-2">
+                                {skillOptions.map(skill => (
+                                    <label key={skill.value} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100 transition-all">
+                                        <input type="checkbox" className="w-4 h-4 rounded text-vibrant-blue focus:ring-vibrant-blue" value={skill.value} {...register("skills")} />
+                                        <span className="text-sm font-medium text-[#001738]">{skill.label}</span>
+                                    </label>
+                                ))}
                             </div>
-                            <div className="rounded-2xl bg-vibrant-orange/5 border border-vibrant-orange/10 p-5">
-                                <p className="text-sm text-foreground/50 leading-relaxed">
-                                    <span className="font-semibold text-foreground/70">What happens next?</span>{" "}
-                                    We&apos;ll review within 24-48 hours and match you with relevant opportunities.
-                                </p>
-                            </div>
+                            {errors.skills && <p className="text-xs text-red-500 font-medium">{errors.skills.message}</p>}
                         </div>
                     </div>
                 )}
 
-                {/* Navigation */}
-                <div className="flex items-center justify-between mt-10 pt-6 border-t border-border/30">
+                <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
                     {currentStep > 1 ? (
-                        <button type="button" onClick={goBack}
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-foreground/50 hover:text-foreground hover:bg-foreground/5 transition-all duration-300">
-                            <ArrowLeft className="w-4 h-4" /> Back
+                        <button type="button" onClick={goBack} className="flex items-center gap-2 text-gray-500 hover:text-[#001738] font-bold transition-all">
+                            <ArrowLeft className="w-5 h-5" /> Back
                         </button>
                     ) : <div />}
 
                     {currentStep < 3 ? (
-                        <GooeyButton type="button" onClick={goNext} accentColor="#FF6D00" className="bg-white/40 backdrop-blur-3xl border border-white/60 shadow-sm text-[#001738] rounded-full px-6 py-3">
-                            Continue <ArrowRight className="w-4 h-4" />
-                        </GooeyButton>
+                        <button type="button" onClick={goNext} className="flex items-center gap-2 bg-[#001738] text-white px-8 py-3 rounded-full font-bold hover:bg-[#001738]/90 transition-all shadow-md">
+                            Continue <ArrowRight className="w-5 h-5" />
+                        </button>
                     ) : (
-                        <GooeyButton type="submit" disabled={isSubmitting} accentColor="#00C853" className="bg-white/40 backdrop-blur-3xl border border-white/60 shadow-sm text-[#001738] rounded-full px-8 py-3">
-                            {isSubmitting ? (
-                                <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>
-                            ) : (
-                                <>Apply Now <ArrowRight className="w-4 h-4" /></>
-                            )}
-                        </GooeyButton>
+                        <button type="submit" disabled={isSubmitting} className="flex items-center gap-2 bg-vibrant-blue text-white px-10 py-3 rounded-full font-bold hover:bg-vibrant-blue-dark transition-all shadow-md disabled:opacity-50">
+                            {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</> : <>Apply Now <ArrowRight className="w-5 h-5" /></>}
+                        </button>
                     )}
                 </div>
             </form>
