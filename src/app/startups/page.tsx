@@ -54,12 +54,12 @@ const benefits = [
 ];
 
 const processSteps = [
-    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", image: "/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", image: "/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", image: "/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
-    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", image: "/assets/Page%20facing%20up/3D/page_facing_up_3d.png", color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
-    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", image: "/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", image: "/assets/Chart%20increasing/3D/chart_increasing_3d.png", color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
+    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Clipboard/3D/clipboard_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Check%20mark%20button/3D/check_mark_button_3d.png", color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
+    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Page%20facing%20up/3D/page_facing_up_3d.png", color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
+    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Chart%20increasing/3D/chart_increasing_3d.png", color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
 ];
 
 const talentPool = [

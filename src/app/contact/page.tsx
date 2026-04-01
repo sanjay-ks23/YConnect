@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { StartupForm } from "@/components/forms/StartupForm";
-import { Mail, Building2, ShieldCheck } from "lucide-react";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { Mail, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Contact — YConnect",
@@ -29,7 +29,7 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* Content Section - Unified Background */}
+            {/* Content Section - Simplified */}
             <section className="py-24 bg-white relative z-10">
                 <div className="container-superhi">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
@@ -65,24 +65,6 @@ export default function ContactPage() {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="p-8 rounded-[2rem] border border-gray-100 bg-gray-50/50 space-y-4">
-                                <h3 className="font-bold text-[#001738]">Company Info</h3>
-                                <div className="space-y-2 text-sm text-[#001738]/50 font-sans">
-                                    <p>YConnect B.V.</p>
-                                    <p>KVK: 12345678</p>
-                                    <p>VAT: NL123456789B01</p>
-                                </div>
-                            </div>
-
-                            <div className="p-8 rounded-[2rem] bg-[#001738] text-white flex items-start gap-5 relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-vibrant-blue/20 blur-3xl group-hover:scale-150 transition-transform duration-700" />
-                                <ShieldCheck className="w-10 h-10 text-vibrant-blue/60 relative z-10" />
-                                <div className="relative z-10">
-                                    <h3 className="font-bold mb-1">Verified Platform</h3>
-                                    <p className="text-white/60 text-sm">Protected by our legal & secure framework.</p>
-                                </div>
-                            </div>
                         </div>
 
                         {/* Main Content: Form */}
@@ -96,7 +78,7 @@ export default function ContactPage() {
                                     <p className="text-[#001738]/50 mb-12 text-lg font-sans">
                                         We typically respond within 2-4 business hours. Let us know how we can help you scale or grow.
                                     </p>
-                                    <StartupForm />
+                                    <ContactForm />
                                 </div>
                             </div>
                         </div>
