@@ -12,7 +12,7 @@ export function Footer() {
           {/* Left Side: Brand */}
           <div className="flex flex-col max-w-md">
             <Link href="/" className="inline-block mb-6 group">
-              <span className="text-5xl md:text-6xl font-display font-semibold tracking-tight text-white group-hover:opacity-90 transition-opacity">
+              <span className="text-5xl md:text-6xl font-semibold tracking-tight text-white group-hover:opacity-90 transition-opacity" style={{ fontFamily: 'var(--font-poppins), sans-serif' }}>
                 YConnect
               </span>
             </Link>

@@ -5,6 +5,7 @@
   --color-foreground: #0F172A;
   --font-sans: var(--font-inter);
   --font-display: var(--font-comic-sans);
+  --font-poppins: var(--font-poppins);
   --font-comic-sans: var(--font-comic-sans);
   --font-karen: var(--font-karen);
 
@@ -76,6 +77,8 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
+    line-height: 1.55;
   }
 }
 
@@ -185,8 +188,8 @@
 .heading-hero {
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.02;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
 }
 @media (min-width: 640px) { .heading-hero { font-size: 4rem; } }
 @media (min-width: 768px) { .heading-hero { font-size: 5rem; } }
@@ -196,8 +199,8 @@
 .heading-section {
   font-size: 2.25rem;
   font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
 }
 @media (min-width: 640px) { .heading-section { font-size: 3rem; } }
 @media (min-width: 768px) { .heading-section { font-size: 3.75rem; } }
@@ -206,8 +209,8 @@
 .heading-card {
   font-size: 1.75rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
 }
 @media (min-width: 640px) { .heading-card { font-size: 2.25rem; } }
 @media (min-width: 1024px) { .heading-card { font-size: 2.75rem; } }
