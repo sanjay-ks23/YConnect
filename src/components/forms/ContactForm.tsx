@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
@@ -12,6 +12,12 @@ import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 export function ContactForm() {
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.location.search.includes('success=true')) {
+            setIsSubmitted(true);
+        }
+    }, []);
+
     const {
         register,
         handleSubmit,
@@ -21,9 +27,37 @@ export function ContactForm() {
     });
 
     const onSubmit = async (data: ContactFormValues) => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log("Contact form submitted:", data);
-        setIsSubmitted(true);
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "https://formsubmit.co/sanjaysaravanan2317@gmail.com";
+        form.style.display = "none";
+        
+        const nextUrl = window.location.origin + window.location.pathname + "?success=true";
+        const configs = [
+            { name: "_next", value: nextUrl },
+            { name: "_captcha", value: "false" },
+            { name: "_template", value: "table" },
+            { name: "_subject", value: `New Inquiry from ${data.name}: ${data.subject}` },
+        ];
+        
+        configs.forEach(({ name, value }) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.value = value;
+            form.appendChild(input);
+        });
+
+        Object.keys(data).forEach(key => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = data[key as keyof ContactFormValues];
+            form.appendChild(input);
+        });
+
+        document.body.appendChild(form);
+        form.submit();
     };
 
     if (isSubmitted) {
@@ -36,6 +70,9 @@ export function ContactForm() {
                 <p className="text-[#001738]/50 max-w-sm mx-auto">
                     Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
+                <button onClick={() => window.location.href = window.location.pathname} className="mt-8 text-vibrant-blue font-bold hover:underline">
+                    Send another message
+                </button>
             </div>
         );
     }
@@ -67,15 +104,33 @@ export function ContactForm() {
                 </div>
             </div>
 
-            <div className="space-y-2">
-                <Label htmlFor="contact-subject" className="text-sm font-bold text-[#001738]">Subject</Label>
-                <Input
-                    id="contact-subject"
-                    placeholder="What's this about?"
-                    className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
-                    {...register("subject")}
-                />
-                {errors.subject && <p className="text-xs text-red-500 font-medium">{errors.subject.message}</p>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                    <Label htmlFor="contact-type" className="text-sm font-bold text-[#001738]">I am a...</Label>
+                    <select
+                        id="contact-type"
+                        className="flex w-full rounded-xl h-12 bg-white border border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none px-3 py-2 text-sm text-[#001738] outline-none"
+                        {...register("inquiryType")}
+                    >
+                        <option value="">Select an option</option>
+                        <option value="startup">Startup Founder / Team</option>
+                        <option value="student">Engineering Student</option>
+                        <option value="partner">Potential Partner</option>
+                        <option value="other">Other</option>
+                    </select>
+                    {errors.inquiryType && <p className="text-xs text-red-500 font-medium">{errors.inquiryType.message}</p>}
+                </div>
+
+                <div className="space-y-2">
+                    <Label htmlFor="contact-subject" className="text-sm font-bold text-[#001738]">Subject</Label>
+                    <Input
+                        id="contact-subject"
+                        placeholder="What's this about?"
+                        className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
+                        {...register("subject")}
+                    />
+                    {errors.subject && <p className="text-xs text-red-500 font-medium">{errors.subject.message}</p>}
+                </div>
             </div>
 
             <div className="space-y-2">
