@@ -20,7 +20,7 @@ export function Navbar() {
             <div className="mx-auto flex flex-col items-center">
                 <div className="flex w-full h-[72px] items-center justify-between bg-white/80 backdrop-blur-2xl border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full max-w-6xl px-6 sm:px-8">
                     
-                    <Link href="/" className="flex items-center group shrink-0 gap-1">
+                    <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center group shrink-0 gap-1">
                         <Image
                             src="/branding/logo-clean.png"
                             alt="YConnect Logo"
@@ -30,7 +30,7 @@ export function Navbar() {
                             priority
                             unoptimized
                         />
-                        <span className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#001738]" style={{ fontFamily: 'var(--font-poppins), sans-serif' }}>
+                        <span className="text-2xl sm:text-3xl font-medium text-[#001738]" style={{ fontFamily: 'var(--font-inter), sans-serif', letterSpacing: '-0.1em' }}>
                             YConnect
                         </span>
                     </Link>

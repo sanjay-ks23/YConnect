@@ -7,7 +7,7 @@ export function HeroSection() {
     return (
         <section
             id="hero-section"
-            className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-lavender via-white to-white"
+            className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-lavender via-white to-white"
         >
             {/* Subtle decorative elements instead of clouds */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />

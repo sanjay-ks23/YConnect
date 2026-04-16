@@ -92,7 +92,7 @@ export function HowItWorks() {
                             {["startups", "students"].map((mode) => (
                                 <button
                                     key={mode}
-                                    onClick={() => { setViewMode(mode as any); setActiveIndex(0); }}
+                                    onClick={() => { setViewMode(mode as any); setActiveIndex(0); triggerRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
                                     className={`relative px-12 py-3 rounded-full text-lg font-bold transition-all duration-500 z-10 ${viewMode === mode ? "text-white" : "text-[#001738]/50 hover:text-[#001738]"
                                         }`}
                                 >
@@ -176,19 +176,40 @@ export function HowItWorks() {
                                         exit={{ opacity: 0, scale: 1.1 }}
                                         className="relative w-full h-full flex flex-wrap content-center justify-center gap-4"
                                     >
-                                        {steps[activeIndex].keywords.map((keyword, kidx) => (
-                                            <motion.div
-                                                key={keyword}
-                                                initial={{ opacity: 0, scale: 0.8 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                transition={{ delay: kidx * 0.05 }}
-                                                className="bg-white border-2 border-gray-100 px-8 py-4 rounded-full shadow-sm"
-                                            >
-                                                <span className="text-[#001738] text-xl md:text-2xl font-display font-medium">
-                                                    {keyword}
-                                                </span>
-                                            </motion.div>
-                                        ))}
+                                        <div className="flex flex-col items-center gap-4 w-full">
+                                            {/* Row 1: first 3 keywords */}
+                                            <div className="flex flex-wrap justify-center gap-4">
+                                                {steps[activeIndex].keywords.slice(0, 3).map((keyword, kidx) => (
+                                                    <motion.div
+                                                        key={keyword}
+                                                        initial={{ opacity: 0, scale: 0.8 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        transition={{ delay: kidx * 0.05 }}
+                                                        className="bg-white border-2 border-gray-100 px-8 py-4 rounded-full shadow-sm"
+                                                    >
+                                                        <span className="text-[#001738] text-xl md:text-2xl font-display font-medium">
+                                                            {keyword}
+                                                        </span>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                            {/* Row 2: remaining 2 keywords */}
+                                            <div className="flex flex-wrap justify-center gap-4">
+                                                {steps[activeIndex].keywords.slice(3).map((keyword, kidx) => (
+                                                    <motion.div
+                                                        key={keyword}
+                                                        initial={{ opacity: 0, scale: 0.8 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        transition={{ delay: (kidx + 3) * 0.05 }}
+                                                        className="bg-white border-2 border-gray-100 px-8 py-4 rounded-full shadow-sm"
+                                                    >
+                                                        <span className="text-[#001738] text-xl md:text-2xl font-display font-medium">
+                                                            {keyword}
+                                                        </span>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </motion.div>
                                 </AnimatePresence>
                             </div>
