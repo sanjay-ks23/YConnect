@@ -57,7 +57,7 @@ export function FAQ() {
                         <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4 block">
                             FAQ
                         </span>
-                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
                             All the <span className="font-normal">details.</span>
                         </h2>
                         <p className="text-xl text-[#001738]/50 max-w-sm leading-relaxed">
@@ -80,14 +80,14 @@ export function FAQ() {
                                         value={`item-${i}`}
                                         className="group relative bg-white/80 rounded-[2rem] border-2 border-white/60 mb-6 overflow-hidden transition-all duration-500 hover:shadow-lg hover:border-vibrant-blue/30 data-[state=open]:shadow-xl"
                                     >
-                                        <AccordionTrigger className="relative z-10 px-8 py-8 text-left text-lg sm:text-xl font-semibold text-[#001738] tracking-tight hover:no-underline transition-all duration-300 [&[data-state=open]>div>svg]:rotate-[135deg] [&>svg]:hidden">
+                                        <AccordionTrigger className="relative z-10 px-6 sm:px-8 py-6 sm:py-8 text-left text-base sm:text-xl font-semibold text-[#001738] tracking-tight hover:no-underline transition-all duration-300 [&[data-state=open]>div>svg]:rotate-[135deg] [&>svg]:hidden">
                                             <span className="pr-16 leading-tight">{faq.question}</span>
                                             <div className="absolute right-8 top-1/2 -translate-y-1/2 p-2 bg-[#001738]/5 rounded-full backdrop-blur-md border border-white/40 shadow-inner group-hover:bg-[#001738]/10 transition-colors">
                                                 <Plus className="size-6 text-[#001738] transition-transform duration-500 ease-[0.16, 1, 0.3, 1]" />
                                             </div>
                                         </AccordionTrigger>
 
-                                        <AccordionContent className="relative z-10 px-8 pb-10 text-[#001738]/70 text-lg sm:text-xl font-sans leading-relaxed">
+                                        <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 text-[#001738]/70 text-base sm:text-xl font-sans leading-relaxed">
                                             <div className="pt-4 max-w-2xl">
                                                 {faq.answer}
                                             </div>

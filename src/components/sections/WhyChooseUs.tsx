@@ -56,10 +56,10 @@ export function WhyChooseUs() {
                     <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4">
                         WHAT WE DO & THE BENEFITS
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-8 tracking-tight max-w-2xl">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 md:mb-8 tracking-tight max-w-2xl px-2">
                         Talent you can count on.
                     </h2>
-                    <p className="text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed px-2">
                         Access incredible engineering talent without the usual cross-border hiring friction. Productive, reliable, and perfectly matched.
                     </p>
                 </div>
@@ -72,11 +72,11 @@ export function WhyChooseUs() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.05 }}
-                            className="relative bg-white border-2 border-gray-50 p-8 sm:p-10 rounded-[2.5rem] flex flex-col sm:flex-row items-start gap-6 sm:gap-8 group hover:border-vibrant-blue/20 transition-all duration-300 shadow-sm hover:shadow-md"
+                            className="relative bg-white border-2 border-gray-50 p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] flex flex-col sm:flex-row items-start gap-4 sm:gap-8 group hover:border-vibrant-blue/20 transition-all duration-300 shadow-sm hover:shadow-md"
                         >
                             {/* Icon Container */}
-                            <div className={`flex-shrink-0 w-20 h-20 rounded-[1.5rem] ${feature.bgBadge} border-2 flex items-center justify-center relative z-10 group-hover:scale-105 transition-transform duration-300`}>
-                                <feature.icon className={`w-10 h-10 ${feature.iconStyle}`} strokeWidth={2} />
+                            <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-[1.25rem] sm:rounded-[1.5rem] ${feature.bgBadge} border-2 flex items-center justify-center relative z-10 group-hover:scale-105 transition-transform duration-300`}>
+                                <feature.icon className={`w-8 h-8 sm:w-10 sm:h-10 ${feature.iconStyle}`} strokeWidth={2} />
                             </div>
 
                             {/* Text Content */}

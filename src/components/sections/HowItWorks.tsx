@@ -72,28 +72,28 @@ export function HowItWorks() {
     const progressValues = [progress0, progress1, progress2];
 
     return (
-        <section ref={triggerRef} className="relative h-[300vh] bg-[#FAF9F6]">
-            <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
+        <section ref={triggerRef} className="relative h-auto md:h-[300vh] bg-[#FAF9F6] pb-24 md:pb-0 pt-16 md:pt-0">
+            <div className="relative md:sticky md:top-0 h-auto md:h-screen w-full flex flex-col justify-center">
                 
                 <div className="relative z-20 w-[94%] max-w-[110rem] mx-auto px-4 md:px-8">
-                    <div className="text-center mb-16 flex flex-col items-center">
-                        <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4">
+                    <div className="text-center mb-10 md:mb-16 flex flex-col items-center">
+                        <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4 mt-8 md:mt-0 block z-50">
                             THE PROCESS
                         </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50">
                             How It Works
                         </h2>
-                        <p className="text-lg text-[#001738]/50 max-w-xl mx-auto mb-10 leading-relaxed">
+                        <p className="text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 z-50">
                             A seamless bridge between Europe and the World. We manage everything from vetting to payments, so you can focus on building.
                         </p>
 
                         {/* Professional Toggle */}
-                        <div className="relative bg-gray-100 p-1.5 rounded-full flex gap-1 border border-gray-200">
+                        <div className="relative bg-gray-100 p-1.5 rounded-full flex gap-1 border border-gray-200 z-50">
                             {["startups", "students"].map((mode) => (
                                 <button
                                     key={mode}
                                     onClick={() => { setViewMode(mode as any); setActiveIndex(0); triggerRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
-                                    className={`relative px-12 py-3 rounded-full text-lg font-bold transition-all duration-500 z-10 ${viewMode === mode ? "text-white" : "text-[#001738]/50 hover:text-[#001738]"
+                                    className={`relative px-6 sm:px-12 py-2 sm:py-3 rounded-full text-sm sm:text-lg font-bold transition-all duration-500 z-10 ${viewMode === mode ? "text-white" : "text-[#001738]/50 hover:text-[#001738]"
                                         }`}
                                 >
                                     <span className="relative z-20">
@@ -113,8 +113,32 @@ export function HowItWorks() {
                         </div>
                     </div>
 
-                    <div className="relative z-10 bg-white border border-gray-100 rounded-[3rem] md:rounded-[4rem] p-12 md:p-16 shadow-xl overflow-hidden">
-                        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
+                    <div className="relative z-10 bg-white border border-gray-100 rounded-[2rem] md:rounded-[4rem] p-6 sm:p-10 md:p-16 shadow-xl overflow-hidden mt-6 md:mt-0">
+                        
+                        {/* Mobile View: Stacked (Hidden on md and up) */}
+                        <div className="flex md:hidden flex-col gap-6">
+                            {steps.map((step, idx) => (
+                                <div key={step.id} className="flex flex-col gap-3 relative p-6 bg-[#FAF9F6]/50 rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+                                    <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${viewMode === "startups" ? "bg-vibrant-blue" : "bg-vibrant-crimson"}`} />
+                                    <h3 className="text-2xl font-display font-medium text-[#001738] ml-2">
+                                        {idx + 1}. {step.title}
+                                    </h3>
+                                    <p className="text-[#001738]/60 text-base leading-relaxed ml-2">
+                                        {step.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mt-3 ml-2">
+                                        {step.keywords.map(kw => (
+                                            <span key={kw} className="bg-white border border-gray-200 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#001738]/80 uppercase tracking-wider">
+                                                {kw}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Desktop View: Interactive Timeline (Hidden on small screens) */}
+                        <div className="hidden md:flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
                             <div className="flex-1 flex flex-col justify-center relative pl-16 md:pl-20 w-full">
                                 <div className="absolute left-0 top-0 bottom-0 flex flex-col items-center justify-center gap-8">
                                     {steps.map((_, idx) => (
