@@ -119,27 +119,20 @@ function StepCard({ step, theme, titleColor, isLast, onCtaClick }: StepCardProps
             style={{ y: yVal, opacity: opacityVal }}
             className="relative flex flex-col items-center sm:items-start lg:items-center max-w-[480px] mx-auto lg:mx-0 w-full"
         >
-            <div className={`bg-white border border-gray-100 p-8 sm:p-12 rounded-[2.5rem] shadow-sm w-full min-h-[350px] transition-all duration-500 ${hoverBorder} group flex flex-col items-center justify-center text-center relative overflow-hidden`}>
+            <div className={`bg-white border border-gray-100 p-8 sm:p-10 rounded-[2rem] shadow-sm w-full transition-all duration-500 ${hoverBorder} group flex flex-col relative overflow-hidden`}>
                 
-                <div className="w-24 h-24 sm:w-28 sm:h-28 mb-8 relative group-hover:-translate-y-1 transition-transform duration-500 flex items-center justify-center">
-                    {step.image ? (
-                        <img
-                            src={step.image}
-                            alt={step.title}
-                            className="w-full h-full object-contain z-10 group-hover:scale-[1.05] transition-all duration-500 opacity-80 group-hover:opacity-100 filter brightness-[0.9] group-hover:brightness-100"
-                        />
-                    ) : step.icon ? (
-                        <step.icon
-                            className="w-12 h-12 text-[#001738]/30"
-                            strokeWidth={1.5}
-                        />
-                    ) : null}
+                <div className="flex items-center justify-center mb-6">
+                    {step.icon && (
+                        <div className="p-4 bg-gray-50 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                            <step.icon className="w-8 h-8 text-[#001738]/50" />
+                        </div>
+                    )}
                 </div>
 
-                <div className="flex flex-col items-center relative z-10">
-                    <h3 className={`text-2xl sm:text-3xl font-display font-medium mb-4 ${titleColor}`}>{step.title}</h3>
+                <div className="flex flex-col relative z-10 w-full text-center items-center">
+                    <h3 className={`text-2xl font-display font-medium mb-4 ${titleColor}`}>{step.title}</h3>
 
-                    <p className="text-[#001738]/50 text-base leading-relaxed mb-0 max-w-[320px]">
+                    <p className="text-[#001738]/60 text-lg leading-relaxed mb-0">
                         {step.description}
                     </p>
 

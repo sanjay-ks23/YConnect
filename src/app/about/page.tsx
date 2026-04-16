@@ -31,8 +31,8 @@ export default function AboutPage() {
                             <span className="text-sm font-bold text-vibrant-blue uppercase tracking-widest">Our Mission</span>
                         </span>
                         <h1 className="heading-hero mb-8">
-                            Bridging the gap between{" "}
-                            <span className="text-vibrant-green font-display">the World</span>
+                            Bridging the gap between Europe and{" "}
+                            <span className="text-vibrant-green font-display">The World</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-[#001738]/60 leading-relaxed max-w-3xl mx-auto font-sans">
                             At YConnect, we believe that the best technical talent should be 
@@ -79,7 +79,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div>
                             <h2 className="heading-section mb-8">
-                                Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display">the World</span>
+                                Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display">The World</span>
                             </h2>
                             <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans">
                                 <p>
@@ -128,7 +128,7 @@ export default function AboutPage() {
                         {/* Startups */}
                         <div className="bg-[#FAF9F6] p-12 rounded-[3.5rem] border border-gray-100 shadow-sm transition-all hover:bg-white hover:shadow-md">
                             <h3 className="text-3xl font-display font-medium text-[#001738] mb-8 flex items-center gap-3">
-                                supporting <span className="text-vibrant-blue">startups</span>
+                                Supporting <span className="text-vibrant-blue">Startups</span>
                             </h3>
                             <div className="space-y-8">
                                 {supportStartups.map((item) => (
@@ -147,7 +147,7 @@ export default function AboutPage() {
                         {/* Students */}
                         <div className="bg-[#FAF9F6] p-12 rounded-[3.5rem] border border-gray-100 shadow-sm transition-all hover:bg-white hover:shadow-md">
                             <h3 className="text-3xl font-display font-medium text-[#001738] mb-8 flex items-center gap-3">
-                                supporting <span className="text-vibrant-crimson">students</span>
+                                Supporting <span className="text-vibrant-crimson">Students</span>
                             </h3>
                             <div className="space-y-8">
                                 {supportStudents.map((item) => (

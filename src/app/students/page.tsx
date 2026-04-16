@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, GraduationCap, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, GraduationCap, ArrowUpRight, Laptop, UserCircle, Handshake, MessageSquare, Rocket } from "lucide-react";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StudentForm } from "@/components/forms/StudentForm";
 import { FormModal } from "@/components/ui/FormModal";
@@ -54,11 +54,11 @@ const benefits = [
 ];
 
 const processSteps = [
-    { step: "01", title: "Apply", description: "Submit your application and highlight your best projects and skills.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Laptop/3D/laptop_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
-    { step: "02", title: "Profile Creation", description: "Create a detailed technical profile that founders will love to see.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Pencil/3D/pencil_3d.png", color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "Matching", description: "We match you with startups looking for your specific engineering stack.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Handshake/3D/handshake_3d.png", color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
-    { step: "04", title: "Interview", description: "Meet the founders directly to discuss the role and project goals.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Speech%20balloon/3D/speech_balloon_3d.png", color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "05", title: "Work Begins", description: "Join the team and start building international-grade products.", image: "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png", color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "01", title: "Apply", description: "Submit your application and highlight your best projects and skills.", icon: Laptop, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "02", title: "Profile Creation", description: "Create a detailed technical profile that founders will love to see.", icon: UserCircle, color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
+    { step: "03", title: "Matching", description: "We match you with startups looking for your specific engineering stack.", icon: Handshake, color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
+    { step: "04", title: "Interview", description: "Meet the founders directly to discuss the role and project goals.", icon: MessageSquare, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "05", title: "Work Begins", description: "Join the team and start building international-grade products.", icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
 ];
 
 const countries = [
