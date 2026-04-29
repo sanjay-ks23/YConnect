@@ -85,8 +85,8 @@ export default function StartupsPage() {
                             <span className="text-vibrant-blue font-display">top international talent</span>
                         </h1>
                         <p className="text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 w-max max-w-full mx-auto">
-                            Access pre-vetted engineering talent, significantly reduce costs,<br className="hidden md:block" />
-                            and accelerate your product roadmap without local hiring overhead.
+                            Access pre-vetted engineering talent,<br className="block md:hidden" /> significantly reduce costs,<br className="hidden md:block" /> and<br className="block md:hidden" />
+                            accelerate your product roadmap<br className="block md:hidden" /> without local hiring overhead.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">

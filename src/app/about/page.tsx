@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 };
 
 const supportStartups = [
-    { title: "Vetted Talent", desc: <>Access the top 1% of pre-vetted international <br className="hidden md:block" />tech engineering students and recent graduates.</> },
-    { title: "Cost Efficiency", desc: <>Save up to 70% on your company's core technical <br className="hidden md:block" />operational and complex infrastructure costs.</> },
-    { title: "Full Coordination", desc: <>We handle all legal contracts, global payments, <br className="hidden md:block" />and all ongoing daily administrative management.</> }
+    { title: "Vetted Talent", desc: <>Access the top 1% of pre-vetted<br className="block md:hidden" /> international<br className="hidden md:block" /> tech engineering<br className="block md:hidden" /> students and recent graduates.</> },
+    { title: "Cost Efficiency", desc: <>Save up to 70% on your company's<br className="block md:hidden" /> core technical<br className="hidden md:block" /> operational and<br className="block md:hidden" /> complex infrastructure costs.</> },
+    { title: "Full Coordination", desc: <>We handle all legal contracts,<br className="block md:hidden" /> global payments,<br className="hidden md:block" /> and all ongoing<br className="block md:hidden" /> daily administrative management.</> }
 ];
 
 const supportStudents = [
-    { title: "Paid Roles", desc: <>Every single engagement is a highly rewarded, <br className="hidden md:block" />fully paid international tech engineering role.</> },
-    { title: "Global Exposure", desc: <>Work directly with innovative European startup <br className="hidden md:block" />founders on real production-grade tech products.</> },
-    { title: "Flexible Work", desc: <>Part-time tech roles that perfectly respect your <br className="hidden md:block" />exams and your rigorous academic study calendar.</> }
+    { title: "Paid Roles", desc: <>Every single engagement is a<br className="block md:hidden" /> highly rewarded,<br className="hidden md:block" /> fully paid<br className="block md:hidden" /> international tech engineering role.</> },
+    { title: "Global Exposure", desc: <>Work directly with innovative<br className="block md:hidden" /> European startup<br className="hidden md:block" /> founders on real<br className="block md:hidden" /> production-grade tech products.</> },
+    { title: "Flexible Work", desc: <>Part-time tech roles that perfectly<br className="block md:hidden" /> respect your<br className="hidden md:block" /> exams and your<br className="block md:hidden" /> rigorous academic study calendar.</> }
 ];
 
 export default function AboutPage() {
@@ -35,8 +35,10 @@ export default function AboutPage() {
                             <span className="text-vibrant-green font-display">The World</span>
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
-                            At YConnect, we believe the best technical talent should be<br className="hidden md:block" />
-                            accessible to innovative startups, regardless of geography.
+                            At YConnect, we believe the<br className="block md:hidden" />
+                            best technical talent should<br className="block md:hidden" /> be<br className="hidden md:block" />
+                            accessible to innovative<br className="block md:hidden" />
+                            startups, regardless of geography.
                         </div>
                     </div>
                 </div>
@@ -85,16 +87,21 @@ export default function AboutPage() {
                             </h2>
                             <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans w-full lg:w-max">
                                 <div className="w-full text-justify [text-align-last:justify]">
-                                    YConnect acts as the vital connecting bridge between<br className="hidden md:block" />
-                                    two of the world's most vibrant tech ecosystems.<br className="hidden md:block" />
-                                    We completely handle all cross-border complexities,<br className="hidden md:block" />
-                                    so your team can focus on building core products.
+                                    YConnect acts as the vital<br className="block md:hidden" />
+                                    connecting bridge between<br className="hidden md:block" /> two of<br className="block md:hidden" />
+                                    the world's most vibrant tech<br className="block md:hidden" />
+                                    ecosystems.<br className="hidden md:block" /> We completely handle<br className="block md:hidden" />
+                                    all cross-border complexities,<br className="hidden md:block" /> so<br className="block md:hidden" />
+                                    your team can focus on<br className="block md:hidden" />
+                                    building core products.
                                 </div>
                                 <div className="w-full text-justify [text-align-last:justify]">
-                                    As a trusted mediator, we manage the full lifecycle:<br className="hidden md:block" />
-                                    from sourcing and vetting top international talent<br className="hidden md:block" />
-                                    to handling complex contracts and global payments.<br className="hidden md:block" />
-                                    This ensures a truly risk-free hiring experience.
+                                    As a trusted mediator, we manage<br className="block md:hidden" />
+                                    the full lifecycle:<br className="hidden md:block" /> from sourcing<br className="block md:hidden" />
+                                    and vetting top international<br className="block md:hidden" />
+                                    talent<br className="hidden md:block" /> to handling complex contracts<br className="block md:hidden" />
+                                    and global payments.<br className="hidden md:block" /> This ensures<br className="block md:hidden" />
+                                    a truly risk-free hiring experience.
                                 </div>
                             </div>
                         </div>

@@ -24,10 +24,8 @@ export function HeroSection() {
                     <span className="text-vibrant-crimson inline-block mt-2 sm:mt-4">with International Talent</span>
                 </h1>
 
-                <p className="text-justify [text-align-last:justify] text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 max-w-2xl mx-auto">
-                    Bridging European innovation with the world&apos;s premier engineering talent. 
-                    Scale your startup with top-tier freelance developers or accelerate your career 
-                    with high-impact global project experience.
+                <p className="w-max max-w-full text-justify [text-align-last:justify] text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 mx-auto">
+                    Bridging European innovation with the<br className="block md:hidden" /> world&apos;s premier engineering<br className="hidden md:block" /> talent. Scale<br className="block md:hidden" /> your startup with top-tier freelance<br className="block md:hidden" /> developers or<br className="hidden md:block" /> accelerate your career with<br className="block md:hidden" /> high-impact global project experience.
                 </p>
 
                 {/* CTA Buttons */}

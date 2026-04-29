@@ -22,8 +22,8 @@ export default function ContactPage() {
                             Let's build something <span className="text-vibrant-blue">extraordinary</span> together
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
-                            Whether you're a founder looking to scale or a student ready to<br className="hidden md:block" />
-                            leap into the global tech world, we're here to bridge the gap.
+                            Whether you're a founder looking to<br className="block md:hidden" /> scale or a student ready to<br className="hidden md:block" /> leap<br className="block md:hidden" />
+                            into the global tech world, we're<br className="block md:hidden" /> here to bridge the gap.
                         </div>
                     </div>
                 </div>
@@ -76,8 +76,8 @@ export default function ContactPage() {
                                         Send us a message
                                     </h2>
                                     <div className="w-max max-w-full text-justify [text-align-last:justify] text-[#001738]/50 mb-12 text-lg font-sans">
-                                        We typically respond within 2-4 business hours. Let us know<br className="hidden md:block" />
-                                        how our team can help you scale your startup or career.
+                                        We typically respond within 2-4 business<br className="block md:hidden" /> hours. Let us know<br className="hidden md:block" /> how our team can<br className="block md:hidden" />
+                                        help you scale your startup or career.
                                     </div>
                                     <ContactForm />
                                 </div>
