@@ -84,7 +84,7 @@ export default function StartupsPage() {
                             Scale your tech team with{" "}
                             <span className="text-vibrant-blue font-display">top international talent</span>
                         </h1>
-                        <p className="text-justify md:[text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 md:w-max mx-auto">
+                        <p className="text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 w-max max-w-full mx-auto">
                             Access pre-vetted engineering talent, significantly reduce costs,<br className="hidden md:block" />
                             and accelerate your product roadmap without local hiring overhead.
                         </p>
@@ -148,7 +148,7 @@ export default function StartupsPage() {
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
                             Ready to hire?
                         </h2>
-                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
                             Share your exact hiring requirements,<br className="hidden md:block" />
                             and see candidate profiles in 24 hours.
                         </div>

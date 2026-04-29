@@ -83,7 +83,7 @@ export default function StudentsPage() {
                             Work with the best{" "}
                             <span className="text-vibrant-crimson font-display">European startups</span>
                         </h1>
-                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
                             Join elite European technical teams, earn competitively in Euros,<br className="hidden md:block" />
                             and build a global career through pre-vetted, high-impact roles.
                         </div>
@@ -147,7 +147,7 @@ export default function StudentsPage() {
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
                             Ready to join the pool?
                         </h2>
-                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
                             Apply in minutes and get the unique chance<br className="hidden md:block" />
                             to work with world-class European founders.
                         </div>

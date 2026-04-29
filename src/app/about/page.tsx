@@ -34,7 +34,7 @@ export default function AboutPage() {
                             Bridging the gap between Europe and{" "}
                             <span className="text-vibrant-green font-display">The World</span>
                         </h1>
-                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
                             At YConnect, we believe the best technical talent should be<br className="hidden md:block" />
                             accessible to innovative startups, regardless of geography.
                         </div>
@@ -51,7 +51,7 @@ export default function AboutPage() {
                                 <Target className="w-8 h-8 text-vibrant-blue" />
                             </div>
                             <h2 className="text-3xl font-display font-medium text-[#001738]">Our Mission</h2>
-                            <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                            <div className="w-max max-w-full text-justify [text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
                                 To bridge the crucial gap between European<br className="hidden md:block" />
                                 innovation and top engineering excellence,<br className="hidden md:block" />
                                 creating meaningful global opportunities<br className="hidden md:block" />
@@ -63,7 +63,7 @@ export default function AboutPage() {
                                 <Rocket className="w-8 h-8 text-vibrant-green" />
                             </div>
                             <h2 className="text-3xl font-display font-medium text-[#001738]">Our Vision</h2>
-                            <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                            <div className="w-max max-w-full text-justify [text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
                                 To create a world where local geography is<br className="hidden md:block" />
                                 no barrier to finding the top tech talent.<br className="hidden md:block" />
                                 We envision a future where every European<br className="hidden md:block" />
@@ -84,13 +84,13 @@ export default function AboutPage() {
                                 Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display">The World</span>
                             </h2>
                             <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans w-full lg:w-max">
-                                <div className="w-full text-left md:text-justify md:[text-align-last:justify]">
+                                <div className="w-full text-justify [text-align-last:justify]">
                                     YConnect acts as the vital connecting bridge between<br className="hidden md:block" />
                                     two of the world's most vibrant tech ecosystems.<br className="hidden md:block" />
                                     We completely handle all cross-border complexities,<br className="hidden md:block" />
                                     so your team can focus on building core products.
                                 </div>
-                                <div className="w-full text-left md:text-justify md:[text-align-last:justify]">
+                                <div className="w-full text-justify [text-align-last:justify]">
                                     As a trusted mediator, we manage the full lifecycle:<br className="hidden md:block" />
                                     from sourcing and vetting top international talent<br className="hidden md:block" />
                                     to handling complex contracts and global payments.<br className="hidden md:block" />
@@ -141,7 +141,7 @@ export default function AboutPage() {
                                         </div>
                                         <div className="flex-1 w-full">
                                             <h4 className="text-xl font-bold text-[#001738] mb-1">{item.title}</h4>
-                                            <div className="w-full text-left md:text-justify md:[text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
+                                            <div className="w-full text-justify [text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
                                         </div>
                                     </div>
                                 ))}
@@ -160,7 +160,7 @@ export default function AboutPage() {
                                         </div>
                                         <div className="flex-1 w-full">
                                             <h4 className="text-xl font-bold text-[#001738] mb-1">{item.title}</h4>
-                                            <div className="w-full text-left md:text-justify md:[text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
+                                            <div className="w-full text-justify [text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
                                         </div>
                                     </div>
                                 ))}

@@ -21,7 +21,7 @@ export default function ContactPage() {
                         <h1 className="heading-hero mb-8">
                             Let's build something <span className="text-vibrant-blue">extraordinary</span> together
                         </h1>
-                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
                             Whether you're a founder looking to scale or a student ready to<br className="hidden md:block" />
                             leap into the global tech world, we're here to bridge the gap.
                         </div>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                         <div className="lg:col-span-1 space-y-10">
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
-                                <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                                <div className="w-max max-w-full text-justify [text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
                                     Our team is based across Europe,<br className="hidden md:block" />
                                     ensuring seamless coordination<br className="hidden md:block" />
                                     throughout your entire journey.
@@ -75,7 +75,7 @@ export default function ContactPage() {
                                     <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
                                         Send us a message
                                     </h2>
-                                    <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-[#001738]/50 mb-12 text-lg font-sans">
+                                    <div className="w-max max-w-full text-justify [text-align-last:justify] text-[#001738]/50 mb-12 text-lg font-sans">
                                         We typically respond within 2-4 business hours. Let us know<br className="hidden md:block" />
                                         how our team can help you scale your startup or career.
                                     </div>
