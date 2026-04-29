@@ -10,16 +10,21 @@ export function Footer() {
       <div className="container-superhi relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 mb-20">
           {/* Left Side: Brand */}
-          <div className="flex flex-col max-w-md">
+          <div className="flex flex-col max-w-xl">
             <a href="/" className="inline-block mb-6 group">
               <span className="text-5xl md:text-6xl font-medium text-white group-hover:opacity-90 transition-opacity" style={{ fontFamily: 'var(--font-inter), sans-serif', letterSpacing: '-0.1em' }}>
                 YConnect
               </span>
             </a>
             
-            <p className="text-white/60 text-lg leading-relaxed font-body mb-8">
-              Bridging the gap between European innovation and international engineering excellence.
-            </p>
+            <div className="w-max max-w-full mb-8">
+              <div className="text-justify [text-align-last:justify] text-white/60 text-lg leading-relaxed font-body w-full">
+                Bridging the gap between European innovation
+              </div>
+              <div className="text-justify [text-align-last:justify] text-white/60 text-lg leading-relaxed font-body w-full">
+                and our international engineering excellence.
+              </div>
+            </div>
 
             {/* Social Icons moved here */}
             <div className="flex gap-4">

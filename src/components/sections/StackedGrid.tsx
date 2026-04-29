@@ -13,7 +13,7 @@ interface GridItem {
 
 interface StackedGridProps {
   title: string;
-  subtitle: string;
+  subtitle: string | React.ReactNode;
   items: GridItem[];
   theme?: "blue" | "crimson";
   bgColor?: string;
@@ -32,9 +32,9 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
           <h2 className="text-4xl md:text-5xl font-display font-medium text-[#001738] mb-6 tracking-tight">
             {title}
           </h2>
-          <p className="text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">
+          <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">
             {subtitle}
-          </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">

@@ -7,42 +7,42 @@ const features = [
     {
         icon: Target,
         title: "Precise Matching",
-        description: "We carefully match startups with students based on skills, experience, and project needs.",
+        description: "We link you with highly elite talent, to fulfill all of your exact precise needs.",
         iconStyle: "text-blue-600",
         bgBadge: "bg-blue-50 border-blue-100",
     },
     {
         icon: Clock,
         title: "Fast Turnaround",
-        description: "Get matched with talent within days, not weeks. Start your project quickly.",
+        description: "Get matched with highly vetted global talent in days. Start scaling your startup.",
         iconStyle: "text-orange-600",
         bgBadge: "bg-orange-50 border-orange-100",
     },
     {
         icon: Globe2,
         title: "Cross-Border Made Easy",
-        description: "We handle all the complexity of international contracts, payments, and coordination.",
+        description: "We handle all complex foreign contracts, and totally secure your global payments.",
         iconStyle: "text-green-600",
         bgBadge: "bg-green-50 border-green-100",
     },
     {
         icon: Headphones,
         title: "Ongoing Communication",
-        description: "Regular check-ins and progress tracking to ensure everything runs smoothly.",
+        description: "Enjoy regular milestone check-ins today, and detailed tracking to ensure success.",
         iconStyle: "text-pink-600",
         bgBadge: "bg-pink-50 border-pink-100",
     },
     {
         icon: Shield,
         title: "Risk-Free Hiring",
-        description: "Short-term contracts with no long-term commitment. Try before you extend.",
+        description: "Enjoy short-term flexible contracts. Hold absolutely zero commitments, risk-free.",
         iconStyle: "text-indigo-600",
         bgBadge: "bg-indigo-50 border-indigo-100",
     },
     {
         icon: HeartHandshake,
         title: "Full Support",
-        description: "Dedicated support throughout the engagement — from onboarding to project completion.",
+        description: "Receive elite, dedicated expert support from initial onboarding until the finish.",
         iconStyle: "text-sky-600",
         bgBadge: "bg-sky-50 border-sky-100",
     },
@@ -59,12 +59,12 @@ export function WhyChooseUs() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 md:mb-8 tracking-tight max-w-2xl px-2">
                         Talent you can count on.
                     </h2>
-                    <p className="text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed px-2">
+                    <p className="text-justify [text-align-last:justify] text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed px-2">
                         Access incredible engineering talent without the usual cross-border hiring friction. Productive, reliable, and perfectly matched.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[1200px] mx-auto relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[1400px] mx-auto relative z-10">
                     {features.map((feature, idx) => (
                         <motion.div
                             key={feature.title}
@@ -82,7 +82,7 @@ export function WhyChooseUs() {
                             {/* Text Content */}
                             <div className="flex flex-col relative z-10">
                                 <h3 className="text-2xl font-display font-medium text-[#001738] mb-3 tracking-tight">{feature.title}</h3>
-                                <p className="text-[#001738]/50 leading-relaxed text-base lg:text-lg">
+                                <p className="text-justify [text-align-last:justify] text-[#001738]/50 leading-relaxed text-base lg:text-lg">
                                     {feature.description}
                                 </p>
                             </div>

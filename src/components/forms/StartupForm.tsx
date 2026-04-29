@@ -52,7 +52,7 @@ export function StartupForm() {
                     <CheckCircle className="w-10 h-10 text-vibrant-blue" />
                 </div>
                 <h3 className="text-3xl font-display font-medium mb-4 text-[#001738]">Requirements sent!</h3>
-                <p className="text-[#001738]/50 max-w-sm mx-auto text-lg leading-relaxed">
+                <p className="text-justify text-[#001738]/50 max-w-sm mx-auto text-lg leading-relaxed">
                     We&apos;ll review and get back to you within 48 hours with matches.
                 </p>
             </div>

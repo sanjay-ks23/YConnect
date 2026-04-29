@@ -7,19 +7,19 @@ const startupSteps = [
     {
         id: "s1",
         title: "Submit Requirements",
-        description: "Tell us what role you need, skills required, and project duration. Our platform matches you with the top tier of international engineering talent instantly.",
+        description: "Tell us exactly what role you need, the skills required, and your project duration. Our platform instantly matches you with our top-tier global software engineering talent.",
         keywords: ["Job Profile", "Skill Gap", "Matching", "Requirement", "Tech Stack"]
     },
     {
         id: "s2",
         title: "Get Matched",
-        description: "We hand-pick the perfect student talent from our curated pool. You get matched with highly vetted, motivated individuals perfectly suited to your tech stack.",
+        description: "We hand-pick the perfect student talent from our curated pool. You will get matched with highly vetted, motivated individuals perfectly suited to your specific tech stack.",
         keywords: ["Top Talent", "Vetted", "Pre-Screened", "Selection", "Engineering"]
     },
     {
         id: "s3",
         title: "Start Working",
-        description: "Your matched student starts working part-time. We handle all contracts, payments, and timeline coordination so you can focus entirely on your core product.",
+        description: "Your matched student starts working part-time. We handle all contracts, payments, and timeline coordination so you can focus entirely on your core tech product.",
         keywords: ["Launch", "Scale", "Flexible", "Contract", "Success"]
     }
 ];
@@ -28,19 +28,19 @@ const studentSteps = [
     {
         id: "st1",
         title: "Apply & Profile",
-        description: "Create your profile and showcase your skills to innovative European startups. Gain global visibility and real-world project opportunities.",
+        description: "Create your profile and showcase your technical skills to innovative European startups. Gain global visibility and unlock amazing real-world global project opportunities.",
         keywords: ["Portfolio", "Skillset", "Visibility", "Apply", "Global"]
     },
     {
         id: "st2",
         title: "Get Selected",
-        description: "Match with a startup that fits your tech stack and interests. Go through a streamlined selection process with direct feedback.",
+        description: "Get perfectly matched with an innovative European startup that precisely fits your tech stack and interests. Go through a selection process with clear feedback.",
         keywords: ["Matchmaking", "Selection", "Direct Hire", "Tech Fit", "Interview"]
     },
     {
         id: "st3",
         title: "Start Earning",
-        description: "Work on real projects, gain international exposure, and get paid. Earn while you learn with flexible hours that fit your student schedule.",
+        description: "Work on real-world projects, gain international exposure, and get paid for your time. You can earn while you learn with highly flexible hours that fit your study schedule.",
         keywords: ["Paid Work", "Experience", "Career Growth", "Global Exposure", "Learn By Doing"]
     }
 ];
@@ -83,7 +83,7 @@ export function HowItWorks() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50">
                             How It Works
                         </h2>
-                        <p className="text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 z-50">
+                        <p className="text-justify text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 z-50">
                             A seamless bridge between Europe and the World. We manage everything from vetting to payments, so you can focus on building.
                         </p>
 
@@ -123,7 +123,7 @@ export function HowItWorks() {
                                     <h3 className="text-2xl font-display font-medium text-[#001738] ml-2">
                                         {idx + 1}. {step.title}
                                     </h3>
-                                    <p className="text-[#001738]/60 text-base leading-relaxed ml-2">
+                                    <p className="text-justify text-[#001738]/60 text-base leading-relaxed ml-2">
                                         {step.description}
                                     </p>
                                     <div className="flex flex-wrap gap-2 mt-3 ml-2">
@@ -178,7 +178,7 @@ export function HowItWorks() {
                                                             exit={{ opacity: 0, height: 0 }}
                                                             className="overflow-hidden"
                                                         >
-                                                            <p className="text-[#001738]/50 text-xl md:text-2xl mt-6 mb-8 leading-tight max-w-2xl">
+                                                            <p className="text-justify [text-align-last:justify] text-[#001738]/50 text-xl md:text-2xl mt-6 mb-8 leading-tight w-full md:w-[650px]">
                                                                 {step.description}
                                                             </p>
                                                         </motion.div>

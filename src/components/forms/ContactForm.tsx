@@ -67,7 +67,7 @@ export function ContactForm() {
                     <CheckCircle className="w-8 h-8 text-vibrant-blue" />
                 </div>
                 <h3 className="text-2xl font-display font-medium mb-3 text-[#001738]">Message sent!</h3>
-                <p className="text-[#001738]/50 max-w-sm mx-auto">
+                <p className="text-justify text-[#001738]/50 max-w-sm mx-auto">
                     Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
                 <button onClick={() => window.location.href = window.location.pathname} className="mt-8 text-vibrant-blue font-bold hover:underline">

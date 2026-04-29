@@ -7,7 +7,7 @@ import { type LucideIcon } from "lucide-react";
 export interface ProcessStep {
     step: string;
     title: string;
-    description: string;
+    description: string | React.ReactNode;
     icon?: LucideIcon; 
     image?: string; 
     color?: string; 
@@ -17,7 +17,7 @@ export interface ProcessStep {
 interface ProcessSectionProps {
     badgeText: string;
     title: React.ReactNode;
-    subtitle: string;
+    subtitle: string | React.ReactNode;
     steps: ProcessStep[];
     theme: "crimson" | "orange" | "blue";
     onCtaClick?: () => void;
@@ -57,9 +57,9 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
                         <h2 className="heading-section mb-6">
                             {title}
                         </h2>
-                        <p className="text-lg text-[#001738]/50 leading-relaxed max-w-[420px]">
+                        <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/50 leading-relaxed">
                             {subtitle}
-                        </p>
+                        </div>
                     </div>
                 </div>
 
@@ -132,9 +132,9 @@ function StepCard({ step, theme, titleColor, isLast, onCtaClick }: StepCardProps
                 <div className="flex flex-col relative z-10 w-full text-center items-center">
                     <h3 className={`text-2xl font-display font-medium mb-4 ${titleColor}`}>{step.title}</h3>
 
-                    <p className="text-[#001738]/60 text-lg leading-relaxed mb-0">
+                    <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-[#001738]/60 text-lg leading-relaxed mb-0">
                         {step.description}
-                    </p>
+                    </div>
 
                     {isLast && onCtaClick && (
                         <button 

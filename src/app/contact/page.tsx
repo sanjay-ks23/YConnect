@@ -21,10 +21,10 @@ export default function ContactPage() {
                         <h1 className="heading-hero mb-8">
                             Let's build something <span className="text-vibrant-blue">extraordinary</span> together
                         </h1>
-                        <p className="text-xl md:text-2xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto font-sans">
-                            Whether you're a founder looking to scale or a student ready to 
+                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+                            Whether you're a founder looking to scale or a student ready to<br className="hidden md:block" />
                             leap into the global tech world, we're here to bridge the gap.
-                        </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -37,10 +37,11 @@ export default function ContactPage() {
                         <div className="lg:col-span-1 space-y-10">
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
-                                <p className="text-lg text-[#001738]/60 leading-relaxed font-sans">
-                                    Our team is based across Europe, ensuring seamless 
-                                    coordination throughout your journey.
-                                </p>
+                                <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                                    Our team is based across Europe,<br className="hidden md:block" />
+                                    ensuring seamless coordination<br className="hidden md:block" />
+                                    throughout your entire journey.
+                                </div>
                             </div>
 
                             <div className="space-y-4">
@@ -50,7 +51,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-[#001738] mb-1">Email Us</h3>
-                                        <p className="text-[#001738]/60 font-sans">hello@yconnect.io</p>
+                                        <p className="text-justify text-[#001738]/60 font-sans">hello@yconnect.io</p>
                                     </div>
                                 </div>
 
@@ -60,8 +61,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-[#001738] mb-1">Visit Us</h3>
-                                        <p className="text-[#001738]/60 font-sans">Amsterdam, Netherlands</p>
-                                        <p className="text-[#001738]/60 font-sans">Amsterdam Office</p>
+                                        <p className="text-justify text-[#001738]/60 font-sans">Amsterdam, Netherlands</p>
+                                        <p className="text-justify text-[#001738]/60 font-sans">Amsterdam Office</p>
                                     </div>
                                 </div>
                             </div>
@@ -74,9 +75,10 @@ export default function ContactPage() {
                                     <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
                                         Send us a message
                                     </h2>
-                                    <p className="text-[#001738]/50 mb-12 text-lg font-sans">
-                                        We typically respond within 2-4 business hours. Let us know how we can help you scale or grow.
-                                    </p>
+                                    <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-[#001738]/50 mb-12 text-lg font-sans">
+                                        We typically respond within 2-4 business hours. Let us know<br className="hidden md:block" />
+                                        how our team can help you scale your startup or career.
+                                    </div>
                                     <ContactForm />
                                 </div>
                             </div>

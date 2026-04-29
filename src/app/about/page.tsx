@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 };
 
 const supportStartups = [
-    { title: "Vetted Talent", desc: "Access the top 1% of international engineering students." },
-    { title: "Cost Efficiency", desc: "Save up to 70% on technical operational costs." },
-    { title: "Full Coordination", desc: "We handle contracts, payments, and management." }
+    { title: "Vetted Talent", desc: <>Access the top 1% of pre-vetted international <br className="hidden md:block" />tech engineering students and recent graduates.</> },
+    { title: "Cost Efficiency", desc: <>Save up to 70% on your company's core technical <br className="hidden md:block" />operational and complex infrastructure costs.</> },
+    { title: "Full Coordination", desc: <>We handle all legal contracts, global payments, <br className="hidden md:block" />and all ongoing daily administrative management.</> }
 ];
 
 const supportStudents = [
-    { title: "Paid Roles", desc: "Every engagement is a fairly paid international role." },
-    { title: "Global Exposure", desc: "Work directly with European startup founders." },
-    { title: "Flexible Work", desc: "Part-time roles that respect your academic calendar." }
+    { title: "Paid Roles", desc: <>Every single engagement is a highly rewarded, <br className="hidden md:block" />fully paid international tech engineering role.</> },
+    { title: "Global Exposure", desc: <>Work directly with innovative European startup <br className="hidden md:block" />founders on real production-grade tech products.</> },
+    { title: "Flexible Work", desc: <>Part-time tech roles that perfectly respect your <br className="hidden md:block" />exams and your rigorous academic study calendar.</> }
 ];
 
 export default function AboutPage() {
@@ -34,10 +34,10 @@ export default function AboutPage() {
                             Bridging the gap between Europe and{" "}
                             <span className="text-vibrant-green font-display">The World</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-[#001738]/60 leading-relaxed max-w-3xl mx-auto font-sans">
-                            At YConnect, we believe that the best technical talent should be 
-                            accessible to the most innovative startups, regardless of geography.
-                        </p>
+                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+                            At YConnect, we believe the best technical talent should be<br className="hidden md:block" />
+                            accessible to innovative startups, regardless of geography.
+                        </div>
                     </div>
                 </div>
             </section>
@@ -51,22 +51,24 @@ export default function AboutPage() {
                                 <Target className="w-8 h-8 text-vibrant-blue" />
                             </div>
                             <h2 className="text-3xl font-display font-medium text-[#001738]">Our Mission</h2>
-                            <p className="text-lg text-[#001738]/60 leading-relaxed font-sans">
-                                To bridge the gap between European innovation and international engineering excellence, 
-                                creating meaningful opportunities for both startups and students through a seamless, 
-                                trust-based platform.
-                            </p>
+                            <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                                To bridge the crucial gap between European<br className="hidden md:block" />
+                                innovation and top engineering excellence,<br className="hidden md:block" />
+                                creating meaningful global opportunities<br className="hidden md:block" />
+                                through a completely trust-based platform.
+                            </div>
                         </div>
                         <div className="bg-white p-12 rounded-[3rem] shadow-xl shadow-vibrant-green/5 border border-gray-100 flex flex-col items-start gap-6 group hover:-translate-y-1 transition-all duration-300">
                             <div className="w-16 h-16 rounded-2xl bg-vibrant-green/10 flex items-center justify-center border border-vibrant-green/10 group-hover:scale-110 transition-transform">
                                 <Rocket className="w-8 h-8 text-vibrant-green" />
                             </div>
                             <h2 className="text-3xl font-display font-medium text-[#001738]">Our Vision</h2>
-                            <p className="text-lg text-[#001738]/60 leading-relaxed font-sans">
-                                To create a world where geography is no barrier to talent. We envision a future 
-                                where every European startup can access global excellence, and every student 
-                                can build a global career.
-                            </p>
+                            <div className="w-full md:w-max text-left md:text-justify md:[text-align-last:justify] text-lg text-[#001738]/60 leading-relaxed font-sans">
+                                To create a world where local geography is<br className="hidden md:block" />
+                                no barrier to finding the top tech talent.<br className="hidden md:block" />
+                                We envision a future where every European<br className="hidden md:block" />
+                                startup can access true global excellence.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,40 +83,41 @@ export default function AboutPage() {
                             <h2 className="heading-section mb-8">
                                 Connecting <span className="text-vibrant-blue">Europe</span> and <span className="text-vibrant-orange font-display">The World</span>
                             </h2>
-                            <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans">
-                                <p>
-                                    YConnect acts as the vital bridge between two of the world's most 
-                                    vibrant tech ecosystems. We handle the complexity of cross-border 
-                                    collaboration so you don't have to.
-                                </p>
-                                <p>
-                                    As a mediator, we manage the entire lifecycle: from sourcing and 
-                                    vetting talent to handling contracts, international payments, 
-                                    and ongoing coordination. This ensures a risk-free experience 
-                                    for both founders and students.
-                                </p>
+                            <div className="space-y-6 text-lg text-[#001738]/70 leading-relaxed font-sans w-full lg:w-max">
+                                <div className="w-full text-left md:text-justify md:[text-align-last:justify]">
+                                    YConnect acts as the vital connecting bridge between<br className="hidden md:block" />
+                                    two of the world's most vibrant tech ecosystems.<br className="hidden md:block" />
+                                    We completely handle all cross-border complexities,<br className="hidden md:block" />
+                                    so your team can focus on building core products.
+                                </div>
+                                <div className="w-full text-left md:text-justify md:[text-align-last:justify]">
+                                    As a trusted mediator, we manage the full lifecycle:<br className="hidden md:block" />
+                                    from sourcing and vetting top international talent<br className="hidden md:block" />
+                                    to handling complex contracts and global payments.<br className="hidden md:block" />
+                                    This ensures a truly risk-free hiring experience.
+                                </div>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <Building2 className="w-10 h-10 text-vibrant-blue" />
                                 <h3 className="text-xl font-bold text-[#001738]">45+ Startups</h3>
-                                <p className="text-sm text-[#001738]/50 outline-none">Partnered across the EU</p>
+                                <p className="text-center text-sm text-[#001738]/50 outline-none">Partnered across the EU</p>
                             </div>
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <GraduationCap className="w-10 h-10 text-vibrant-blue" />
                                 <h3 className="text-xl font-bold text-[#001738]">1500+ Pool</h3>
-                                <p className="text-sm text-[#001738]/50 outline-none">Pre-vetted Eng. Students</p>
+                                <p className="text-center text-sm text-[#001738]/50 outline-none">Pre-vetted Eng. Students</p>
                             </div>
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <ShieldCheck className="w-10 h-10 text-vibrant-blue" />
                                 <h3 className="text-xl font-bold text-[#001738]">100% Reliable</h3>
-                                <p className="text-sm text-[#001738]/50 outline-none">Safe payment & contracts</p>
+                                <p className="text-center text-sm text-[#001738]/50 outline-none">Safe payment & contracts</p>
                             </div>
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <Users className="w-10 h-10 text-vibrant-blue" />
                                 <h3 className="text-xl font-bold text-[#001738]">3-mo Average</h3>
-                                <p className="text-sm text-[#001738]/50 outline-none">Typical project duration</p>
+                                <p className="text-center text-sm text-[#001738]/50 outline-none">Typical project duration</p>
                             </div>
                         </div>
                     </div>
@@ -130,15 +133,15 @@ export default function AboutPage() {
                             <h3 className="text-3xl font-display font-medium text-[#001738] mb-8 flex items-center gap-3">
                                 Supporting <span className="text-vibrant-blue">Startups</span>
                             </h3>
-                            <div className="space-y-8">
+                            <div className="space-y-8 w-full xl:w-max">
                                 {supportStartups.map((item) => (
                                     <div key={item.title} className="flex gap-5">
                                         <div className="mt-1 w-6 h-6 rounded-full bg-vibrant-blue/10 flex-shrink-0 flex items-center justify-center">
                                             <div className="w-2 h-2 rounded-full bg-vibrant-blue" />
                                         </div>
-                                        <div>
+                                        <div className="flex-1 w-full">
                                             <h4 className="text-xl font-bold text-[#001738] mb-1">{item.title}</h4>
-                                            <p className="text-[#001738]/60 leading-relaxed font-sans">{item.desc}</p>
+                                            <div className="w-full text-left md:text-justify md:[text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
                                         </div>
                                     </div>
                                 ))}
@@ -149,15 +152,15 @@ export default function AboutPage() {
                             <h3 className="text-3xl font-display font-medium text-[#001738] mb-8 flex items-center gap-3">
                                 Supporting <span className="text-vibrant-crimson">Students</span>
                             </h3>
-                            <div className="space-y-8">
+                            <div className="space-y-8 w-full xl:w-max">
                                 {supportStudents.map((item) => (
                                     <div key={item.title} className="flex gap-5">
                                         <div className="mt-1 w-6 h-6 rounded-full bg-vibrant-crimson/10 flex-shrink-0 flex items-center justify-center">
                                             <div className="w-2 h-2 rounded-full bg-vibrant-crimson" />
                                         </div>
-                                        <div>
+                                        <div className="flex-1 w-full">
                                             <h4 className="text-xl font-bold text-[#001738] mb-1">{item.title}</h4>
-                                            <p className="text-[#001738]/60 leading-relaxed font-sans">{item.desc}</p>
+                                            <div className="w-full text-left md:text-justify md:[text-align-last:justify] text-[#001738]/60 leading-relaxed font-sans">{item.desc}</div>
                                         </div>
                                     </div>
                                 ))}

@@ -40,7 +40,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                 {/* Section Header (Fixed at top) */}
                 <div className={`container-superhi pt-32 pb-12 relative z-20 ${bgColor}`}>
                     <h2 className="heading-section mb-4">{title}</h2>
-                    <p className="text-lg lg:text-xl text-[#001738]/50 max-w-2xl">{subtitle}</p>
+                    <p className="text-justify text-lg lg:text-xl text-[#001738]/50 max-w-2xl">{subtitle}</p>
                 </div>
 
                 {/* Horizontal Sliding Content */}
@@ -63,7 +63,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                                     <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 ${accentColor}`}>
                                         {card.title}
                                     </h3>
-                                    <p className="text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto">
+                                    <p className="text-justify [text-align-last:justify] text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto">
                                         {card.description}
                                     </p>
                                 </div>

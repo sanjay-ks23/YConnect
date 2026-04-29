@@ -54,7 +54,7 @@ export function FormModal({ isOpen, onClose, children, title, subtitle }: FormMo
                 <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl px-6 sm:px-10 pt-8 pb-6 border-b border-gray-100 flex items-start justify-between">
                     <div>
                         {title && <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738] tracking-tight">{title}</h2>}
-                        {subtitle && <p className="text-[#001738]/50 mt-1 font-medium">{subtitle}</p>}
+                        {subtitle && <p className="text-justify text-[#001738]/50 mt-1 font-medium">{subtitle}</p>}
                     </div>
                     <button
                         onClick={onClose}

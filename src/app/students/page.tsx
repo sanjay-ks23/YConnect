@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Globe,
         title: "European Startups",
-        description: "Direct access to early-stage innovative startups across the Netherlands, Germany, France, and more.",
+        description: "Direct access to early-stage innovative startups across the Netherlands, Germany, and France.",
         color: "bg-vibrant-orange/15",
         iconBg: "bg-vibrant-orange/15",
         iconColor: "text-vibrant-orange-dark",
@@ -22,7 +22,7 @@ const benefits = [
     {
         icon: Wallet,
         title: "Paid Opportunities",
-        description: "Every engagement is a paid role. Earn competitively while gaining international work experience.",
+        description: "Every single engagement is a fully paid role. Earn well while gaining global work experience.",
         color: "bg-vibrant-yellow",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -30,7 +30,7 @@ const benefits = [
     {
         icon: Briefcase,
         title: "Gain Experience",
-        description: "Build production software and products. Solve real challenges that go beyond toy projects.",
+        description: "Build real production software and products. Solve challenges that go beyond toy projects.",
         color: "bg-vibrant-teal",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -38,7 +38,7 @@ const benefits = [
     {
         icon: CalendarCheck,
         title: "Flexible Work",
-        description: "Part-time (15-20 hrs/week) roles that respect your university schedule and exams.",
+        description: "Part-time roles of 15 to 20 hours per week that respect your university study schedule.",
         color: "bg-vibrant-crimson",
         iconBg: "bg-white/40",
         iconColor: "text-coral-red-dark",
@@ -46,7 +46,7 @@ const benefits = [
     {
         icon: Award,
         title: "International Exposure",
-        description: "Learn how global startups operate, build your network, and showcase your talent to the world.",
+        description: "Learn exactly how global startups operate, build your network, and showcase your talent.",
         color: "bg-lavender",
         iconBg: "bg-vibrant-crimson/10",
         iconColor: "text-vibrant-crimson",
@@ -54,11 +54,11 @@ const benefits = [
 ];
 
 const processSteps = [
-    { step: "01", title: "Apply", description: "Submit your application and highlight your best projects and skills.", icon: Laptop, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
-    { step: "02", title: "Profile Creation", description: "Create a detailed technical profile that founders will love to see.", icon: UserCircle, color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
-    { step: "03", title: "Matching", description: "We match you with startups looking for your specific engineering stack.", icon: Handshake, color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
-    { step: "04", title: "Interview", description: "Meet the founders directly to discuss the role and project goals.", icon: MessageSquare, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "05", title: "Work Begins", description: "Join the team and start building international-grade products.", icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "01", title: "Apply", description: <>Submit your application and highlight <br className="hidden md:block" />your absolute best projects and skills.</>, icon: Laptop, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "02", title: "Profile Creation", description: <>Create a detailed technical profile <br className="hidden md:block" />that European founders will love to see.</>, icon: UserCircle, color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
+    { step: "03", title: "Matching", description: <>We match you directly with top startups <br className="hidden md:block" />looking for your exact engineering stack.</>, icon: Handshake, color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
+    { step: "04", title: "Interview", description: <>Meet the startup founders directly <br className="hidden md:block" />to discuss the role and project goals.</>, icon: MessageSquare, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "05", title: "Work Begins", description: <>Join the tech team and start building <br className="hidden md:block" />international-grade software products.</>, icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
 ];
 
 const countries = [
@@ -83,10 +83,10 @@ export default function StudentsPage() {
                             Work with the best{" "}
                             <span className="text-vibrant-crimson font-display">European startups</span>
                         </h1>
-                        <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Join elite technical teams, earn in Euros, and build a global career
-                            from anywhere. Pre-vetted roles for top-tier students.
-                        </p>
+                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
+                            Join elite European technical teams, earn competitively in Euros,<br className="hidden md:block" />
+                            and build a global career through pre-vetted, high-impact roles.
+                        </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
                                 Fill the questionnaire <ArrowRight className="w-5 h-5" />
@@ -118,7 +118,7 @@ export default function StudentsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="European Hubs"
-                    subtitle="Join startups from Europe's most vibrant tech ecosystems. From Amsterdam to Berlin."
+                    subtitle={<>Join startups from Europe's most vibrant <br className="hidden md:block" />tech ecosystems, from Amsterdam to Berlin.</>}
                     items={countries}
                     theme="crimson"
                     bgColor="bg-transparent"
@@ -133,7 +133,7 @@ export default function StudentsPage() {
                     badgeText="The process"
                     bgColor="bg-transparent"
                     title={<>Five simple steps to <span className="font-display text-vibrant-crimson text-7xl">international work</span></>}
-                    subtitle="We handle the complexity, you focus on the code."
+                    subtitle={<>We handle all the administrative complexity, <br className="hidden md:block" />so you can just focus on writing great code.</>}
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />
@@ -147,9 +147,10 @@ export default function StudentsPage() {
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
                             Ready to join the pool?
                         </h2>
-                        <p className="text-white/80 text-xl max-w-xl mx-auto mb-12 leading-relaxed">
-                            Apply in minutes and get the chance to work with world-class European founders.
-                        </p>
+                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                            Apply in minutes and get the unique chance<br className="hidden md:block" />
+                            to work with world-class European founders.
+                        </div>
                         <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
                             Fill Questionnaire
                         </button>

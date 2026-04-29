@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Users,
         title: "Why Hire Students",
-        description: "Access highly motivated, tech-savvy students from the world's premier engineering institutions.",
+        description: "Access highly motivated, tech-savvy students from the world's top engineering universities.",
         color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-blue",
@@ -22,7 +22,7 @@ const benefits = [
     {
         icon: TrendingDown,
         title: "Cost Savings",
-        description: "Reduce your operational costs by over 70% compared to local European hiring.",
+        description: "Reduce your operational costs by over 70% compared to expensive local European hiring.",
         color: "bg-vibrant-green/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -30,7 +30,7 @@ const benefits = [
     {
         icon: Zap,
         title: "Flexible Hiring",
-        description: "Scale your team up or down with ease. 3-month engagements with simple extension options.",
+        description: "Scale your team up or down with total ease. 3-month engagements with simple extensions.",
         color: "bg-vibrant-yellow/40",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -38,7 +38,7 @@ const benefits = [
     {
         icon: CheckCircle2,
         title: "Easy Process",
-        description: "We handle all contracts, payments, and legalities. You just focus on the interview.",
+        description: "We handle every single contract and legality. You just focus entirely on the interviews.",
         color: "bg-vibrant-teal/30",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -46,7 +46,7 @@ const benefits = [
     {
         icon: Award,
         title: "Talent Quality",
-        description: "Every student is vetted for technical excellence and communication skills.",
+        description: "Every student is thoroughly vetted for both technical excellence and communication skills.",
         color: "bg-lavender",
         iconBg: "bg-vibrant-blue/10",
         iconColor: "text-vibrant-blue",
@@ -54,12 +54,12 @@ const benefits = [
 ];
 
 const processSteps = [
-    { step: "01", title: "Submit Requirements", description: "Define the role, skills needed, and project scope in minutes.", icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "02", title: "Matching", description: "Get a curated shortlist of pre-vetted candidates matched to your stack.", icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "03", title: "Selection", description: "Interview your top choices and select the talent that fits your team.", icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
-    { step: "04", title: "Contract", description: "We handle all the legal and administrative paperwork instantly.", icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
-    { step: "05", title: "Work Begins", description: "Onboard your new team member and start building your product.", icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "06", title: "Extension", description: "Easily extend the contract or hire full-time as your needs grow.", icon: TrendingUp, color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
+    { step: "01", title: "Submit Requirements", description: <>Define your exact role requirements <br className="hidden md:block" />and your project scope in minutes.</>, icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
+    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre-vetted <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "03", title: "Selection", description: <>Interview your top candidate choices, <br className="hidden md:block" />and select the best fit for your team.</>, icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
+    { step: "04", title: "Contract", description: <>We handle all necessary legal paperwork <br className="hidden md:block" />and administrative tasks immediately.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
+    { step: "05", title: "Work Begins", description: <>Onboard your new remote team member, <br className="hidden md:block" />and start building your core product.</>, icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "06", title: "Extension", description: <>Easily extend the engagement contract <br className="hidden md:block" />or hire full-time as your needs grow.</>, icon: TrendingUp, color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
 ];
 
 const talentPool = [
@@ -84,9 +84,9 @@ export default function StartupsPage() {
                             Scale your tech team with{" "}
                             <span className="text-vibrant-blue font-display">top international talent</span>
                         </h1>
-                        <p className="text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Access pre-vetted engineering talent, reduce costs, and accelerate
-                            your product roadmap without the overhead of local hiring.
+                        <p className="text-justify md:[text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 md:w-max mx-auto">
+                            Access pre-vetted engineering talent, significantly reduce costs,<br className="hidden md:block" />
+                            and accelerate your product roadmap without local hiring overhead.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
@@ -119,7 +119,7 @@ export default function StartupsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="Elite Talent Pool"
-                    subtitle="Connect with the top 1% of engineering talent from the world's premier technical universities."
+                    subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from the world's premier technical universities.</>}
                     items={talentPool}
                     theme="blue"
                     bgColor="bg-transparent"
@@ -134,7 +134,7 @@ export default function StartupsPage() {
                     badgeText="The process"
                     bgColor="bg-transparent"
                     title={<>The straightforward path to <span className="font-display text-vibrant-blue text-7xl">scaling fast</span></>}
-                    subtitle="We streamline the entire hiring lifecycle for European startups."
+                    subtitle={<>We streamline the entire hiring lifecycle <br className="hidden md:block" />for all fast-growing European startups.</>}
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />
@@ -148,9 +148,10 @@ export default function StartupsPage() {
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
                             Ready to hire?
                         </h2>
-                        <p className="text-white/80 text-xl max-w-xl mx-auto mb-12 leading-relaxed">
-                            Share your requirements and see your first candidate profiles within 24 hours.
-                        </p>
+                        <div className="w-full md:w-max mx-auto text-left md:text-justify md:[text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                            Share your exact hiring requirements,<br className="hidden md:block" />
+                            and see candidate profiles in 24 hours.
+                        </div>
                         <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-blue rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
                             Submit Requirements
                         </button>
