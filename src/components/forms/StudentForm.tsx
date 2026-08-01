@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { studentFormSchema, type StudentFormValues } from "@/lib/validations";
-import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, Calendar, CheckCircle } from "lucide-react";
+import { studentFormSchema, availabilityOptions, type StudentFormValues } from "@/lib/validations";
+import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, FileText, CheckCircle, Upload, X } from "lucide-react";
 
 const skillOptions = [
     { value: "react", label: "React" },
@@ -22,18 +22,21 @@ const skillOptions = [
 const steps = [
     { num: 1, label: "Personal", icon: User },
     { num: 2, label: "Skills", icon: Code2 },
-    { num: 3, label: "Availability", icon: Calendar },
+    { num: 3, label: "Details", icon: FileText },
 ];
 
 export function StudentForm() {
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
+    const [resumeFileName, setResumeFileName] = useState<string | null>(null);
 
     const {
         register,
-        control,
         handleSubmit,
         trigger,
+        setValue,
+        watch,
         formState: { errors, isSubmitting },
     } = useForm<StudentFormValues>({
         resolver: zodResolver(studentFormSchema),
@@ -43,15 +46,43 @@ export function StudentForm() {
         },
     });
 
+    const watchedSkills = watch("skills");
+    const watchedAvailability = watch("availability");
+
     const onSubmit = async (data: StudentFormValues) => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmitted(true);
+        setSubmitError(null);
+        try {
+            const formData = new FormData();
+            formData.append("name", data.name);
+            formData.append("email", data.email);
+            formData.append("university", data.university);
+            formData.append("degree", data.degree);
+            formData.append("skills", JSON.stringify(data.skills));
+            formData.append("availability", data.availability);
+            formData.append("experience", data.experience);
+            formData.append("portfolio", data.portfolio ?? "");
+            if (data.resume?.[0]) formData.append("resume", data.resume[0]);
+
+            const res = await fetch("/api/student/apply", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}));
+                throw new Error(body.error || "Something went wrong. Please try again.");
+            }
+
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+        }
     };
 
     const goNext = useCallback(async () => {
         let fieldsToValidate: (keyof StudentFormValues)[] = [];
         if (currentStep === 1) fieldsToValidate = ["name", "email", "university", "degree"];
-        if (currentStep === 2) fieldsToValidate = ["skills", "experience"];
+        if (currentStep === 2) fieldsToValidate = ["skills", "availability"];
 
         const valid = await trigger(fieldsToValidate);
         if (valid) setCurrentStep((s) => s + 1);
@@ -134,6 +165,43 @@ export function StudentForm() {
                 {currentStep === 2 && (
                     <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
                         <div className="space-y-2">
+                            <label className="text-sm font-bold text-[#001738]">Select Skills</label>
+                            <div className="flex flex-wrap gap-2">
+                                {skillOptions.map(skill => (
+                                    <label key={skill.value} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+                                        watchedSkills?.includes(skill.value)
+                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+                                        : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+                                    }`}>
+                                        <input type="checkbox" className="sr-only" value={skill.value} {...register("skills")} />
+                                        <span className="text-sm font-medium">{skill.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+                            {errors.skills && <p className="text-xs text-red-500 font-medium">{errors.skills.message}</p>}
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-bold text-[#001738]">Availability</label>
+                            <div className="flex flex-wrap gap-2">
+                                {availabilityOptions.map(option => (
+                                    <label key={option} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+                                        watchedAvailability === option
+                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+                                        : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+                                    }`}>
+                                        <input type="radio" className="sr-only" value={option} {...register("availability")} />
+                                        <span className="text-sm font-medium">{option}</span>
+                                    </label>
+                                ))}
+                            </div>
+                            {errors.availability && <p className="text-xs text-red-500 font-medium">{errors.availability.message}</p>}
+                        </div>
+                    </div>
+                )}
+
+                {currentStep === 3 && (
+                    <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
+                        <div className="space-y-2">
                             <label className="text-sm font-bold text-[#001738]">Experience</label>
                             <textarea className="w-full min-h-[120px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Projects, internships, hackathons..." {...register("experience")} />
                             {errors.experience && <p className="text-xs text-red-500 font-medium">{errors.experience.message}</p>}
@@ -142,27 +210,49 @@ export function StudentForm() {
                             <label className="text-sm font-bold text-[#001738]">Portfolio URL (optional)</label>
                             <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
                         </div>
-                    </div>
-                )}
-
-                {currentStep === 3 && (
-                    <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-[#001738]">Select Skills</label>
-                            <div className="flex flex-wrap gap-2">
-                                {skillOptions.map(skill => (
-                                    <label key={skill.value} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100 transition-all">
-                                        <input type="checkbox" className="w-4 h-4 rounded text-vibrant-blue focus:ring-vibrant-blue" value={skill.value} {...register("skills")} />
-                                        <span className="text-sm font-medium text-[#001738]">{skill.label}</span>
-                                    </label>
-                                ))}
-                            </div>
-                            {errors.skills && <p className="text-xs text-red-500 font-medium">{errors.skills.message}</p>}
+                            <label className="text-sm font-bold text-[#001738]">Resume / CV (PDF, max 5MB)</label>
+                            {!resumeFileName ? (
+                                <label className="flex items-center justify-center gap-2 w-full h-24 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 hover:border-vibrant-blue hover:bg-white cursor-pointer transition-all">
+                                    <Upload className="w-5 h-5 text-gray-400" />
+                                    <span className="text-sm font-medium text-gray-500">Click to upload your resume</span>
+                                    <input
+                                        type="file"
+                                        accept="application/pdf"
+                                        className="hidden"
+                                        {...register("resume")}
+                                        onChange={(e) => {
+                                            register("resume").onChange(e);
+                                            setResumeFileName(e.target.files?.[0]?.name ?? null);
+                                        }}
+                                    />
+                                </label>
+                            ) : (
+                                <div className="flex items-center justify-between w-full px-4 h-14 rounded-xl bg-vibrant-blue/5 border border-vibrant-blue/20">
+                                    <div className="flex items-center gap-2 min-w-0">
+                                        <FileText className="w-5 h-5 text-vibrant-blue flex-shrink-0" />
+                                        <span className="text-sm font-medium text-[#001738] truncate">{resumeFileName}</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setValue("resume", undefined as unknown as FileList);
+                                            setResumeFileName(null);
+                                        }}
+                                        className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white transition-colors flex-shrink-0"
+                                    >
+                                        <X className="w-4 h-4 text-gray-500" />
+                                    </button>
+                                </div>
+                            )}
+                            {errors.resume && <p className="text-xs text-red-500 font-medium">{errors.resume.message as string}</p>}
                         </div>
                     </div>
                 )}
 
-                <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
+                {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
+
+                <div className="flex items-center justify-between mt-12 pt-8 pb-4 border-t border-gray-50 sticky bottom-0 bg-white/95 backdrop-blur-sm z-10">
                     {currentStep > 1 ? (
                         <button type="button" onClick={goBack} className="flex items-center gap-2 text-gray-500 hover:text-[#001738] font-bold transition-all">
                             <ArrowLeft className="w-5 h-5" /> Back

@@ -25,7 +25,7 @@ export function HeroSection() {
                 </h1>
 
                 <p className="w-max max-w-full text-justify [text-align-last:justify] text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 mx-auto">
-                    Bridging European innovation with the<br className="block md:hidden" /> world&apos;s premier engineering<br className="hidden md:block" /> talent. Scale<br className="block md:hidden" /> your startup with top-tier freelance<br className="block md:hidden" /> developers or<br className="hidden md:block" /> accelerate your career with<br className="block md:hidden" /> high-impact global project experience.
+                    Bridging European innovation with the<br className="block md:hidden" /> world&apos;s premier engineering<br className="hidden md:block" /> talent. Scale<br className="block md:hidden" /> your startup with top tier freelance<br className="block md:hidden" /> developers or<br className="hidden md:block" /> accelerate your career with<br className="block md:hidden" /> high impact global project experience.
                 </p>
 
                 {/* CTA Buttons */}

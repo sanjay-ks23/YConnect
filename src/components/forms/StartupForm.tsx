@@ -18,27 +18,47 @@ const steps = [
 export function StartupForm() {
     const [currentStep, setCurrentStep] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const {
         register,
         handleSubmit,
         trigger,
+        watch,
         formState: { errors, isSubmitting },
     } = useForm<StartupFormValues>({
         resolver: zodResolver(startupFormSchema),
         mode: "onTouched",
     });
 
+    const watchedDuration = watch("duration");
+    const watchedBudget = watch("budget");
+
     const onSubmit = async (data: StartupFormValues) => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmitted(true);
+        setSubmitError(null);
+        try {
+            const res = await fetch("/api/startup/apply", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}));
+                throw new Error(body.error || "Something went wrong. Please try again.");
+            }
+
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+        }
     };
 
     const goNext = useCallback(async () => {
         let fieldsToValidate: (keyof StartupFormValues)[] = [];
         if (currentStep === 1) fieldsToValidate = ["companyName", "country", "contactPerson", "email"];
-        if (currentStep === 2) fieldsToValidate = ["duration", "budget"];
-
+        
+        // Step 2 fields are now optional
         const valid = await trigger(fieldsToValidate);
         if (valid) setCurrentStep((s) => s + 1);
     }, [currentStep, trigger]);
@@ -111,23 +131,33 @@ export function StartupForm() {
                             <label className="text-sm font-bold text-[#001738]">Duration</label>
                             <div className="flex flex-wrap gap-2">
                                 {durations.map(d => (
-                                    <label key={d} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100">
-                                        <input type="radio" className="w-4 h-4 text-vibrant-blue focus:ring-vibrant-blue" value={d} {...register("duration")} />
-                                        <span className="text-sm font-medium text-[#001738]">{d}</span>
+                                    <label key={d} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+                                        watchedDuration === d 
+                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20" 
+                                        : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+                                    }`}>
+                                        <input type="radio" className="sr-only" value={d} {...register("duration")} />
+                                        <span className="text-sm font-medium">{d}</span>
                                     </label>
                                 ))}
                             </div>
+                            {errors.duration && <p className="text-xs text-red-500 font-medium">{errors.duration.message}</p>}
                         </div>
                         <div className="space-y-4">
                             <label className="text-sm font-bold text-[#001738]">Budget</label>
                             <div className="flex flex-wrap gap-2">
                                 {budgets.map(b => (
-                                    <label key={b} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100">
-                                        <input type="radio" className="w-4 h-4 text-vibrant-blue focus:ring-vibrant-blue" value={b} {...register("budget")} />
-                                        <span className="text-sm font-medium text-[#001738]">{b}</span>
+                                    <label key={b} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+                                        watchedBudget === b 
+                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20" 
+                                        : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+                                    }`}>
+                                        <input type="radio" className="sr-only" value={b} {...register("budget")} />
+                                        <span className="text-sm font-medium">{b}</span>
                                     </label>
                                 ))}
                             </div>
+                            {errors.budget && <p className="text-xs text-red-500 font-medium">{errors.budget.message}</p>}
                         </div>
                     </div>
                 )}
@@ -142,7 +172,9 @@ export function StartupForm() {
                     </div>
                 )}
 
-                <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
+                {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
+
+                <div className="flex items-center justify-between mt-12 pt-8 pb-4 border-t border-gray-50 sticky bottom-0 bg-white/95 backdrop-blur-sm z-10">
                     {currentStep > 1 ? (
                         <button type="button" onClick={goBack} className="flex items-center gap-2 text-gray-500 hover:text-[#001738] font-bold transition-all">
                             <ArrowLeft className="w-5 h-5" /> Back

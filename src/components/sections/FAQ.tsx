@@ -13,17 +13,17 @@ const faqs = [
     {
         question: "How does the matching process work?",
         answer:
-            "After a startup submits their requirements, our expert team reviews the project needs and identifies the best-matched students from our curated talent pool. We carefully consider technical skills, experience level, timezone compatibility, and project fit. The startup then interviews and selects the ideal candidates.",
+            "After a startup submits their requirements, our expert team reviews the project needs and identifies the best matched students from our curated talent pool. We carefully consider technical skills, experience level, timezone compatibility, and project fit. The startup then interviews and selects the ideal candidates.",
     },
     {
         question: "What is the typical engagement duration?",
         answer:
-            "Most engagements are 3-month part-time contracts (15-20 hours/week). However, startups can easily extend contracts based upon mutual agreement. We also offer highly flexible working arrangements for shorter, highly specialized, sprint-based, highly targeted pilot projects.",
+            "Most engagements are 3 month part time contracts (15 to 20 hours/week). However, startups can easily extend contracts based upon mutual agreement. We also offer highly flexible working arrangements for shorter, highly specialized, sprint based, highly targeted pilot projects.",
     },
     {
         question: "How do you ensure quality of talent?",
         answer:
-            "We source top students from the world's best engineering universities and conduct thorough vetting, including technical assessments, deep portfolio reviews, and soft-skills evaluations. Only the top 10% of all applicants make it into our highly exclusive, exceptionally well-vetted talent pool.",
+            "We source top students from the world's best engineering universities and conduct thorough vetting, including technical assessments, deep portfolio reviews, and soft skills evaluations. Only the top 10% of all applicants make it into our highly exclusive, exceptionally well vetted talent pool.",
     },
     {
         question: "Who handles contracts and payments?",
@@ -33,17 +33,17 @@ const faqs = [
     {
         question: "What if the match doesn't work out?",
         answer:
-            "We always offer a 100% complete satisfaction guarantee. If a startup isn't perfectly happy with the match within the first two weeks, we will rapidly find a suitable replacement at no additional costs. Our global matching success rate is currently standing at well over 95% for every single one of our elite, world-class and innovative global startup partners across the world.",
+            "We always offer a 100% complete satisfaction guarantee. If a startup isn't perfectly happy with the match within the first two weeks, we will rapidly find a suitable replacement at no additional costs. Our global matching success rate is currently standing at well over 95% for every single one of our elite, world class and innovative global startup partners across the world.",
     },
     {
         question: "Is there a fee for students to join?",
         answer:
-            "No, YConnect is completely free for students. We charge a standard service fee to startups only. Our primary objective is to create truly incredible opportunities for highly talented engineering students across the entire world and within all our various world-class global partner ecosystems.",
+            "No, YConnect is completely free for students. We charge a standard service fee to startups only. Our primary objective is to create truly incredible opportunities for highly talented engineering students across the entire world and within all our various world class global partner ecosystems.",
     },
     {
         question: "Which countries do you operate in?",
         answer:
-            "We actively work with modern startups across the European Union, with particular focus on the Netherlands, Denmark, France, and Sweden, plus several other EU countries. Our massive student talent pool covers all major global, elite, and international engineering institutions as well as all top-tier universities across the entire world.",
+            "We actively work with modern startups across the European Union, with particular focus on the Netherlands, Denmark, France, and Sweden, plus several other EU countries. Our massive student talent pool covers all major global, elite, and international engineering institutions as well as all top tier universities across the entire world.",
     },
 ];
 

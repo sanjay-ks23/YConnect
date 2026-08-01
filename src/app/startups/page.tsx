@@ -13,24 +13,24 @@ import { WaveDivider } from "@/components/ui/WaveDivider";
 const benefits = [
     {
         icon: Users,
-        title: "Why Hire Students",
-        description: "Access highly motivated, tech-savvy students from the world's top engineering universities.",
+        title: "Top Tier Talent",
+        description: "Tap into India's brightest engineering minds from premier technical universities.",
         color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-blue",
     },
     {
         icon: TrendingDown,
-        title: "Cost Savings",
-        description: "Reduce your operational costs by over 70% compared to expensive local European hiring.",
+        title: "Massive Savings",
+        description: "Cut your operational costs by up to 90% without compromising on quality or speed.",
         color: "bg-vibrant-green/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
     },
     {
         icon: Zap,
-        title: "Flexible Hiring",
-        description: "Scale your team up or down with total ease. 3-month engagements with simple extensions.",
+        title: "Flexible Scaling",
+        description: "Grow or shrink your team effortlessly with 3 month contracts and seamless extensions.",
         color: "bg-vibrant-yellow/40",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -55,11 +55,11 @@ const benefits = [
 
 const processSteps = [
     { step: "01", title: "Submit Requirements", description: <>Define your exact role requirements <br className="hidden md:block" />and your project scope in minutes.</>, icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre-vetted <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre vetted <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "03", title: "Selection", description: <>Interview your top candidate choices, <br className="hidden md:block" />and select the best fit for your team.</>, icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
     { step: "04", title: "Contract", description: <>We handle all necessary legal paperwork <br className="hidden md:block" />and administrative tasks immediately.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
     { step: "05", title: "Work Begins", description: <>Onboard your new remote team member, <br className="hidden md:block" />and start building your core product.</>, icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
-    { step: "06", title: "Extension", description: <>Easily extend the engagement contract <br className="hidden md:block" />or hire full-time as your needs grow.</>, icon: TrendingUp, color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
+    { step: "06", title: "Extension", description: <>Easily extend the engagement contract <br className="hidden md:block" />or hire full time as your needs grow.</>, icon: TrendingUp, color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
 ];
 
 const talentPool = [
@@ -80,14 +80,14 @@ export default function StartupsPage() {
                 <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="heading-hero mb-8">
-                            Scale your tech team with{" "}
-                            <span className="text-vibrant-blue font-display">top international talent</span>
+                        <h1 className="heading-hero mb-8 w-max max-w-full mx-auto text-justify [text-align-last:justify]">
+                            Hire elite Indian<br />
+                            <span className="text-vibrant-blue font-display">technical talent</span>
                         </h1>
-                        <p className="text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 w-max max-w-full mx-auto">
-                            Access pre-vetted engineering talent,<br className="block md:hidden" /> significantly reduce costs,<br className="hidden md:block" /> and<br className="block md:hidden" />
-                            accelerate your product roadmap<br className="block md:hidden" /> without local hiring overhead.
-                        </p>
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
+                            Access pre vetted engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
+                            accelerate your product roadmap without local overhead.
+                        </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
                                 Submit Requirements <ArrowRight className="w-5 h-5" />
@@ -100,7 +100,7 @@ export default function StartupsPage() {
                 </div>
             </section>
 
-            <div className="h-24 bg-white" />
+            <div className="h-24 bg-white" suppressHydrationWarning />
 
             {/* Benefits transition */}
             <div className="bg-[#FAF9F6]">
@@ -108,17 +108,16 @@ export default function StartupsPage() {
                 <HorizontalScrollSection
                     theme="blue"
                     title={<>Why founders <span className="font-display text-vibrant-blue">choose us</span></>}
-                    subtitle="Elite engineering talent at a fraction of the cost, handled entirely by us."
                     cards={benefits}
                     bgColor="bg-transparent"
                 />
             </div>
 
-            {/* Talent Pool transition */}
+            {/* Talent Network transition */}
             <div className="bg-[#F6F4FB]">
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
-                    title="Elite Talent Pool"
+                    title="Our Talent Network"
                     subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from the world's premier technical universities.</>}
                     items={talentPool}
                     theme="blue"
@@ -131,9 +130,9 @@ export default function StartupsPage() {
                 <WaveDivider variant={3} color="#F0F8EC" />
                 <ProcessSection
                     theme="blue"
-                    badgeText="The process"
+                    badgeText=""
                     bgColor="bg-transparent"
-                    title={<>The straightforward path to <span className="font-display text-vibrant-blue text-7xl">scaling fast</span></>}
+                    title={<>The <span className="font-display text-vibrant-blue text-7xl">Process</span></>}
                     subtitle={<>We streamline the entire hiring lifecycle <br className="hidden md:block" />for all fast-growing European startups.</>}
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}

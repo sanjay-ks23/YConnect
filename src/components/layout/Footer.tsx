@@ -18,11 +18,8 @@ export function Footer() {
             </a>
             
             <div className="w-max max-w-full mb-8">
-              <div className="text-justify [text-align-last:justify] text-white/60 text-lg leading-relaxed font-body w-full">
-                Bridging the gap between European innovation
-              </div>
-              <div className="text-justify [text-align-last:justify] text-white/60 text-lg leading-relaxed font-body w-full">
-                and our international engineering excellence.
+              <div className="text-justify [text-align-last:justify] text-white/70 text-xl md:text-2xl italic leading-relaxed font-body w-full">
+                Grow beyond borders.
               </div>
             </div>
 

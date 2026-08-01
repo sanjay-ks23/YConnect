@@ -39,7 +39,7 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
     const badgeBg = isPink ? "bg-vibrant-crimson/10" : isBlue ? "bg-vibrant-blue/10" : "bg-vibrant-orange/10";
     const badgeTextClass = isPink ? "text-vibrant-crimson" : isBlue ? "text-vibrant-blue" : "text-vibrant-orange-dark";
     const titleColor = isPink ? "text-vibrant-crimson" : isBlue ? "text-vibrant-blue" : "text-vibrant-orange-dark";
-    const lineBaseBg = "bg-gray-100";
+    const lineBaseBg = "bg-gray-200";
     const lineActiveBg = isPink ? "bg-vibrant-crimson" : isBlue ? "bg-vibrant-blue" : "bg-vibrant-orange";
 
     return (
@@ -49,11 +49,13 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
                 {/* Left Side: Sticky Sidebar */}
                 <div className="w-full lg:w-1/2 mb-16 lg:mb-0 relative z-[15] pr-8 lg:pr-24">
                     <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2">
-                        <div className={`inline-flex items-center gap-2.5 rounded-full ${badgeBg} px-4 py-1.5 mb-6 lg:mb-8`}>
-                            <span className={`text-xs font-bold tracking-wider uppercase ${badgeTextClass}`}>
-                                {badgeText}
-                            </span>
-                        </div>
+                        {badgeText && (
+                            <div className={`inline-flex items-center gap-2.5 rounded-full ${badgeBg} px-4 py-1.5 mb-6 lg:mb-8`}>
+                                <span className={`text-xs font-bold tracking-wider uppercase ${badgeTextClass}`}>
+                                    {badgeText}
+                                </span>
+                            </div>
+                        )}
                         <h2 className="heading-section mb-6">
                             {title}
                         </h2>
@@ -135,15 +137,6 @@ function StepCard({ step, theme, titleColor, isLast, onCtaClick }: StepCardProps
                     <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-[#001738]/60 text-lg leading-relaxed mb-0">
                         {step.description}
                     </div>
-
-                    {isLast && onCtaClick && (
-                        <button 
-                            onClick={onCtaClick}
-                            className={`mt-8 px-8 py-3 rounded-full text-white font-bold transition-all ${isPink ? "bg-vibrant-crimson hover:bg-vibrant-crimson-dark" : isBlue ? "bg-vibrant-blue hover:bg-vibrant-blue-dark" : "bg-vibrant-orange hover:bg-vibrant-orange-dark"}`}
-                        >
-                            Get Started
-                        </button>
-                    )}
                 </div>
             </div>
         </motion.div>

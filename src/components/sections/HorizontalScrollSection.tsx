@@ -14,7 +14,7 @@ export interface HorizontalCard {
 
 interface HorizontalScrollSectionProps {
     title: React.ReactNode;
-    subtitle: string;
+    subtitle?: string;
     cards: HorizontalCard[];
     theme: "crimson" | "orange" | "blue";
     bgColor?: string;
@@ -38,9 +38,9 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
         <section ref={sectionRef} className={`relative ${bgColor}`} style={{ height: `${cards.length * 100}vh` }}>
             <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
                 {/* Section Header (Fixed at top) */}
-                <div className={`container-superhi pt-32 pb-12 relative z-20 ${bgColor}`}>
-                    <h2 className="heading-section mb-4">{title}</h2>
-                    <p className="text-justify text-lg lg:text-xl text-[#001738]/50 max-w-2xl">{subtitle}</p>
+                <div className={`container-superhi pt-32 pb-12 relative z-20 ${bgColor} text-center`}>
+                    <h2 className="heading-section mb-4 mx-auto">{title}</h2>
+                    {subtitle && <p className="text-justify text-lg lg:text-xl text-[#001738]/50 max-w-2xl mx-auto">{subtitle}</p>}
                 </div>
 
                 {/* Horizontal Sliding Content */}
@@ -59,11 +59,11 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                                     {String(i + 1).padStart(2, "0")}
                                 </span>
 
-                                <div className="relative z-10 text-center max-w-4xl mx-auto">
-                                    <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 ${accentColor}`}>
+                                <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+                                    <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 text-center ${accentColor}`}>
                                         {card.title}
                                     </h3>
-                                    <p className="text-justify [text-align-last:justify] text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto">
+                                    <p className="text-center text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl">
                                         {card.description}
                                     </p>
                                 </div>

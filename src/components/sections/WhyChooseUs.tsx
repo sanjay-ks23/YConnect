@@ -20,7 +20,7 @@ const features = [
     },
     {
         icon: Globe2,
-        title: "Cross-Border Made Easy",
+        title: "Cross Border Made Easy",
         description: "We handle all complex foreign contracts, and totally secure your global payments.",
         iconStyle: "text-green-600",
         bgBadge: "bg-green-50 border-green-100",
@@ -28,14 +28,14 @@ const features = [
     {
         icon: Headphones,
         title: "Ongoing Communication",
-        description: "Enjoy regular milestone check-ins today, and detailed tracking to ensure success.",
+        description: "Enjoy regular milestone check ins today, and detailed tracking to ensure success.",
         iconStyle: "text-pink-600",
         bgBadge: "bg-pink-50 border-pink-100",
     },
     {
         icon: Shield,
-        title: "Risk-Free Hiring",
-        description: "Enjoy short-term flexible contracts. Hold absolutely zero commitments, risk-free.",
+        title: "Risk Free Hiring",
+        description: "Enjoy short term flexible contracts. Hold absolutely zero commitments, risk free.",
         iconStyle: "text-indigo-600",
         bgBadge: "bg-indigo-50 border-indigo-100",
     },
@@ -60,7 +60,7 @@ export function WhyChooseUs() {
                         Talent you can count on.
                     </h2>
                     <p className="text-justify [text-align-last:justify] text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed px-2">
-                        Access incredible engineering talent without the usual cross-border hiring friction. Productive, reliable, and perfectly matched.
+                        Access incredible engineering talent without the usual cross border hiring friction. Productive, reliable, and perfectly matched.
                     </p>
                 </div>
 

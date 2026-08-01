@@ -7,19 +7,19 @@ const startupSteps = [
     {
         id: "s1",
         title: "Submit Requirements",
-        description: "Tell us exactly what role you need, the skills required, and your project duration. Our platform instantly matches you with our top-tier global software engineering talent.",
+        description: "Tell us exactly what role you need, the skills required, and your project duration. Our platform instantly matches you with our top tier global software engineering talent.",
         keywords: ["Job Profile", "Skill Gap", "Matching", "Requirement", "Tech Stack"]
     },
     {
         id: "s2",
         title: "Get Matched",
-        description: "We hand-pick the perfect student talent from our curated pool. You will get matched with highly vetted, motivated individuals perfectly suited to your specific tech stack.",
-        keywords: ["Top Talent", "Vetted", "Pre-Screened", "Selection", "Engineering"]
+        description: "We hand pick the perfect student talent from our curated pool. You will get matched with highly vetted, motivated individuals perfectly suited to your specific tech stack.",
+        keywords: ["Top Talent", "Vetted", "Pre Screened", "Selection", "Engineering"]
     },
     {
         id: "s3",
         title: "Start Working",
-        description: "Your matched student starts working part-time. We handle all contracts, payments, and timeline coordination so you can focus entirely on your core tech product.",
+        description: "Your matched student starts working part time. We handle all contracts, payments, and timeline coordination so you can focus entirely on your core tech product.",
         keywords: ["Launch", "Scale", "Flexible", "Contract", "Success"]
     }
 ];
@@ -28,7 +28,7 @@ const studentSteps = [
     {
         id: "st1",
         title: "Apply & Profile",
-        description: "Create your profile and showcase your technical skills to innovative European startups. Gain global visibility and unlock amazing real-world global project opportunities.",
+        description: "Create your profile and showcase your technical skills to innovative European startups. Gain global visibility and unlock amazing real world global project opportunities.",
         keywords: ["Portfolio", "Skillset", "Visibility", "Apply", "Global"]
     },
     {
@@ -40,7 +40,7 @@ const studentSteps = [
     {
         id: "st3",
         title: "Start Earning",
-        description: "Work on real-world projects, gain international exposure, and get paid for your time. You can earn while you learn with highly flexible hours that fit your study schedule.",
+        description: "Work on real world projects, gain international exposure, and get paid for your time. You can earn while you learn with highly flexible hours that fit your study schedule.",
         keywords: ["Paid Work", "Experience", "Career Growth", "Global Exposure", "Learn By Doing"]
     }
 ];
