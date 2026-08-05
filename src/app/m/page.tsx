@@ -7,24 +7,24 @@ import { WaveDivider } from "@/components/mobile/ui/WaveDivider";
 import { StartupForm } from "@/components/mobile/forms/StartupForm";
 
 export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      
-      <div className="bg-[#FAF9F6]">
-        <WaveDivider color="#FAF9F6" variant={2} flip />
-        <HowItWorks />
-        <WaveDivider color="#F6F4FB" variant={1} />
-      </div>
+ return (
+ <>
+ <HeroSection />
+ 
+ <div className="bg-[#FAF9F6]">
+ <WaveDivider color="#FAF9F6" variant={2} flip />
+ <HowItWorks />
+ <WaveDivider color="#F6F4FB" variant={1} />
+ </div>
 
-      <div className="bg-[#F6F4FB]">
-        <Testimonials />
-        <WaveDivider color="#F0F8EC" variant={3} />
-      </div>
+ <div className="bg-[#F6F4FB]">
+ <Testimonials />
+ <WaveDivider color="#F0F8EC" variant={3} />
+ </div>
 
-      <div className="bg-[#F0F8EC]">
-        <FAQ />
-      </div>
-    </>
-  );
+ <div className="bg-[#F0F8EC]">
+ <FAQ />
+ </div>
+ </>
+ );
 }
