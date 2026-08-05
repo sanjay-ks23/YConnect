@@ -5,7 +5,7 @@ import { WaveDivider } from "@/components/ui/WaveDivider";
 export const metadata: Metadata = {
     title: "About — YConnect",
     description:
-        "Our journey in bridging the gap between European innovation and international engineering excellence.",
+        "Our journey in bridging the gap between European innovation and Indian engineering excellence.",
 };
 
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
                             We exist because world class engineering talent should be<br className="hidden md:block" />
-                            accessible to every ambitious startups and without any barriers.
+                            accessible to every ambitious startup, without any barriers.
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default function AboutPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <Building2 className="w-10 h-10 text-vibrant-blue" />
-                                <h3 className="text-xl font-bold text-[#001738]">Up to 60%</h3>
+                                <h3 className="text-xl font-bold text-[#001738]">Up to 90%</h3>
                                 <p className="text-center text-sm text-[#001738]/50 outline-none">Save on hiring cost</p>
                             </div>
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
@@ -60,7 +60,7 @@ export default function AboutPage() {
                             </div>
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
                                 <Users className="w-10 h-10 text-vibrant-blue" />
-                                <h3 className="text-xl font-bold text-[#001738]">3-mo Average</h3>
+                                <h3 className="text-xl font-bold text-[#001738]">3 Month Average</h3>
                                 <p className="text-center text-sm text-[#001738]/50 outline-none">Typical project duration</p>
                             </div>
                         </div>
@@ -80,26 +80,6 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {/* Team Member 1 */}
                         <a
-                            href="https://www.linkedin.com/in/pavithranks/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-[#F5F5F5] rounded-xl overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
-                        >
-                            <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
-                                <img
-                                    src="/images/pavithran.png"
-                                    alt="Pavithran K S"
-                                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:scale-105"
-                                />
-                            </div>
-                            <div className="p-4 sm:p-5">
-                                <h3 className="text-base sm:text-lg font-bold text-[#001738] mb-0.5 leading-tight">Pavithran K S</h3>
-                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Founder</p>
-                            </div>
-                        </a>
-
-                        {/* Team Member 2 */}
-                        <a
                             href="https://www.linkedin.com/in/sanjayks2317/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -108,17 +88,17 @@ export default function AboutPage() {
                             <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
                                 <img
                                     src="/images/Sanjay.jpg"
-                                    alt="Sanjay Kuppusamy Saravanan"
-                                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:scale-105"
+                                    alt="Sanjay"
+                                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
                                 />
                             </div>
                             <div className="p-4 sm:p-5">
-                                <h3 className="text-base sm:text-lg font-bold text-[#001738] mb-0.5 leading-tight">Sanjay Kuppusamy Saravanan</h3>
-                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Co-Founder, CTO</p>
+                                <h3 className="text-base sm:text-lg font-bold text-[#001738] mb-0.5 leading-tight">Sanjay</h3>
+                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Founder and CTO</p>
                             </div>
                         </a>
 
-                        {/* Team Member 3 */}
+                        {/* Team Member 2 */}
                         <a
                             href="https://www.linkedin.com/in/dauren-oberhuber-3602a4330/"
                             target="_blank"
@@ -129,12 +109,32 @@ export default function AboutPage() {
                                 <img
                                     src="/images/Dauren.png"
                                     alt="Dauren Oberhuber"
-                                    className="w-full h-full object-cover grayscale transition-all duration-300 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
                                 />
                             </div>
                             <div className="p-4 sm:p-5">
                                 <h3 className="text-base sm:text-lg font-bold text-[#001738] mb-0.5 leading-tight">Dauren Oberhuber</h3>
-                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Recruitment Marketing Manager</p>
+                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Co-Founder and CFO</p>
+                            </div>
+                        </a>
+
+                        {/* Team Member 3 */}
+                        <a
+                            href="https://www.linkedin.com/in/pavithranks/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#F5F5F5] rounded-xl overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                        >
+                            <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
+                                <img
+                                    src="/images/pavithran_HD.jpeg"
+                                    alt="Pavithran"
+                                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                            <div className="p-4 sm:p-5">
+                                <h3 className="text-base sm:text-lg font-bold text-[#001738] mb-0.5 leading-tight">Pavithran</h3>
+                                <p className="text-xs sm:text-sm text-[#001738]/60 font-medium">Co-Founder</p>
                             </div>
                         </a>
                     </div>

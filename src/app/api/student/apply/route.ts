@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
 import { MAX_RESUME_SIZE_BYTES, ALLOWED_RESUME_TYPES } from "@/lib/validations";
+import { checkRateLimit, escapeHtml } from "@/lib/security";
 
 const studentApiSchema = z.object({
   name: z.string().min(2),
@@ -17,6 +18,9 @@ const studentApiSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    const rateLimitError = checkRateLimit(req);
+    if (rateLimitError) return rateLimitError;
+
     const formData = await req.formData();
 
     const rawSkills = formData.get("skills");
@@ -102,14 +106,14 @@ export async function POST(req: NextRequest) {
       subject: `New Student Application: ${data.name}`,
       html: `
         <h2>New Student Application</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>University:</strong> ${data.university}</p>
-        <p><strong>Degree:</strong> ${data.degree}</p>
-        <p><strong>Skills:</strong> ${data.skills.join(", ")}</p>
-        <p><strong>Availability:</strong> ${data.availability}</p>
-        <p><strong>Experience:</strong> ${data.experience}</p>
-        ${data.portfolio ? `<p><strong>Portfolio:</strong> ${data.portfolio}</p>` : ""}
+        <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+        <p><strong>University:</strong> ${escapeHtml(data.university)}</p>
+        <p><strong>Degree:</strong> ${escapeHtml(data.degree)}</p>
+        <p><strong>Skills:</strong> ${escapeHtml(data.skills.join(", "))}</p>
+        <p><strong>Availability:</strong> ${escapeHtml(data.availability)}</p>
+        <p><strong>Experience:</strong> ${escapeHtml(data.experience)}</p>
+        ${data.portfolio ? `<p><strong>Portfolio:</strong> ${escapeHtml(data.portfolio)}</p>` : ""}
         <p>View in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/students">admin dashboard</a>.</p>
       `,
     });

@@ -14,7 +14,7 @@ const features = [
     {
         icon: Clock,
         title: "Fast Turnaround",
-        description: "Get matched with highly vetted global talent in days. Start scaling your startup.",
+        description: "Get matched with highly vetted Indian talent in days. Start scaling your startup.",
         iconStyle: "text-orange-600",
         bgBadge: "bg-orange-50 border-orange-100",
     },

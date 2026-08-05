@@ -2,8 +2,25 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export function HeroSection() {
+    const headingLinesRef = useRef<HTMLSpanElement>(null);
+    const [matchedWidth, setMatchedWidth] = useState<number | null>(null);
+
+    useIsomorphicLayoutEffect(() => {
+        const measure = () => {
+            if (headingLinesRef.current) {
+                setMatchedWidth(headingLinesRef.current.offsetWidth);
+            }
+        };
+        measure();
+        window.addEventListener("resize", measure);
+        return () => window.removeEventListener("resize", measure);
+    }, []);
+
     return (
         <section
             id="hero-section"
@@ -16,16 +33,25 @@ export function HeroSection() {
 
             {/* Content */}
             <div className="container-superhi relative z-10 flex flex-col items-center text-center px-4 md:px-8 mt-12 sm:mt-0">
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-center max-w-5xl mx-auto mb-8 sm:mb-10 leading-[1.1] sm:leading-[1.05] font-display tracking-tight">
+                <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-center max-w-5xl mx-auto mb-8 sm:mb-10 leading-[1.1] sm:leading-[1.05] font-display tracking-tight">
                     <span className="text-[#001738] inline-block">Connecting</span>
                     <br className="hidden md:block" />
-                    <span className="text-vibrant-blue inline-block mt-2 sm:mt-4">European Startups</span>
-                    <br className="hidden md:block" />
-                    <span className="text-vibrant-crimson inline-block mt-2 sm:mt-4">with International Talent</span>
+                    <span
+                        ref={headingLinesRef}
+                        className="inline-block w-max max-w-full text-justify [text-align-last:justify] mt-2 sm:mt-4"
+                    >
+                        <span className="text-vibrant-blue">European Startups</span>
+                        <br className="hidden md:block" />
+                        <span className="text-vibrant-crimson">with Indian Talent</span>
+                    </span>
                 </h1>
 
-                <p className="w-max max-w-full text-justify [text-align-last:justify] text-lg lg:text-xl text-foreground/50 leading-relaxed mb-12 mx-auto">
-                    Bridging European innovation with the<br className="block md:hidden" /> world&apos;s premier engineering<br className="hidden md:block" /> talent. Scale<br className="block md:hidden" /> your startup with top tier freelance<br className="block md:hidden" /> developers or<br className="hidden md:block" /> accelerate your career with<br className="block md:hidden" /> high impact global project experience.
+                <p
+                    className="mx-auto max-w-xl text-justify [text-align-last:justify] text-xl sm:text-2xl font-normal text-foreground/70 leading-snug mb-12"
+                    style={matchedWidth ? { width: matchedWidth, maxWidth: matchedWidth } : undefined}
+                >
+                    Skip the relocation and administration hassle. We match Early stage <br /> European startups
+                    with the best engineering talent India has to offer.
                 </p>
 
                 {/* CTA Buttons */}

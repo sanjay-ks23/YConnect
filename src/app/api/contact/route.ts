@@ -2,10 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { contactFormSchema } from "@/lib/validations";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
+import { checkRateLimit, parseJsonBody, escapeHtml } from "@/lib/security";
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const rateLimitError = checkRateLimit(req);
+    if (rateLimitError) return rateLimitError;
+
+    const { data: body, error: bodyError } = await parseJsonBody(req);
+    if (bodyError) return bodyError;
+
     const parsed = contactFormSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -40,11 +46,11 @@ export async function POST(req: NextRequest) {
       subject: `New Contact Message: ${data.subject}`,
       html: `
         <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Inquiry Type:</strong> ${data.inquiryType}</p>
-        <p><strong>Subject:</strong> ${data.subject}</p>
-        <p><strong>Message:</strong> ${data.message}</p>
+        <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+        <p><strong>Inquiry Type:</strong> ${escapeHtml(data.inquiryType)}</p>
+        <p><strong>Subject:</strong> ${escapeHtml(data.subject)}</p>
+        <p><strong>Message:</strong> ${escapeHtml(data.message)}</p>
         <p>View in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/contact">admin dashboard</a>.</p>
       `,
     });

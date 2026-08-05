@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerAuthClient } from "@/lib/supabase/serverAuth";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
+import { isValidEmail } from "@/lib/security";
 
 async function requireAdmin() {
   const authClient = await getSupabaseServerAuthClient();
@@ -28,8 +29,11 @@ export async function POST(req: NextRequest) {
     }
 
     const { email, role } = await req.json();
-    if (!email || typeof email !== "string") {
-      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+    if (!email || typeof email !== "string" || !isValidEmail(email)) {
+      return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
+    }
+    if (role && (typeof role !== "string" || role.length > 50)) {
+      return NextResponse.json({ error: "Invalid role" }, { status: 400 });
     }
 
     const service = getSupabaseServiceClient();
@@ -54,8 +58,8 @@ export async function DELETE(req: NextRequest) {
     }
 
     const { email } = await req.json();
-    if (!email || typeof email !== "string") {
-      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+    if (!email || typeof email !== "string" || !isValidEmail(email)) {
+      return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
     }
 
     if (email === callerEmail) {

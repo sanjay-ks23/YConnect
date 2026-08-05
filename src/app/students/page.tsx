@@ -30,7 +30,7 @@ const benefits = [
     {
         icon: Briefcase,
         title: "Gain Experience",
-        description: "Build real production software and products. Solve challenges that go beyond toy projects.",
+        description: "Build real production software and products. Solve challenges that have a real impact.",
         color: "bg-vibrant-teal",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -45,8 +45,8 @@ const benefits = [
     },
     {
         icon: Award,
-        title: "International Exposure",
-        description: "Learn exactly how global startups operate, build your network, and showcase your talent.",
+        title: "Global Exposure",
+        description: "Learn exactly how European startups operate, build your network, and showcase your talent.",
         color: "bg-lavender",
         iconBg: "bg-vibrant-crimson/10",
         iconColor: "text-vibrant-crimson",
@@ -58,7 +58,7 @@ const processSteps = [
     { step: "02", title: "Profile Creation", description: <>Create a detailed technical profile <br className="hidden md:block" />that European founders will love to see.</>, icon: UserCircle, color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
     { step: "03", title: "Matching", description: <>We match you directly with top startups <br className="hidden md:block" />looking for your exact engineering stack.</>, icon: Handshake, color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
     { step: "04", title: "Interview", description: <>Meet the startup founders directly <br className="hidden md:block" />to discuss the role and project goals.</>, icon: MessageSquare, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "05", title: "Work Begins", description: <>Join the tech team and start building <br className="hidden md:block" />international-grade software products.</>, icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+    { step: "05", title: "Work Begins", description: <>Join the tech team and start building <br className="hidden md:block" />world class software products.</>, icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
 ];
 
 export default function StudentsPage() {

@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTASection } from "@/components/sections/CTASection";
 import { WaveDivider } from "@/components/ui/WaveDivider";
@@ -18,7 +18,7 @@ export default function Home() {
       </div>
 
       <div className="bg-[#F6F4FB]">
-        <WhyChooseUs />
+        <Testimonials />
         <WaveDivider color="#F0F8EC" variant={3} />
       </div>
 

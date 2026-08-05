@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerAuthClient } from "@/lib/supabase/serverAuth";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
+import { isValidStatus } from "@/lib/security";
 
 const ALLOWED_TABLES = ["student_applications", "startup_applications", "contact_messages"] as const;
 type AllowedTable = (typeof ALLOWED_TABLES)[number];
@@ -34,8 +35,18 @@ export async function POST(req: NextRequest) {
     }
 
     const updates: Record<string, string> = {};
-    if (typeof status === "string") updates.status = status;
-    if (typeof notes === "string") updates.notes = notes;
+    if (typeof status === "string") {
+      if (!isValidStatus(status)) {
+        return NextResponse.json({ error: "Invalid status value" }, { status: 400 });
+      }
+      updates.status = status;
+    }
+    if (typeof notes === "string") {
+      if (notes.length > 5000) {
+        return NextResponse.json({ error: "Notes too long (max 5000 characters)" }, { status: 400 });
+      }
+      updates.notes = notes;
+    }
 
     if (Object.keys(updates).length === 0) {
       return NextResponse.json({ error: "Nothing to update" }, { status: 400 });

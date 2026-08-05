@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerAuthClient } from "@/lib/supabase/serverAuth";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
+import { sanitizeStoragePath } from "@/lib/security";
 
 // Generates a short-lived (5 min) signed URL for a private resume file.
 // Re-checks the caller is an authenticated, whitelisted admin before
@@ -29,8 +30,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { path } = await req.json();
-    if (!path || typeof path !== "string") {
-      return NextResponse.json({ error: "Missing resume path" }, { status: 400 });
+    if (!path || typeof path !== "string" || !sanitizeStoragePath(path)) {
+      return NextResponse.json({ error: "Invalid resume path" }, { status: 400 });
     }
 
     const { data, error } = await service.storage.from("resumes").createSignedUrl(path, 300);

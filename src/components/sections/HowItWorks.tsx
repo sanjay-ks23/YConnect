@@ -7,20 +7,17 @@ const startupSteps = [
     {
         id: "s1",
         title: "Submit Requirements",
-        description: "Tell us exactly what role you need, the skills required, and your project duration. Our platform instantly matches you with our top tier global software engineering talent.",
-        keywords: ["Job Profile", "Skill Gap", "Matching", "Requirement", "Tech Stack"]
+        description: "Tell us what role you need filled and your timeline. We'll start matching you with the right talent right away.",
     },
     {
         id: "s2",
         title: "Get Matched",
-        description: "We hand pick the perfect student talent from our curated pool. You will get matched with highly vetted, motivated individuals perfectly suited to your specific tech stack.",
-        keywords: ["Top Talent", "Vetted", "Pre Screened", "Selection", "Engineering"]
+        description: "We hand pick a vetted student who genuinely fits your tech stack and the way your team works.",
     },
     {
         id: "s3",
         title: "Start Working",
-        description: "Your matched student starts working part time. We handle all contracts, payments, and timeline coordination so you can focus entirely on your core tech product.",
-        keywords: ["Launch", "Scale", "Flexible", "Contract", "Success"]
+        description: "Your match starts part time. We handle the contract and payments, so you can focus on the product.",
     }
 ];
 
@@ -28,20 +25,17 @@ const studentSteps = [
     {
         id: "st1",
         title: "Apply & Profile",
-        description: "Create your profile and showcase your technical skills to innovative European startups. Gain global visibility and unlock amazing real world global project opportunities.",
-        keywords: ["Portfolio", "Skillset", "Visibility", "Apply", "Global"]
+        description: "Create a simple profile that shows your skills and the projects you're proud of.",
     },
     {
         id: "st2",
         title: "Get Selected",
-        description: "Get perfectly matched with an innovative European startup that precisely fits your tech stack and interests. Go through a selection process with clear feedback.",
-        keywords: ["Matchmaking", "Selection", "Direct Hire", "Tech Fit", "Interview"]
+        description: "We match you with a startup that fits your stack, then you'll go through a short interview with honest feedback either way.",
     },
     {
         id: "st3",
         title: "Start Earning",
-        description: "Work on real world projects, gain international exposure, and get paid for your time. You can earn while you learn with highly flexible hours that fit your study schedule.",
-        keywords: ["Paid Work", "Experience", "Career Growth", "Global Exposure", "Learn By Doing"]
+        description: "Work on real projects, build genuine experience, and get paid on a schedule that fits around your studies.",
     }
 ];
 
@@ -77,14 +71,11 @@ export function HowItWorks() {
                 
                 <div className="relative z-20 w-[94%] max-w-[110rem] mx-auto px-4 md:px-8">
                     <div className="text-center mb-10 md:mb-16 flex flex-col items-center">
-                        <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4 mt-8 md:mt-0 block z-50">
-                            THE PROCESS
-                        </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50 mt-8 md:mt-0">
                             How It Works
                         </h2>
-                        <p className="text-justify text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-relaxed px-2 z-50">
-                            A seamless bridge between Europe and the World. We manage everything from vetting to payments, so you can focus on building.
+                        <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-snug px-2 z-50">
+                            A seamless bridge between Europe and India. We handle vetting and payments so you can focus on building.
                         </p>
 
                         {/* Professional Toggle */}
@@ -123,16 +114,9 @@ export function HowItWorks() {
                                     <h3 className="text-2xl font-display font-medium text-[#001738] ml-2">
                                         {idx + 1}. {step.title}
                                     </h3>
-                                    <p className="text-justify text-[#001738]/60 text-base leading-relaxed ml-2">
+                                    <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/60 text-base leading-snug ml-2">
                                         {step.description}
                                     </p>
-                                    <div className="flex flex-wrap gap-2 mt-3 ml-2">
-                                        {step.keywords.map(kw => (
-                                            <span key={kw} className="bg-white border border-gray-200 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#001738]/80 uppercase tracking-wider">
-                                                {kw}
-                                            </span>
-                                        ))}
-                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -160,80 +144,37 @@ export function HowItWorks() {
                                     {steps.map((step, idx) => {
                                         const isActive = activeIndex === idx;
                                         return (
-                                            <div key={step.id} className="relative origin-left ml-6">
-                                                <motion.h3
-                                                    className={`text-3xl md:text-4xl lg:text-5xl font-display font-medium transition-all duration-500 py-4 ${isActive
-                                                        ? "text-[#001738] scale-100"
-                                                        : "text-[#001738]/20 scale-[0.95]"
-                                                        }`}
-                                                >
-                                                    {step.title}
-                                                </motion.h3>
-
-                                                <AnimatePresence>
-                                                    {isActive && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, height: 0 }}
-                                                            animate={{ opacity: 1, height: "auto" }}
-                                                            exit={{ opacity: 0, height: 0 }}
-                                                            className="overflow-hidden"
-                                                        >
-                                                            <p className="text-justify [text-align-last:justify] text-[#001738]/50 text-xl md:text-2xl mt-6 mb-8 leading-tight w-full md:w-[650px]">
-                                                                {step.description}
-                                                            </p>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
+                                            <motion.h3
+                                                key={step.id}
+                                                className={`relative origin-left ml-6 text-3xl md:text-4xl lg:text-5xl font-display font-medium transition-all duration-500 py-4 ${isActive
+                                                    ? "text-[#001738] scale-100"
+                                                    : "text-[#001738]/20 scale-[0.95]"
+                                                    }`}
+                                            >
+                                                {step.title}
+                                            </motion.h3>
                                         );
                                     })}
                                 </div>
                             </div>
 
-                            {/* Right Side: Simple Keyword Blocks */}
+                            {/* Right Side: Active Step Description */}
                             <div className="flex-1 w-full relative min-h-[400px] flex items-center justify-center">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={`${viewMode}-${activeIndex}`}
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 1.1 }}
-                                        className="relative w-full h-full flex flex-wrap content-center justify-center gap-4"
+                                        initial={{ opacity: 0, y: 12 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -12 }}
+                                        transition={{ duration: 0.4 }}
+                                        className="w-full"
                                     >
-                                        <div className="flex flex-col items-center gap-4 w-full">
-                                            {/* Row 1: first 3 keywords */}
-                                            <div className="flex flex-wrap justify-center gap-4">
-                                                {steps[activeIndex].keywords.slice(0, 3).map((keyword, kidx) => (
-                                                    <motion.div
-                                                        key={keyword}
-                                                        initial={{ opacity: 0, scale: 0.8 }}
-                                                        animate={{ opacity: 1, scale: 1 }}
-                                                        transition={{ delay: kidx * 0.05 }}
-                                                        className="bg-white border-2 border-gray-100 px-8 py-4 rounded-full shadow-sm"
-                                                    >
-                                                        <span className="text-[#001738] text-xl md:text-2xl font-display font-medium">
-                                                            {keyword}
-                                                        </span>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-                                            {/* Row 2: remaining 2 keywords */}
-                                            <div className="flex flex-wrap justify-center gap-4">
-                                                {steps[activeIndex].keywords.slice(3).map((keyword, kidx) => (
-                                                    <motion.div
-                                                        key={keyword}
-                                                        initial={{ opacity: 0, scale: 0.8 }}
-                                                        animate={{ opacity: 1, scale: 1 }}
-                                                        transition={{ delay: (kidx + 3) * 0.05 }}
-                                                        className="bg-white border-2 border-gray-100 px-8 py-4 rounded-full shadow-sm"
-                                                    >
-                                                        <span className="text-[#001738] text-xl md:text-2xl font-display font-medium">
-                                                            {keyword}
-                                                        </span>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
-                                        </div>
+                                        <p
+                                            lang="en"
+                                            className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/50 text-2xl md:text-3xl font-medium leading-snug max-w-[550px] mx-auto"
+                                        >
+                                            {steps[activeIndex].description}
+                                        </p>
                                     </motion.div>
                                 </AnimatePresence>
                             </div>

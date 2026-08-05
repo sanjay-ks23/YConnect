@@ -85,7 +85,7 @@ export default function StartupsPage() {
                             <span className="text-vibrant-blue font-display">technical talent</span>
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
-                            Access pre vetted engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
+                            Access pre vetted remote engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
                             accelerate your product roadmap without local overhead.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
@@ -118,7 +118,7 @@ export default function StartupsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="Our Talent Network"
-                    subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from the world's premier technical universities.</>}
+                    subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from India's premier technical universities.</>}
                     items={talentPool}
                     theme="blue"
                     bgColor="bg-transparent"
@@ -162,7 +162,7 @@ export default function StartupsPage() {
             <FormModal
                 isOpen={formOpen}
                 onClose={() => setFormOpen(false)}
-                title="Hire International Talent"
+                title="Hire Indian Talent"
                 subtitle="Tell us about the role and skills you need"
             >
                 <StartupForm />

@@ -2,10 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { startupFormSchema } from "@/lib/validations";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
+import { checkRateLimit, parseJsonBody, escapeHtml } from "@/lib/security";
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const rateLimitError = checkRateLimit(req);
+    if (rateLimitError) return rateLimitError;
+
+    const { data: body, error: bodyError } = await parseJsonBody(req);
+    if (bodyError) return bodyError;
+
     const parsed = startupFormSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -42,13 +48,13 @@ export async function POST(req: NextRequest) {
       subject: `New Startup Requirement: ${data.companyName}`,
       html: `
         <h2>New Startup Requirement</h2>
-        <p><strong>Company:</strong> ${data.companyName}</p>
-        <p><strong>Country:</strong> ${data.country}</p>
-        <p><strong>Contact Person:</strong> ${data.contactPerson}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Duration:</strong> ${data.duration}</p>
-        <p><strong>Budget:</strong> ${data.budget}</p>
-        <p><strong>Description:</strong> ${data.description}</p>
+        <p><strong>Company:</strong> ${escapeHtml(data.companyName)}</p>
+        <p><strong>Country:</strong> ${escapeHtml(data.country)}</p>
+        <p><strong>Contact Person:</strong> ${escapeHtml(data.contactPerson)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
+        <p><strong>Duration:</strong> ${escapeHtml(data.duration ?? "N/A")}</p>
+        <p><strong>Budget:</strong> ${escapeHtml(data.budget ?? "N/A")}</p>
+        <p><strong>Description:</strong> ${escapeHtml(data.description)}</p>
         <p>View in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/startups">admin dashboard</a>.</p>
       `,
     });
