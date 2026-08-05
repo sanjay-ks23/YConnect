@@ -29,7 +29,7 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
  <section className={`py-24 relative overflow-hidden ${bgColor}`}>
  <div className="container-superhi relative z-10">
  <div className="text-center max-w-3xl mx-auto mb-16">
- <h2 className="text-4xl md:text-5xl font-display font-medium text-[#001738] mb-6 tracking-tight">
+ <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-[#001738] mb-6 tracking-tight">
  {title}
  </h2>
  <div className="max-w-full mx-auto text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">

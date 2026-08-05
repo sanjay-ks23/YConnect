@@ -15,11 +15,11 @@ export default function AboutPage() {
  <section className="pt-44 pb-20 lg:pt-52 lg:pb-32 relative z-10 bg-gradient-to-b from-vibrant-blue/5 to-white">
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[1.05] mb-6 sm:mb-8">
+ <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8">
  Where Talent Meets{" "}
  <span className="text-vibrant-green font-display">Innovation</span>
  </h1>
- <div className="max-w-xl mx-auto text-base sm:text-lg lg:text-xl text-[#001738]/60 leading-relaxed font-sans">
+ <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
  We exist because world class engineering talent should be accessible to every ambitious startup, without any barriers.
  </div>
  </div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
  <div className="container-superhi relative z-10">
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
  <div>
- <h2 className="heading-section mb-8">
+ <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-8">
  Connecting <span className="text-vibrant-blue">Early Stage Startups</span> with <span className="text-vibrant-orange font-display">Indian Engineers</span>
  </h2>
  <div className="text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans w-full">

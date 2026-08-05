@@ -56,7 +56,7 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
  </span>
  </div>
  )}
- <h2 className="heading-section mb-6">
+ <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-6">
  {title}
  </h2>
  <div className="max-w-full text-lg text-[#001738]/50 leading-relaxed">

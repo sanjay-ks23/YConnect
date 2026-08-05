@@ -76,22 +76,22 @@ export default function StartupsPage() {
  return (
  <div className="bg-white">
  {/* Hero */}
- <section className="min-h-[85vh] pt-28 pb-16 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender/40 via-white to-white">
- <div className="absolute top-20 right-10 w-72 h-72 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
+ <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender/40 via-white to-white">
+ <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[1.05] mb-6 sm:mb-8">
+ <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
  Hire elite Indian<br />
  <span className="text-vibrant-blue font-display">technical talent</span>
  </h1>
- <div className="max-w-xl mx-auto text-base sm:text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-10 sm:mb-12">
+ <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
  Access pre vetted remote engineering talent, reduce costs by 90%, and accelerate your product roadmap without local overhead.
  </div>
- <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
- <button onClick={() => setFormOpen(true)} className="px-8 sm:px-10 py-3.5 sm:py-4 bg-vibrant-blue text-white rounded-full font-bold text-base sm:text-lg shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
+ <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+ <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
  Submit Requirements <ArrowRight className="w-5 h-5" />
  </button>
- <Link href="/m/about" className="px-8 sm:px-10 py-3.5 sm:py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold text-base sm:text-lg hover:bg-gray-50 transition-all flex items-center gap-2">
+ <Link href="/m/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
  How It Works <ArrowUpRight className="w-5 h-5" />
  </Link>
  </div>
@@ -101,60 +101,79 @@ export default function StartupsPage() {
 
  <div className="h-24 bg-white" />
 
- {/* Benefits transition */}
- <div className="bg-[#FAF9F6]">
- <WaveDivider variant={1} color="#FAF9F6" />
- <HorizontalScrollSection
- theme="blue"
- title={<>Why founders <span className="font-display text-vibrant-blue">choose us</span></>}
- cards={benefits}
- bgColor="bg-transparent"
- />
- </div>
+      {/* Benefits transition */}
+      <div className="bg-[#FAF9F6]">
+        <WaveDivider variant={1} color="#FAF9F6" />
+        <HorizontalScrollSection
+          theme="blue"
+          title={
+            <>
+              Why founders <span className="font-display text-vibrant-blue">choose us</span>
+            </>
+          }
+          cards={benefits}
+          bgColor="bg-transparent"
+        />
+      </div>
 
- {/* Talent Pool transition */}
- <div className="bg-[#F6F4FB]">
- <WaveDivider variant={2} color="#FAF9F6" flip />
- <StackedGrid
- title="Our Talent Network"
- subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from India's premier technical universities.</>}
- items={talentPool}
- theme="blue"
- bgColor="bg-transparent"
- />
- </div>
+      {/* Talent Pool transition */}
+      <div className="bg-[#F6F4FB]">
+        <WaveDivider variant={2} color="#FAF9F6" flip />
+        <StackedGrid
+          title="Our Talent Network"
+          subtitle={
+            <>
+              Connect with the top 1% of engineering talent <br className="hidden md:block" /> from India's premier technical universities.
+            </>
+          }
+          items={talentPool}
+          theme="blue"
+          bgColor="bg-transparent"
+        />
+      </div>
 
- {/* Process transition */}
- <div className="bg-[#F0F8EC]">
- <WaveDivider variant={3} color="#F0F8EC" />
- <ProcessSection
- theme="blue"
- badgeText=""
- bgColor="bg-transparent"
- title={<>The <span className="font-display text-vibrant-blue text-7xl">Process</span></>}
- subtitle={<>We streamline the entire hiring lifecycle <br className="hidden md:block" />for all fast-growing European startups.</>}
- steps={processSteps}
- onCtaClick={() => setFormOpen(true)}
- />
- </div>
+      {/* Process transition */}
+      <div className="bg-[#F0F8EC]">
+        <WaveDivider variant={3} color="#F0F8EC" />
+        <ProcessSection
+          theme="blue"
+          badgeText=""
+          bgColor="bg-transparent"
+          title={
+            <>
+              The <span className="font-display text-vibrant-blue text-5xl sm:text-7xl">Process</span>
+            </>
+          }
+          subtitle={
+            <>
+              We streamline the entire hiring lifecycle <br className="hidden md:block" /> for all fast-growing European startups.
+            </>
+          }
+          steps={processSteps}
+          onCtaClick={() => setFormOpen(true)}
+        />
+      </div>
 
- {/* CTA */}
- <section className="py-32 bg-[#FAF9F6] relative">
- <div className="container-superhi">
- <div className="bg-vibrant-blue rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-blue/30">
- <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
- <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
- Ready to hire?
- </h2>
- <div className="max-w-xl mx-auto text-white/80 text-lg sm:text-xl mb-10 sm:mb-12 leading-relaxed">
- Share your exact hiring requirements, and see candidate profiles in 24 hours.
- </div>
- <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-blue rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
- Submit Requirements
- </button>
- </div>
- </div>
- </section>
+      {/* CTA */}
+      <section className="py-32 bg-[#FAF9F6] relative">
+        <div className="container-superhi">
+          <div className="bg-vibrant-blue rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-blue/30">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+            <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
+              Ready to hire?
+            </h2>
+            <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed">
+              Share your exact hiring requirements, and see candidate profiles in 24 hours.
+            </div>
+            <button
+              onClick={() => setFormOpen(true)}
+              className="px-12 py-5 bg-white text-vibrant-blue rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+            >
+              Submit Requirements
+            </button>
+          </div>
+        </div>
+      </section>
 
  {/* Modal */}
  <FormModal

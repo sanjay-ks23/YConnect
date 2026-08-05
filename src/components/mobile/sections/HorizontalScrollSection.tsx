@@ -41,7 +41,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
  <div className={`md:hidden relative ${bgColor}`}>
  <div className="container-superhi py-20">
  <div className="mb-10">
- <h2 className="heading-section mb-4">{title}</h2>
+ <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-4">{title}</h2>
  {subtitle && <p lang="en" className="text-base sm:text-lg text-[#001738]/50 max-w-xl leading-relaxed">
  {subtitle}
  </p>}

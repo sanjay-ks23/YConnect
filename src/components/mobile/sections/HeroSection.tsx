@@ -16,7 +16,7 @@ export function HeroSection() {
 
  {/* Content */}
  <div className="container-superhi relative z-10 flex flex-col items-center text-center px-4 md:px-8 mt-12 sm:mt-0">
- <h1 className="text-[40px] sm:text-5xl md:text-7xl lg:text-8xl text-center max-w-5xl mx-auto mb-8 sm:mb-10 leading-[1.1] sm:leading-[1.05] font-display tracking-tight">
+ <h1 className="text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl text-center max-w-5xl mx-auto mb-8 sm:mb-10 leading-[1.1] sm:leading-[1.05] font-display tracking-tight">
  <span className="text-[#001738] inline-block">Connecting</span>
  <br className="hidden md:block" />
  <span className="text-vibrant-blue inline-block mt-2 sm:mt-4">European Startups</span>

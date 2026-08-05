@@ -15,10 +15,10 @@ export default function ContactPage() {
  <section className="pt-44 pb-20 lg:pt-52 lg:pb-32 relative z-10 bg-gradient-to-b from-vibrant-blue/10 to-white">
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[1.05] mb-6 sm:mb-8">
+ <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8">
  Ready to <span className="text-vibrant-blue">Connect?</span>
  </h1>
- <div className="max-w-xl mx-auto text-base sm:text-lg lg:text-xl text-[#001738]/60 leading-relaxed font-sans">
+ <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
  Whether you're a founder or a student, we're here to help. Reach out and let's see how we can work together.
  </div>
  </div>
@@ -34,8 +34,7 @@ export default function ContactPage() {
  <div className="space-y-6">
  <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
  <div className="max-w-[22rem] text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans">
- Have a question, idea, or a project?<br />
- Reach out and let us connect today.
+ Have a question, idea, or a project? Reach out and let us connect today.
  </div>
  </div>
 
@@ -54,7 +53,7 @@ export default function ContactPage() {
  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
  <Clock3 className="w-6 h-6 text-vibrant-blue" />
  </div>
- <div className="min-w-0">
+ <div>
  <h3 className="font-bold text-[#001738] mb-1">Response Time</h3>
  <p className="text-[#001738]/60 font-sans">Usually within 24 hours</p>
  </div>
@@ -64,7 +63,7 @@ export default function ContactPage() {
  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
  <Globe2 className="w-6 h-6 text-vibrant-blue" />
  </div>
- <div className="min-w-0">
+ <div>
  <h3 className="font-bold text-[#001738] mb-1">Remote First</h3>
  <p className="text-[#001738]/60 font-sans">Fully remote by design</p>
  </div>
@@ -80,8 +79,7 @@ export default function ContactPage() {
  Send us a message
  </h2>
  <div className="max-w-[44rem] text-[#001738]/50 mb-12 text-lg font-sans">
- Our dedicated team typically responds within two to four business hours.
- Please let us know how we can help you.
+ Our dedicated team typically responds within two to four business hours. Please let us know how we can help you.
  </div>
  <ContactForm />
  </div>

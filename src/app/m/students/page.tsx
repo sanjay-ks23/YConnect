@@ -66,22 +66,22 @@ export default function StudentsPage() {
  return (
  <div className="bg-white">
  {/* Hero */}
- <section className="min-h-[85vh] pt-28 pb-16 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
+ <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
  <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight leading-[1.05] mb-6 sm:mb-8">
+ <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
  Work with the best<br />
  <span className="text-vibrant-crimson font-display">European startups</span>
  </h1>
- <div className="max-w-xl mx-auto text-base sm:text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-10 sm:mb-12">
+ <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
  Join elite European technical teams, earn competitively in Euros, and build a global career through pre vetted, high impact roles.
  </div>
- <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
- <button onClick={() => setFormOpen(true)} className="px-8 sm:px-10 py-3.5 sm:py-4 bg-vibrant-crimson text-white rounded-full font-bold text-base sm:text-lg shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
+ <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+ <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
  Fill the questionnaire <ArrowRight className="w-5 h-5" />
  </button>
- <Link href="/m/about" className="px-8 sm:px-10 py-3.5 sm:py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold text-base sm:text-lg hover:bg-gray-50 transition-all flex items-center gap-2">
+ <Link href="/m/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
  Learn More <ArrowUpRight className="w-5 h-5" />
  </Link>
  </div>
@@ -109,7 +109,7 @@ export default function StudentsPage() {
  theme="crimson"
  badgeText=""
  bgColor="bg-transparent"
- title={<>The <span className="font-display text-vibrant-crimson text-7xl">Process</span></>}
+ title={<>The <span className="font-display text-vibrant-crimson text-5xl sm:text-7xl">Process</span></>}
  subtitle={<>We handle all the administrative complexity, <br className="hidden md:block" />so you can just focus on writing great code.</>}
  steps={processSteps}
  onCtaClick={() => setFormOpen(true)}
@@ -124,7 +124,7 @@ export default function StudentsPage() {
  <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
  Ready to join the pool?
  </h2>
- <div className="max-w-xl mx-auto text-white/80 text-lg sm:text-xl mb-10 sm:mb-12 leading-relaxed">
+ <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed">
  Apply in minutes and get the unique chance to work with world class European founders.
  </div>
  <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
