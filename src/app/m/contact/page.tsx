@@ -18,7 +18,7 @@ export default function ContactPage() {
  <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8">
  Ready to <span className="text-vibrant-blue">Connect?</span>
  </h1>
- <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+ <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Whether you're a founder or a student, we're here to help. Reach out and let's see how we can work together.
  </div>
  </div>
@@ -33,7 +33,7 @@ export default function ContactPage() {
  <div className="lg:col-span-1 pt-10 md:pt-16 space-y-10">
  <div className="space-y-6">
  <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
- <div className="max-w-[22rem] text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans">
+ <div className="max-w-[22rem] text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Have a question, idea, or a project? Reach out and let us connect today.
  </div>
  </div>
@@ -55,7 +55,7 @@ export default function ContactPage() {
  </div>
  <div>
  <h3 className="font-bold text-[#001738] mb-1">Response Time</h3>
- <p className="text-[#001738]/60 font-sans">Usually within 24 hours</p>
+ <p className="text-[#001738]/60 font-sans text-justify [text-align-last:left] [hyphens:auto]">Usually within 24 hours</p>
  </div>
  </div>
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
  </div>
  <div>
  <h3 className="font-bold text-[#001738] mb-1">Remote First</h3>
- <p className="text-[#001738]/60 font-sans">Fully remote by design</p>
+ <p className="text-[#001738]/60 font-sans text-justify [text-align-last:left] [hyphens:auto]">Fully remote by design</p>
  </div>
  </div>
  </div>
@@ -78,7 +78,7 @@ export default function ContactPage() {
  <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
  Send us a message
  </h2>
- <div className="max-w-[44rem] text-[#001738]/50 mb-12 text-lg font-sans">
+ <div className="max-w-[44rem] text-[#001738]/50 mb-12 text-lg font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Our dedicated team typically responds within two to four business hours. Please let us know how we can help you.
  </div>
  <ContactForm />

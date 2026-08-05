@@ -74,7 +74,7 @@ export function HowItWorks() {
  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50 mt-8 md:mt-0">
  How It Works
  </h2>
- <p lang="en" className="text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-snug px-2 z-50">
+ <p lang="en" className="text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-snug px-2 z-50 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  A seamless bridge between Europe and India. We handle vetting and payments so you can focus on building.
  </p>
 
@@ -114,7 +114,7 @@ export function HowItWorks() {
  <h3 className="text-2xl font-display font-medium text-[#001738] ml-2">
  {idx + 1}. {step.title}
  </h3>
- <p lang="en" className="text-[#001738]/60 text-base leading-snug ml-2">
+ <p lang="en" className="text-[#001738]/60 text-base leading-snug ml-2 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  {step.description}
  </p>
  </div>

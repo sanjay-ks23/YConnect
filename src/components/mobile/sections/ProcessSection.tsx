@@ -59,7 +59,7 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-6">
  {title}
  </h2>
- <div className="max-w-full text-lg text-[#001738]/50 leading-relaxed">
+ <div className="max-w-full text-lg text-[#001738]/50 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  {subtitle}
  </div>
  </div>
@@ -134,7 +134,7 @@ function StepCard({ step, theme, titleColor, isLast, onCtaClick }: StepCardProps
  <div className="flex flex-col relative z-10 w-full text-center items-center">
  <h3 className={`text-2xl font-display font-medium mb-4 ${titleColor}`}>{step.title}</h3>
 
- <div className="max-w-full mx-auto text-[#001738]/60 text-lg leading-relaxed mb-0">
+ <div className="max-w-full mx-auto text-[#001738]/60 text-lg leading-relaxed mb-0 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  {step.description}
  </div>
  </div>

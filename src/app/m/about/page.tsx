@@ -19,7 +19,7 @@ export default function AboutPage() {
  Where Talent Meets{" "}
  <span className="text-vibrant-green font-display">Innovation</span>
  </h1>
- <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
+ <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  We exist because world class engineering talent should be accessible to every ambitious startup, without any barriers.
  </div>
  </div>
@@ -35,7 +35,7 @@ export default function AboutPage() {
  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-8">
  Connecting <span className="text-vibrant-blue">Early Stage Startups</span> with <span className="text-vibrant-orange font-display">Indian Engineers</span>
  </h2>
- <div className="text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans w-full">
+ <div className="text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans w-full text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We handle administrative work such as vetting, contracts, and payments so you can focus on building your startups and your careers.
  </div>
  </div>

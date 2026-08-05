@@ -42,7 +42,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
  <div className="container-superhi py-20">
  <div className="mb-10">
  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.1em] leading-[1.0] mb-4">{title}</h2>
- {subtitle && <p lang="en" className="text-base sm:text-lg text-[#001738]/50 max-w-xl leading-relaxed">
+ {subtitle && <p lang="en" className="text-base sm:text-lg text-[#001738]/50 max-w-xl leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  {subtitle}
  </p>}
  </div>
@@ -59,7 +59,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
  )}
  <div>
  <h3 className="text-xl font-display font-medium text-[#001738] mb-2">{card.title}</h3>
- <p lang="en" className="text-[#001738]/60 leading-relaxed">
+ <p lang="en" className="text-[#001738]/60 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  {card.description}
  </p>
  </div>

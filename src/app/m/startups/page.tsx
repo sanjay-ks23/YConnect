@@ -80,11 +80,11 @@ export default function StartupsPage() {
  <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
+ <h1 className="text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
  Hire elite Indian<br />
  <span className="text-vibrant-blue font-display">technical talent</span>
  </h1>
- <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
+ <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Access pre vetted remote engineering talent, reduce costs by 90%, and accelerate your product roadmap without local overhead.
  </div>
  <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
@@ -162,7 +162,7 @@ export default function StartupsPage() {
             <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
               Ready to hire?
             </h2>
-            <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed">
+            <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
               Share your exact hiring requirements, and see candidate profiles in 24 hours.
             </div>
             <button

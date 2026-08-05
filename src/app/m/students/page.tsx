@@ -70,11 +70,11 @@ export default function StudentsPage() {
  <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
  <div className="container-superhi relative z-10">
  <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
+ <h1 className="text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
  Work with the best<br />
  <span className="text-vibrant-crimson font-display">European startups</span>
  </h1>
- <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
+ <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Join elite European technical teams, earn competitively in Euros, and build a global career through pre vetted, high impact roles.
  </div>
  <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
@@ -124,7 +124,7 @@ export default function StudentsPage() {
  <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
  Ready to join the pool?
  </h2>
- <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed">
+ <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Apply in minutes and get the unique chance to work with world class European founders.
  </div>
  <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">

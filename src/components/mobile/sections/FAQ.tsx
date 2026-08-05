@@ -57,7 +57,7 @@ export function FAQ() {
  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
  FAQ
  </h2>
- <p className="text-lg sm:text-xl text-[#001738]/50 max-w-sm leading-relaxed">
+ <p lang="en" className="text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-12 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Got a question? We can answer it.
  </p>
  </div>
@@ -84,10 +84,12 @@ export function FAQ() {
  </div>
  </AccordionTrigger>
 
- <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 text-[#001738]/70 text-base sm:text-xl font-sans leading-relaxed">
+ <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 text-[#001738]/70">
+ <p lang="en" className="text-base sm:text-xl font-sans leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  <div lang="en" className="pt-4 w-full md:w-[475px] ">
  {faq.answer}
  </div>
+ </p>
  </AccordionContent>
  </AccordionItem>
  </motion.div>

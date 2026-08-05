@@ -24,7 +24,7 @@ export function HeroSection() {
  <span className="text-vibrant-crimson inline-block mt-2 sm:mt-4">with Indian Talent</span>
  </h1>
 
- <p lang="en" className="mx-auto max-w-xl text-base sm:text-xl lg:text-2xl font-normal text-foreground/70 leading-snug mb-12">
+ <p lang="en" className="mx-auto max-w-xl text-base sm:text-xl lg:text-2xl font-normal text-foreground/70 leading-snug mb-12 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
  Skip the relocation and administration hassle. We match early stage European startups
  with the best engineering talent India has to offer.
  </p>
