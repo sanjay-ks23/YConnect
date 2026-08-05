@@ -42,9 +42,9 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                 <div className="container-superhi py-20">
                     <div className="mb-10">
                         <h2 className="heading-section mb-4">{title}</h2>
-                        <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-base sm:text-lg text-[#001738]/50 max-w-xl leading-relaxed">
+                        {subtitle && <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-base sm:text-lg text-[#001738]/50 max-w-xl leading-relaxed">
                             {subtitle}
-                        </p>
+                        </p>}
                     </div>
                     <div className="flex flex-col gap-5">
                         {cards.map((card) => (

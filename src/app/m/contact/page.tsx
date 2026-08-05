@@ -47,7 +47,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-[#001738] mb-1">Email</h3>
-                                        <p className="text-[#001738]/60 font-sans">dauren.oberhuber@yconnect.info</p>
+                                        <p className="text-[#001738]/60 font-sans break-words">dauren.oberhuber@yconnect.info</p>
                                     </div>
                                 </div>
 

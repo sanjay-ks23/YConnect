@@ -32,13 +32,13 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
           <h2 className="text-4xl md:text-5xl font-display font-medium text-[#001738] mb-6 tracking-tight">
             {title}
           </h2>
-          <div lang="en" className="max-w-2xl mx-auto text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">
+          <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">
             {subtitle}
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div 
               key={item.id} 
               className={`group relative aspect-[4/6] rounded-[1.5rem] overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#001738]/10 ${accentBg}`}
@@ -48,7 +48,9 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  priority={index < 3}
                 />
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-white flex items-center justify-center overflow-hidden">
@@ -57,6 +59,7 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
                       src={item.bgImage}
                       alt=""
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                       className="object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500 blur-[2px]"
                     />
                   )}
