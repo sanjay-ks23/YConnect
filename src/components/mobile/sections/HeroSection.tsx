@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-x-hidden bg-gradient-to-b from-lavender via-white to-white pt-28 pb-16"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-x-hidden bg-gradient-to-b from-lavender via-white to-white pt-28 pb-16"
     >
       {/* Subtle decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
