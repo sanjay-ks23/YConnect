@@ -220,8 +220,9 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  width: 100%;
 }
 @media (min-width: 640px) {
   .container-superhi { padding-left: 2rem; padding-right: 2rem; }
@@ -350,4 +351,21 @@
 /* Form Typography Update */
 input, textarea, select, button {
   font-family: var(--font-inter), sans-serif !important;
+}
+
+/* ===== Justified text utility (mobile) =====
+   Replaces the broken `text-justify [text-align-last:left] [hyphens:auto]
+   [text-wrap:balance]` pattern. Default `text-wrap: wrap` lets each line fill
+   fully so justify produces flush left + right edges. `text-justify: inter-word`
+   gives reliable even spacing for English. `hyphens: none` prevents awkward word
+   breakups on mobile screens. */
+.text-justify-clean {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  overflow-wrap: break-word;
+  word-break: normal;
 }

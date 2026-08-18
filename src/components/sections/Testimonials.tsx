@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
@@ -10,6 +11,7 @@ const testimonialPairs = [
             quote: "YConnect made hiring simple and fast. They matched us with Sanjay within days, and he's been a genuine asset to our engineering team ever since. The entire process, from vetting to onboarding, was seamless.",
             name: "Mats van der Gulik",
             role: "Founder, Hyer Power",
+            logo: "/images/logos/hyer-power-icon.svg",
             initials: "MG",
             tag: "STARTUP FOUNDER",
         },
@@ -25,15 +27,15 @@ const testimonialPairs = [
         id: "pair-2",
         startup: {
             quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering outstanding results. YConnect's vetting process is truly top-notch.",
-            name: "Founder Name",
-            role: "Founder, Company Name",
-            initials: "FN",
+            name: "Founder",
+            role: "Founder, Polar Cooling",
+            initials: "PC",
             tag: "STARTUP FOUNDER",
         },
         student: {
-            quote: "YConnect helped me secure an internship as a CFD Engineering Intern at a European startup. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
+            quote: "YConnect helped me secure an internship as a CFD Engineering Intern at Polar Cooling. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
             name: "Sathiyanarayanan",
-            role: "CFD Intern, Company Name",
+            role: "CFD Intern, Polar Cooling",
             initials: "S",
             tag: "ENGINEERING STUDENT",
         }
@@ -69,14 +71,26 @@ export function Testimonials() {
                                 <Quote className="w-10 h-10 mb-6 text-vibrant-blue opacity-40" strokeWidth={2.5} />
                                 <p
                                     lang="en"
-                                    className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-8"
+                                    className="text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-8"
                                 >
                                     {pair.startup.quote}
                                 </p>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 bg-vibrant-blue">
-                                        {pair.startup.initials}
-                                    </div>
+                                    {pair.startup.logo ? (
+                                        <div className="w-12 h-12 rounded-full flex items-center justify-center p-2 flex-shrink-0 bg-white shadow-sm border border-vibrant-blue/15 overflow-hidden">
+                                            <Image
+                                                src={pair.startup.logo}
+                                                alt={pair.startup.role}
+                                                width={44}
+                                                height={44}
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 bg-vibrant-blue">
+                                            {pair.startup.initials}
+                                        </div>
+                                    )}
                                     <div>
                                         <p className="font-semibold text-[#001738] leading-tight">{pair.startup.name}</p>
                                         <p className="text-sm font-medium text-vibrant-blue">{pair.startup.role}</p>
@@ -89,7 +103,7 @@ export function Testimonials() {
                                 <Quote className="w-10 h-10 mb-6 text-vibrant-crimson opacity-40" strokeWidth={2.5} />
                                 <p
                                     lang="en"
-                                    className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-10"
+                                    className="text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-10"
                                 >
                                     {pair.student.quote}
                                 </p>

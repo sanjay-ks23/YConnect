@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, GraduationCap, ArrowUpRight, Laptop, UserCircle, Handshake, MessageSquare, Rocket } from "lucide-react";
+import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, ArrowUpRight, Laptop, UserCircle, Handshake, MessageSquare, Rocket } from "lucide-react";
 import { ProcessSection } from "@/components/mobile/sections/ProcessSection";
 import { StudentForm } from "@/components/mobile/forms/StudentForm";
 import { FormModal } from "@/components/mobile/ui/FormModal";
@@ -10,139 +10,186 @@ import { HorizontalScrollSection } from "@/components/mobile/sections/Horizontal
 import { WaveDivider } from "@/components/mobile/ui/WaveDivider";
 
 const benefits = [
- {
- icon: Globe,
- title: "European Startups",
- description: "Direct access to early-stage innovative startups across the Netherlands, Germany, and France.",
- color: "bg-vibrant-orange/15",
- iconBg: "bg-vibrant-orange/15",
- iconColor: "text-vibrant-orange-dark",
- },
- {
- icon: Wallet,
- title: "Paid Opportunities",
- description: "Every single engagement is a fully paid role. Earn well while gaining global work experience.",
- color: "bg-vibrant-yellow",
- iconBg: "bg-white/50",
- iconColor: "text-vibrant-orange-dark",
- },
- {
- icon: Briefcase,
- title: "Gain Experience",
- description: "Build real production software and products. Solve challenges that have a real impact.",
- color: "bg-vibrant-teal",
- iconBg: "bg-white/50",
- iconColor: "text-vibrant-green-dark",
- },
- {
- icon: CalendarCheck,
- title: "Flexible Work",
- description: "Part time or full time roles based on your availability while respecting your university.",
- color: "bg-vibrant-crimson",
- iconBg: "bg-white/40",
- iconColor: "text-coral-red-dark",
- },
- {
- icon: Award,
- title: "Global Exposure",
- description: "Learn exactly how European startups operate, build your network, and showcase your talent.",
- color: "bg-lavender",
- iconBg: "bg-vibrant-crimson/10",
- iconColor: "text-vibrant-crimson",
- },
+  {
+    icon: Globe,
+    title: "European Startups",
+    description: "Work directly with innovative startups across the Netherlands, Germany, and France.",
+    iconBg: "bg-orange-50",
+    iconColor: "text-orange-600",
+  },
+  {
+    icon: Wallet,
+    title: "Paid Opportunities",
+    description: "Every engagement is a fully paid role. Earn competitively while gaining experience.",
+    iconBg: "bg-amber-50",
+    iconColor: "text-amber-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Real Experience",
+    description: "Build production software and solve engineering challenges with real impact.",
+    iconBg: "bg-teal-50",
+    iconColor: "text-teal-600",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Flexible Work",
+    description: "Part-time or full-time roles matched to your schedule without affecting studies.",
+    iconBg: "bg-rose-50",
+    iconColor: "text-rose-600",
+  },
+  {
+    icon: Award,
+    title: "Global Exposure",
+    description: "Learn how European startups operate, expand your network, and grow your career.",
+    iconBg: "bg-purple-50",
+    iconColor: "text-purple-600",
+  },
 ];
 
 const processSteps = [
- { step: "01", title: "Apply", description: <>Submit your application and highlight <br className="hidden md:block" />your absolute best projects and skills.</>, icon: Laptop, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
- { step: "02", title: "Profile Creation", description: <>Create a detailed technical profile <br className="hidden md:block" />that European founders will love to see.</>, icon: UserCircle, color: "bg-gradient-to-br from-emerald-400 to-emerald-600", shadowColor: "bg-emerald-800" },
- { step: "03", title: "Matching", description: <>We match you directly with top startups <br className="hidden md:block" />looking for your exact engineering stack.</>, icon: Handshake, color: "bg-gradient-to-br from-orange-400 to-orange-600", shadowColor: "bg-[#BF360C]" },
- { step: "04", title: "Interview", description: <>Meet the startup founders directly <br className="hidden md:block" />to discuss the role and project goals.</>, icon: MessageSquare, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
- { step: "05", title: "Work Begins", description: <>Join the tech team and start building <br className="hidden md:block" />world class software products.</>, icon: Rocket, color: "bg-gradient-to-br from-pink-400 to-pink-600", shadowColor: "bg-pink-800" },
+  {
+    step: "01",
+    title: "Apply",
+    description: "Submit your application with your best projects, GitHub repos, and technical skills.",
+    icon: Laptop,
+    color: "bg-gradient-to-br from-pink-400 to-pink-600",
+    shadowColor: "bg-pink-800"
+  },
+  {
+    step: "02",
+    title: "Profile Verification",
+    description: "We vet your background and build a curated profile that European founders love.",
+    icon: UserCircle,
+    color: "bg-gradient-to-br from-emerald-400 to-emerald-600",
+    shadowColor: "bg-emerald-800"
+  },
+  {
+    step: "03",
+    title: "Direct Matching",
+    description: "We match you with startups looking for your exact tech stack and skill set.",
+    icon: Handshake,
+    color: "bg-gradient-to-br from-orange-400 to-orange-600",
+    shadowColor: "bg-[#BF360C]"
+  },
+  {
+    step: "04",
+    title: "Founder Interview",
+    description: "Meet the founders directly to discuss project goals, expectations, and culture.",
+    icon: MessageSquare,
+    color: "bg-gradient-to-br from-indigo-400 to-indigo-600",
+    shadowColor: "bg-indigo-800"
+  },
+  {
+    step: "05",
+    title: "Start Building",
+    description: "Join the team remotely, gain international experience, and get paid on time.",
+    icon: Rocket,
+    color: "bg-gradient-to-br from-pink-400 to-pink-600",
+    shadowColor: "bg-pink-800"
+  },
 ];
 
 export default function StudentsPage() {
- const [formOpen, setFormOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
 
- return (
- <div className="bg-white">
- {/* Hero */}
- <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
- <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
- <div className="container-superhi relative z-10">
- <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8 max-w-full mx-auto">
- Work with the best<br />
- <span className="text-vibrant-crimson font-display">European startups</span>
- </h1>
- <div className="max-w-full mx-auto text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12 text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
- Join elite European technical teams, earn competitively in Euros, and build a global career through pre vetted, high impact roles.
- </div>
- <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
- <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
- Fill the questionnaire <ArrowRight className="w-5 h-5" />
- </button>
- <Link href="/m/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
- Learn More <ArrowUpRight className="w-5 h-5" />
- </Link>
- </div>
- </div>
- </div>
- </section>
+  return (
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="min-h-[85vh] pt-28 pb-14 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/15 via-white to-white">
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="container-superhi relative z-10">
+          <div className="max-w-lg mx-auto text-center flex flex-col items-center">
+            <h1 className="text-4xl sm:text-5xl font-display font-medium text-center mb-5 leading-[1.2] tracking-tight">
+              <span className="text-[#001738] block">Work with the best</span>
+              <span className="text-vibrant-crimson block mt-1">European startups</span>
+            </h1>
+            <p className="max-w-sm mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8 text-center">
+              Join elite technical teams, earn in Euros, and build a global career.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
+              <button
+                onClick={() => setFormOpen(true)}
+                className="w-full sm:w-auto px-7 py-3.5 bg-vibrant-crimson text-white rounded-full font-bold text-base shadow-lg shadow-vibrant-crimson/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+              >
+                Apply as Student <ArrowRight className="w-4 h-4" />
+              </button>
+              <Link href="/m/about" className="w-full sm:w-auto">
+                <button className="w-full px-7 py-3.5 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold text-base hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
+                  How It Works <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
- <div className="h-24 bg-white" />
+      {/* Benefits */}
+      <div className="bg-[#FAF9F6]">
+        <WaveDivider variant={1} color="#FAF9F6" />
+        <HorizontalScrollSection
+          theme="crimson"
+          title={
+            <>
+              Why students <span className="font-display text-vibrant-crimson">love us</span>
+            </>
+          }
+          cards={benefits}
+          bgColor="bg-transparent"
+        />
+      </div>
 
- {/* Benefits transition */}
- <div className="bg-[#FAF9F6]">
- <WaveDivider variant={1} color="#FAF9F6" />
- <HorizontalScrollSection
- theme="crimson"
- title={<>Why students <span className="font-display text-vibrant-crimson">love us</span></>}
- cards={benefits}
- bgColor="bg-transparent"
- />
- </div>
+      {/* Process */}
+      <div className="bg-[#F0F8EC]">
+        <WaveDivider variant={3} color="#F0F8EC" />
+        <ProcessSection
+          theme="crimson"
+          badgeText=""
+          bgColor="bg-transparent"
+          title={
+            <>
+              The <span className="font-display text-vibrant-crimson">Process</span>
+            </>
+          }
+          subtitle="We handle the admin. You focus on writing great code."
+          steps={processSteps}
+          onCtaClick={() => setFormOpen(true)}
+        />
+      </div>
 
- {/* Process transition */}
- <div className="bg-[#F0F8EC]">
- <WaveDivider variant={3} color="#F0F8EC" />
- <ProcessSection
- theme="crimson"
- badgeText=""
- bgColor="bg-transparent"
- title={<>The <span className="font-display text-vibrant-crimson text-5xl sm:text-7xl">Process</span></>}
- subtitle={<>We handle all the administrative complexity, <br className="hidden md:block" />so you can just focus on writing great code.</>}
- steps={processSteps}
- onCtaClick={() => setFormOpen(true)}
- />
- </div>
+      {/* CTA */}
+      <div className="bg-[#FAF9F6]">
+        <WaveDivider variant={2} color="#FAF9F6" flip />
+        <section className="py-16 md:py-32 bg-[#FAF9F6] relative">
+          <div className="container-superhi">
+            <div className="bg-vibrant-crimson rounded-3xl md:rounded-[3rem] p-8 sm:p-14 md:p-20 text-center relative overflow-hidden shadow-xl shadow-vibrant-crimson/25">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+              <h2 className="text-3xl sm:text-5xl font-display font-medium text-white mb-4">
+                Ready to join?
+              </h2>
+              <p className="max-w-sm mx-auto text-white/80 text-base sm:text-lg mb-8 leading-relaxed text-center">
+                Apply in minutes and work with world-class founders.
+              </p>
+              <button
+                onClick={() => setFormOpen(true)}
+                className="px-8 py-4 bg-white text-vibrant-crimson rounded-full font-bold text-base hover:scale-105 transition-transform shadow-lg"
+              >
+                Fill Questionnaire
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
 
- {/* CTA */}
- <section className="py-32 bg-[#FAF9F6] relative">
- <div className="container-superhi">
- <div className="bg-vibrant-crimson rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-crimson/30">
- <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
- <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
- Ready to join the pool?
- </h2>
- <div className="max-w-full mx-auto text-white/80 text-xl mb-12 leading-relaxed text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
- Apply in minutes and get the unique chance to work with world class European founders.
- </div>
- <button onClick={() => setFormOpen(true)} className="px-12 py-5 bg-white text-vibrant-crimson rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl">
- Fill Questionnaire
- </button>
- </div>
- </div>
- </section>
-
- {/* Modal */}
- <FormModal
- isOpen={formOpen}
- onClose={() => setFormOpen(false)}
- title="Student Application"
- subtitle="Share your talent with European startups"
- >
- <StudentForm />
- </FormModal>
- </div>
- );
+      {/* Modal */}
+      <FormModal
+        isOpen={formOpen}
+        onClose={() => setFormOpen(false)}
+        title="Student Application"
+        subtitle="Share your talent with European startups"
+      >
+        <StudentForm />
+      </FormModal>
+    </div>
+  );
 }

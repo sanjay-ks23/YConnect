@@ -3,91 +3,91 @@ import { ContactForm } from "@/components/mobile/forms/ContactForm";
 import { Clock3, Globe2, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
- title: "Contact — YConnect",
- description:
- "Get in touch with YConnect. We're here to help startups and students connect globally.",
+  title: "Contact — YConnect",
+  description:
+    "Get in touch with YConnect. We're here to help startups and students connect globally.",
 };
 
+const infoCards = [
+  {
+    icon: Mail,
+    title: "Email",
+    value: "dauren.oberhuber@yconnect.info",
+    breakAll: true,
+  },
+  {
+    icon: Clock3,
+    title: "Response Time",
+    value: "Usually within 24 hours",
+  },
+  {
+    icon: Globe2,
+    title: "Remote First",
+    value: "Fully remote by design",
+  },
+];
+
 export default function ContactPage() {
- return (
- <div className="relative min-h-screen bg-white">
- {/* Hero */}
- <section className="pt-44 pb-20 lg:pt-52 lg:pb-32 relative z-10 bg-gradient-to-b from-vibrant-blue/10 to-white">
- <div className="container-superhi relative z-10">
- <div className="max-w-4xl mx-auto text-center">
- <h1 className="text-[1.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-[-0.1em] leading-[0.98] mb-8">
- Ready to <span className="text-vibrant-blue">Connect?</span>
- </h1>
- <div className="max-w-full mx-auto text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
- Whether you're a founder or a student, we're here to help. Reach out and let's see how we can work together.
- </div>
- </div>
- </div>
- </section>
+  return (
+    <div className="relative min-h-screen bg-white">
+      {/* Hero */}
+      <section className="min-h-[70vh] pt-28 pb-14 relative z-10 flex items-center bg-gradient-to-b from-vibrant-blue/10 to-white">
+        <div className="container-superhi relative z-10">
+          <div className="max-w-2xl mx-auto text-center flex flex-col items-center">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-medium text-center max-w-xl mx-auto mb-5 leading-[1.15] tracking-tight">
+              Ready to <span className="text-vibrant-blue">Connect?</span>
+            </h1>
+            <p className="max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8 text-center [text-wrap:pretty]">
+              Whether you're a founder or a student, we're here to help. Reach out and let's see how we can work together.
+            </p>
+          </div>
+        </div>
+      </section>
 
- {/* Content Section - Simplified */}
- <section className="py-24 bg-white relative z-10">
- <div className="container-superhi">
- <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-12 lg:gap-16">
- {/* Sidebar: Contact Info */}
- <div className="lg:col-span-1 pt-10 md:pt-16 space-y-10">
- <div className="space-y-6">
- <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
- <div className="max-w-[22rem] text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
- Have a question, idea, or a project? Reach out and let us connect today.
- </div>
- </div>
+      {/* Content Section */}
+      <section className="py-14 sm:py-24 bg-white relative z-10">
+        <div className="container-superhi">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-10 lg:gap-16">
+            {/* Sidebar: Contact Info */}
+            <div className="lg:pt-16 space-y-6 sm:space-y-8">
+              <div className="text-center lg:text-left space-y-2">
+                <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
+                <p className="text-base text-[#001738]/60 leading-relaxed text-center lg:text-left [text-wrap:pretty] max-w-sm mx-auto lg:mx-0">
+                  Have a question, idea, or a project? Reach out and let us connect today.
+                </p>
+              </div>
 
- <div className="space-y-4">
- <div className="p-8 rounded-[2rem] bg-vibrant-blue/5 border border-vibrant-blue/10 flex items-start gap-5 hover:scale-[1.02] transition-transform">
- <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
- <Mail className="w-6 h-6 text-vibrant-blue" />
- </div>
- <div className="min-w-0">
- <h3 className="font-bold text-[#001738] mb-1">Email</h3>
- <p className="text-[#001738]/60 font-sans break-all text-sm sm:text-base">dauren.oberhuber@yconnect.info</p>
- </div>
- </div>
+              <div className="space-y-3 sm:space-y-4 max-w-md mx-auto lg:max-w-none">
+                {infoCards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="p-5 sm:p-6 rounded-2xl bg-vibrant-blue/5 border border-vibrant-blue/10 flex items-center gap-4 hover:scale-[1.02] transition-transform"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
+                      <card.icon className="w-5 h-5 text-vibrant-blue" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-sm text-[#001738] mb-0.5">{card.title}</h3>
+                      <p className={`text-[#001738]/60 text-sm ${card.breakAll ? "break-all" : ""}`}>{card.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
- <div className="p-8 rounded-[2rem] bg-vibrant-blue/5 border border-vibrant-blue/10 flex items-start gap-5 hover:scale-[1.02] transition-transform">
- <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
- <Clock3 className="w-6 h-6 text-vibrant-blue" />
- </div>
- <div>
- <h3 className="font-bold text-[#001738] mb-1">Response Time</h3>
- <p className="text-[#001738]/60 font-sans text-justify [text-align-last:left] [hyphens:auto]">Usually within 24 hours</p>
- </div>
- </div>
-
- <div className="p-8 rounded-[2rem] bg-vibrant-blue/5 border border-vibrant-blue/10 flex items-start gap-5 hover:scale-[1.02] transition-transform">
- <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0">
- <Globe2 className="w-6 h-6 text-vibrant-blue" />
- </div>
- <div>
- <h3 className="font-bold text-[#001738] mb-1">Remote First</h3>
- <p className="text-[#001738]/60 font-sans text-justify [text-align-last:left] [hyphens:auto]">Fully remote by design</p>
- </div>
- </div>
- </div>
- </div>
-
- {/* Main Content: Form */}
- <div className="flex items-start">
- <div className="bg-white p-10 md:p-16 rounded-[3.5rem] border border-gray-100 relative overflow-hidden h-full w-full">
- <div className="relative z-10">
- <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
- Send us a message
- </h2>
- <div className="max-w-[44rem] text-[#001738]/50 mb-12 text-lg font-sans text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
- Our dedicated team typically responds within two to four business hours. Please let us know how we can help you.
- </div>
- <ContactForm />
- </div>
- </div>
- </div>
- </div>
- </div>
- </section>
- </div>
- );
+            {/* Main Content: Form */}
+            <div className="bg-white p-6 sm:p-10 md:p-14 rounded-3xl sm:rounded-[3rem] border border-gray-100 relative overflow-hidden">
+              <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738] mb-3">
+                Send us a message
+              </h2>
+              <p className="text-[#001738]/60 mb-8 text-base leading-relaxed [text-wrap:pretty]">
+                Our dedicated team typically responds within two to four business hours. Please let us know how we can help you.
+              </p>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }

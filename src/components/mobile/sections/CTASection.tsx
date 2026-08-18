@@ -23,7 +23,7 @@ export function CTASection() {
  <h3 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
  Ready to hire top talent?
  </h3>
- <p lang="en" className="text-white/70 leading-relaxed mb-12 max-w-sm text-lg text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
+ <p lang="en" className="text-white/70 leading-relaxed mb-12 max-w-sm text-lg text-justify-clean">
  Submit your requirements and get matched with the perfect
  student within days.
  </p>
@@ -50,7 +50,7 @@ export function CTASection() {
  <h3 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
  Looking for real experience?
  </h3>
- <p lang="en" className="text-white/50 leading-relaxed mb-12 max-w-sm text-lg text-justify [text-align-last:left] [hyphens:auto] [text-wrap:balance]">
+ <p lang="en" className="text-white/50 leading-relaxed mb-12 max-w-sm text-lg text-justify-clean">
  Join our talent pool and get matched with innovative European
  startups looking for your skills.
  </p>
