@@ -62,7 +62,7 @@ export default function AboutPage() {
               <span className="text-vibrant-orange font-display">Indian Engineers</span>
             </h2>
             <p className="max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed text-center [text-wrap:pretty]">
-              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We handle the vetting, contracts, and payments so you can focus on building.
+              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We handle the screening, contracts, and payments so you can focus on building.
             </p>
           </div>
 

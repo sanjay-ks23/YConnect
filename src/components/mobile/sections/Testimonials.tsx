@@ -7,7 +7,7 @@ const testimonialPairs = [
   {
     id: "pair-1",
     startup: {
-      quote: "YConnect made hiring simple and fast. They matched us with Sanjay within days, and he's been a genuine asset to our engineering team ever since. The entire process, from vetting to onboarding, was seamless.",
+      quote: "YConnect made hiring simple and fast. They matched us with Sanjay within days, and he's been a genuine asset to our engineering team ever since. The entire process, from screening to onboarding, was seamless.",
       name: "Mats van der Gulik",
       role: "Founder, Hyer Power",
       logo: "/images/logos/hyer-power-icon.svg",
@@ -25,16 +25,17 @@ const testimonialPairs = [
   {
     id: "pair-2",
     startup: {
-      quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering outstanding results. YConnect's vetting process is truly top-notch.",
-      name: "Founder",
-      role: "Founder, Polar Cooling",
-      initials: "PC",
+      quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering outstanding results. YConnect's selection process is truly top-notch.",
+      name: "Federico van Eijnatten",
+      role: "Founder, Stealth Startup TLV",
+      logo: "/images/logos/stealth-startup-tlv.jpg",
+      initials: "FE",
       tag: "Startup Founder",
     },
     student: {
-      quote: "YConnect helped me secure an internship as a CFD Engineering Intern at Polar Cooling. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
+      quote: "YConnect helped me secure an internship as a CFD Engineering Intern at a stealth startup in Tel Aviv. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
       name: "Sathiyanarayanan",
-      role: "CFD Intern, Polar Cooling",
+      role: "CFD Intern, Stealth Startup TLV",
       initials: "S",
       tag: "Engineering Student",
     }

@@ -75,7 +75,7 @@ export function HowItWorks() {
                             How It Works
                         </h2>
                         <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-snug px-2 z-50">
-                            A seamless bridge between Europe and India. We handle vetting and payments so you can focus on building.
+                            A seamless bridge between Europe and India. We handle screening and payments so you can focus on building.
                         </p>
 
                         {/* Professional Toggle */}
