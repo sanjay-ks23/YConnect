@@ -77,7 +77,7 @@ export default function StudentsPage() {
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
                             Join elite European technical teams,<br className="block md:hidden" /> earn competitively in Euros,<br className="hidden md:block" /> and<br className="block md:hidden" />
-                            build a global career through<br className="block md:hidden" /> pre vetted, high impact roles.
+                            build a global career through<br className="block md:hidden" /> pre screened, high impact roles.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">

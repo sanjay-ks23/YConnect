@@ -59,7 +59,7 @@ const processSteps = [
   {
     step: "02",
     title: "Profile Verification",
-    description: "We vet your background and build a curated profile that European founders love.",
+    description: "We review your background and build a curated profile that European founders love.",
     icon: UserCircle,
     color: "bg-gradient-to-br from-emerald-400 to-emerald-600",
     shadowColor: "bg-emerald-800"

@@ -12,7 +12,7 @@ const startupSteps = [
   {
     id: "s2",
     title: "Get Matched",
-    description: "We hand pick a vetted student who genuinely fits your tech stack and the way your team works.",
+    description: "We hand pick a qualified student who genuinely fits your tech stack and the way your team works.",
   },
   {
     id: "s3",

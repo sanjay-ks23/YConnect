@@ -27,15 +27,15 @@ const testimonialPairs = [
     startup: {
       quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering outstanding results. YConnect's selection process is truly top-notch.",
       name: "Federico van Eijnatten",
-      role: "Founder, Stealth Startup TLV",
+      role: "Founder, Polar Cooling",
       logo: "/images/logos/stealth-startup-tlv.jpg",
       initials: "FE",
       tag: "Startup Founder",
     },
     student: {
-      quote: "YConnect helped me secure an internship as a CFD Engineering Intern at a stealth startup in Tel Aviv. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
+      quote: "YConnect helped me secure an internship as a CFD Engineering Intern at Polar Cooling. Their guidance and support made the process smooth and helped me land an opportunity that perfectly aligns with my interests. I'm truly grateful to YConnect for helping me take this important step in my career.",
       name: "Sathiyanarayanan",
-      role: "CFD Intern, Stealth Startup TLV",
+      role: "CFD Intern, Polar Cooling",
       initials: "S",
       tag: "Engineering Student",
     }

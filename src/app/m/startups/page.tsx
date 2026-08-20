@@ -42,7 +42,7 @@ const benefits = [
   {
     icon: Award,
     title: "Talent Quality",
-    description: "Every student is thoroughly vetted for both technical excellence and communication skills.",
+    description: "Every student is thoroughly assessed for both technical excellence and communication skills.",
     iconBg: "bg-purple-50",
     iconColor: "text-purple-600",
   },
@@ -60,7 +60,7 @@ const processSteps = [
   {
     step: "02",
     title: "Matching",
-    description: "Get a curated shortlist of pre-vetted candidates matched to your tech stack.",
+    description: "Get a curated shortlist of pre-screened candidates matched to your tech stack.",
     icon: Handshake,
     color: "bg-gradient-to-br from-blue-400 to-blue-600",
     shadowColor: "bg-blue-800"
@@ -122,7 +122,7 @@ export default function StartupsPage() {
               <span className="text-vibrant-blue block mt-1">technical talent</span>
             </h1>
             <p className="max-w-sm mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8 text-center">
-              Access pre-vetted remote talent and reduce costs by 90%.
+              Access pre-screened remote talent and reduce costs by 90%.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
               <button

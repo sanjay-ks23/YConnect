@@ -13,7 +13,7 @@ const faqs = [
     {
         question: "How does the matching process work?",
         answer:
-            "Startups submit their requirements, and we match them with vetted students from our talent pool based on technical skills and project fit. The startup then interviews and selects their preferred candidate.",
+            "Startups submit their requirements, and we match them with qualified students from our talent pool based on technical skills and project fit. The startup then interviews and selects their preferred candidate.",
     },
     {
         question: "What is the typical engagement duration?",
@@ -23,7 +23,7 @@ const faqs = [
     {
         question: "How do you ensure quality of talent?",
         answer:
-            "We source students from India's top engineering universities and vet them through technical assessments, portfolio reviews, and communication evaluations. Only the top 10% of applicants make it into our talent pool.",
+            "We source students from India's top engineering universities and assess them through technical assessments, portfolio reviews, and communication evaluations. Only the top 10% of applicants make it into our talent pool.",
     },
     {
         question: "Who handles contracts and payments?",

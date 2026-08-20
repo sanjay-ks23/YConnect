@@ -46,7 +46,7 @@ const benefits = [
     {
         icon: Award,
         title: "Talent Quality",
-        description: "Every student is thoroughly vetted for both technical excellence and communication skills.",
+        description: "Every student is thoroughly assessed for both technical excellence and communication skills.",
         color: "bg-lavender",
         iconBg: "bg-vibrant-blue/10",
         iconColor: "text-vibrant-blue",
@@ -55,7 +55,7 @@ const benefits = [
 
 const processSteps = [
     { step: "01", title: "Submit Requirements", description: <>Define your exact role requirements <br className="hidden md:block" />and your project scope in minutes.</>, icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre vetted <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre screened <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "03", title: "Selection", description: <>Interview your top candidate choices, <br className="hidden md:block" />and select the best fit for your team.</>, icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
     { step: "04", title: "Contract", description: <>We handle all necessary legal paperwork <br className="hidden md:block" />and administrative tasks immediately.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
     { step: "05", title: "Work Begins", description: <>Onboard your new remote team member, <br className="hidden md:block" />and start building your core product.</>, icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
@@ -85,7 +85,7 @@ export default function StartupsPage() {
                             <span className="text-vibrant-blue font-display">technical talent</span>
                         </h1>
                         <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
-                            Access pre vetted remote engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
+                            Access pre screened remote engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
                             accelerate your product roadmap without local overhead.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
