@@ -68,7 +68,6 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
                       />
                     )}
                     <div className={`w-20 h-20 rounded-full blur-[40px] opacity-25 ${theme === "blue" ? "bg-vibrant-blue" : "bg-vibrant-crimson"}`} />
-                    {item.id === "more" && <MapPin className={`w-8 h-8 ${themeColor} opacity-50`} />}
                   </div>
                 )}
                 
