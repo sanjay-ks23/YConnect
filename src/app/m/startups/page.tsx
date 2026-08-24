@@ -14,28 +14,28 @@ const benefits = [
   {
     icon: Users,
     title: "Top Tier Talent",
-    description: "Tap into India's brightest engineering minds from premier technical universities.",
+    description: "Tap into India's brightest engineering minds from top technical universities.",
     iconBg: "bg-blue-50",
     iconColor: "text-blue-600",
   },
   {
     icon: TrendingDown,
     title: "Massive Savings",
-    description: "Cut your operational costs by up to 90% without compromising on quality or speed.",
+    description: "Cut your operational costs by up to 90% while keeping quality high.",
     iconBg: "bg-emerald-50",
     iconColor: "text-emerald-600",
   },
   {
     icon: Zap,
     title: "Flexible Scaling",
-    description: "Grow or shrink your team effortlessly with 3 month contracts and seamless extensions.",
+    description: "Scale your team up or down with 3 month contracts and easy extensions.",
     iconBg: "bg-amber-50",
     iconColor: "text-amber-600",
   },
   {
     icon: CheckCircle2,
     title: "Easy Process",
-    description: "We handle every single contract and legality. You just focus entirely on the interviews.",
+    description: "Startups handle contracts directly. We help you find the right person.",
     iconBg: "bg-teal-50",
     iconColor: "text-teal-600",
   },
@@ -76,7 +76,7 @@ const processSteps = [
   {
     step: "04",
     title: "Contract",
-    description: "We handle all necessary legal paperwork and administrative tasks immediately.",
+    description: "You handle the contract directly with your chosen candidate.",
     icon: FileSignature,
     color: "bg-gradient-to-br from-vibrant-blue to-blue-700",
     shadowColor: "bg-blue-900"
@@ -161,7 +161,7 @@ export default function StartupsPage() {
         <WaveDivider variant={2} color="#F6F4FB" flip />
         <StackedGrid
           title="Our Talent Network"
-          subtitle="The top 1% of engineering talent from India's premier universities."
+          subtitle="The top 5% of engineering talent from India's top universities."
           items={talentPool}
           theme="blue"
           bgColor="bg-transparent"

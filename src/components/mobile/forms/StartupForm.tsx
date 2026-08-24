@@ -23,11 +23,15 @@ export function StartupForm() {
  register,
  handleSubmit,
  trigger,
+ watch,
  formState: { errors, isSubmitting },
  } = useForm<StartupFormValues>({
  resolver: zodResolver(startupFormSchema),
  mode: "onTouched",
  });
+
+ const watchedDuration = watch("duration");
+ const watchedBudget = watch("budget");
 
  const onSubmit = async (data: StartupFormValues) => {
  await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -111,23 +115,33 @@ export function StartupForm() {
  <label className="text-sm font-bold text-[#001738]">Duration</label>
  <div className="flex flex-wrap gap-2">
  {durations.map(d => (
- <label key={d} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100">
- <input type="radio" className="w-4 h-4 text-vibrant-blue focus:ring-vibrant-blue" value={d} {...register("duration")} />
- <span className="text-sm font-medium text-[#001738]">{d}</span>
+ <label key={d} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+ watchedDuration === d
+ ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+ : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+ }`}>
+ <input type="radio" className="sr-only" value={d} {...register("duration")} />
+ <span className="text-sm font-medium">{d}</span>
  </label>
  ))}
  </div>
+ {errors.duration && <p className="text-xs text-red-500 font-medium">{errors.duration.message}</p>}
  </div>
  <div className="space-y-4">
  <label className="text-sm font-bold text-[#001738]">Budget</label>
  <div className="flex flex-wrap gap-2">
  {budgets.map(b => (
- <label key={b} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100">
- <input type="radio" className="w-4 h-4 text-vibrant-blue focus:ring-vibrant-blue" value={b} {...register("budget")} />
- <span className="text-sm font-medium text-[#001738]">{b}</span>
+ <label key={b} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+ watchedBudget === b
+ ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+ : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+ }`}>
+ <input type="radio" className="sr-only" value={b} {...register("budget")} />
+ <span className="text-sm font-medium">{b}</span>
  </label>
  ))}
  </div>
+ {errors.budget && <p className="text-xs text-red-500 font-medium">{errors.budget.message}</p>}
  </div>
  </div>
  )}

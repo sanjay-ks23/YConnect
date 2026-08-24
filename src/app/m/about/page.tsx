@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const stats = [
   { icon: Building2, value: "Up to 90%", label: "Save on hiring cost" },
   { icon: GraduationCap, value: "Top 5%", label: "Engineers from India" },
-  { icon: ShieldCheck, value: "100% Reliable", label: "Safe payment & contracts" },
+  { icon: ShieldCheck, value: "100% Reliable", label: "Direct contracts" },
   { icon: Users, value: "3 Month Average", label: "Typical project duration" },
 ];
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
               <span className="text-vibrant-orange font-display">Indian Engineers</span>
             </h2>
             <p className="max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed text-center [text-wrap:pretty]">
-              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We handle the screening, contracts, and payments so you can focus on building.
+              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We focus on matching the right people. Startups handle contracts and payments directly.
             </p>
           </div>
 

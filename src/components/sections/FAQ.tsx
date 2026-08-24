@@ -23,12 +23,12 @@ const faqs = [
     {
         question: "How do you ensure quality of talent?",
         answer:
-            "We source students from India's top engineering universities and assess them through technical assessments, portfolio reviews, and communication evaluations. Only the top 10% of applicants make it into our talent pool.",
+            "We source students from India's top engineering universities and assess them through technical assessments, portfolio reviews, and communication evaluations. Only the top 5% of applicants make it into our talent pool.",
     },
     {
         question: "Who handles contracts and payments?",
         answer:
-            "YConnect handles everything — contracts, global payments, invoicing, and compliance. Startups pay us, and we ensure timely payments to students.",
+            "Startups handle contracts and payments directly with the student. YConnect focuses on matching — we help you find the right talent and guide both sides through the process.",
     },
     {
         question: "What if the match doesn't work out?",

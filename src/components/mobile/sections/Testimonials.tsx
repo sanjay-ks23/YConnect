@@ -7,7 +7,7 @@ const testimonialPairs = [
   {
     id: "pair-1",
     startup: {
-      quote: "YConnect made hiring simple and fast. They matched us with Sanjay within days, and he's been a genuine asset to our engineering team ever since. The entire process, from screening to onboarding, was seamless.",
+      quote: "YConnect made hiring simple and fast. They matched us with Sanjay within days, and he's been a great addition to our engineering team ever since. The whole process, from screening to onboarding, was smooth.",
       name: "Mats van der Gulik",
       role: "Founder, Hyer Power",
       logo: "/images/logos/hyer-power-icon.svg",
@@ -25,7 +25,7 @@ const testimonialPairs = [
   {
     id: "pair-2",
     startup: {
-      quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering outstanding results. YConnect's selection process is truly top-notch.",
+      quote: "We hired Sathiyanarayanan as a CFD Engineering Intern through YConnect. He quickly adapted to our workflow and has been delivering solid results. YConnect's selection process is really good.",
       name: "Federico van Eijnatten",
       role: "Founder, Polar Cooling",
       logo: "/images/logos/stealth-startup-tlv.jpg",

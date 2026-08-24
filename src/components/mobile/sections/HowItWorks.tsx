@@ -17,7 +17,7 @@ const startupSteps = [
   {
     id: "s3",
     title: "Start Working",
-    description: "Your match starts part time. We handle the contract and payments, so you can focus on the product.",
+    description: "Your match starts part time. The startup handles the contract directly, so you can focus on the work.",
   }
 ];
 
@@ -75,7 +75,7 @@ export function HowItWorks() {
               How It Works
             </h2>
             <p className="text-base sm:text-xl text-[#001738]/60 max-w-md mx-auto mb-6 md:mb-10 leading-relaxed px-2 z-50 text-center">
-              A seamless bridge between Europe and India. We handle screening and payments so you can focus on building.
+              We connect European startups with Indian engineering talent. We focus on matching, startups handle the rest.
             </p>
 
             {/* Professional Toggle */}

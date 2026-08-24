@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Globe,
         title: "European Startups",
-        description: "Direct access to early-stage innovative startups across the Netherlands, Germany, and France.",
+        description: "Direct access to early-stage innovative startups across the Netherlands, Denmark, France, and Sweden.",
         color: "bg-vibrant-orange/15",
         iconBg: "bg-vibrant-orange/15",
         iconColor: "text-vibrant-orange-dark",
@@ -112,7 +112,7 @@ export default function StudentsPage() {
                     badgeText=""
                     bgColor="bg-transparent"
                     title={<>The <span className="font-display text-vibrant-crimson text-7xl">Process</span></>}
-                    subtitle={<>We handle all the administrative complexity, <br className="hidden md:block" />so you can just focus on writing great code.</>}
+                    subtitle={<>We help you find the right match. <br className="hidden md:block" />You focus on writing great code.</>}
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />

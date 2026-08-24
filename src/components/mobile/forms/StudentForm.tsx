@@ -34,6 +34,7 @@ export function StudentForm() {
  control,
  handleSubmit,
  trigger,
+ watch,
  formState: { errors, isSubmitting },
  } = useForm<StudentFormValues>({
  resolver: zodResolver(studentFormSchema),
@@ -43,6 +44,8 @@ export function StudentForm() {
  },
  });
 
+ const watchedSkills = watch("skills");
+
  const onSubmit = async (data: StudentFormValues) => {
  await new Promise((resolve) => setTimeout(resolve, 1500));
  setIsSubmitted(true);
@@ -51,7 +54,7 @@ export function StudentForm() {
  const goNext = useCallback(async () => {
  let fieldsToValidate: (keyof StudentFormValues)[] = [];
  if (currentStep === 1) fieldsToValidate = ["name", "email", "university", "degree"];
- if (currentStep === 2) fieldsToValidate = ["skills", "experience"];
+ if (currentStep === 2) fieldsToValidate = ["experience"];
 
  const valid = await trigger(fieldsToValidate);
  if (valid) setCurrentStep((s) => s + 1);
@@ -151,9 +154,13 @@ export function StudentForm() {
  <label className="text-sm font-bold text-[#001738]">Select Skills</label>
  <div className="flex flex-wrap gap-2">
  {skillOptions.map(skill => (
- <label key={skill.value} className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full cursor-pointer hover:bg-gray-100 transition-all">
- <input type="checkbox" className="w-4 h-4 rounded text-vibrant-blue focus:ring-vibrant-blue" value={skill.value} {...register("skills")} />
- <span className="text-sm font-medium text-[#001738]">{skill.label}</span>
+ <label key={skill.value} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+ watchedSkills?.includes(skill.value)
+ ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+ : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+ }`}>
+ <input type="checkbox" className="sr-only" value={skill.value} {...register("skills")} />
+ <span className="text-sm font-medium">{skill.label}</span>
  </label>
  ))}
  </div>

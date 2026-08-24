@@ -13,7 +13,7 @@ const benefits = [
   {
     icon: Globe,
     title: "European Startups",
-    description: "Work directly with innovative startups across the Netherlands, Germany, and France.",
+    description: "Work directly with innovative startups across the Netherlands, Denmark, France, and Sweden.",
     iconBg: "bg-orange-50",
     iconColor: "text-orange-600",
   },
@@ -151,7 +151,7 @@ export default function StudentsPage() {
               The <span className="font-display text-vibrant-crimson">Process</span>
             </>
           }
-          subtitle="We handle the admin. You focus on writing great code."
+          subtitle="We help you find the right match. You focus on writing great code."
           steps={processSteps}
           onCtaClick={() => setFormOpen(true)}
         />
@@ -168,7 +168,7 @@ export default function StudentsPage() {
                 Ready to join?
               </h2>
               <p className="max-w-sm mx-auto text-white/80 text-base sm:text-lg mb-8 leading-relaxed text-center">
-                Apply in minutes and work with world-class founders.
+                Apply in minutes and work with great founders.
               </p>
               <button
                 onClick={() => setFormOpen(true)}

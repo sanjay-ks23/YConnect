@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Users,
         title: "Top Tier Talent",
-        description: "Tap into India's brightest engineering minds from premier technical universities.",
+        description: "Tap into India's brightest engineering minds from top technical universities.",
         color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-blue",
@@ -22,7 +22,7 @@ const benefits = [
     {
         icon: TrendingDown,
         title: "Massive Savings",
-        description: "Cut your operational costs by up to 90% without compromising on quality or speed.",
+        description: "Cut your operational costs by up to 90% while keeping quality high.",
         color: "bg-vibrant-green/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -30,7 +30,7 @@ const benefits = [
     {
         icon: Zap,
         title: "Flexible Scaling",
-        description: "Grow or shrink your team effortlessly with 3 month contracts and seamless extensions.",
+        description: "Scale your team up or down with 3 month contracts and easy extensions.",
         color: "bg-vibrant-yellow/40",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -38,7 +38,7 @@ const benefits = [
     {
         icon: CheckCircle2,
         title: "Easy Process",
-        description: "We handle every single contract and legality. You just focus entirely on the interviews.",
+        description: "Startups handle contracts directly. We help you find the right person.",
         color: "bg-vibrant-teal/30",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -57,7 +57,7 @@ const processSteps = [
     { step: "01", title: "Submit Requirements", description: <>Define your exact role requirements <br className="hidden md:block" />and your project scope in minutes.</>, icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
     { step: "02", title: "Matching", description: <>Get a curated shortlist of pre screened <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "03", title: "Selection", description: <>Interview your top candidate choices, <br className="hidden md:block" />and select the best fit for your team.</>, icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
-    { step: "04", title: "Contract", description: <>We handle all necessary legal paperwork <br className="hidden md:block" />and administrative tasks immediately.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
+    { step: "04", title: "Contract", description: <>You handle the contract directly <br className="hidden md:block" />with your chosen candidate.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
     { step: "05", title: "Work Begins", description: <>Onboard your new remote team member, <br className="hidden md:block" />and start building your core product.</>, icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "06", title: "Extension", description: <>Easily extend the engagement contract <br className="hidden md:block" />or hire full time as your needs grow.</>, icon: TrendingUp, color: "bg-gradient-to-br from-purple-400 to-purple-600", shadowColor: "bg-purple-800" },
 ];
@@ -118,7 +118,7 @@ export default function StartupsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="Our Talent Network"
-                    subtitle={<>Connect with the top 1% of engineering talent <br className="hidden md:block" />from India's premier technical universities.</>}
+                    subtitle={<>Connect with the top 5% of engineering talent <br className="hidden md:block" />from India's top technical universities.</>}
                     items={talentPool}
                     theme="blue"
                     bgColor="bg-transparent"

@@ -21,7 +21,7 @@ const features = [
  {
  icon: Globe2,
  title: "Cross-Border Made Easy",
- description: "We handle all the heavy complexity of international contracts, global payments, and cross-border team coordination.",
+ description: "Startups manage contracts directly. We focus on finding the right match.",
  iconStyle: "text-green-600",
  bgBadge: "bg-green-50 border-green-100",
  },
