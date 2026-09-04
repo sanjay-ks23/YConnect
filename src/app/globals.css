@@ -5,6 +5,7 @@
   --color-foreground: #0F172A;
   --font-sans: var(--font-inter);
   --font-display: var(--font-inter);
+  --font-body: var(--font-inter);
   --font-poppins: var(--font-poppins);
   --font-comic-sans: var(--font-comic-sans);
   --font-karen: var(--font-karen);
@@ -271,6 +272,37 @@
   font-family: var(--font-karen), sans-serif;
 }
 
+.font-body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.subtext-hero {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: rgba(0, 23, 56, 0.7);
+  font-weight: 400;
+}
+@media (min-width: 640px) { .subtext-hero { font-size: 1.25rem; } }
+
+.subtext-section {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: rgba(0, 23, 56, 0.7);
+  font-weight: 400;
+}
+@media (min-width: 640px) { .subtext-section { font-size: 1.25rem; } }
+
+.subtext-card {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: rgba(0, 23, 56, 0.7);
+  font-weight: 400;
+}
+@media (min-width: 640px) { .subtext-card { font-size: 1.125rem; } }
+
 /* Section Spacing */
 .section-spacing {
   padding-top: 5rem;
@@ -361,7 +393,7 @@ input, textarea, select, button {
    breakups on mobile screens. */
 .text-justify-clean {
   text-align: justify;
-  text-align-last: left;
+  text-align-last: justify;
   text-justify: inter-word;
   -webkit-hyphens: none;
   -moz-hyphens: none;

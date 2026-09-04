@@ -32,7 +32,7 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-[#001738] mb-3 tracking-tight">
             {title}
           </h2>
-          <p className="max-w-md mx-auto text-[#001738]/65 text-base sm:text-lg leading-relaxed text-center">
+          <p className="text-center max-w-xs mx-auto text-[#001738]/70 text-sm leading-relaxed font-normal">
             {subtitle}
           </p>
         </div>

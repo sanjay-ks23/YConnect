@@ -12,7 +12,7 @@ const startupSteps = [
   {
     id: "s2",
     title: "Get Matched",
-    description: "We hand pick a qualified student who genuinely fits your tech stack and the way your team works.",
+    description: "We hand pick a qualified student who genuinely fits your tech stack and the way your team works every day.",
   },
   {
     id: "s3",
@@ -30,7 +30,7 @@ const studentSteps = [
   {
     id: "st2",
     title: "Get Selected",
-    description: "We match you with a startup that fits your stack, then you'll go through a short interview with honest feedback either way.",
+    description: "We match you with a startup that fits your stack, then you'll go through a short interview with honest feedback.",
   },
   {
     id: "st3",
@@ -131,7 +131,7 @@ export function HowItWorks() {
                     {step.title}
                   </h3>
                 </div>
-                <p className="text-[#001738]/75 text-[15px] leading-relaxed pl-2 text-justify-clean">
+                <p className="text-[#001738]/75 text-[15px] leading-relaxed pl-2">
                   {step.description}
                 </p>
               </div>

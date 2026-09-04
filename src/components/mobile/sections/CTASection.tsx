@@ -20,10 +20,10 @@ export function CTASection() {
  <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
  <span className="text-3xl">🚀</span>
  </div>
- <h3 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
+ <h2 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
  Ready to hire top talent?
- </h3>
- <p lang="en" className="text-white/70 leading-relaxed mb-12 max-w-sm text-lg text-justify-clean">
+ </h2>
+ <p lang="en" className="text-white/80 leading-relaxed mb-10 max-w-sm text-base sm:text-lg font-normal">
  Submit your requirements and get matched with the perfect
  student within days.
  </p>
@@ -47,10 +47,10 @@ export function CTASection() {
  <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
  <span className="text-3xl">🎓</span>
  </div>
- <h3 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
+ <h2 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
  Looking for real experience?
- </h3>
- <p lang="en" className="text-white/50 leading-relaxed mb-12 max-w-sm text-lg text-justify-clean">
+ </h2>
+ <p lang="en" className="text-white/80 leading-relaxed mb-10 max-w-sm text-base sm:text-lg font-normal">
  Join our talent pool and get matched with innovative European
  startups looking for your skills.
  </p>

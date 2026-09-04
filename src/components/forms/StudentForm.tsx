@@ -5,23 +5,28 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { studentFormSchema, availabilityOptions, type StudentFormValues } from "@/lib/validations";
 import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, FileText, CheckCircle, Upload, X } from "lucide-react";
+import { indianUniversities, searchUniversities } from "@/lib/universities";
 
-const skillOptions = [
-    { value: "react", label: "React" },
-    { value: "nextjs", label: "Next.js" },
-    { value: "typescript", label: "TypeScript" },
-    { value: "nodejs", label: "Node.js" },
-    { value: "python", label: "Python" },
-    { value: "java", label: "Java" },
-    { value: "cpp", label: "C/C++" },
-    { value: "flutter", label: "Flutter" },
-    { value: "figma", label: "Figma" },
-    { value: "sql", label: "SQL" },
+const roleOptions = [
+    { value: "software_engineer", label: "Software Engineer" },
+    { value: "ml_engineer", label: "ML Engineer" },
+    { value: "frontend_developer", label: "Frontend Developer" },
+    { value: "backend_developer", label: "Backend Developer" },
+    { value: "fullstack_developer", label: "Fullstack Developer" },
+    { value: "mobile_developer", label: "Mobile Developer" },
+    { value: "data_scientist", label: "Data Scientist" },
+    { value: "data_analyst", label: "Data Analyst" },
+    { value: "ui_ux_designer", label: "UI/UX Designer" },
+    { value: "graphic_designer", label: "Graphic Designer" },
+    { value: "cad_designer", label: "CAD Designer" },
+    { value: "product_manager", label: "Product Manager" },
+    { value: "digital_marketer", label: "Digital Marketer" },
+    { value: "content_writer", label: "Content Writer" },
 ];
 
 const steps = [
     { num: 1, label: "Personal", icon: User },
-    { num: 2, label: "Skills", icon: Code2 },
+    { num: 2, label: "Roles", icon: Code2 },
     { num: 3, label: "Details", icon: FileText },
 ];
 
@@ -30,6 +35,26 @@ export function StudentForm() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
     const [resumeFileName, setResumeFileName] = useState<string | null>(null);
+    const [customRoles, setCustomRoles] = useState<{value: string, label: string}[]>([]);
+    const [customRoleInput, setCustomRoleInput] = useState("");
+    const [showUniDropdown, setShowUniDropdown] = useState(false);
+
+    const handleAddCustomRole = (e?: React.MouseEvent | React.KeyboardEvent) => {
+        if (e) e.preventDefault();
+        if (!customRoleInput.trim()) return;
+        
+        const newValue = customRoleInput.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+        const newLabel = customRoleInput.trim();
+        
+        if (!roleOptions.find(r => r.value === newValue) && !customRoles.find(r => r.value === newValue)) {
+            setCustomRoles(prev => [...prev, { value: newValue, label: newLabel }]);
+            const currentSkills = watch("skills") || [];
+            if (!currentSkills.includes(newValue)) {
+                setValue("skills", [...currentSkills, newValue], { shouldValidate: true });
+            }
+        }
+        setCustomRoleInput("");
+    };
 
     const {
         register,
@@ -40,7 +65,7 @@ export function StudentForm() {
         formState: { errors, isSubmitting },
     } = useForm<StudentFormValues>({
         resolver: zodResolver(studentFormSchema),
-        mode: "onTouched",
+        mode: "onSubmit",
         defaultValues: {
             skills: [],
         },
@@ -48,6 +73,9 @@ export function StudentForm() {
 
     const watchedSkills = watch("skills");
     const watchedAvailability = watch("availability");
+
+    const watchedUniversity = watch("university");
+    const filteredUnis = searchUniversities(watchedUniversity || "");
 
     const onSubmit = async (data: StudentFormValues) => {
         setSubmitError(null);
@@ -112,7 +140,7 @@ export function StudentForm() {
                     <div key={step.num} className="flex items-center">
                         <div
                             className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${currentStep === step.num
-                                ? "bg-vibrant-blue text-white shadow-lg"
+                                ? "bg-vibrant-crimson text-white shadow-lg"
                                 : currentStep > step.num
                                     ? "bg-green-600 text-white"
                                     : "bg-gray-100 text-gray-400"
@@ -138,24 +166,51 @@ export function StudentForm() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-[#001738]">Full Name</label>
-                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="Your full name" {...register("name")} />
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="Your full name" {...register("name")} />
                                 {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name.message}</p>}
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-[#001738]">Email</label>
-                                <input type="email" className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="you@university.edu" {...register("email")} />
+                                <input type="email" className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="you@university.edu" {...register("email")} />
                                 {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
                             </div>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div className="space-y-2">
+                            <div className="space-y-2 relative">
                                 <label className="text-sm font-bold text-[#001738]">University</label>
-                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., Stanford University" {...register("university")} />
+                                <input 
+                                    className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" 
+                                    placeholder="e.g., Stanford University" 
+                                    autoComplete="off"
+                                    {...register("university")} 
+                                    onFocus={() => setShowUniDropdown(true)}
+                                    onBlur={() => setTimeout(() => setShowUniDropdown(false), 200)}
+                                />
+                                {showUniDropdown && (
+                                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto">
+                                        {filteredUnis.length > 0 ? (
+                                            filteredUnis.map((uni, idx) => (
+                                                <div 
+                                                    key={idx} 
+                                                    className="px-4 py-2 hover:bg-vibrant-crimson/10 hover:text-vibrant-crimson cursor-pointer text-sm text-gray-700 transition-colors"
+                                                    onClick={() => {
+                                                        setValue("university", uni, { shouldValidate: true });
+                                                        setShowUniDropdown(false);
+                                                    }}
+                                                >
+                                                    {uni}
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <div className="px-4 py-2 text-sm text-gray-500">No matching university found</div>
+                                        )}
+                                    </div>
+                                )}
                                 {errors.university && <p className="text-xs text-red-500 font-medium">{errors.university.message}</p>}
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-[#001738]">Degree</label>
-                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="e.g., B.Tech CS" {...register("degree")} />
+                                <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="e.g., B.Tech CS" {...register("degree")} />
                                 {errors.degree && <p className="text-xs text-red-500 font-medium">{errors.degree.message}</p>}
                             </div>
                         </div>
@@ -164,21 +219,65 @@ export function StudentForm() {
 
                 {currentStep === 2 && (
                     <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
-                        <div className="space-y-2">
-                            <label className="text-sm font-bold text-[#001738]">Select Skills</label>
-                            <div className="flex flex-wrap gap-2">
-                                {skillOptions.map(skill => (
-                                    <label key={skill.value} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
-                                        watchedSkills?.includes(skill.value)
-                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
-                                        : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
-                                    }`}>
-                                        <input type="checkbox" className="sr-only" value={skill.value} {...register("skills")} />
-                                        <span className="text-sm font-medium">{skill.label}</span>
-                                    </label>
+                        <div className="space-y-3">
+                            <label className="text-sm font-bold text-[#001738]">Select Roles</label>
+                            
+                            <select 
+                                className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all text-sm mb-2"
+                                onChange={(e) => {
+                                    if (!e.target.value) return;
+                                    const selected = e.target.value;
+                                    const currentSkills = watchedSkills || [];
+                                    if (!currentSkills.includes(selected)) {
+                                        setValue("skills", [...currentSkills, selected], { shouldValidate: true });
+                                    }
+                                    e.target.value = "";
+                                }}
+                            >
+                                <option value="">Select a role from the list...</option>
+                                {roleOptions.map(r => (
+                                    <option key={r.value} value={r.value} disabled={watchedSkills?.includes(r.value)}>{r.label}</option>
                                 ))}
+                            </select>
+
+                            {watchedSkills && watchedSkills.length > 0 && (
+                                <div className="flex flex-wrap gap-2 mb-3">
+                                    {watchedSkills.map(skillValue => {
+                                        const label = [...roleOptions, ...customRoles].find(r => r.value === skillValue)?.label || skillValue;
+                                        return (
+                                            <div key={skillValue} className="flex items-center gap-2 px-3 py-1.5 bg-vibrant-crimson text-white rounded-full text-sm font-medium shadow-sm">
+                                                {label}
+                                                <button 
+                                                    type="button" 
+                                                    onClick={() => setValue("skills", watchedSkills.filter(s => s !== skillValue), { shouldValidate: true })} 
+                                                    className="hover:bg-white/20 rounded-full p-0.5 transition-colors"
+                                                >
+                                                    <X className="w-3 h-3" />
+                                                </button>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            )}
+
+                            <div className="flex gap-2 w-full">
+                                <input
+                                    type="text"
+                                    className="flex-1 h-10 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all text-sm"
+                                    placeholder="If your role is not listed, add it here..."
+                                    value={customRoleInput}
+                                    onChange={(e) => setCustomRoleInput(e.target.value)}
+                                    onKeyDown={(e) => e.key === 'Enter' ? handleAddCustomRole(e) : null}
+                                />
+                                <button
+                                    type="button"
+                                    onClick={handleAddCustomRole}
+                                    className="px-5 h-10 bg-vibrant-crimson hover:bg-vibrant-crimson/90 text-white font-bold rounded-xl transition-all text-sm shadow-sm"
+                                >
+                                    Add
+                                </button>
                             </div>
-                            {errors.skills && <p className="text-xs text-red-500 font-medium">{errors.skills.message}</p>}
+                            {errors.skills && <p className="text-xs text-red-500 font-medium mt-1">{errors.skills.message}</p>}
                         </div>
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-[#001738]">Availability</label>
@@ -186,7 +285,7 @@ export function StudentForm() {
                                 {availabilityOptions.map(option => (
                                     <label key={option} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
                                         watchedAvailability === option
-                                        ? "bg-vibrant-blue border-vibrant-blue text-white shadow-md shadow-vibrant-blue/20"
+                                        ? "bg-vibrant-crimson border-vibrant-crimson text-white shadow-md shadow-vibrant-crimson/20"
                                         : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
                                     }`}>
                                         <input type="radio" className="sr-only" value={option} {...register("availability")} />
@@ -203,17 +302,17 @@ export function StudentForm() {
                     <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-[#001738]">Experience</label>
-                            <textarea className="w-full min-h-[120px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Projects, internships, hackathons..." {...register("experience")} />
+                            <textarea className="w-full min-h-[120px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all resize-none" placeholder="Projects, internships, hackathons..." {...register("experience")} />
                             {errors.experience && <p className="text-xs text-red-500 font-medium">{errors.experience.message}</p>}
                         </div>
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-[#001738]">Portfolio URL (optional)</label>
-                            <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
+                            <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
                         </div>
                         <div className="space-y-2">
                             <label className="text-sm font-bold text-[#001738]">Resume / CV (PDF, max 5MB)</label>
                             {!resumeFileName ? (
-                                <label className="flex items-center justify-center gap-2 w-full h-24 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 hover:border-vibrant-blue hover:bg-white cursor-pointer transition-all">
+                                <label className="flex items-center justify-center gap-2 w-full h-24 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 hover:border-vibrant-crimson hover:bg-white cursor-pointer transition-all">
                                     <Upload className="w-5 h-5 text-gray-400" />
                                     <span className="text-sm font-medium text-gray-500">Click to upload your resume</span>
                                     <input
@@ -228,9 +327,9 @@ export function StudentForm() {
                                     />
                                 </label>
                             ) : (
-                                <div className="flex items-center justify-between w-full px-4 h-14 rounded-xl bg-vibrant-blue/5 border border-vibrant-blue/20">
+                                <div className="flex items-center justify-between w-full px-4 h-14 rounded-xl bg-vibrant-crimson/5 border border-vibrant-crimson/20">
                                     <div className="flex items-center gap-2 min-w-0">
-                                        <FileText className="w-5 h-5 text-vibrant-blue flex-shrink-0" />
+                                        <FileText className="w-5 h-5 text-vibrant-crimson flex-shrink-0" />
                                         <span className="text-sm font-medium text-[#001738] truncate">{resumeFileName}</span>
                                     </div>
                                     <button
@@ -260,11 +359,11 @@ export function StudentForm() {
                     ) : <div />}
 
                     {currentStep < 3 ? (
-                        <button type="button" onClick={goNext} className="flex items-center gap-2 bg-[#001738] text-white px-8 py-3 rounded-full font-bold hover:bg-[#001738]/90 transition-all shadow-md">
+                        <button type="button" onClick={goNext} className="flex items-center gap-2 bg-vibrant-crimson text-white px-8 py-3 rounded-full font-bold hover:bg-vibrant-crimson/90 transition-all shadow-md">
                             Continue <ArrowRight className="w-5 h-5" />
                         </button>
                     ) : (
-                        <button type="submit" disabled={isSubmitting} className="flex items-center gap-2 bg-vibrant-blue text-white px-10 py-3 rounded-full font-bold hover:bg-vibrant-blue-dark transition-all shadow-md disabled:opacity-50">
+                        <button type="submit" disabled={isSubmitting} className="flex items-center gap-2 bg-vibrant-crimson text-white px-10 py-3 rounded-full font-bold hover:bg-vibrant-crimson/90 transition-all shadow-md disabled:opacity-50">
                             {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</> : <>Apply Now <ArrowRight className="w-5 h-5" /></>}
                         </button>
                     )}

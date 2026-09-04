@@ -47,14 +47,13 @@ export function FormModal({ isOpen, onClose, children, title, subtitle }: FormMo
         <div
             ref={backdropRef}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-[#001738]/40 backdrop-blur-md animate-in fade-in duration-300"
-            onClick={handleBackdropClick}
         >
             <div className="bg-white w-full max-w-[800px] max-h-[90vh] rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col animate-in zoom-in-95 slide-in-from-bottom-8 duration-500 ease-out">
                 {/* Header */}
                 <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-xl px-6 sm:px-10 pt-8 pb-6 border-b border-gray-100 flex items-start justify-between">
                     <div>
                         {title && <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738] tracking-tight">{title}</h2>}
-                        {subtitle && <p className="text-justify text-[#001738]/50 mt-1 font-medium">{subtitle}</p>}
+                        {subtitle && <p className="text-left text-[#001738]/70 mt-1.5 font-normal text-sm sm:text-base leading-relaxed">{subtitle}</p>}
                     </div>
                     <button
                         onClick={onClose}

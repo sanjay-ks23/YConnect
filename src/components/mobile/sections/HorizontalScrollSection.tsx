@@ -45,7 +45,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
               {title}
             </h2>
             {subtitle && (
-              <p className="text-base sm:text-lg text-[#001738]/65 max-w-md mx-auto leading-relaxed text-center mb-2">
+              <p className="text-base sm:text-lg text-[#001738]/70 max-w-md mx-auto leading-relaxed mb-2 font-normal">
                 {subtitle}
               </p>
             )}
@@ -66,7 +66,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                   <h3 className="text-xl font-display font-medium text-[#001738] tracking-tight">
                     {card.title}
                   </h3>
-                  <p className="text-[#001738]/70 text-[15px] leading-relaxed text-left">
+                  <p className="text-[#001738]/70 text-[15px] leading-relaxed">
                     {card.description}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                     <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 ${accentColor}`}>
                       {card.title}
                     </h3>
-                    <p className="text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed max-w-3xl mx-auto">
                       {card.description}
                     </p>
                   </div>

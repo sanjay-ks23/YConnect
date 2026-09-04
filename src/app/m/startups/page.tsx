@@ -60,7 +60,7 @@ const processSteps = [
   {
     step: "02",
     title: "Matching",
-    description: "Get a curated shortlist of pre-screened candidates matched to your tech stack.",
+    description: "Get a curated shortlist of vetted candidates matched to your tech stack.",
     icon: Handshake,
     color: "bg-gradient-to-br from-blue-400 to-blue-600",
     shadowColor: "bg-blue-800"
@@ -113,7 +113,7 @@ export default function StartupsPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="min-h-[85vh] pt-28 pb-14 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender/40 via-white to-white">
+      <section className="min-h-[85vh] pt-28 pb-14 relative overflow-hidden flex items-center bg-gradient-to-b from-vibrant-blue/10 via-white to-white">
         <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container-superhi relative z-10">
           <div className="max-w-lg mx-auto text-center flex flex-col items-center">
@@ -122,7 +122,7 @@ export default function StartupsPage() {
               <span className="text-vibrant-blue block mt-1">technical talent</span>
             </h1>
             <p className="max-w-sm mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8 text-center">
-              Access pre-screened remote talent and reduce costs by 90%.
+              We connect you with India's top 5% vetted engineering talent, saving you 90% on costs.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-xs sm:max-w-none mx-auto">
               <button
@@ -161,7 +161,7 @@ export default function StartupsPage() {
         <WaveDivider variant={2} color="#F6F4FB" flip />
         <StackedGrid
           title="Our Talent Network"
-          subtitle="The top 5% of engineering talent from India's top universities."
+          subtitle="Connect with top 5% engineering talent from India's elite universities."
           items={talentPool}
           theme="blue"
           bgColor="bg-transparent"
@@ -180,7 +180,7 @@ export default function StartupsPage() {
               The <span className="font-display text-vibrant-blue">Process</span>
             </>
           }
-          subtitle="We streamline hiring for fast-growing European startups."
+          subtitle="We streamline the hiring lifecycle so you focus on building products."
           steps={processSteps}
           onCtaClick={() => setFormOpen(true)}
         />

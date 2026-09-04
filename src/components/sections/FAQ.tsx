@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
     Accordion,
@@ -8,48 +9,75 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Plus } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-const faqs = [
+const faqs: { question: string; plainAnswer: string; answer: React.ReactNode }[] = [
     {
         question: "How does the matching process work?",
-        answer:
+        plainAnswer:
             "Startups submit their requirements, and we match them with qualified students from our talent pool based on technical skills and project fit. The startup then interviews and selects their preferred candidate.",
+        answer:
+            <>Startups <Link href="/startups" className="underline underline-offset-2 hover:text-vibrant-blue transition-colors">submit their requirements</Link>, and we match them with qualified students from our talent pool based on technical skills and project fit. The startup then interviews and selects their preferred candidate.</>,
     },
     {
         question: "What is the typical engagement duration?",
+        plainAnswer:
+            "Most engagements are 3-month part-time contracts at 15 to 20 hours per week. Contracts can be extended or adjusted based on mutual agreement and project needs.",
         answer:
             "Most engagements are 3-month part-time contracts at 15 to 20 hours per week. Contracts can be extended or adjusted based on mutual agreement and project needs.",
     },
     {
         question: "How do you ensure quality of talent?",
+        plainAnswer:
+            "We source students from top engineering universities and assess them through rigorous technical tests, projects, and interviews. Only the top 5% qualify.",
         answer:
-            "We source students from India's top engineering universities and assess them through technical assessments, portfolio reviews, and communication evaluations. Only the top 5% of applicants make it into our talent pool.",
+            "We source students from top engineering universities and assess them through rigorous technical tests, projects, and interviews. Only the top 5% qualify.",
     },
     {
         question: "Who handles contracts and payments?",
+        plainAnswer:
+            "Startups handle contracts and payments directly with the student. YConnect focuses on matching, finding qualified talent and guiding both sides throughout.",
         answer:
-            "Startups handle contracts and payments directly with the student. YConnect focuses on matching — we help you find the right talent and guide both sides through the process.",
+            "Startups handle contracts and payments directly with the student. YConnect focuses on matching, finding qualified talent and guiding both sides throughout.",
     },
     {
         question: "What if the match doesn't work out?",
+        plainAnswer:
+            "We offer a satisfaction guarantee within the first two weeks. If the match isn't right, we'll find a replacement at no extra cost. Our matching success rate is over 95%.",
         answer:
             "We offer a satisfaction guarantee within the first two weeks. If the match isn't right, we'll find a replacement at no extra cost. Our matching success rate is over 95%.",
     },
     {
         question: "Is there a fee for students to join?",
+        plainAnswer:
+            "No, YConnect is completely free for students. We charge a service fee to startups only, so every student can focus on finding the right opportunity for them.",
         answer:
-            "No, YConnect is completely free for students. We charge a service fee to startups only, so students can focus on finding the right opportunity.",
+            <>No, YConnect is completely free for students. We charge a service fee to startups only, so every student can focus on <Link href="/students" className="underline underline-offset-2 hover:text-vibrant-crimson transition-colors">finding the right opportunity for them</Link>.</>,
     },
     {
         question: "Which countries do you operate in?",
+        plainAnswer:
+            "We work with startups across the EU, focusing on the Netherlands, France, Belgium, and Germany. We match them with top engineering talent across India remotely.",
         answer:
-            "We work with startups across the EU, with a focus on the Netherlands, Denmark, France, and Sweden. Our student talent pool spans top engineering universities across India.",
+            "We work with startups across the EU, focusing on the Netherlands, France, Belgium, and Germany. We match them with top engineering talent across India remotely.",
     },
 ];
 
 export function FAQ() {
     return (
         <section className="py-24 md:py-32 relative overflow-hidden bg-transparent">
+            <JsonLd data={{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqs.map((faq) => ({
+                    "@type": "Question",
+                    "name": faq.question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.plainAnswer,
+                    },
+                })),
+            }} />
             <div className="container-superhi relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-32 items-start px-4 md:px-8">
                     {/* Left Column: Context Header */}
@@ -57,7 +85,7 @@ export function FAQ() {
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
                             FAQ
                         </h2>
-                        <p className="text-lg sm:text-xl text-[#001738]/50 max-w-sm leading-relaxed">
+                        <p className="text-left text-lg sm:text-xl text-[#001738]/70 max-w-xs leading-relaxed font-normal tracking-tight">
                             Got a question? We can answer it.
                         </p>
                     </div>
@@ -84,8 +112,8 @@ export function FAQ() {
                                             </div>
                                         </AccordionTrigger>
 
-                                        <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 text-[#001738]/70 text-base sm:text-xl font-sans leading-relaxed">
-                                            <div lang="en" className="pt-4 w-full md:w-[475px] text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto]">
+                                        <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 font-sans">
+                                            <div lang="en" className="pt-4 w-full md:w-[475px] text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed font-normal">
                                                 {faq.answer}
                                             </div>
                                         </AccordionContent>

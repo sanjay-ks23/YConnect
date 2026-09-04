@@ -22,12 +22,12 @@ const faqs = [
   {
     question: "How do you ensure quality of talent?",
     answer:
-      "We source students from India's top engineering universities and assess them through technical assessments, portfolio reviews, and communication evaluations. Only the top 5% of applicants make it into our talent pool.",
+      "We source students from top engineering universities and assess them through rigorous technical tests, projects, and interviews. Only the top 5% qualify.",
   },
   {
     question: "Who handles contracts and payments?",
     answer:
-      "Startups handle contracts and payments directly with the student. YConnect focuses on matching — we help you find the right talent and guide both sides through the process.",
+      "Startups handle contracts and payments directly with the student. YConnect focuses on matching, finding qualified talent and guiding both sides throughout.",
   },
   {
     question: "What if the match doesn't work out?",
@@ -37,12 +37,12 @@ const faqs = [
   {
     question: "Is there a fee for students to join?",
     answer:
-      "No, YConnect is completely free for students. We charge a service fee to startups only, so students can focus on finding the right opportunity.",
+      "No, YConnect is completely free for students. We charge a service fee to startups only, so every student can focus on finding the right opportunity for them.",
   },
   {
     question: "Which countries do you operate in?",
     answer:
-      "We work with startups across the EU, with a focus on the Netherlands, Denmark, France, and Sweden. Our student talent pool spans top engineering universities across India.",
+      "We work with startups across the EU, focusing on the Netherlands, France, Belgium, and Germany. We match them with top engineering talent across India remotely.",
   },
 ];
 
@@ -54,7 +54,7 @@ export function FAQ() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-3 md:mb-6 tracking-tight max-w-2xl px-2">
             FAQ
           </h2>
-          <p className="text-center text-base sm:text-xl text-[#001738]/60 max-w-md mx-auto leading-relaxed px-2">
+          <p className="text-center text-base sm:text-xl text-[#001738]/70 max-w-xs mx-auto leading-relaxed px-2 font-normal tracking-tight">
             Got a question? We can answer it.
           </p>
         </div>
@@ -77,7 +77,7 @@ export function FAQ() {
                 </AccordionTrigger>
 
                 <AccordionContent className="px-5 pb-5 pt-2 text-[#001738]/70 border-t border-gray-50">
-                  <p className="text-sm sm:text-base leading-relaxed text-justify-clean">
+                  <p className="text-justify text-sm sm:text-base leading-relaxed">
                     {faq.answer}
                   </p>
                 </AccordionContent>

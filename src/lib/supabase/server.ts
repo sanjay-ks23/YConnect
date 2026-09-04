@@ -9,9 +9,9 @@ export function getSupabaseServiceClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!url || !serviceRoleKey) {
+  if (!url || !serviceRoleKey || !url.startsWith("http")) {
     throw new Error(
-      "Missing Supabase environment variables. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local"
+      "Missing or invalid Supabase environment variables. Make sure NEXT_PUBLIC_SUPABASE_URL is a valid URL starting with 'http' and SUPABASE_SERVICE_ROLE_KEY is set in your .env.local file."
     );
   }
 

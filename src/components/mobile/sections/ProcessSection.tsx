@@ -22,9 +22,10 @@ interface ProcessSectionProps {
   theme: "crimson" | "orange" | "blue";
   onCtaClick?: () => void;
   bgColor?: string;
+  subtitleClassName?: string;
 }
 
-export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCtaClick, bgColor = "bg-white" }: ProcessSectionProps) {
+export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCtaClick, bgColor = "bg-white", subtitleClassName }: ProcessSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -59,7 +60,7 @@ export function ProcessSection({ badgeText, title, subtitle, steps, theme, onCta
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight mb-3 text-[#001738]">
               {title}
             </h2>
-            <div className="max-w-md text-base sm:text-lg text-[#001738]/65 leading-relaxed text-center lg:text-left">
+            <div className={`text-sm sm:text-base text-[#001738]/70 leading-relaxed font-normal ${subtitleClassName || "max-w-xs"}`}>
               {subtitle}
             </div>
           </div>
@@ -136,7 +137,7 @@ function StepCard({ step, theme, titleColor, badgeBg, badgeTextClass, isLast, on
 
         <div className="flex flex-col relative z-10 w-full">
           <h3 className={`text-lg sm:text-xl font-display font-medium mb-1.5 ${titleColor}`}>{step.title}</h3>
-          <div className="max-w-full text-[#001738]/70 text-[14px] leading-relaxed text-left">
+          <div className="max-w-full text-[#001738]/70 text-[14px] leading-relaxed">
             {step.description}
           </div>
         </div>

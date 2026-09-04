@@ -12,7 +12,7 @@ const startupSteps = [
     {
         id: "s2",
         title: "Get Matched",
-        description: "We hand pick a qualified student who genuinely fits your tech stack and the way your team works.",
+        description: "We hand pick a qualified student who genuinely fits your tech stack and the way your team works every day.",
     },
     {
         id: "s3",
@@ -30,7 +30,7 @@ const studentSteps = [
     {
         id: "st2",
         title: "Get Selected",
-        description: "We match you with a startup that fits your stack, then you'll go through a short interview with honest feedback either way.",
+        description: "We match you with a startup that fits your stack, then you'll go through a short interview with honest feedback.",
     },
     {
         id: "st3",
@@ -71,10 +71,10 @@ export function HowItWorks() {
                 
                 <div className="relative z-20 w-[94%] max-w-[110rem] mx-auto px-4 md:px-8">
                     <div className="text-center mb-10 md:mb-16 flex flex-col items-center">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-4 md:mb-6 tracking-tight max-w-2xl px-2 z-50 mt-8 md:mt-0">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2 z-50 mt-8 md:mt-0">
                             How It Works
                         </h2>
-                        <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-lg sm:text-xl text-[#001738]/50 max-w-xl mx-auto mb-8 md:mb-10 leading-snug px-2 z-50">
+                        <p lang="en" className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto mb-10 leading-relaxed px-2 z-50 font-normal">
                             We connect European startups with Indian engineering talent. We focus on matching, startups handle the rest.
                         </p>
 
@@ -114,7 +114,7 @@ export function HowItWorks() {
                                     <h3 className="text-2xl font-display font-medium text-[#001738] ml-2">
                                         {idx + 1}. {step.title}
                                     </h3>
-                                    <p lang="en" className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/60 text-base leading-snug ml-2">
+                                    <p lang="en" className="text-justify-clean text-[#001738]/70 text-base leading-relaxed ml-2 font-normal">
                                         {step.description}
                                     </p>
                                 </div>
@@ -171,7 +171,7 @@ export function HowItWorks() {
                                     >
                                         <p
                                             lang="en"
-                                            className="text-justify [text-align-last:justify] [text-justify:inter-word] [text-wrap:balance] [hyphens:auto] text-[#001738]/50 text-2xl md:text-3xl font-medium leading-snug max-w-[550px] mx-auto"
+                                            className="text-justify-clean text-[#001738]/70 text-xl sm:text-2xl md:text-3xl font-normal leading-relaxed max-w-[550px] mx-auto"
                                         >
                                             {steps[activeIndex].description}
                                         </p>

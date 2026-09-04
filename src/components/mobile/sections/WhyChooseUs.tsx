@@ -56,10 +56,10 @@ export function WhyChooseUs() {
  <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4">
  WHAT WE DO & THE BENEFITS
  </span>
- <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 md:mb-8 tracking-tight max-w-2xl px-2">
+ <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2">
  Talent you can count on.
  </h2>
- <p className="text-base sm:text-lg text-[#001738]/50 max-w-xl mx-auto mb-8 leading-relaxed px-2">
+ <p className="text-base sm:text-lg text-[#001738]/70 max-w-xl mx-auto mb-8 leading-relaxed px-2 font-normal">
  Access incredible engineering talent without the usual cross-border hiring friction. Productive, reliable, and perfectly matched.
  </p>
  </div>
@@ -82,7 +82,7 @@ export function WhyChooseUs() {
  {/* Text Content */}
  <div className="flex flex-col relative z-10">
  <h3 className="text-2xl font-display font-medium text-[#001738] mb-3 tracking-tight">{feature.title}</h3>
- <p className="text-[#001738]/50 leading-relaxed text-base lg:text-lg ">
+ <p className="text-justify text-[#001738]/70 leading-relaxed text-base lg:text-lg font-normal">
  {feature.description}
  </p>
  </div>

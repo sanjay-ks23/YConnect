@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Globe2, HeartHandshake, Users, Target, Rocket, ShieldCheck, Building2, GraduationCap } from "lucide-react";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 
 export const metadata: Metadata = {
-    title: "About — YConnect",
+    title: "About Us — YConnect | Bridging European Startups & Indian Engineers",
     description:
-        "Our journey in bridging the gap between European innovation and Indian engineering excellence.",
+        "Meet the YConnect team. We connect early-stage European startups with India's top 5% engineering talent — saving up to 90% on hiring costs with direct, reliable contracts.",
+    alternates: { canonical: "https://yconnect.info/about" },
+    openGraph: {
+        title: "About YConnect — Where Talent Meets Innovation",
+        description:
+            "We exist because world-class engineering talent should be accessible to every ambitious startup, without any barriers.",
+        url: "https://yconnect.info/about",
+    },
 };
 
 
@@ -14,17 +22,16 @@ export default function AboutPage() {
     return (
         <div className="relative min-h-screen bg-white">
             {/* Hero */}
-            <section className="pt-44 pb-20 lg:pt-52 lg:pb-32 relative z-10 bg-gradient-to-b from-vibrant-blue/5 to-white">
-                <div className="container-superhi relative z-10">
+            <section className="min-h-[100dvh] pt-28 pb-20 lg:pt-36 lg:pb-28 relative z-10 flex flex-col justify-center items-center bg-gradient-to-b from-vibrant-blue/10 via-white to-white">
+                <div className="container-superhi relative z-10 -mt-20">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="heading-hero mb-8">
+                        <h1 className="heading-hero mb-6">
                             Where Talent Meets{" "}
-                            <span className="text-vibrant-green font-display">Innovation</span>
+                            <span className="text-vibrant-blue font-display">Innovation</span>
                         </h1>
-                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl text-[#001738]/60 leading-relaxed font-sans">
-                            We exist because world class engineering talent should be<br className="hidden md:block" />
-                            accessible to every ambitious startup, without any barriers.
-                        </div>
+                        <p className="text-center text-base sm:text-lg md:text-xl text-[#001738]/70 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
+                            We exist because world class engineering talent should be accessible to every ambitious early stage startup, without any barriers.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -35,12 +42,12 @@ export default function AboutPage() {
                 <div className="container-superhi relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div>
-                            <h2 className="heading-section mb-8">
-                                Connecting <span className="text-vibrant-blue">Early Stage Startups</span> with <span className="text-vibrant-orange font-display">Indian Engineers</span>
+                            <h2 className="heading-section mb-6">
+                                Why <span className="text-vibrant-blue font-display">YConnect ?</span>
                             </h2>
-                            <div className="text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans w-full text-justify">
-                                We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We focus on matching the right people. Startups handle contracts and payments directly.
-                            </div>
+                            <p className="text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans w-full font-normal">
+                                We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities. We focus on matching the right people and handling contracts.
+                            </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="bg-vibrant-blue/5 p-8 rounded-[2.5rem] border border-vibrant-blue/10 flex flex-col items-center text-center gap-4">
@@ -86,9 +93,11 @@ export default function AboutPage() {
                             className="bg-[#F5F5F5] rounded-xl overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
                         >
                             <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
-                                <img
+                                <Image
                                     src="/images/Sanjay.jpg"
-                                    alt="Sanjay"
+                                    alt="Sanjay — Founder and CTO of YConnect"
+                                    width={400}
+                                    height={500}
                                     className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
                                 />
                             </div>
@@ -106,10 +115,12 @@ export default function AboutPage() {
                             className="bg-[#F5F5F5] rounded-xl overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
                         >
                             <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
-                                <img
-                                    src="/images/Dauren.png"
-                                    alt="Dauren Oberhuber"
-                                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                                <Image
+                                    src="/images/Dauren_new.jpeg"
+                                    alt="Dauren Oberhuber — Co-Founder and CFO of YConnect"
+                                    width={400}
+                                    height={500}
+                                    className="w-full h-full object-cover scale-[1.55] object-center transition-all duration-300 group-hover:scale-[1.65]"
                                 />
                             </div>
                             <div className="p-4 sm:p-5">
@@ -126,9 +137,11 @@ export default function AboutPage() {
                             className="bg-[#F5F5F5] rounded-xl overflow-hidden flex flex-col group transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
                         >
                             <div className="w-full aspect-[4/5] relative overflow-hidden bg-gray-200">
-                                <img
+                                <Image
                                     src="/images/pavithran_HD.jpeg"
-                                    alt="Pavithran"
+                                    alt="Pavithran — Co-Founder of YConnect"
+                                    width={400}
+                                    height={500}
                                     className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
                                 />
                             </div>

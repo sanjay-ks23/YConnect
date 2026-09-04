@@ -32,20 +32,20 @@ export function Footer() {
           </div>
 
           {/* Right Side: Navigation Grid */}
-          <div className="grid grid-cols-2 gap-8 md:gap-16">
+          <div className="grid grid-cols-2 gap-8 md:gap-16 mt-2">
             <div className="flex flex-col gap-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/40">Platform</span>
-              <nav className="flex flex-col gap-4">
-                <Link href="/startups" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">For Startups</Link>
-                <Link href="/students" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">For Students</Link>
+              <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/60">Platform</span>
+              <nav aria-label="Platform navigation" className="flex flex-col gap-4">
+                <Link href="/startups" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Startups</Link>
+                <Link href="/students" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Students</Link>
               </nav>
             </div>
             
             <div className="flex flex-col gap-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-white/40">Company</span>
-              <nav className="flex flex-col gap-4">
-                <Link href="/about" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">About Us</Link>
-                <Link href="/contact" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">Contact</Link>
+              <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/60">Company</span>
+              <nav aria-label="Company navigation" className="flex flex-col gap-4">
+                <Link href="/about" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">About Us</Link>
+                <Link href="/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">Contact</Link>
               </nav>
             </div>
           </div>

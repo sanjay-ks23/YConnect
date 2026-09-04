@@ -13,35 +13,35 @@ const benefits = [
   {
     icon: Globe,
     title: "European Startups",
-    description: "Work directly with innovative startups across the Netherlands, Denmark, France, and Sweden.",
+    description: "Work directly with innovative startups across the Netherlands, France, Belgium, and Germany.",
     iconBg: "bg-orange-50",
     iconColor: "text-orange-600",
   },
   {
     icon: Wallet,
     title: "Paid Opportunities",
-    description: "Every engagement is a fully paid role. Earn competitively while gaining experience.",
+    description: "Every engagement is a fully paid role. Earn competitively while gaining valuable experience.",
     iconBg: "bg-amber-50",
     iconColor: "text-amber-600",
   },
   {
     icon: Briefcase,
     title: "Real Experience",
-    description: "Build production software and solve engineering challenges with real impact.",
+    description: "Build production software and solve complex engineering challenges with real impact.",
     iconBg: "bg-teal-50",
     iconColor: "text-teal-600",
   },
   {
     icon: CalendarCheck,
     title: "Flexible Work",
-    description: "Part-time or full-time roles matched to your schedule without affecting studies.",
+    description: "Part-time or full-time roles matched to your schedule without affecting your studies.",
     iconBg: "bg-rose-50",
     iconColor: "text-rose-600",
   },
   {
     icon: Award,
     title: "Global Exposure",
-    description: "Learn how European startups operate, expand your network, and grow your career.",
+    description: "Learn how European startups operate, expand your network, and grow your tech career.",
     iconBg: "bg-purple-50",
     iconColor: "text-purple-600",
   },
@@ -96,7 +96,7 @@ export default function StudentsPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="min-h-[85vh] pt-28 pb-14 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/15 via-white to-white">
+      <section className="min-h-[85vh] pt-28 pb-14 relative overflow-hidden flex items-center bg-gradient-to-b from-vibrant-crimson/10 via-white to-white">
         <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
         <div className="container-superhi relative z-10">
           <div className="max-w-lg mx-auto text-center flex flex-col items-center">
@@ -151,7 +151,8 @@ export default function StudentsPage() {
               The <span className="font-display text-vibrant-crimson">Process</span>
             </>
           }
-          subtitle="We help you find the right match. You focus on writing great code."
+          subtitle={<>We help you find the right match. <br />You focus on writing great code.</>}
+          subtitleClassName="max-w-[280px] text-right ml-auto mr-20 md:mr-24 lg:mr-32"
           steps={processSteps}
           onCtaClick={() => setFormOpen(true)}
         />

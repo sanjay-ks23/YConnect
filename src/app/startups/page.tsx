@@ -14,7 +14,7 @@ const benefits = [
     {
         icon: Users,
         title: "Top Tier Talent",
-        description: "Tap into India's brightest engineering minds from top technical universities.",
+        description: <>Tap into India's brightest engineering minds<br />from the most elite technical universities.</>,
         color: "bg-vibrant-blue/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-blue",
@@ -22,7 +22,7 @@ const benefits = [
     {
         icon: TrendingDown,
         title: "Massive Savings",
-        description: "Cut your operational costs by up to 90% while keeping quality high.",
+        description: <>Cut your core operational costs by up to 90%<br />while maintaining the absolute best quality.</>,
         color: "bg-vibrant-green/10",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -30,7 +30,7 @@ const benefits = [
     {
         icon: Zap,
         title: "Flexible Scaling",
-        description: "Scale your team up or down with 3 month contracts and easy extensions.",
+        description: <>Scale your engineering team up or down<br />with 3 month contracts and easy extensions.</>,
         color: "bg-vibrant-yellow/40",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -38,7 +38,7 @@ const benefits = [
     {
         icon: CheckCircle2,
         title: "Easy Process",
-        description: "Startups handle contracts directly. We help you find the right person.",
+        description: <>Startups handle the employment contracts directly.<br />We just help you find the absolute best person.</>,
         color: "bg-vibrant-teal/30",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -55,7 +55,7 @@ const benefits = [
 
 const processSteps = [
     { step: "01", title: "Submit Requirements", description: <>Define your exact role requirements <br className="hidden md:block" />and your project scope in minutes.</>, icon: FileText, color: "bg-gradient-to-br from-indigo-400 to-indigo-600", shadowColor: "bg-indigo-800" },
-    { step: "02", title: "Matching", description: <>Get a curated shortlist of pre screened <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
+    { step: "02", title: "Matching", description: <>Get a curated shortlist of vetted <br className="hidden md:block" />candidates matched to your tech stack.</>, icon: Handshake, color: "bg-gradient-to-br from-blue-400 to-blue-600", shadowColor: "bg-blue-800" },
     { step: "03", title: "Selection", description: <>Interview your top candidate choices, <br className="hidden md:block" />and select the best fit for your team.</>, icon: CheckSquare, color: "bg-gradient-to-br from-cyan-400 to-cyan-600", shadowColor: "bg-cyan-800" },
     { step: "04", title: "Contract", description: <>You handle the contract directly <br className="hidden md:block" />with your chosen candidate.</>, icon: FileSignature, color: "bg-gradient-to-br from-vibrant-blue to-blue-700", shadowColor: "bg-blue-900" },
     { step: "05", title: "Work Begins", description: <>Onboard your new remote team member, <br className="hidden md:block" />and start building your core product.</>, icon: Rocket, color: "bg-gradient-to-br from-indigo-500 to-blue-600", shadowColor: "bg-blue-800" },
@@ -76,17 +76,21 @@ export default function StartupsPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-lavender/40 via-white to-white">
+            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-vibrant-blue/10 via-white to-white">
                 <div className="absolute top-20 right-10 w-96 h-96 bg-vibrant-blue/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="heading-hero mb-8 w-max max-w-full mx-auto text-justify [text-align-last:justify]">
+                        <h1 className="heading-hero mb-6 text-center max-w-4xl mx-auto">
                             Hire elite Indian<br />
                             <span className="text-vibrant-blue font-display">technical talent</span>
                         </h1>
-                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
-                            Access pre screened remote engineering talent,<br className="block md:hidden" /> reduce costs by 90%,<br className="hidden md:block" /> and <br className="block md:hidden" />
-                            accelerate your product roadmap without local overhead.
+                        <div className="max-w-[640px] mx-auto text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal">
+                            <p className="text-center md:text-justify-clean">
+                                We connect you with India's top 5% vetted engineering talent,
+                            </p>
+                            <p className="text-center md:text-justify-clean">
+                                saving you 90% on costs with zero relocation overhead.
+                            </p>
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
@@ -118,7 +122,16 @@ export default function StartupsPage() {
                 <WaveDivider variant={2} color="#FAF9F6" flip />
                 <StackedGrid
                     title="Our Talent Network"
-                    subtitle={<>Connect with the top 5% of engineering talent <br className="hidden md:block" />from India's top technical universities.</>}
+                    subtitle={
+                        <div className="max-w-[420px] mx-auto text-base text-[#001738]/70 leading-relaxed font-normal">
+                            <p className="text-center md:text-justify-clean">
+                                Connect with top 5% engineering talent
+                            </p>
+                            <p className="text-center md:text-justify-clean">
+                                from India's elite technical campuses.
+                            </p>
+                        </div>
+                    }
                     items={talentPool}
                     theme="blue"
                     bgColor="bg-transparent"
@@ -133,7 +146,11 @@ export default function StartupsPage() {
                     badgeText=""
                     bgColor="bg-transparent"
                     title={<>The <span className="font-display text-vibrant-blue text-7xl">Process</span></>}
-                    subtitle={<>We streamline the entire hiring lifecycle <br className="hidden md:block" />for all fast-growing European startups.</>}
+                    subtitle={<>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We streamline the hiring lifecycle<br className="hidden md:block" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so you focus on building products.
+                    </>}
+                    subtitleClassName="max-w-[380px] text-left ml-auto mr-12 md:mr-24 lg:mr-32"
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />
@@ -144,10 +161,10 @@ export default function StartupsPage() {
                 <div className="container-superhi">
                     <div className="bg-vibrant-blue rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-blue/30">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-                        <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
+                        <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6">
                             Ready to hire?
                         </h2>
-                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                        <div className="text-center text-lg sm:text-xl text-white/80 max-w-xl mx-auto mb-10 leading-relaxed font-normal">
                             Share your exact hiring requirements,<br className="hidden md:block" />
                             and see candidate profiles in 24 hours.
                         </div>

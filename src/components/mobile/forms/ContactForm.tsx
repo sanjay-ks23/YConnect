@@ -63,14 +63,14 @@ export function ContactForm() {
  if (isSubmitted) {
  return (
  <div className="text-center py-12">
- <div className="w-16 h-16 rounded-full bg-vibrant-blue/10 flex items-center justify-center mx-auto mb-6">
- <CheckCircle className="w-8 h-8 text-vibrant-blue" />
+ <div className="w-16 h-16 rounded-full bg-vibrant-crimson/10 flex items-center justify-center mx-auto mb-6">
+ <CheckCircle className="w-8 h-8 text-vibrant-crimson" />
  </div>
  <h3 className="text-2xl font-display font-medium mb-3 text-[#001738]">Message sent!</h3>
  <p lang="en" className="text-[#001738]/50 max-w-sm mx-auto">
  Thanks for reaching out. We&apos;ll get back to you within 24 hours.
  </p>
- <button onClick={() => window.location.href = window.location.pathname} className="mt-8 text-vibrant-blue font-bold hover:underline">
+ <button onClick={() => window.location.href = window.location.pathname} className="mt-8 text-vibrant-crimson font-bold hover:underline">
  Send another message
  </button>
  </div>
@@ -85,7 +85,7 @@ export function ContactForm() {
  <Input
  id="contact-name"
  placeholder="Your name"
- className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
+ className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all shadow-none"
  {...register("name")}
  />
  {errors.name && <p className="text-xs text-red-500 font-medium">{errors.name.message}</p>}
@@ -97,7 +97,7 @@ export function ContactForm() {
  id="contact-email"
  type="email"
  placeholder="you@example.com"
- className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
+ className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all shadow-none"
  {...register("email")}
  />
  {errors.email && <p className="text-xs text-red-500 font-medium">{errors.email.message}</p>}
@@ -109,7 +109,7 @@ export function ContactForm() {
  <Label htmlFor="contact-type" className="text-sm font-bold text-[#001738]">I am a...</Label>
  <select
  id="contact-type"
- className="flex w-full rounded-xl h-12 bg-white border border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none px-3 py-2 text-sm text-[#001738] outline-none"
+ className="flex w-full rounded-xl h-12 bg-white border border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all shadow-none px-3 py-2 text-sm text-[#001738] outline-none"
  {...register("inquiryType")}
  >
  <option value="">Select an option</option>
@@ -126,7 +126,7 @@ export function ContactForm() {
  <Input
  id="contact-subject"
  placeholder="What's this about?"
- className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all shadow-none"
+ className="rounded-xl h-12 bg-white border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all shadow-none"
  {...register("subject")}
  />
  {errors.subject && <p className="text-xs text-red-500 font-medium">{errors.subject.message}</p>}
@@ -138,7 +138,7 @@ export function ContactForm() {
  <Textarea
  id="contact-message"
  placeholder="Tell us how we can help..."
- className="rounded-xl bg-white border-gray-200 focus:border-vibrant-blue focus:bg-white transition-all min-h-[150px] resize-none shadow-none"
+ className="rounded-xl bg-white border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all min-h-[150px] resize-none shadow-none"
  {...register("message")}
  />
  {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message.message}</p>}
@@ -147,7 +147,7 @@ export function ContactForm() {
  <button
  type="submit"
  disabled={isSubmitting}
- className="w-full flex items-center justify-center gap-2 py-4 bg-vibrant-blue text-white rounded-full font-bold hover:bg-vibrant-blue-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+ className="w-full flex items-center justify-center gap-2 py-4 bg-vibrant-crimson text-white rounded-full font-bold hover:bg-vibrant-crimson-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
  >
  {isSubmitting ? (
  <>

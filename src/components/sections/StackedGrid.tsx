@@ -28,11 +28,11 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
   return (
     <section className={`py-24 relative overflow-hidden ${bgColor}`}>
       <div className="container-superhi relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
           <h2 className="text-4xl md:text-5xl font-display font-medium text-[#001738] mb-6 tracking-tight">
             {title}
           </h2>
-          <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-[#001738]/50 text-lg md:text-xl leading-relaxed font-body">
+          <div className="text-sm sm:text-base text-[#001738]/70 mx-auto leading-relaxed font-normal">
             {subtitle}
           </div>
         </div>
@@ -46,7 +46,7 @@ export function StackedGrid({ title, subtitle, items, theme = "blue", bgColor = 
               {item.image ? (
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} — talent at YConnect`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

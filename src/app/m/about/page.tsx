@@ -24,7 +24,7 @@ const team = [
   {
     name: "Dauren Oberhuber",
     role: "Co-Founder and CFO",
-    image: "/images/Dauren.png",
+    image: "/images/Dauren_new.jpeg",
     href: "https://www.linkedin.com/in/dauren-oberhuber-3602a4330/",
   },
   {
@@ -39,14 +39,14 @@ export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-white">
       {/* Hero */}
-      <section className="min-h-[70vh] pt-28 pb-14 relative z-10 flex items-center bg-gradient-to-b from-vibrant-blue/5 to-white">
-        <div className="container-superhi relative z-10">
+      <section className="min-h-[100dvh] pt-28 pb-14 relative z-10 flex flex-col justify-center items-center bg-gradient-to-b from-vibrant-blue/10 via-white to-white">
+        <div className="container-superhi relative z-10 -mt-20">
           <div className="max-w-2xl mx-auto text-center flex flex-col items-center">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-medium text-center max-w-xl mx-auto mb-5 leading-[1.15] tracking-tight">
-              Where Talent Meets <span className="text-vibrant-green font-display">Innovation</span>
+              Where Talent Meets <span className="text-vibrant-blue font-display">Innovation</span>
             </h1>
-            <p className="max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8 text-center [text-wrap:pretty]">
-              We exist because world class engineering talent should be accessible to every ambitious startup, without any barriers.
+            <p className="text-center max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed mb-8">
+              We exist because world class engineering talent should be accessible to every ambitious early stage startup, without any barriers.
             </p>
           </div>
         </div>
@@ -58,11 +58,10 @@ export default function AboutPage() {
         <div className="container-superhi relative z-10">
           <div className="max-w-2xl mx-auto text-center flex flex-col items-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight leading-[1.15] mb-4">
-              Connecting <span className="text-vibrant-blue">Early Stage Startups</span> with{" "}
-              <span className="text-vibrant-orange font-display">Indian Engineers</span>
+              Why <span className="text-vibrant-blue font-display">YConnect ?</span>
             </h2>
-            <p className="max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed text-center [text-wrap:pretty]">
-              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities to gain exposure and experience. We focus on matching the right people. Startups handle contracts and payments directly.
+            <p className="text-justify max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed">
+              We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities. We focus on matching the right people and handling contracts.
             </p>
           </div>
 
@@ -103,7 +102,10 @@ export default function AboutPage() {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                    className={`w-full h-full object-cover transition-all duration-300 ${member.name.includes("Dauren")
+                      ? "scale-[1.55] object-center group-hover:scale-[1.65]"
+                      : "group-hover:scale-105"
+                      }`}
                   />
                 </div>
                 <div className="p-4 sm:p-5">

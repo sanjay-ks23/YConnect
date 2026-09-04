@@ -4,10 +4,27 @@ import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { startupFormSchema, type StartupFormValues } from "@/lib/validations";
-import { ArrowRight, ArrowLeft, Loader2, Check, Building2, Wrench, FileText, CheckCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, Loader2, Check, Building2, Wrench, FileText, CheckCircle, X } from "lucide-react";
 
 const durations = ["1 month", "2 months", "3 months", "4-6 months", "6+ months"];
 const budgets = ["< €500/mo", "€500 – €1,000/mo", "€1,000 – €1,500/mo", "€1,500 – €2,500/mo", "€2,500+/mo"];
+
+const roleOptions = [
+    { value: "software_engineer", label: "Software Engineer" },
+    { value: "ml_engineer", label: "ML Engineer" },
+    { value: "frontend_developer", label: "Frontend Developer" },
+    { value: "backend_developer", label: "Backend Developer" },
+    { value: "fullstack_developer", label: "Fullstack Developer" },
+    { value: "mobile_developer", label: "Mobile Developer" },
+    { value: "data_scientist", label: "Data Scientist" },
+    { value: "data_analyst", label: "Data Analyst" },
+    { value: "ui_ux_designer", label: "UI/UX Designer" },
+    { value: "graphic_designer", label: "Graphic Designer" },
+    { value: "cad_designer", label: "CAD Designer" },
+    { value: "product_manager", label: "Product Manager" },
+    { value: "digital_marketer", label: "Digital Marketer" },
+    { value: "content_writer", label: "Content Writer" },
+];
 
 const steps = [
  { num: 1, label: "Company", icon: Building2 },
@@ -15,23 +32,47 @@ const steps = [
  { num: 3, label: "Details", icon: FileText },
 ];
 
-export function StartupForm() {
+ export function StartupForm() {
  const [currentStep, setCurrentStep] = useState(1);
  const [isSubmitted, setIsSubmitted] = useState(false);
+ const [customRoles, setCustomRoles] = useState<{value: string, label: string}[]>([]);
+ const [customRoleInput, setCustomRoleInput] = useState("");
 
  const {
  register,
  handleSubmit,
  trigger,
  watch,
+ setValue,
  formState: { errors, isSubmitting },
  } = useForm<StartupFormValues>({
  resolver: zodResolver(startupFormSchema),
  mode: "onTouched",
+ defaultValues: {
+     roles: [],
+ }
  });
 
  const watchedDuration = watch("duration");
  const watchedBudget = watch("budget");
+ const watchedRoles = watch("roles");
+
+ const handleAddCustomRole = (e?: React.MouseEvent | React.KeyboardEvent) => {
+     if (e) e.preventDefault();
+     if (!customRoleInput.trim()) return;
+     
+     const newValue = customRoleInput.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+     const newLabel = customRoleInput.trim();
+     
+     if (!roleOptions.find(r => r.value === newValue) && !customRoles.find(r => r.value === newValue)) {
+         setCustomRoles(prev => [...prev, { value: newValue, label: newLabel }]);
+         const currentRoles = watchedRoles || [];
+         if (!currentRoles.includes(newValue)) {
+             setValue("roles", [...currentRoles, newValue], { shouldValidate: true });
+         }
+     }
+     setCustomRoleInput("");
+ };
 
  const onSubmit = async (data: StartupFormValues) => {
  await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -148,7 +189,76 @@ export function StartupForm() {
 
  {currentStep === 3 && (
  <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-500">
- <div className="space-y-2">
+ <div className="space-y-3">
+     <label className="text-sm font-bold text-[#001738]">What roles do you need?</label>
+     
+     <select 
+         className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all text-sm mb-2"
+         onChange={(e) => {
+             if (!e.target.value) return;
+             const selected = e.target.value;
+             const currentRoles = watchedRoles || [];
+             if (!currentRoles.includes(selected)) {
+                 setValue("roles", [...currentRoles, selected], { shouldValidate: true });
+             }
+             e.target.value = "";
+         }}
+     >
+         <option value="">Select a role from the list...</option>
+         {roleOptions.map(r => (
+             <option key={r.value} value={r.value} disabled={watchedRoles?.includes(r.value)}>{r.label}</option>
+         ))}
+     </select>
+
+     {watchedRoles && watchedRoles.length > 0 && (
+         <div className="flex flex-wrap gap-2 mb-3">
+             {watchedRoles.map(roleValue => {
+                 const label = [...roleOptions, ...customRoles].find(r => r.value === roleValue)?.label || roleValue;
+                 return (
+                     <div key={roleValue} className="flex items-center gap-2 px-3 py-1.5 bg-vibrant-blue text-white rounded-full text-sm font-medium shadow-sm">
+                         {label}
+                         <button 
+                             type="button" 
+                             onClick={() => {
+                                 setValue("roles", watchedRoles.filter(r => r !== roleValue), { shouldValidate: true });
+                             }}
+                             className="hover:bg-black/20 rounded-full p-0.5 transition-colors"
+                         >
+                             <X className="w-3 h-3" />
+                         </button>
+                     </div>
+                 );
+             })}
+         </div>
+     )}
+     
+     <div className="flex gap-2">
+         <input 
+             type="text" 
+             className="flex-1 h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all text-sm"
+             placeholder="If the role is not listed, type it here..."
+             value={customRoleInput}
+             onChange={(e) => setCustomRoleInput(e.target.value)}
+             onKeyDown={(e) => {
+                 if (e.key === 'Enter') {
+                     e.preventDefault();
+                     handleAddCustomRole(e);
+                 }
+             }}
+         />
+         <button 
+             type="button" 
+             onClick={handleAddCustomRole}
+             disabled={!customRoleInput.trim()}
+             className="h-12 px-6 bg-gray-100 hover:bg-gray-200 text-[#001738] font-bold rounded-xl transition-all disabled:opacity-50 text-sm whitespace-nowrap"
+         >
+             Add Role
+         </button>
+     </div>
+     {errors.roles && <p className="text-xs text-red-500 font-medium">{errors.roles.message}</p>}
+ </div>
+
+ <div className="space-y-2 pt-2 border-t border-gray-100">
  <label className="text-sm font-bold text-[#001738]">Project Description</label>
  <textarea className="w-full min-h-[150px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Tell us about the project..." {...register("description")} />
  {errors.description && <p className="text-xs text-red-500 font-medium">{errors.description.message}</p>}
@@ -158,13 +268,13 @@ export function StartupForm() {
 
  <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
  {currentStep > 1 ? (
- <button type="button" onClick={goBack} className="flex items-center gap-2 text-gray-500 hover:text-[#001738] font-bold transition-all">
+ <button type="button" onClick={goBack} className="flex items-center gap-2 text-gray-500 hover:text-vibrant-blue font-bold transition-all">
  <ArrowLeft className="w-5 h-5" /> Back
  </button>
  ) : <div />}
 
  {currentStep < 3 ? (
- <button type="button" onClick={goNext} className="flex items-center gap-2 bg-[#001738] text-white px-8 py-3 rounded-full font-bold hover:bg-[#001738]/90 transition-all shadow-md">
+ <button type="button" onClick={goNext} className="flex items-center gap-2 bg-vibrant-blue text-white px-8 py-3 rounded-full font-bold hover:bg-vibrant-blue-dark transition-all shadow-md">
  Continue <ArrowRight className="w-5 h-5" />
  </button>
  ) : (

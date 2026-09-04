@@ -2,19 +2,18 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, GraduationCap, ArrowUpRight, Laptop, UserCircle, Handshake, MessageSquare, Rocket } from "lucide-react";
+import { ArrowRight, Globe, Wallet, Briefcase, CalendarCheck, Award, ArrowUpRight, Laptop, UserCircle, Handshake, MessageSquare, Rocket } from "lucide-react";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StudentForm } from "@/components/forms/StudentForm";
 import { FormModal } from "@/components/ui/FormModal";
 import { HorizontalScrollSection } from "@/components/sections/HorizontalScrollSection";
-import { StackedGrid } from "@/components/sections/StackedGrid";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 
 const benefits = [
     {
         icon: Globe,
-        title: "European Startups",
-        description: "Direct access to early-stage innovative startups across the Netherlands, Denmark, France, and Sweden.",
+        title: "Work with Top European Startups",
+        description: "Join high-growth, innovative companies across the Netherlands, France, Belgium, and Germany.",
         color: "bg-vibrant-orange/15",
         iconBg: "bg-vibrant-orange/15",
         iconColor: "text-vibrant-orange-dark",
@@ -22,7 +21,7 @@ const benefits = [
     {
         icon: Wallet,
         title: "Paid Opportunities",
-        description: "Every single engagement is a fully paid role. Earn well while gaining global work experience.",
+        description: "Every single engagement is a fully paid role. Earn well while gaining valuable work experience.",
         color: "bg-vibrant-yellow",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-orange-dark",
@@ -30,7 +29,7 @@ const benefits = [
     {
         icon: Briefcase,
         title: "Gain Experience",
-        description: "Build real production software and products. Solve challenges that have a real impact.",
+        description: "Build real production software and products. Solve complex challenges that have a real impact.",
         color: "bg-vibrant-teal",
         iconBg: "bg-white/50",
         iconColor: "text-vibrant-green-dark",
@@ -38,7 +37,7 @@ const benefits = [
     {
         icon: CalendarCheck,
         title: "Flexible Work",
-        description: "Part time or full time roles based on your availability while respecting your university.",
+        description: "Part time or full time roles based on your availability without affecting your university studies.",
         color: "bg-vibrant-crimson",
         iconBg: "bg-white/40",
         iconColor: "text-coral-red-dark",
@@ -67,17 +66,16 @@ export default function StudentsPage() {
     return (
         <div className="bg-white">
             {/* Hero */}
-            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-[#FADADD]/10 via-white to-white">
+            <section className="min-h-[90vh] pt-36 pb-20 lg:pt-44 lg:pb-32 relative overflow-hidden flex items-center bg-gradient-to-b from-vibrant-crimson/10 via-white to-white">
                 <div className="absolute bottom-20 left-10 w-72 h-72 bg-vibrant-crimson/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="container-superhi relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="heading-hero mb-8 w-max max-w-full mx-auto text-justify [text-align-last:justify]">
+                        <h1 className="heading-hero mb-6 text-center max-w-4xl mx-auto">
                             Work with the best<br />
                             <span className="text-vibrant-crimson font-display">European startups</span>
                         </h1>
-                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg lg:text-xl text-[#001738]/60 leading-relaxed mb-12">
-                            Join elite European technical teams,<br className="block md:hidden" /> earn competitively in Euros,<br className="hidden md:block" /> and<br className="block md:hidden" />
-                            build a global career through<br className="block md:hidden" /> pre screened, high impact roles.
+                        <div className="text-center text-lg sm:text-xl text-[#001738]/70 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
+                            Join elite European technical teams,<br className="block md:hidden" /> earn competitively in Euros,<br className="hidden md:block" /> and build a global career through<br className="block md:hidden" /> vetted, high impact roles.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-crimson text-white rounded-full font-bold shadow-xl shadow-vibrant-crimson/20 hover:-translate-y-1 transition-all flex items-center gap-2">
@@ -112,7 +110,8 @@ export default function StudentsPage() {
                     badgeText=""
                     bgColor="bg-transparent"
                     title={<>The <span className="font-display text-vibrant-crimson text-7xl">Process</span></>}
-                    subtitle={<>We help you find the right match. <br className="hidden md:block" />You focus on writing great code.</>}
+                    subtitle={<>&nbsp;&nbsp;&nbsp;&nbsp;We help you find the right match. <br className="hidden md:block" />&nbsp;&nbsp;&nbsp;&nbsp;You focus on writing great code.</>}
+                    subtitleClassName="max-w-[340px] text-right ml-auto mr-12 md:mr-24 lg:mr-32"
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />
@@ -123,10 +122,10 @@ export default function StudentsPage() {
                 <div className="container-superhi">
                     <div className="bg-vibrant-crimson rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl shadow-vibrant-crimson/30">
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-                        <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-8">
+                        <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6">
                             Ready to join the pool?
                         </h2>
-                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-white/80 text-xl mb-12 leading-relaxed">
+                        <div className="text-center text-lg sm:text-xl text-white/80 max-w-xl mx-auto mb-10 leading-relaxed font-normal">
                             Apply in minutes and get the unique chance<br className="hidden md:block" />
                             to work with world class European founders.
                         </div>

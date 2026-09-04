@@ -32,20 +32,20 @@ export function Footer() {
  </div>
 
  {/* Right Side: Navigation Grid */}
- <div className="grid grid-cols-2 gap-8 md:gap-16">
+ <div className="grid grid-cols-2 gap-8 md:gap-16 mt-2">
  <div className="flex flex-col gap-6">
- <span className="text-xs font-bold uppercase tracking-widest text-white/40">Platform</span>
+ <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/60">Platform</span>
  <nav className="flex flex-col gap-4">
- <Link href="/m/startups" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">For Startups</Link>
- <Link href="/m/students" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">For Students</Link>
+ <Link href="/m/startups" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Startups</Link>
+ <Link href="/m/students" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Students</Link>
  </nav>
  </div>
 
  <div className="flex flex-col gap-6">
- <span className="text-xs font-bold uppercase tracking-widest text-white/40">Company</span>
+ <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white/60">Company</span>
  <nav className="flex flex-col gap-4">
- <Link href="/m/about" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">About Us</Link>
- <Link href="/m/contact" className="text-lg font-display font-medium hover:text-[#00E58A] transition-colors">Contact</Link>
+ <Link href="/m/about" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">About Us</Link>
+ <Link href="/m/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">Contact</Link>
  </nav>
  </div>
  </div>

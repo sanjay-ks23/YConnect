@@ -18,6 +18,7 @@ export const startupFormSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   duration: z.string().optional(),
   budget: z.string().optional(),
+  roles: z.array(z.string()).min(1, "Please select at least one role"),
   description: z.string().min(20, "Description must be at least 20 characters"),
 });
 
@@ -27,7 +28,7 @@ export const studentFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   university: z.string().min(2, "University name is required"),
   degree: z.string().min(2, "Degree information is required"),
-  skills: z.array(z.string()).min(1, "Please select at least one skill"),
+  skills: z.array(z.string()).min(1, "Please select at least one role"),
   availability: z.string().min(1, "Please specify your availability"),
   experience: z.string().min(10, "Please describe your experience"),
   portfolio: z.string().url("Please enter a valid URL").optional().or(z.literal("")),

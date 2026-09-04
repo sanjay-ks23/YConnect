@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 export interface HorizontalCard {
     title: string;
-    description: string;
+    description: React.ReactNode;
     icon?: any;
     color?: string;
     iconBg?: string;
@@ -39,8 +39,8 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
             <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
                 {/* Section Header (Fixed at top) */}
                 <div className={`container-superhi pt-32 pb-12 relative z-20 ${bgColor} text-center`}>
-                    <h2 className="heading-section mb-4 mx-auto">{title}</h2>
-                    {subtitle && <p className="text-justify text-lg lg:text-xl text-[#001738]/50 max-w-2xl mx-auto">{subtitle}</p>}
+                    <h2 className="heading-section mb-6 mx-auto">{title}</h2>
+                    {subtitle && <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-2xl mx-auto leading-relaxed font-normal">{subtitle}</p>}
                 </div>
 
                 {/* Horizontal Sliding Content */}
@@ -63,7 +63,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                                     <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 text-center ${accentColor}`}>
                                         {card.title}
                                     </h3>
-                                    <p className="max-w-2xl mx-auto text-justify [text-align-last:justify] text-xl md:text-2xl lg:text-3xl text-[#001738]/60 leading-relaxed">
+                                    <p className="text-justify-clean max-w-3xl mx-auto text-xl md:text-2xl lg:text-3xl text-[#001738]/70 leading-relaxed font-normal">
                                         {card.description}
                                     </p>
                                 </div>
