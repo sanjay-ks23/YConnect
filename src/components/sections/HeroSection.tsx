@@ -22,9 +22,10 @@ export function HeroSection() {
                     <span className="text-vibrant-crimson block mt-1">with Indian Talent</span>
                 </h1>
 
-                <p className="text-justify-clean text-base sm:text-lg md:text-xl text-[#001738]/70 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-                    Skip relocation and administration hassles. We match early stage European startups with the best engineering talent India has to offer.
-                </p>
+                <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal">
+                    Skip relocation and administration hassles. We match early stage<br className="hidden md:block" />
+                    European startups with the best engineering talent India has to offer.
+                </div>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full max-w-md mx-auto">

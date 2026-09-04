@@ -84,13 +84,9 @@ export default function StartupsPage() {
                             Hire elite Indian<br />
                             <span className="text-vibrant-blue font-display">technical talent</span>
                         </h1>
-                        <div className="max-w-[640px] mx-auto text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal">
-                            <p className="text-center md:text-justify-clean">
-                                We connect you with India's top 5% vetted engineering talent,
-                            </p>
-                            <p className="text-center md:text-justify-clean">
-                                saving you 90% on costs with zero relocation overhead.
-                            </p>
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal">
+                            We connect you with India's top 5% vetted engineering talent,<br className="hidden md:block" />
+                            saving you 90% on costs with zero relocation overhead.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                             <button onClick={() => setFormOpen(true)} className="px-10 py-4 bg-vibrant-blue text-white rounded-full font-bold shadow-xl shadow-vibrant-blue/20 hover:-translate-y-1 transition-all flex items-center gap-2">
@@ -123,13 +119,9 @@ export default function StartupsPage() {
                 <StackedGrid
                     title="Our Talent Network"
                     subtitle={
-                        <div className="max-w-[420px] mx-auto text-base text-[#001738]/70 leading-relaxed font-normal">
-                            <p className="text-center md:text-justify-clean">
-                                Connect with top 5% engineering talent
-                            </p>
-                            <p className="text-center md:text-justify-clean">
-                                from India's elite technical campuses.
-                            </p>
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-base text-[#001738]/70 leading-relaxed font-normal">
+                            Connect with top 5% engineering talent<br className="hidden md:block" />
+                            from India's elite technical campuses.
                         </div>
                     }
                     items={talentPool}
@@ -164,7 +156,7 @@ export default function StartupsPage() {
                         <h2 className="text-4xl md:text-6xl font-display font-medium text-white mb-6">
                             Ready to hire?
                         </h2>
-                        <div className="text-center text-lg sm:text-xl text-white/80 max-w-xl mx-auto mb-10 leading-relaxed font-normal">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg sm:text-xl text-white/80 mb-10 leading-relaxed font-normal">
                             Share your exact hiring requirements,<br className="hidden md:block" />
                             and see candidate profiles in 24 hours.
                         </div>

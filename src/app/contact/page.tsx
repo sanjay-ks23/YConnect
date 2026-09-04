@@ -18,9 +18,9 @@ export default function ContactPage() {
                         <h1 className="heading-hero mb-8 text-center max-w-4xl mx-auto">
                             Ready to <span className="text-vibrant-crimson font-display">Connect?</span>
                         </h1>
-                        <div className="text-center text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans max-w-2xl mx-auto">
+                        <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans font-normal">
                             Whether you're a founder or a student, we're here to help.<br className="hidden md:block" />
-                            Reach out and let's see how we can work together.
+                            Reach out and let us see how we can work together today.
                         </div>
                     </div>
                 </div>
@@ -34,9 +34,9 @@ export default function ContactPage() {
                         <div className="lg:col-span-1 pt-10 md:pt-16 space-y-10">
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
-                                <div className="w-full text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans">
-                                    Have a question, idea, or a project?<br />
-                                    Reach out and let us connect today.
+                                <div className="w-max max-w-full text-justify [text-align-last:justify] text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans">
+                                    Have a question, idea, or a project in mind?<br className="hidden md:block" />
+                                    Reach out and let us connect together today.
                                 </div>
                             </div>
 
@@ -80,9 +80,9 @@ export default function ContactPage() {
                                     <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
                                         Send us a message
                                     </h2>
-                                    <div className="w-full text-left text-[#001738]/60 mb-12 text-[18px] leading-relaxed font-sans">
+                                    <div className="w-max max-w-full text-justify [text-align-last:justify] text-[#001738]/60 mb-12 text-[18px] leading-relaxed font-sans">
                                         Our dedicated team typically responds within two to four business hours.<br className="hidden sm:block" />
-                                        Please let us know how we can help you.
+                                        Please let us know your requirements and how we can best assist you.
                                     </div>
                                     <ContactForm />
                                 </div>

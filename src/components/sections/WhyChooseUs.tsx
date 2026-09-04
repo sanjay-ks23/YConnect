@@ -59,9 +59,10 @@ export function WhyChooseUs() {
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2">
                         Talent you can count on.
                     </h2>
-                    <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">
-                        Access incredible engineering talent without the usual cross border hiring friction. Productive, reliable, and perfectly matched.
-                    </p>
+                    <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg sm:text-xl text-[#001738]/70 leading-relaxed px-2 font-normal">
+                        Access incredible engineering talent without the usual cross border<br className="hidden md:block" />
+                        hiring friction. Productive, reliable, and perfectly matched today.
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[1400px] mx-auto relative z-10">

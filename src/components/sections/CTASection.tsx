@@ -23,10 +23,10 @@ export function CTASection() {
                             <h2 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
                                 Ready to hire top talent?
                             </h2>
-                            <p className="text-justify-clean text-white/80 leading-relaxed mb-10 max-w-sm text-base sm:text-lg font-normal">
-                                Submit your requirements and get matched with the perfect
-                                student within days.
-                            </p>
+                            <div className="w-max max-w-full text-justify [text-align-last:justify] text-white/80 leading-relaxed mb-10 text-base sm:text-lg font-normal">
+                                Submit your requirements and get matched with the<br className="hidden md:block" />
+                                perfect engineering talent within just a few days.
+                            </div>
                         </div>
                         <Link
                             href="/startups"
@@ -50,10 +50,10 @@ export function CTASection() {
                             <h2 className="text-3xl sm:text-4xl font-display font-medium text-white mb-6">
                                 Looking for real experience?
                             </h2>
-                            <p className="text-justify-clean text-white/80 leading-relaxed mb-10 max-w-sm text-base sm:text-lg font-normal">
-                                Join our talent pool and get matched with innovative European
-                                startups looking for your skills.
-                            </p>
+                            <div className="w-max max-w-full text-justify [text-align-last:justify] text-white/80 leading-relaxed mb-10 text-base sm:text-lg font-normal">
+                                Join our talent pool and get matched with innovative<br className="hidden md:block" />
+                                European startups looking for your unique skills.
+                            </div>
                         </div>
                         <Link
                             href="/students"
