@@ -52,14 +52,14 @@ export function Testimonials() {
                         Testimonials
                     </h2>
                     <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">
-                        Straight from the founders who hired,<br />
-                        and the students who got hired.
+                        &nbsp;Straight from the founders who hired,<br />
+                        &nbsp;and the students who got hired.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-32 gap-x-12 xl:gap-x-24 w-full mx-auto">
                     {testimonialPairs.map((pair, idx) => (
-                        <motion.div 
+                        <motion.div
                             key={pair.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
