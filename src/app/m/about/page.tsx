@@ -60,7 +60,7 @@ export default function AboutPage() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium tracking-tight leading-[1.15] mb-4">
               Why <span className="text-vibrant-blue font-display">YConnect ?</span>
             </h2>
-            <p className="text-justify max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed">
+            <p className="text-justify [text-justify:inter-word] max-w-md mx-auto text-base sm:text-lg text-[#001738]/70 leading-relaxed">
               We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities. We focus on matching the right people and handling contracts.
             </p>
           </div>
