@@ -111,8 +111,8 @@ export default function StudentsPage() {
                     badgeText=""
                     bgColor="bg-transparent"
                     title={<>The <span className="font-display text-vibrant-crimson text-7xl">Process</span></>}
-                    subtitle={<>&nbsp;&nbsp;&nbsp;&nbsp;We help you find the right match. <br className="hidden md:block" />&nbsp;&nbsp;&nbsp;&nbsp;You focus on writing great code.</>}
-                    subtitleClassName="max-w-[340px] text-right ml-auto mr-12 md:mr-24 lg:mr-32"
+                    subtitle={<>&nbsp;&nbsp;&nbsp;We help you find the right match.<br className="hidden md:block" />&nbsp;&nbsp;&nbsp;You focus on writing great code.</>}
+                    subtitleClassName="max-w-[340px] text-left ml-auto mr-6 md:mr-14 lg:mr-18"
                     steps={processSteps}
                     onCtaClick={() => setFormOpen(true)}
                 />
