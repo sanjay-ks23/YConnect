@@ -47,7 +47,7 @@ export default function AboutPage() {
                                 Why <span className="text-vibrant-blue font-display">YConnect ?</span>
                             </h2>
                             <p className="text-justify [text-justify:inter-word] text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed font-sans font-normal">
-                                We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities. We focus on matching the right people and handling the contracts with complete transparency.
+                                We built YConnect because European startups need affordable, top tier engineering talent, while Indian students deserve direct global opportunities. We focus on matching the right people and handling the contracts and payments with complete transparency.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
