@@ -29,13 +29,13 @@ export default function ContactPage() {
             {/* Content Section */}
             <section className="py-24 bg-white relative z-10">
                 <div className="container-superhi">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-12 lg:gap-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_2fr] gap-10 lg:gap-14">
                         {/* Sidebar: Contact Info */}
                         <div className="lg:col-span-1 pt-10 md:pt-16 space-y-10">
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
-                                <div className="w-full text-sm sm:text-base text-[#001738]/60 leading-relaxed font-sans">
-                                    Have a question, idea, or a project in mind?<br />
+                                <div className="w-max max-w-full text-justify [text-justify:inter-word] md:[text-align-last:justify] text-base sm:text-lg md:text-xl text-[#001738]/60 leading-relaxed font-sans font-normal">
+                                    Have a question, idea, or a project in mind?<br className="hidden md:block" />
                                     Reach out and let us connect today.
                                 </div>
                             </div>
@@ -80,9 +80,8 @@ export default function ContactPage() {
                                     <h2 className="text-3xl font-display font-medium text-[#001738] mb-4">
                                         Send us a message
                                     </h2>
-                                    <div className="w-full text-left text-[#001738]/60 mb-10 text-sm sm:text-base leading-relaxed font-sans">
-                                        Our dedicated team typically responds within two to four business hours.<br className="hidden md:block" />
-                                        Please let us know how we can help you.
+                                    <div className="w-max max-w-full text-justify [text-justify:inter-word] md:[text-align-last:justify] text-[#001738]/60 mb-10 text-base sm:text-lg md:text-xl leading-relaxed font-sans font-normal">
+                                        Our dedicated team typically responds within two to four<br className="hidden md:block" /> business hours. Please let us know how we can help you.
                                     </div>
                                     <ContactForm />
                                 </div>

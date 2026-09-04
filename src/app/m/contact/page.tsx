@@ -52,7 +52,7 @@ export default function ContactPage() {
             <div className="lg:pt-16 space-y-6 sm:space-y-8">
               <div className="text-center lg:text-left space-y-2 max-w-md mx-auto lg:max-w-none">
                 <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738]">Reach Out</h2>
-                <p className="text-base text-[#001738]/60 leading-relaxed w-full">
+                <p className="text-base text-[#001738]/60 leading-relaxed w-full text-justify [text-justify:inter-word]">
                   Have a question, idea, or a project? Reach out and let us connect today.
                 </p>
               </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
               <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#001738] mb-3">
                 Send us a message
               </h2>
-              <p className="text-[#001738]/60 mb-8 text-[16px] leading-relaxed w-full">
+              <p className="text-[#001738]/60 mb-8 text-[16px] leading-relaxed w-full text-justify [text-justify:inter-word]">
                 Our dedicated team typically responds within two to four business hours. Please let us know how we can help you.
               </p>
               <ContactForm />
