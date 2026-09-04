@@ -52,8 +52,8 @@ export function Testimonials() {
                         Testimonials
                     </h2>
                     <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">
-                        &nbsp;Straight from the founders who hired,<br />
-                        &nbsp;and the students who got hired.
+                        {" "}Straight from the founders who hired,<br />
+                        {" "}and the students who got hired.
                     </p>
                 </div>
 
