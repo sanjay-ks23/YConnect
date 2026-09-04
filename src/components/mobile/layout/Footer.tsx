@@ -32,7 +32,7 @@ export function Footer() {
  </div>
 
  {/* Right Side: Navigation Grid */}
- <div className="grid grid-cols-2 gap-8 md:gap-16 mt-2">
+ <div className="grid grid-cols-2 gap-8 md:gap-16 mt-2 lg:mt-6">
  <div className="flex flex-col gap-6">
  <span className="text-base sm:text-lg font-bold uppercase tracking-wider text-white">Platform</span>
  <nav className="flex flex-col gap-4">
