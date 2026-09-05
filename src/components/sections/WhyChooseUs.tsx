@@ -56,7 +56,7 @@ export function WhyChooseUs() {
                     <span className="text-xs md:text-sm font-bold text-vibrant-blue tracking-widest uppercase mb-4">
                         WHAT WE DO & THE BENEFITS
                     </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2">
+                    <h2 className="heading-section-md font-display text-[#001738] mb-6 max-w-2xl px-2">
                         Talent you can count on.
                     </h2>
                     <div className="w-max max-w-full mx-auto text-justify [text-align-last:justify] text-lg sm:text-xl text-[#001738]/70 leading-relaxed px-2 font-normal">

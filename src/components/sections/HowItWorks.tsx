@@ -71,7 +71,7 @@ export function HowItWorks() {
                 
                 <div className="relative z-20 w-[94%] max-w-[110rem] mx-auto px-4 md:px-8">
                     <div className="text-center mb-10 md:mb-16 flex flex-col items-center">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2 z-50 mt-8 md:mt-0">
+                        <h2 className="heading-section-md font-display text-[#001738] mb-6 max-w-2xl px-2 z-50 mt-8 md:mt-0">
                             How It Works
                         </h2>
                         <p lang="en" className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto mb-10 leading-relaxed px-2 z-50 font-normal">

@@ -131,7 +131,8 @@
 
 /* ===== SuperHi Component Patterns ===== */
 .superhi-section {
-  border-radius: 28px;
+  /* Fluid: 28px at mobile → 36px at 640px → 48px at 1024px */
+  border-radius: clamp(28px, calc(12px + 2.5vw), 48px);
   overflow: hidden;
   backdrop-filter: blur(20px) saturate(180%);
   border: 1.5px solid transparent;
@@ -142,13 +143,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     inset 0 -1px 0 rgba(255, 255, 255, 0.3),
     0 8px 32px rgba(0, 0, 0, 0.08);
-}
-
-@media (min-width: 640px) {
-  .superhi-section { border-radius: 36px; }
-}
-@media (min-width: 1024px) {
-  .superhi-section { border-radius: 48px; }
 }
 
 /* Pill-shaped buttons */
@@ -226,11 +220,29 @@
   width: 100%;
 }
 @media (min-width: 640px) {
-  .container-superhi { padding-left: 2rem; padding-right: 2rem; }
+  .container-superhi {
+    /* Fluid padding: 2rem at 640px → 3rem at 1024px, capped at 3rem */
+    padding-left: clamp(2rem, calc(0.25rem + 2.73vw), 3rem);
+    padding-right: clamp(2rem, calc(0.25rem + 2.73vw), 3rem);
+  }
 }
-@media (min-width: 1024px) {
-  .container-superhi { padding-left: 3rem; padding-right: 3rem; }
+
+/* Wider container for sections that need more width (e.g. Testimonials) */
+.container-wide {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  width: 100%;
 }
+@media (min-width: 640px) {
+  .container-wide {
+    padding-left: clamp(2rem, calc(0.25rem + 2.73vw), 3rem);
+    padding-right: clamp(2rem, calc(0.25rem + 2.73vw), 3rem);
+  }
+}
+/* Keep max-width fixed as the components rely on absolute margins/padding within these containers */
 
 /* ===== Typography ===== */
 .heading-hero {
@@ -240,9 +252,12 @@
   line-height: 0.98;
 }
 @media (min-width: 640px) { .heading-hero { font-size: 4rem; } }
-@media (min-width: 768px) { .heading-hero { font-size: 5rem; } }
-@media (min-width: 1024px) { .heading-hero { font-size: 6rem; } }
-@media (min-width: 1280px) { .heading-hero { font-size: 7rem; } }
+@media (min-width: 768px) {
+  .heading-hero {
+    /* Fluid: 4rem at 768px → 7rem at 1920px, capped at 7rem */
+    font-size: clamp(4rem, calc(2rem + 4.16vw), 7rem);
+  }
+}
 
 .heading-section {
   font-size: 2.25rem;
@@ -251,8 +266,12 @@
   line-height: 1.0;
 }
 @media (min-width: 640px) { .heading-section { font-size: 3rem; } }
-@media (min-width: 768px) { .heading-section { font-size: 3.75rem; } }
-@media (min-width: 1024px) { .heading-section { font-size: 4.5rem; } }
+@media (min-width: 768px) {
+  .heading-section {
+    /* Fluid: 3rem at 768px → 4.5rem at 1920px, capped at 4.5rem */
+    font-size: clamp(3rem, calc(2rem + 2.08vw), 4.5rem);
+  }
+}
 
 .heading-card {
   font-size: 1.75rem;
@@ -260,8 +279,12 @@
   letter-spacing: -0.1em;
   line-height: 1.05;
 }
-@media (min-width: 640px) { .heading-card { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .heading-card { font-size: 2.75rem; } }
+@media (min-width: 640px) {
+  .heading-card {
+    /* Fluid: 1.75rem at 640px → 2.75rem at 1920px, capped at 2.75rem */
+    font-size: clamp(1.75rem, calc(1.25rem + 1.25vw), 2.75rem);
+  }
+}
 
 .font-display {
   font-family: var(--font-display), serif;
@@ -276,6 +299,48 @@
   font-family: var(--font-inter), sans-serif;
 }
 
+/* Fluid heading utility: replaces `text-4xl sm:text-5xl md:text-6xl lg:text-7xl` pattern */
+.heading-section-lg {
+  font-size: 2.25rem; /* text-4xl = 36px = 2.25rem */
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+@media (min-width: 640px) {
+  .heading-section-lg {
+    /* Fluid: 3rem at 768px → 4.5rem at 1920px, capped at 4.5rem */
+    font-size: clamp(3rem, calc(2rem + 2.08vw), 4.5rem);
+  }
+}
+
+/* Fluid heading utility: replaces `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` pattern */
+.heading-section-md {
+  font-size: 1.875rem; /* text-3xl = 30px = 1.875rem */
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+@media (min-width: 640px) {
+  .heading-section-md {
+    /* Fluid: 2.25rem at 768px → 3.75rem at 1920px, capped at 3.75rem */
+    font-size: clamp(2.25rem, calc(1.25rem + 2.08vw), 3.75rem);
+  }
+}
+
+/* Fluid heading utility: replaces `text-4xl md:text-5xl` pattern */
+.heading-section-sm {
+  font-size: 2.25rem; /* text-4xl = 36px = 2.25rem */
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+@media (min-width: 768px) {
+  .heading-section-sm {
+    /* Fluid: 2rem at 768px → 3rem at 1920px, capped at 3rem */
+    font-size: clamp(2rem, calc(1.33rem + 1.38vw), 3rem);
+  }
+}
+
 .subtext-hero {
   font-family: var(--font-inter), sans-serif;
   font-size: 1.125rem;
@@ -283,7 +348,12 @@
   color: rgba(0, 23, 56, 0.7);
   font-weight: 400;
 }
-@media (min-width: 640px) { .subtext-hero { font-size: 1.25rem; } }
+@media (min-width: 640px) {
+  .subtext-hero {
+    /* Fluid: 1.125rem → 1.25rem, smooth between 640-1024px */
+    font-size: clamp(1.125rem, calc(0.95rem + 0.4vw), 1.25rem);
+  }
+}
 
 .subtext-section {
   font-family: var(--font-inter), sans-serif;
@@ -292,7 +362,11 @@
   color: rgba(0, 23, 56, 0.7);
   font-weight: 400;
 }
-@media (min-width: 640px) { .subtext-section { font-size: 1.25rem; } }
+@media (min-width: 640px) {
+  .subtext-section {
+    font-size: clamp(1.125rem, calc(0.95rem + 0.4vw), 1.25rem);
+  }
+}
 
 .subtext-card {
   font-family: var(--font-inter), sans-serif;
@@ -301,15 +375,24 @@
   color: rgba(0, 23, 56, 0.7);
   font-weight: 400;
 }
-@media (min-width: 640px) { .subtext-card { font-size: 1.125rem; } }
+@media (min-width: 640px) {
+  .subtext-card {
+    font-size: clamp(1rem, calc(0.85rem + 0.4vw), 1.125rem);
+  }
+}
 
 /* Section Spacing */
 .section-spacing {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
-@media (min-width: 640px) { .section-spacing { padding-top: 7rem; padding-bottom: 7rem; } }
-@media (min-width: 1024px) { .section-spacing { padding-top: 9rem; padding-bottom: 9rem; } }
+@media (min-width: 640px) {
+  .section-spacing {
+    /* Fluid: 5rem at 768px → 9rem at 1920px, capped at 9rem */
+    padding-top: clamp(5rem, calc(2.33rem + 5.55vw), 9rem);
+    padding-bottom: clamp(5rem, calc(2.33rem + 5.55vw), 9rem);
+  }
+}
 
 /* Gradients */
 .text-gradient-orange {

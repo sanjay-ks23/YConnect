@@ -60,7 +60,7 @@ export function HorizontalScrollSection({ title, subtitle, cards, theme, bgColor
                                 </span>
 
                                 <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-                                    <h3 className={`text-4xl md:text-6xl lg:text-7xl font-display font-medium leading-tight mb-8 text-center ${accentColor}`}>
+                                    <h3 className={`heading-section-lg font-display font-medium leading-tight mb-8 text-center ${accentColor}`}>
                                         {card.title}
                                     </h3>
                                     <p className="text-justify-clean max-w-3xl mx-auto text-xl md:text-2xl lg:text-3xl text-[#001738]/70 leading-relaxed font-normal">
