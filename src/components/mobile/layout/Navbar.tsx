@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -19,12 +19,32 @@ export function Navbar() {
   const pathname = usePathname();
   const currentPath = pathname ? pathname.replace(/\/$/, "") || "/" : "/";
 
+  // Find active link or default to first link so glider is always visible
+  const matchingLink = navLinks.find((link) => {
+    const targetPath = link.href.replace(/\/$/, "") || "/";
+    return currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
+  });
+
+  const [activePath, setActivePath] = useState(matchingLink ? matchingLink.href : navLinks[0].href);
+
+  useEffect(() => {
+    const match = navLinks.find((link) => {
+      const targetPath = link.href.replace(/\/$/, "") || "/";
+      return currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
+    });
+    if (match) {
+      setActivePath(match.href);
+    } else if (currentPath === "/" || currentPath === "/m") {
+      setActivePath(navLinks[0].href);
+    }
+  }, [currentPath]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-4 px-2 sm:px-4 md:px-8">
       <div className="mx-auto flex flex-col items-center">
         <div className="flex w-full h-[64px] sm:h-[72px] items-center justify-between bg-white/80 backdrop-blur-2xl border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full max-w-6xl px-4 sm:px-8">
           
-          <a href="/m" className="flex items-center group shrink-0 gap-1">
+          <a href="/m" onClick={() => setActivePath(navLinks[0].href)} className="flex items-center group shrink-0 gap-1">
             <Image
               src="/branding/logo-clean.png"
               alt="YConnect Logo"
@@ -40,16 +60,16 @@ export function Navbar() {
           </a>
 
           <div className="flex items-center gap-6">
-            {/* Desktop Nav - 3D tactile toggle pill */}
+            {/* Desktop Nav - 3D tactile toggle glider on plain navbar background */}
             <nav className="hidden md:flex items-center gap-1 relative">
               {navLinks.map((link) => {
-                const targetPath = link.href.replace(/\/$/, "") || "/";
-                const isActive = currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
+                const isActive = activePath === link.href;
 
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setActivePath(link.href)}
                     className={`relative px-5 py-2 rounded-full text-[15px] transition-all duration-200 z-10 select-none ${
                       isActive
                         ? "font-bold text-[#001738] scale-[1.03]"
@@ -62,7 +82,7 @@ export function Navbar() {
                     {isActive && (
                       <motion.div
                         layoutId="mobile-navbar-pill"
-                        className="absolute inset-0 rounded-full bg-white/80 backdrop-blur-xl shadow-[0_2px_10px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] border border-gray-200/80"
+                        className="absolute inset-0 rounded-full bg-gray-100/85 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.9)] border border-gray-200/90"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
