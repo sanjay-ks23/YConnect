@@ -36,16 +36,16 @@ export function Footer() {
  <div className="flex flex-col gap-6">
  <span className="text-base sm:text-lg font-bold uppercase tracking-wider text-white">Platform</span>
  <nav className="flex flex-col gap-4">
- <Link href="/m/startups" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Startups</Link>
- <Link href="/m/students" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">For Students</Link>
+ <Link href="/m/startups" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Startups</Link>
+ <Link href="/m/students" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Students</Link>
  </nav>
  </div>
 
  <div className="flex flex-col gap-6">
  <span className="text-base sm:text-lg font-bold uppercase tracking-wider text-white">Company</span>
  <nav className="flex flex-col gap-4">
- <Link href="/m/about" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">About Us</Link>
- <Link href="/m/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-[#00E58A] transition-colors">Contact</Link>
+ <Link href="/m/about" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">About Us</Link>
+ <Link href="/m/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Contact</Link>
  </nav>
  </div>
  </div>
