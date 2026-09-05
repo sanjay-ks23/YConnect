@@ -133,7 +133,7 @@ export default function StartupsPage() {
               </button>
               <Link href="/m/about" className="w-full sm:w-auto">
                 <button className="w-full px-7 py-3.5 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold text-base hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
-                  How It Works <ArrowUpRight className="w-4 h-4" />
+                  Learn More <ArrowUpRight className="w-4 h-4" />
                 </button>
               </Link>
             </div>

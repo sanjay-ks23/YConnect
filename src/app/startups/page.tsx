@@ -93,7 +93,7 @@ export default function StartupsPage() {
                                 Submit Requirements <ArrowRight className="w-5 h-5" />
                             </button>
                             <Link href="/about" className="px-10 py-4 bg-white border-2 border-gray-100 text-[#001738] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
-                                How It Works <ArrowUpRight className="w-5 h-5" />
+                                Learn More <ArrowUpRight className="w-5 h-5" />
                             </Link>
                         </div>
                     </div>
