@@ -41,7 +41,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-6">
             {/* Desktop Nav - 3D tactile toggle pill */}
-            <nav className="hidden md:flex items-center gap-1 bg-gray-100/70 p-1.5 rounded-full border border-gray-200/50 relative">
+            <nav className="hidden md:flex items-center gap-1 relative">
               {navLinks.map((link) => {
                 const targetPath = link.href.replace(/\/$/, "") || "/";
                 const isActive = currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
@@ -62,8 +62,8 @@ export function Navbar() {
                     {isActive && (
                       <motion.div
                         layoutId="mobile-navbar-pill"
-                        className="absolute inset-0 rounded-full bg-white/90 backdrop-blur-md shadow-md border border-gray-200/60"
-                        transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                        className="absolute inset-0 rounded-full bg-white/80 backdrop-blur-xl shadow-[0_2px_10px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] border border-gray-200/80"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
                   </Link>
