@@ -46,9 +46,9 @@ const testimonialPairs = [
 export function Testimonials() {
     return (
         <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-transparent">
-            <div className="container-wide relative z-10">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
                 <div className="text-center mb-12 lg:mb-16 flex flex-col items-center">
-                    <h2 className="heading-section-lg font-display text-[#001738] mb-6 max-w-2xl px-2">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2">
                         Testimonials
                     </h2>
                     <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">

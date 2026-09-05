@@ -82,7 +82,7 @@ export function FAQ() {
                 <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-16 lg:gap-32 items-start px-4 md:px-8">
                     {/* Left Column: Context Header */}
                     <div className="lg:sticky lg:top-32 space-y-6">
-                        <h2 className="heading-section-lg font-display text-[#001738] tracking-tight leading-tight">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] tracking-tight leading-tight">
                             FAQ
                         </h2>
                         <p className="text-left text-lg sm:text-xl text-[#001738]/70 max-w-xs leading-relaxed font-normal tracking-tight">
