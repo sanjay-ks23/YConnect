@@ -19,24 +19,20 @@ export function Navbar() {
     const pathname = usePathname();
     const currentPath = pathname ? pathname.replace(/\/$/, "") || "/" : "/";
 
-    // Find active link or default to first link so the glider is always visible
+    // Find active link matching currentPath
     const matchingLink = navLinks.find((link) => {
         const targetPath = link.href.replace(/\/$/, "") || "/";
         return currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
     });
 
-    const [activePath, setActivePath] = useState(matchingLink ? matchingLink.href : navLinks[0].href);
+    const [activePath, setActivePath] = useState<string | null>(matchingLink ? matchingLink.href : null);
 
     useEffect(() => {
         const match = navLinks.find((link) => {
             const targetPath = link.href.replace(/\/$/, "") || "/";
             return currentPath === targetPath || (targetPath !== "/" && targetPath !== "/m" && currentPath.startsWith(targetPath));
         });
-        if (match) {
-            setActivePath(match.href);
-        } else if (currentPath === "/" || currentPath === "/m") {
-            setActivePath(navLinks[0].href);
-        }
+        setActivePath(match ? match.href : null);
     }, [currentPath]);
 
     return (
@@ -44,7 +40,7 @@ export function Navbar() {
             <div className="mx-auto flex flex-col items-center">
                 <div className="flex w-full h-[64px] sm:h-[72px] items-center justify-between bg-white/80 backdrop-blur-2xl border border-gray-200/60 shadow-[0_4px_20px_rgba(0,0,0,0.04)] rounded-full max-w-6xl px-4 sm:px-8">
                     
-                    <a href="/" onClick={() => setActivePath(navLinks[0].href)} className="flex items-center group shrink-0 gap-1">
+                    <a href="/" onClick={() => setActivePath(null)} className="flex items-center group shrink-0 gap-1">
                         <Image
                             src="/branding/logo-clean.png"
                             alt="YConnect Logo"
@@ -82,6 +78,8 @@ export function Navbar() {
                                         {isActive && (
                                             <motion.div
                                                 layoutId="desktop-navbar-pill"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
                                                 className="absolute inset-0 rounded-full bg-gray-100/85 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.9)] border border-gray-200/90"
                                                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                             />
