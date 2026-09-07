@@ -51,7 +51,7 @@ export function Testimonials() {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-medium text-[#001738] mb-6 tracking-tight max-w-2xl px-2">
                         Testimonials
                     </h2>
-                    <p className="text-justify-clean text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">
+                    <p className="text-center text-lg sm:text-xl text-[#001738]/70 max-w-xl mx-auto leading-relaxed px-2 font-normal">
                         {" "}Straight from the founders who hired,<br />
                         {" "}and the students who got hired.
                     </p>
@@ -72,7 +72,7 @@ export function Testimonials() {
                                 <Quote className="w-10 h-10 mb-6 text-vibrant-blue opacity-40" strokeWidth={2.5} />
                                 <p
                                     lang="en"
-                                    className="text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-8"
+                                    className="text-justify text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-8"
                                 >
                                     {pair.startup.quote}
                                 </p>
@@ -104,7 +104,7 @@ export function Testimonials() {
                                 <Quote className="w-10 h-10 mb-6 text-vibrant-crimson opacity-40" strokeWidth={2.5} />
                                 <p
                                     lang="en"
-                                    className="text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-10"
+                                    className="text-justify text-[#001738]/80 text-base sm:text-lg leading-relaxed mb-10"
                                 >
                                     {pair.student.quote}
                                 </p>

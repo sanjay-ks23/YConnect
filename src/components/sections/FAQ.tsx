@@ -113,7 +113,7 @@ export function FAQ() {
                                         </AccordionTrigger>
 
                                         <AccordionContent className="relative z-10 px-6 sm:px-8 pb-8 sm:pb-10 font-sans">
-                                            <div lang="en" className="pt-4 w-full md:w-[475px] text-justify-clean text-[#001738]/80 text-base sm:text-lg leading-relaxed font-normal">
+                                            <div lang="en" className="pt-4 w-full md:w-[475px] text-justify text-[#001738]/80 text-base sm:text-lg leading-relaxed font-normal">
                                                 {faq.answer}
                                             </div>
                                         </AccordionContent>
