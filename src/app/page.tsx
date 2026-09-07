@@ -18,7 +18,7 @@ export default function Home() {
             "@id": "https://yconnect.info/#organization",
             "name": "YConnect",
             "url": "https://yconnect.info",
-            "logo": "https://yconnect.info/branding/yconnect-logo-transparent.png",
+            "logo": "https://www.yconnect.info/branding/logo__upscaled.png",
             "description": "YConnect connects early-stage European startups with vetted engineering students from top Indian universities.",
             "sameAs": ["https://www.linkedin.com/company/yconnect-info/"],
             "contactPoint": {

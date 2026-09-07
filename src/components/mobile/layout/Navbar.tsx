@@ -42,7 +42,7 @@ export function Navbar() {
           
           <a href="/m" onClick={() => setActivePath(null)} className="flex items-center group shrink-0 gap-1">
             <Image
-              src="/branding/logo-clean.png"
+              src="/branding/logo__upscaled.png"
               alt="YConnect Logo"
               width={44}
               height={44}

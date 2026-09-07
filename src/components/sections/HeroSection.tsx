@@ -22,7 +22,10 @@ export function HeroSection() {
                     <span className="text-vibrant-crimson block mt-1">with Indian Talent</span>
                 </h1>
 
-                <div className="w-max max-w-full mx-auto text-center text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal">
+                <div
+                    className="w-max max-w-full mx-auto text-center md:[text-align:justify] md:[text-align-last:justify] text-base sm:text-lg md:text-xl text-[#001738]/70 leading-relaxed mb-10 font-normal"
+                    style={{ textJustify: 'inter-word' }}
+                >
                     Skip relocation and administration hassles. We match early stage<br className="hidden md:block" />
                     European startups with the best engineering talent India has to offer.
                 </div>
