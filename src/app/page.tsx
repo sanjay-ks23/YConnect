@@ -44,7 +44,9 @@ export default function Home() {
       <div className="bg-[#FAF9F6]">
         <WaveDivider color="#FAF9F6" variant={2} flip />
         <HowItWorks />
-        <WaveDivider color="#F6F4FB" variant={1} />
+        <div className="pt-12 md:pt-24 lg:pt-32">
+          <WaveDivider color="#F6F4FB" variant={1} />
+        </div>
       </div>
 
       <div className="bg-[#F6F4FB]">
