@@ -83,3 +83,24 @@ on conflict (id) do nothing;
 -- columns are already nullable.
 alter table startup_applications alter column duration drop not null;
 alter table startup_applications alter column budget drop not null;
+
+-- 7. Migration: legal consent/version tracking (legal docs 2026-10-03-v1).
+-- All columns are NULLABLE on purpose: pre-existing rows keep NULL, which
+-- means "not recorded" — they must NOT be read as having consented.
+-- Timestamps are generated server-side at submission time, never from the client.
+alter table student_applications
+  add column if not exists age_confirmed_at timestamptz,
+  add column if not exists terms_accepted_at timestamptz,
+  add column if not exists terms_version text,
+  add column if not exists privacy_acknowledged_at timestamptz,
+  add column if not exists privacy_version text;
+
+alter table startup_applications
+  add column if not exists terms_accepted_at timestamptz,
+  add column if not exists terms_version text,
+  add column if not exists privacy_acknowledged_at timestamptz,
+  add column if not exists privacy_version text;
+
+alter table contact_messages
+  add column if not exists privacy_acknowledged_at timestamptz,
+  add column if not exists privacy_version text;

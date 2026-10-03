@@ -4,6 +4,7 @@ import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
 import { MAX_RESUME_SIZE_BYTES, ALLOWED_RESUME_TYPES } from "@/lib/validations";
 import { checkRateLimit, escapeHtml } from "@/lib/security";
+import { LEGAL_DOCS } from "@/lib/legal";
 
 const studentApiSchema = z.object({
   name: z.string().min(2),
@@ -14,6 +15,10 @@ const studentApiSchema = z.object({
   availability: z.string().min(1),
   experience: z.string().min(10),
   portfolio: z.string().url().optional().or(z.literal("")),
+  // FormData sends checkboxes as the string "true"
+  ageConfirmed: z.literal("true"),
+  termsAccepted: z.literal("true"),
+  privacyAcknowledged: z.literal("true"),
 });
 
 export async function POST(req: NextRequest) {
@@ -40,6 +45,9 @@ export async function POST(req: NextRequest) {
       availability: formData.get("availability")?.toString() ?? "",
       experience: formData.get("experience")?.toString() ?? "",
       portfolio: formData.get("portfolio")?.toString() ?? "",
+      ageConfirmed: formData.get("ageConfirmed")?.toString() ?? "",
+      termsAccepted: formData.get("termsAccepted")?.toString() ?? "",
+      privacyAcknowledged: formData.get("privacyAcknowledged")?.toString() ?? "",
     });
 
     if (!parsed.success) {
@@ -62,6 +70,7 @@ export async function POST(req: NextRequest) {
 
     const supabase = getSupabaseServiceClient();
     const data = parsed.data;
+    const confirmedAt = new Date().toISOString();
 
     const timestamp = Date.now();
     const safeFileName = resumeFile.name.replace(/[^a-zA-Z0-9._-]/g, "_");
@@ -93,6 +102,12 @@ export async function POST(req: NextRequest) {
         portfolio: data.portfolio || null,
         resume_path: resumePath,
         status: "pending",
+        // Server-generated confirmation metadata — never trust client timestamps
+        age_confirmed_at: confirmedAt,
+        terms_accepted_at: confirmedAt,
+        terms_version: LEGAL_DOCS.terms_of_service.version,
+        privacy_acknowledged_at: confirmedAt,
+        privacy_version: LEGAL_DOCS.privacy_policy.version,
       })
       .select("id")
       .single();
@@ -109,12 +124,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
         <p><strong>University:</strong> ${escapeHtml(data.university)}</p>
-        <p><strong>Degree:</strong> ${escapeHtml(data.degree)}</p>
-        <p><strong>Skills:</strong> ${escapeHtml(data.skills.join(", "))}</p>
-        <p><strong>Availability:</strong> ${escapeHtml(data.availability)}</p>
-        <p><strong>Experience:</strong> ${escapeHtml(data.experience)}</p>
-        ${data.portfolio ? `<p><strong>Portfolio:</strong> ${escapeHtml(data.portfolio)}</p>` : ""}
-        <p>View in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/students">admin dashboard</a>.</p>
+        <p>View the full application in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/students">admin dashboard</a>.</p>
       `,
     });
 

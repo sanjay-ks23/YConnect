@@ -48,6 +48,15 @@ export function Footer() {
  <Link href="/m/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Contact</Link>
  </nav>
  </div>
+
+ <div className="flex flex-col gap-6 col-span-2">
+ <span className="text-base sm:text-lg font-bold uppercase tracking-wider text-white">Legal</span>
+ <nav className="flex flex-col gap-4">
+ <Link href="/m/privacy-policy" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Privacy Policy</Link>
+ <Link href="/m/terms" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Terms of Service</Link>
+ <Link href="/m/cookies" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Cookie Policy</Link>
+ </nav>
+ </div>
  </div>
  </div>
 

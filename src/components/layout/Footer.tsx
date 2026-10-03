@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           {/* Right Side: Navigation Grid */}
-          <div className="grid grid-cols-2 gap-8 md:gap-16 mt-2 lg:mt-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 mt-2 lg:mt-6">
             <div className="flex flex-col gap-6">
               <span className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-white">Platform</span>
               <nav aria-label="Platform navigation" className="flex flex-col gap-4">
@@ -46,6 +46,15 @@ export function Footer() {
               <nav aria-label="Company navigation" className="flex flex-col gap-4">
                 <Link href="/about" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">About Us</Link>
                 <Link href="/contact" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Contact</Link>
+              </nav>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <span className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-wider text-white">Legal</span>
+              <nav aria-label="Legal navigation" className="flex flex-col gap-4">
+                <Link href="/privacy-policy" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Terms of Service</Link>
+                <Link href="/cookies" className="text-lg font-body font-normal italic text-white/70 hover:text-white transition-colors">Cookie Policy</Link>
               </nav>
             </div>
           </div>

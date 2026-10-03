@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { startupFormSchema, type StartupFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
 import { ArrowRight, ArrowLeft, Loader2, Check, Building2, Wrench, FileText, CheckCircle, X } from "lucide-react";
 
 const durations = ["1 month", "2 months", "3 months", "4-6 months", "6+ months"];
@@ -35,6 +36,7 @@ const steps = [
  export function StartupForm() {
  const [currentStep, setCurrentStep] = useState(1);
  const [isSubmitted, setIsSubmitted] = useState(false);
+ const [submitError, setSubmitError] = useState<string | null>(null);
  const [customRoles, setCustomRoles] = useState<{value: string, label: string}[]>([]);
  const [customRoleInput, setCustomRoleInput] = useState("");
 
@@ -75,8 +77,23 @@ const steps = [
  };
 
  const onSubmit = async (data: StartupFormValues) => {
- await new Promise((resolve) => setTimeout(resolve, 1500));
+ setSubmitError(null);
+ try {
+ const res = await fetch("/api/startup/apply", {
+ method: "POST",
+ headers: { "Content-Type": "application/json" },
+ body: JSON.stringify(data),
+ });
+
+ if (!res.ok) {
+ const body = await res.json().catch(() => ({}));
+ throw new Error(body.error || "Something went wrong. Please try again.");
+ }
+
  setIsSubmitted(true);
+ } catch (err) {
+ setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+ }
  };
 
  const goNext = useCallback(async () => {
@@ -263,8 +280,18 @@ const steps = [
  <textarea className="w-full min-h-[150px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Tell us about the project..." {...register("description")} />
  {errors.description && <p className="text-xs text-red-500 font-medium">{errors.description.message}</p>}
  </div>
+
+ <ConsentFields
+ register={register}
+ errors={errors}
+ theme="blue"
+ basePath="/m"
+ kind="startup"
+ />
  </div>
  )}
+
+ {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
 
  <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
  {currentStep > 1 ? (

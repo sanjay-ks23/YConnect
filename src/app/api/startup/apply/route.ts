@@ -3,6 +3,7 @@ import { startupFormSchema } from "@/lib/validations";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
 import { checkRateLimit, parseJsonBody, escapeHtml } from "@/lib/security";
+import { LEGAL_DOCS } from "@/lib/legal";
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,6 +24,7 @@ export async function POST(req: NextRequest) {
 
     const data = parsed.data;
     const supabase = getSupabaseServiceClient();
+    const confirmedAt = new Date().toISOString();
 
     const { data: inserted, error: insertError } = await supabase
       .from("startup_applications")
@@ -35,6 +37,10 @@ export async function POST(req: NextRequest) {
         budget: data.budget,
         description: data.description,
         status: "pending",
+        terms_accepted_at: confirmedAt,
+        terms_version: LEGAL_DOCS.terms_of_service.version,
+        privacy_acknowledged_at: confirmedAt,
+        privacy_version: LEGAL_DOCS.privacy_policy.version,
       })
       .select("id")
       .single();
@@ -54,8 +60,7 @@ export async function POST(req: NextRequest) {
         <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
         <p><strong>Duration:</strong> ${escapeHtml(data.duration ?? "N/A")}</p>
         <p><strong>Budget:</strong> ${escapeHtml(data.budget ?? "N/A")}</p>
-        <p><strong>Description:</strong> ${escapeHtml(data.description)}</p>
-        <p>View in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/startups">admin dashboard</a>.</p>
+        <p>View the full details in the <a href="${process.env.NEXT_PUBLIC_SITE_URL}/admin/startups">admin dashboard</a>.</p>
       `,
     });
 

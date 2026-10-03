@@ -3,8 +3,9 @@
 import { useState, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { studentFormSchema, type StudentFormValues } from "@/lib/validations";
-import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, Calendar, CheckCircle, X } from "lucide-react";
+import { studentFormSchema, availabilityOptions, type StudentFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
+import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, Calendar, CheckCircle, Upload, FileText, X } from "lucide-react";
 import { indianUniversities, searchUniversities } from "@/lib/universities";
 
 const roleOptions = [
@@ -33,6 +34,8 @@ const steps = [
 export function StudentForm() {
  const [currentStep, setCurrentStep] = useState(1);
  const [isSubmitted, setIsSubmitted] = useState(false);
+ const [submitError, setSubmitError] = useState<string | null>(null);
+ const [resumeFileName, setResumeFileName] = useState<string | null>(null);
  const [customRoles, setCustomRoles] = useState<{value: string, label: string}[]>([]);
  const [customRoleInput, setCustomRoleInput] = useState("");
  const [showUniDropdown, setShowUniDropdown] = useState(false);
@@ -67,24 +70,52 @@ export function StudentForm() {
  mode: "onSubmit",
  defaultValues: {
   skills: [],
-  availability: "20+ hrs/week", // Default since it's missing in UI
  },
  });
 
  const watchedSkills = watch("skills");
+ const watchedAvailability = watch("availability");
 
  const watchedUniversity = watch("university");
  const filteredUnis = searchUniversities(watchedUniversity || "");
 
  const onSubmit = async (data: StudentFormValues) => {
- await new Promise((resolve) => setTimeout(resolve, 1500));
+ setSubmitError(null);
+ try {
+ const formData = new FormData();
+ formData.append("name", data.name);
+ formData.append("email", data.email);
+ formData.append("university", data.university);
+ formData.append("degree", data.degree);
+ formData.append("skills", JSON.stringify(data.skills));
+ formData.append("availability", data.availability);
+ formData.append("experience", data.experience);
+ formData.append("portfolio", data.portfolio ?? "");
+ if (data.resume?.[0]) formData.append("resume", data.resume[0]);
+ formData.append("ageConfirmed", String(data.ageConfirmed));
+ formData.append("termsAccepted", String(data.termsAccepted));
+ formData.append("privacyAcknowledged", String(data.privacyAcknowledged));
+
+ const res = await fetch("/api/student/apply", {
+ method: "POST",
+ body: formData,
+ });
+
+ if (!res.ok) {
+ const body = await res.json().catch(() => ({}));
+ throw new Error(body.error || "Something went wrong. Please try again.");
+ }
+
  setIsSubmitted(true);
+ } catch (err) {
+ setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+ }
  };
 
  const goNext = useCallback(async () => {
  let fieldsToValidate: (keyof StudentFormValues)[] = [];
  if (currentStep === 1) fieldsToValidate = ["name", "email", "university", "degree"];
- if (currentStep === 2) fieldsToValidate = ["experience"];
+ if (currentStep === 2) fieldsToValidate = ["experience", "resume"];
 
  const valid = await trigger(fieldsToValidate);
  if (valid) setCurrentStep((s) => s + 1);
@@ -202,6 +233,43 @@ export function StudentForm() {
  <label className="text-sm font-bold text-[#001738]">Portfolio URL (optional)</label>
  <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
  </div>
+ <div className="space-y-2">
+ <label className="text-sm font-bold text-[#001738]">Resume / CV (PDF, max 5MB)</label>
+ {!resumeFileName ? (
+ <label className="flex items-center justify-center gap-2 w-full h-24 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 hover:border-vibrant-crimson hover:bg-white cursor-pointer transition-all">
+ <Upload className="w-5 h-5 text-gray-400" />
+ <span className="text-sm font-medium text-gray-500">Click to upload your resume</span>
+ <input
+ type="file"
+ accept="application/pdf"
+ className="hidden"
+ {...register("resume")}
+ onChange={(e) => {
+ register("resume").onChange(e);
+ setResumeFileName(e.target.files?.[0]?.name ?? null);
+ }}
+ />
+ </label>
+ ) : (
+ <div className="flex items-center justify-between w-full px-4 h-14 rounded-xl bg-vibrant-crimson/5 border border-vibrant-crimson/20">
+ <div className="flex items-center gap-2 min-w-0">
+ <FileText className="w-5 h-5 text-vibrant-crimson flex-shrink-0" />
+ <span className="text-sm font-medium text-[#001738] truncate">{resumeFileName}</span>
+ </div>
+ <button
+ type="button"
+ onClick={() => {
+ setValue("resume", undefined as unknown as FileList);
+ setResumeFileName(null);
+ }}
+ className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white transition-colors flex-shrink-0"
+ >
+ <X className="w-4 h-4 text-gray-500" />
+ </button>
+ </div>
+ )}
+ {errors.resume && <p className="text-xs text-red-500 font-medium">{errors.resume.message as string}</p>}
+ </div>
  </div>
  )}
 
@@ -267,8 +335,35 @@ export function StudentForm() {
  </div>
  {errors.skills && <p className="text-xs text-red-500 font-medium mt-1">{errors.skills.message}</p>}
  </div>
+
+ <div className="space-y-2">
+ <label className="text-sm font-bold text-[#001738]">Availability</label>
+ <div className="flex flex-wrap gap-2">
+ {availabilityOptions.map(option => (
+ <label key={option} className={`flex items-center gap-2 px-4 py-2 border rounded-full cursor-pointer transition-all ${
+ watchedAvailability === option
+ ? "bg-vibrant-crimson border-vibrant-crimson text-white shadow-md shadow-vibrant-crimson/20"
+ : "bg-gray-50 border-gray-100 text-[#001738] hover:bg-gray-100"
+ }`}>
+ <input type="radio" className="sr-only" value={option} {...register("availability")} />
+ <span className="text-sm font-medium">{option}</span>
+ </label>
+ ))}
+ </div>
+ {errors.availability && <p className="text-xs text-red-500 font-medium">{errors.availability.message}</p>}
+ </div>
+
+ <ConsentFields
+ register={register}
+ errors={errors}
+ theme="crimson"
+ basePath="/m"
+ kind="student"
+ />
  </div>
  )}
+
+ {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
 
  <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-50">
  {currentStep > 1 ? (

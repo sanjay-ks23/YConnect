@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { studentFormSchema, availabilityOptions, type StudentFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
 import { ArrowRight, ArrowLeft, Loader2, Check, User, Code2, FileText, CheckCircle, Upload, X } from "lucide-react";
 import { indianUniversities, searchUniversities } from "@/lib/universities";
 
@@ -90,6 +91,9 @@ export function StudentForm() {
             formData.append("experience", data.experience);
             formData.append("portfolio", data.portfolio ?? "");
             if (data.resume?.[0]) formData.append("resume", data.resume[0]);
+            formData.append("ageConfirmed", String(data.ageConfirmed));
+            formData.append("termsAccepted", String(data.termsAccepted));
+            formData.append("privacyAcknowledged", String(data.privacyAcknowledged));
 
             const res = await fetch("/api/student/apply", {
                 method: "POST",
@@ -346,6 +350,13 @@ export function StudentForm() {
                             )}
                             {errors.resume && <p className="text-xs text-red-500 font-medium">{errors.resume.message as string}</p>}
                         </div>
+
+                        <ConsentFields
+                            register={register}
+                            errors={errors}
+                            theme="crimson"
+                            kind="student"
+                        />
                     </div>
                 )}
 

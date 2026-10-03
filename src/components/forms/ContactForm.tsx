@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -126,6 +127,13 @@ export function ContactForm() {
             </div>
 
             {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
+
+            <ConsentFields
+                register={register}
+                errors={errors}
+                theme="crimson"
+                kind="contact"
+            />
 
             <button
                 type="submit"

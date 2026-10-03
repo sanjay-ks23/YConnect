@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { startupFormSchema, type StartupFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
 import { ArrowRight, ArrowLeft, Loader2, Check, Building2, Wrench, FileText, CheckCircle, X } from "lucide-react";
 
 const durations = ["1 month", "2 months", "3 months", "4-6 months", "6+ months"];
@@ -278,6 +279,13 @@ export function StartupForm() {
                             <textarea className="w-full min-h-[150px] p-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-blue focus:bg-white outline-none transition-all resize-none" placeholder="Tell us about the project..." {...register("description")} />
                             {errors.description && <p className="text-xs text-red-500 font-medium">{errors.description.message}</p>}
                         </div>
+
+                        <ConsentFields
+                            register={register}
+                            errors={errors}
+                            theme="blue"
+                            kind="startup"
+                        />
                     </div>
                 )}
 

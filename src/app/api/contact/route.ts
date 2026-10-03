@@ -3,6 +3,7 @@ import { contactFormSchema } from "@/lib/validations";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
 import { sendAdminNotification } from "@/lib/email";
 import { checkRateLimit, parseJsonBody, escapeHtml } from "@/lib/security";
+import { LEGAL_DOCS } from "@/lib/legal";
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,6 +24,7 @@ export async function POST(req: NextRequest) {
 
     const data = parsed.data;
     const supabase = getSupabaseServiceClient();
+    const confirmedAt = new Date().toISOString();
 
     const { data: inserted, error: insertError } = await supabase
       .from("contact_messages")
@@ -33,6 +35,8 @@ export async function POST(req: NextRequest) {
         subject: data.subject,
         message: data.message,
         status: "pending",
+        privacy_acknowledged_at: confirmedAt,
+        privacy_version: LEGAL_DOCS.privacy_policy.version,
       })
       .select("id")
       .single();

@@ -10,6 +10,16 @@ export const availabilityOptions = [
 export const MAX_RESUME_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
 export const ALLOWED_RESUME_TYPES = ["application/pdf"];
 
+export const CONSENT_MESSAGES = {
+  age: "Please confirm you are at least 18 years old",
+  terms: "You must agree to the Terms of Service",
+  privacy: "Please acknowledge the Privacy Policy",
+} as const;
+
+/** Checkbox-style confirmations: must be explicitly ticked (true). */
+const mustBeTrue = (message: string) =>
+  z.boolean().refine((v) => v === true, { message });
+
 export const startupFormSchema = z.object({
   companyName: z.string().min(2, "Company name must be at least 2 characters"),
   country: z.string().min(2, "Please select a country"),
@@ -20,6 +30,8 @@ export const startupFormSchema = z.object({
   budget: z.string().optional(),
   roles: z.array(z.string()).min(1, "Please select at least one role"),
   description: z.string().min(20, "Description must be at least 20 characters"),
+  termsAccepted: mustBeTrue(CONSENT_MESSAGES.terms),
+  privacyAcknowledged: mustBeTrue(CONSENT_MESSAGES.privacy),
 });
 
 export type StartupFormValues = z.infer<typeof startupFormSchema>;
@@ -38,6 +50,9 @@ export const studentFormSchema = z.object({
     .refine((files) => files && files.length === 1, "Resume (PDF) is required")
     .refine((files) => files?.[0]?.size <= MAX_RESUME_SIZE_BYTES, "Resume must be 5MB or smaller")
     .refine((files) => ALLOWED_RESUME_TYPES.includes(files?.[0]?.type), "Only PDF files are accepted"),
+  ageConfirmed: mustBeTrue(CONSENT_MESSAGES.age),
+  termsAccepted: mustBeTrue(CONSENT_MESSAGES.terms),
+  privacyAcknowledged: mustBeTrue(CONSENT_MESSAGES.privacy),
 });
 
 export type StudentFormValues = z.infer<typeof studentFormSchema>;
@@ -48,6 +63,7 @@ export const contactFormSchema = z.object({
   inquiryType: z.string().min(1, "Please select an inquiry type"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
+  privacyAcknowledged: mustBeTrue(CONSENT_MESSAGES.privacy),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

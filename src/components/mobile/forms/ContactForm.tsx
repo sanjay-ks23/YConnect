@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
+import { ConsentFields } from "@/components/forms/ConsentFields";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -11,12 +12,7 @@ import { ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 
 export function ContactForm() {
  const [isSubmitted, setIsSubmitted] = useState(false);
-
- useEffect(() => {
- if (typeof window !== 'undefined' && window.location.search.includes('success=true')) {
- setIsSubmitted(true);
- }
- }, []);
+ const [submitError, setSubmitError] = useState<string | null>(null);
 
  const {
  register,
@@ -27,37 +23,23 @@ export function ContactForm() {
  });
 
  const onSubmit = async (data: ContactFormValues) => {
- const form = document.createElement("form");
- form.method = "POST";
- form.action = "https://formsubmit.co/sanjaysaravanan2317@gmail.com";
- form.style.display = "none";
- 
- const nextUrl = window.location.origin + window.location.pathname + "?success=true";
- const configs = [
- { name: "_next", value: nextUrl },
- { name: "_captcha", value: "false" },
- { name: "_template", value: "table" },
- { name: "_subject", value: `New Inquiry from ${data.name}: ${data.subject}` },
- ];
- 
- configs.forEach(({ name, value }) => {
- const input = document.createElement("input");
- input.type = "hidden";
- input.name = name;
- input.value = value;
- form.appendChild(input);
+ setSubmitError(null);
+ try {
+ const res = await fetch("/api/contact", {
+ method: "POST",
+ headers: { "Content-Type": "application/json" },
+ body: JSON.stringify(data),
  });
 
- Object.keys(data).forEach(key => {
- const input = document.createElement("input");
- input.type = "hidden";
- input.name = key;
- input.value = data[key as keyof ContactFormValues];
- form.appendChild(input);
- });
+ if (!res.ok) {
+ const body = await res.json().catch(() => ({}));
+ throw new Error(body.error || "Something went wrong. Please try again.");
+ }
 
- document.body.appendChild(form);
- form.submit();
+ setIsSubmitted(true);
+ } catch (err) {
+ setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+ }
  };
 
  if (isSubmitted) {
@@ -138,11 +120,21 @@ export function ContactForm() {
  <Textarea
  id="contact-message"
  placeholder="Tell us how we can help..."
- className="rounded-xl bg-white border-gray-200 focus:border-vibrant-crimson focus:bg-white transition-all min-h-[150px] resize-none shadow-none"
+ className="rounded-xl bg-white border-gray-200 text-base focus:border-vibrant-crimson focus:bg-white transition-all min-h-[150px] resize-none shadow-none"
  {...register("message")}
  />
  {errors.message && <p className="text-xs text-red-500 font-medium">{errors.message.message}</p>}
  </div>
+
+ {submitError && <p className="text-sm text-red-500 font-medium text-center">{submitError}</p>}
+
+ <ConsentFields
+ register={register}
+ errors={errors}
+ theme="crimson"
+ basePath="/m"
+ kind="contact"
+ />
 
  <button
  type="submit"
