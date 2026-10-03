@@ -17,7 +17,12 @@ const studentApiSchema = z.object({
   skills: z.array(z.string().max(100)).min(1).max(30),
   availability: z.string().min(1).max(100),
   experience: z.string().min(10).max(10000),
-  portfolio: z.string().url().max(500).optional().or(z.literal("")),
+  portfolio: z
+    .string()
+    .max(500)
+    .refine((v) => /^https?:\/\//i.test(v) && URL.canParse(v), "Portfolio must be a valid http(s) URL")
+    .optional()
+    .or(z.literal("")),
   // FormData sends checkboxes as the string "true"
   ageConfirmed: z.literal("true"),
   termsAccepted: z.literal("true"),

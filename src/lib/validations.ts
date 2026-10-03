@@ -38,6 +38,15 @@ export const startupFormSchema = z.object({
 
 export type StartupFormValues = z.infer<typeof startupFormSchema>;
 
+// Only http/https links — z.string().url() alone also accepts dangerous
+// schemes like javascript: which would become stored XSS if ever rendered.
+const optionalHttpUrl = z
+  .string()
+  .max(500)
+  .refine((v) => /^https?:\/\//i.test(v) && URL.canParse(v), "Please enter a valid http(s) URL")
+  .or(z.literal(""))
+  .optional();
+
 export const studentFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(200),
   university: z.string().min(2, "University name is required").max(300),
@@ -45,7 +54,7 @@ export const studentFormSchema = z.object({
   skills: z.array(z.string().max(100)).min(1, "Please select at least one role").max(30),
   availability: z.string().min(1, "Please specify your availability").max(100),
   experience: z.string().min(10, "Please describe your experience").max(10000),
-  portfolio: z.string().url("Please enter a valid URL").max(500).optional().or(z.literal("")),
+  portfolio: optionalHttpUrl,
   email: z.string().email("Please enter a valid email address").max(254),
   resume: z
     .custom<FileList>()
