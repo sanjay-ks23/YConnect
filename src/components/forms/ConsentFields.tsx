@@ -42,7 +42,7 @@ function ConsentCheckbox({
         <input
           type="checkbox"
           aria-invalid={!!error}
-          className={`mt-0.5 h-5 w-5 shrink-0 rounded border-gray-300 ${accentClass}`}
+          className={`mt-0.5 h-5 w-5 shrink-0 cursor-pointer appearance-auto ${accentClass}`}
           {...register(name)}
         />
         <span className="text-sm text-[#001738]/80 leading-relaxed">{children}</span>
