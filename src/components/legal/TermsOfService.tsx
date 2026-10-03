@@ -133,10 +133,10 @@ export function TermsOfService() {
 
       <LegalSection title="Changes to these terms">
         <p>
-          We may update these terms from time to time. The version and
-          &quot;Last updated&quot; date at the top of this page show which
-          version applies. Continuing to use the service after an update means
-          you accept the updated terms.
+          We may update these terms from time to time. The &quot;Last
+          updated&quot; date at the top of this page shows which terms apply.
+          Continuing to use the service after an update means you accept the
+          updated terms.
         </p>
       </LegalSection>
 

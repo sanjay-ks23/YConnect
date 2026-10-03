@@ -47,12 +47,6 @@ export function LegalPage({ docId, children }: LegalPageProps) {
             </h1>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[#001738]/50">
               <span>Last updated: {doc.effectiveDate}</span>
-              <span className="hidden sm:inline text-[#001738]/20">•</span>
-              <span>Effective: {doc.effectiveDate}</span>
-              <span className="hidden sm:inline text-[#001738]/20">•</span>
-              <span className="font-mono text-xs bg-gray-100 px-2 py-0.5 rounded">
-                {doc.id} {doc.version}
-              </span>
             </div>
           </div>
         </div>

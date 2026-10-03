@@ -217,9 +217,9 @@ export function PrivacyPolicy() {
       <LegalSection title="Changes to this policy">
         <p>
           If we change this policy, we will update the &quot;Last updated&quot;
-          date and document version shown at the top of this page. For
-          significant changes affecting how we use your information, we may also
-          seek a new confirmation the next time you submit a form.
+          date at the top of this page. For significant changes affecting how
+          we use your information, we may also seek a new confirmation the next
+          time you submit a form.
         </p>
       </LegalSection>
 
