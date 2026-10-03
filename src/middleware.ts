@@ -27,7 +27,18 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(desktopUrl);
   }
 
-  // --- Supabase session refresh for admin/auth routes ---
+  // --- Supabase session refresh — only needed on auth-bearing routes.
+  // Running this on every public/API request adds a network round-trip per
+  // page view and can touch cookies on responses that don't need them.
+  const needsSession =
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/auth") ||
+    pathname.startsWith("/api/admin");
+
+  if (!needsSession) {
+    return NextResponse.next({ request });
+  }
+
   let response = NextResponse.next({ request });
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

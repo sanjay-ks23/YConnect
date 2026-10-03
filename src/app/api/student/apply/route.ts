@@ -6,15 +6,18 @@ import { MAX_RESUME_SIZE_BYTES, ALLOWED_RESUME_TYPES } from "@/lib/validations";
 import { checkRateLimit, escapeHtml } from "@/lib/security";
 import { LEGAL_DOCS } from "@/lib/legal";
 
+// Hard cap on the whole multipart body — resume (max 4MB) plus fields.
+const MAX_SUBMISSION_BYTES = 6 * 1024 * 1024;
+
 const studentApiSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  university: z.string().min(2),
-  degree: z.string().min(2),
-  skills: z.array(z.string()).min(1),
-  availability: z.string().min(1),
-  experience: z.string().min(10),
-  portfolio: z.string().url().optional().or(z.literal("")),
+  name: z.string().min(2).max(200),
+  email: z.string().email().max(254),
+  university: z.string().min(2).max(300),
+  degree: z.string().min(2).max(300),
+  skills: z.array(z.string().max(100)).min(1).max(30),
+  availability: z.string().min(1).max(100),
+  experience: z.string().min(10).max(10000),
+  portfolio: z.string().url().max(500).optional().or(z.literal("")),
   // FormData sends checkboxes as the string "true"
   ageConfirmed: z.literal("true"),
   termsAccepted: z.literal("true"),
@@ -25,6 +28,11 @@ export async function POST(req: NextRequest) {
   try {
     const rateLimitError = checkRateLimit(req);
     if (rateLimitError) return rateLimitError;
+
+    const contentLength = Number(req.headers.get("content-length") ?? 0);
+    if (contentLength > MAX_SUBMISSION_BYTES) {
+      return NextResponse.json({ error: "Submission too large" }, { status: 413 });
+    }
 
     const formData = await req.formData();
 
@@ -62,10 +70,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Resume (PDF) is required" }, { status: 400 });
     }
     if (resumeFile.size > MAX_RESUME_SIZE_BYTES) {
-      return NextResponse.json({ error: "Resume must be 5MB or smaller" }, { status: 400 });
+      return NextResponse.json({ error: "Resume must be 4MB or smaller" }, { status: 400 });
     }
     if (!ALLOWED_RESUME_TYPES.includes(resumeFile.type)) {
       return NextResponse.json({ error: "Only PDF files are accepted" }, { status: 400 });
+    }
+
+    // The client-supplied MIME type is not trustworthy — verify the %PDF-
+    // magic bytes so a renamed executable/HTML file can't be stored and
+    // later opened by an admin as if it were a document.
+    const resumeBuffer = Buffer.from(await resumeFile.arrayBuffer());
+    if (resumeBuffer.length < 5 || resumeBuffer.subarray(0, 5).toString("latin1") !== "%PDF-") {
+      return NextResponse.json({ error: "Resume must be a valid PDF file" }, { status: 400 });
     }
 
     const supabase = getSupabaseServiceClient();
@@ -76,11 +92,10 @@ export async function POST(req: NextRequest) {
     const safeFileName = resumeFile.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     const resumePath = `student_applications/${timestamp}_${safeFileName}`;
 
-    const arrayBuffer = await resumeFile.arrayBuffer();
     const { error: uploadError } = await supabase.storage
       .from("resumes")
-      .upload(resumePath, Buffer.from(arrayBuffer), {
-        contentType: resumeFile.type,
+      .upload(resumePath, resumeBuffer, {
+        contentType: "application/pdf",
         upsert: false,
       });
 

@@ -12,11 +12,25 @@ export function escapeHtml(input: string): string {
   return input.replace(/[&<>"']/g, (char) => HTML_ESCAPE_MAP[char] ?? char);
 }
 
-const ALLOWED_STATUSES = ["pending", "reviewed", "accepted", "rejected", "archived"] as const;
-export type AllowedStatus = (typeof ALLOWED_STATUSES)[number];
+export const ALLOWED_TABLES = ["student_applications", "startup_applications", "contact_messages"] as const;
+export type AllowedTable = (typeof ALLOWED_TABLES)[number];
 
-export function isValidStatus(status: string): status is AllowedStatus {
-  return (ALLOWED_STATUSES as readonly string[]).includes(status);
+// Must match the status CHECK constraints in supabase/schema.sql exactly —
+// accepting a value the DB rejects turns into a 500, and rejecting a value
+// the UI offers turns into a 400 either way.
+const TABLE_STATUSES: Record<AllowedTable, readonly string[]> = {
+  student_applications: ["pending", "reviewed", "shortlisted", "rejected", "matched"],
+  startup_applications: ["pending", "reviewed", "shortlisted", "rejected", "matched"],
+  contact_messages: ["pending", "reviewed", "resolved"],
+};
+
+export function isValidStatusForTable(table: string, status: string): boolean {
+  const allowed = TABLE_STATUSES[table as AllowedTable];
+  return !!allowed && allowed.includes(status);
+}
+
+export function isValidUuid(id: string): boolean {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 }
 
 export function isValidEmail(email: string): boolean {
@@ -36,8 +50,22 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 10;
 
 export function checkRateLimit(req: NextRequest): NextResponse | null {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  // The LAST x-forwarded-for entry is the one appended by the edge (Vercel)
+  // and is not client-spoofable; the first entries can be forged by the caller.
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",").pop()?.trim() ??
+    req.headers.get("x-real-ip") ??
+    "unknown";
   const now = Date.now();
+
+  // Bound the map — it would otherwise grow forever on a long-lived instance.
+  if (rateLimitMap.size > 5000) {
+    for (const [key, value] of rateLimitMap) {
+      if (now > value.resetTime) rateLimitMap.delete(key);
+    }
+    if (rateLimitMap.size > 5000) rateLimitMap.clear();
+  }
+
   const entry = rateLimitMap.get(ip);
 
   if (!entry || now > entry.resetTime) {

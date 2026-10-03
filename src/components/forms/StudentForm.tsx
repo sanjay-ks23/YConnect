@@ -314,7 +314,7 @@ export function StudentForm() {
                             <input className="w-full h-12 px-4 rounded-xl bg-gray-50 border-gray-100 focus:border-vibrant-crimson focus:bg-white outline-none transition-all" placeholder="https://github.com/you" {...register("portfolio")} />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-bold text-[#001738]">Resume / CV (PDF, max 5MB)</label>
+                            <label className="text-sm font-bold text-[#001738]">Resume / CV (PDF, max 4MB)</label>
                             {!resumeFileName ? (
                                 <label className="flex items-center justify-center gap-2 w-full h-24 rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 hover:border-vibrant-crimson hover:bg-white cursor-pointer transition-all">
                                     <Upload className="w-5 h-5 text-gray-400" />

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerAuthClient } from "@/lib/supabase/serverAuth";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
-import { sanitizeStoragePath } from "@/lib/security";
+import { checkRateLimit, parseJsonBody, sanitizeStoragePath } from "@/lib/security";
 
 // Generates a short-lived (5 min) signed URL for a private resume file.
 // Re-checks the caller is an authenticated, whitelisted admin before
@@ -9,6 +9,9 @@ import { sanitizeStoragePath } from "@/lib/security";
 // endpoint like this.
 export async function POST(req: NextRequest) {
   try {
+    const rateLimitError = checkRateLimit(req);
+    if (rateLimitError) return rateLimitError;
+
     const authClient = await getSupabaseServerAuthClient();
     const {
       data: { user },
@@ -29,8 +32,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Not authorized" }, { status: 403 });
     }
 
-    const { path } = await req.json();
-    if (!path || typeof path !== "string" || !sanitizeStoragePath(path)) {
+    const { data: body, error: bodyError } = await parseJsonBody(req);
+    if (bodyError) return bodyError;
+
+    const { path } = (body ?? {}) as { path?: unknown };
+    if (typeof path !== "string" || !sanitizeStoragePath(path)) {
       return NextResponse.json({ error: "Invalid resume path" }, { status: 400 });
     }
 

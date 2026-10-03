@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
         email: data.email,
         duration: data.duration,
         budget: data.budget,
+        role_needed: data.roles,
         description: data.description,
         status: "pending",
         terms_accepted_at: confirmedAt,

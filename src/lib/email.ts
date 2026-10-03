@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 
-let transporter: nodemailer.Transporter | null = null;
+type Transporter = ReturnType<typeof nodemailer.createTransport>;
+
+let transporter: Transporter | null = null;
 
 function getTransporter() {
   const user = process.env.GMAIL_USER;
@@ -45,7 +47,8 @@ export async function sendAdminNotification({ subject, html }: NotifyParams): Pr
     await transport.sendMail({
       from: `"YConnect Notifications" <${user}>`,
       to: user,
-      subject,
+      // Strip CRLF so user-controlled fields can't inject extra mail headers.
+      subject: subject.replace(/[\r\n]+/g, " ").slice(0, 200),
       html,
     });
   } catch (error) {

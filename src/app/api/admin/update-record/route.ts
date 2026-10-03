@@ -1,13 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerAuthClient } from "@/lib/supabase/serverAuth";
 import { getSupabaseServiceClient } from "@/lib/supabase/server";
-import { isValidStatus } from "@/lib/security";
-
-const ALLOWED_TABLES = ["student_applications", "startup_applications", "contact_messages"] as const;
-type AllowedTable = (typeof ALLOWED_TABLES)[number];
+import {
+  ALLOWED_TABLES,
+  checkRateLimit,
+  isValidStatusForTable,
+  isValidUuid,
+  parseJsonBody,
+} from "@/lib/security";
 
 export async function POST(req: NextRequest) {
   try {
+    const rateLimitError = checkRateLimit(req);
+    if (rateLimitError) return rateLimitError;
+
     const authClient = await getSupabaseServerAuthClient();
     const {
       data: { user },
@@ -28,15 +34,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Not authorized" }, { status: 403 });
     }
 
-    const { table, id, status, notes } = await req.json();
+    const { data: body, error: bodyError } = await parseJsonBody(req);
+    if (bodyError) return bodyError;
 
-    if (!ALLOWED_TABLES.includes(table as AllowedTable) || !id) {
+    const { table, id, status, notes } = (body ?? {}) as {
+      table?: unknown;
+      id?: unknown;
+      status?: unknown;
+      notes?: unknown;
+    };
+
+    if (typeof table !== "string" || !ALLOWED_TABLES.includes(table as (typeof ALLOWED_TABLES)[number])) {
       return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    }
+    if (typeof id !== "string" || !isValidUuid(id)) {
+      return NextResponse.json({ error: "Invalid record id" }, { status: 400 });
     }
 
     const updates: Record<string, string> = {};
     if (typeof status === "string") {
-      if (!isValidStatus(status)) {
+      if (!isValidStatusForTable(table, status)) {
         return NextResponse.json({ error: "Invalid status value" }, { status: 400 });
       }
       updates.status = status;
@@ -52,7 +69,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Nothing to update" }, { status: 400 });
     }
 
-    const { error } = await service.from(table as AllowedTable).update(updates).eq("id", id);
+    const { error } = await service.from(table as (typeof ALLOWED_TABLES)[number]).update(updates).eq("id", id);
 
     if (error) {
       return NextResponse.json({ error: "Failed to update record" }, { status: 500 });
